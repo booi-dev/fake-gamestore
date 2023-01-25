@@ -7,7 +7,7 @@ module.exports = {
         'react-app',
         'airbnb',
         'airbnb/hooks',
-        "prettier",
+        'prettier',
         'eslint:recommended',
         'plugin:react/recommended',
     ],
@@ -20,6 +20,7 @@ module.exports = {
     plugins: [
         'react',
     ],
+    ignorePatterns: ["Untitled-1.js"],
     rules: {
         'react/react-in-jsx-scope': 'off',
     },

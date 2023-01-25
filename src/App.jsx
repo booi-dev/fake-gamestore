@@ -1,18 +1,18 @@
 // import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './layouts/Navbar';
+import Header from './layouts/Header';
 import Store from './pages/Store';
 import User from './pages/User';
 import Library from './pages/Library';
 import Community from './pages/Community';
 import Support from './pages/Support';
 import Chat from './pages/Chat';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
     <>
-      <Navbar />
+      <Header />
       <Routes>
         <Route path='/' element={<Store />} />
         <Route path='/:userId' element={<User />} />

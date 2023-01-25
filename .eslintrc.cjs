@@ -20,8 +20,8 @@ module.exports = {
     plugins: [
         'react',
     ],
-    ignorePatterns: ["Untitled-1.js"],
     rules: {
         'react/react-in-jsx-scope': 'off',
+        'semi': 'warn',
     },
 };

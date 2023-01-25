@@ -1,9 +1,9 @@
 import React from 'react';
 
-function community() {
+function Community() {
     return (
         <div>community</div>
     );
 }
 
-export default community;
+export default Community;

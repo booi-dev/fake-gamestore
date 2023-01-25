@@ -1,13 +1,30 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './layouts/Navbar';
+import Store from './pages/Store';
+import User from './pages/User';
+import Library from './pages/Library';
+import Community from './pages/Community';
+import Support from './pages/Support';
+import Chat from './pages/Chat';
 import './App.css';
 
 function App() {
-
   return (
-    <div className="App">
-      BOMA GAMESTORE
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Store />} />
+        <Route path='/:userId' element={<User />} />
+        <Route path='/library' element={<Library />} />
+        <Route path='/community' element={<Community />} />
+        <Route path='/support' element={<Support />} />
+        <Route path='/chat' element={<Chat />} />
+      </Routes>
+    </>
   );
 }
 
 export default App;
+
+

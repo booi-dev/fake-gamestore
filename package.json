@@ -8,11 +8,14 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",
+    "watch": "npx vitest -w",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "axios": "^1.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
     "react-router-dom": "^6.7.0"
   },
   "devDependencies": {

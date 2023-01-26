@@ -1,0 +1,28 @@
+// @use "../../sass/variables" as v;
+@use "../../sass/index" as *;
+
+.store-hero {
+  position: relative;
+  padding-inline: $app-padding;
+}
+
+.store-hero__hero {
+  background-color: rgb(43, 46, 46);
+}
+
+.store-hero__container {
+  width: 100%;
+  height: $hero-height;
+
+  object-fit: cover;
+}
+
+.store-hero__bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  //   display: none;
+}

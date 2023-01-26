@@ -23,6 +23,7 @@ module.exports = {
     rules: {
         'react/react-in-jsx-scope': 'off',
         'semi': 'warn',
-        'import/no-extraneous-dependencies': 'off'
+        'import/no-extraneous-dependencies': 'off',
+        'no-console': 'off'
     },
 };

@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { HiMail } from "react-icons/hi";
 import './Header.scss';
 
 function Header() {
@@ -9,7 +10,7 @@ function Header() {
                     BOMA GAMES
                 </div>
                 <nav className='navbar'>
-                    <ul>
+                    <ul className='navbar__list'>
                         <NavLink to='/'>STORE</NavLink >
                         <NavLink to='community'>COMMUNITY</NavLink >
                         <NavLink to='user'>BOMA</NavLink >
@@ -18,7 +19,9 @@ function Header() {
                     </ul>
                 </nav>
                 <div className='profile'>
-                    <div>notification</div>
+                    <div>
+                        <HiMail size={25} />
+                    </div>
                     <div>
                         <div>BooiMangang</div>
                         <div>100</div>

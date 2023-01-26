@@ -1,15 +1,19 @@
+@use "../sass/index" as *;
+
 .header {
   background: #171a21;
   display: flex;
   justify-content: center;
+  padding-inline: $app-padding;
+  height: $header-height;
 }
 
 .header-container {
   display: grid;
   grid-template-columns: 0.6fr 1fr 1fr;
   align-items: center;
-  height: 6.5em;
-  max-width: 1080px;
+  max-width: $app-width;
+  // background-color: rgb(60, 89, 89);
 }
 
 .site-title {
@@ -19,8 +23,6 @@
 }
 
 .navbar {
-  display: flex;
-  align-items: center;
   font-size: 14px;
 }
 
@@ -31,7 +33,13 @@
   color: var(--fnt-clr-1);
 }
 
+.navbar__list {
+  display: flex;
+  align-items: center;
+}
+
 .profile {
+  // display: none;
   display: flex;
   justify-content: right;
 }

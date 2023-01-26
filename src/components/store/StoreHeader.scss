@@ -1,0 +1,72 @@
+@use "../../sass/index" as *;
+
+.store-header {
+  translate: 0 30px;
+  margin: auto;
+  max-width: $app-width;
+  border-radius: 2px;
+}
+
+.store-header__cart-status {
+  display: flex;
+  width: min-content;
+  margin-left: auto;
+  margin-block-end: 0.5em;
+}
+
+.store-header__cart-status__cart {
+  min-width: 4em;
+  text-align: center;
+  background-color: $accent-clr;
+  margin-inline-end: 0.5em;
+}
+
+.cart-icon {
+  translate: 0 4px;
+}
+
+.store-header__cart-status__wishlist {
+  background-color: $primary-clr-light;
+  color: invert($color: $font-clr-invert);
+  padding-inline: 0.5em;
+  font-size: $font-xs;
+}
+
+.store-header__panel {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+  background-color: $primary-clr-trans;
+}
+
+.store-header__panel__tabs {
+  display: flex;
+}
+
+.search {
+  display: flex;
+  align-self: center;
+  gap: 0.2em;
+  background: rgb(72, 68, 68);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  &:hover,
+  &:focus {
+    outline: red;
+    border: 2px solid red;
+  }
+}
+
+.search-input {
+  padding-inline: 0.5em;
+  height: 27px;
+  background: transparent;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.search-icon {
+  translate: 0 2px;
+}

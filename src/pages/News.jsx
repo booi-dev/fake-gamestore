@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Chat() {
+function News() {
     return (
         <div>chat</div>
     );
 }
 
-export default Chat;
+export default News;

@@ -9,12 +9,12 @@ const getEndpoint = function getUrlEndpoint(endpoint) {
     return endpoint;
 };
 
-const getQueryParams = function getQueryParams(params, value) {
-    return `${params}=${value}`;
+const getQueryParams = function getQueryParams(query, value) {
+    return `${query}=${value}`;
 };
 
-const getCompleteURL = function getCompleteApiURL(queryParams) {
-    const endpoint = getEndpoint('games');
+const getCompleteURL = function getCompleteApiURL(endpoint, queryParams) {
+    // const endpoint = getEndpoint('games');
     return `${api.BASE_URL}${endpoint}?${queryParams}&key=${api.KEY}`;
 };
 
@@ -23,13 +23,13 @@ function useFetch(url) {
     axios.get(url)
         .then((res) => {
             data = res.data;
-            console.log(res.data);
+            console.log(res.data.results);
         })
         .catch((err) => {
             console.log(err);
         });
 
-    return [data];
+    return data;
 }
 
 export default useFetch;

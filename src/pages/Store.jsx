@@ -1,23 +1,33 @@
 /* eslint-disable */
-
-import { useEffect } from 'react';
-import { getEndpoint, getQueryParams, getCompleteURL } from '../utils/fetch'
-import useFetch from '../hooks/useFetch';
+import { useState, useEffect } from 'react';
+import { PropTypes } from "prop-types";
+import useFetch, { getEndpoint, getQueryParams, getCompleteURL } from '../utils/fetch';
 import StoreHero from "../components/store/StoreHero";
-
-let API_KEY = 'ed4007e9ce974a66b5aaae4f47858eff';
 
 function Store() {
 
-    let url = `https://api.rawg.io/api/platforms?key=${API_KEY}`
+    const endPoint = getEndpoint('games');
+
+    const [search, setSearch] = useState("dead")
+    const queryParms = getQueryParams('search', search)
+
+    const initialUrl = getCompleteURL(endPoint, queryParms);
+    const [url, setUrl] = useState(initialUrl);
 
     useEffect(() => {
-        useFetch(url)
-    }, []);
+        console.log(url)
+        useFetch(url);
+    }, [url]);
+
+    const getSearchQuery = function (query) {
+        setSearch(query)
+    }
 
     return (
         <div className='store'>
-            <StoreHero />
+            <StoreHero
+                getSearchQuery={getSearchQuery}
+            />
             <div className='store_container'>
                 i dont care
             </div>

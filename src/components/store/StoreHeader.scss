@@ -27,7 +27,7 @@
 
 .store-header__cart-status__wishlist {
   background-color: $primary-clr-light;
-  color: invert($color: $font-clr-invert);
+  color: invert($color: $font-clr);
   padding-inline: 0.5em;
   font-size: $font-xs;
 }
@@ -47,13 +47,14 @@
   display: flex;
   align-self: center;
   gap: 0.2em;
-  background: rgb(72, 68, 68);
-  border: 2px solid transparent;
+  background: $primary-clr;
+  border: 1px solid transparent;
   border-radius: 2px;
+  color: $font-clr;
   &:hover,
   &:focus {
     outline: red;
-    border: 2px solid red;
+    border: 1px solid red;
   }
 }
 
@@ -62,6 +63,7 @@
   height: 27px;
   background: transparent;
   border: none;
+  color: $font-clr;
   &:focus {
     outline: none;
   }

@@ -1,5 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { HiMail } from "react-icons/hi";
+// import siteIconDark from '../assets/site-icon/site-icon-dark.png';
+import siteIconLight from '../assets/site-icon/site-icon-light.png';
+
 import './Header.scss';
 
 function Header() {
@@ -7,7 +10,8 @@ function Header() {
         <div className='header'>
             <div className='header-container'>
                 <div className='site-title'>
-                    BOMA GAMES
+                    <img className='site-icon' src={siteIconLight} alt="" />
+                    BO GAMES
                 </div>
                 <nav className='navbar'>
                     <ul className='navbar__list'>

@@ -1,18 +1,17 @@
-import { useState, useCallBack } from 'react';
+import axios from "axios";
 
-function useFetch() {
-    const [data, setdata] = useState();
-    const fetchData = useCallback(
-        () => {
-            first;
-        },
-        [],
-    );
+function useFetch(url) {
+    let data;
+    axios.get(url)
+        .then((res) => {
+            data = res.data;
+            console.log(res.data);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 
-
-
-
-    return [];
+    return [data];
 }
 
 export default useFetch;

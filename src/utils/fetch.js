@@ -1,5 +1,4 @@
-import { useState, useCallBack } from 'react';
-import axios from 'axios';
+import axios from "axios";
 
 const api = {
     BASE_URL: 'https://api.rawg.io/api/',
@@ -19,25 +18,24 @@ const getCompleteURL = function getCompleteApiURL(queryParams) {
     return `${api.BASE_URL}${endpoint}?${queryParams}&key=${api.KEY}`;
 };
 
-/* eslint-disable */
+function useFetch(url) {
+    let data;
+    axios.get(url)
+        .then((res) => {
+            data = res.data;
+            console.log(res.data);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 
-function useFetch() {
-    const [data, setdata] = useState();
-    const fetchData = useCallBack(() => {
-        axios.get(`https://api.rawg.io/api/games?search='dead cell'&key=${api.KEY}`)
-            .then((res) => {
-                console.log(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
-    return [];
+    return [data];
 }
+
+export default useFetch;
 
 export {
     getEndpoint,
     getQueryParams,
     getCompleteURL,
-    useFetch
 };

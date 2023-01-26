@@ -1,20 +1,18 @@
+/* eslint-disable */
+
 import { useEffect } from 'react';
-import axios from 'axios';
+import { getEndpoint, getQueryParams, getCompleteURL } from '../utils/fetch'
+import useFetch from '../hooks/useFetch';
 import StoreHero from "../components/store/StoreHero";
 
-const RAWG_API_KEY = 'ed4007e9ce974a66b5aaae4f47858eff';
+let API_KEY = 'ed4007e9ce974a66b5aaae4f47858eff';
 
 function Store() {
 
-    useEffect(() => {
-        axios.get(`https://api.rawg.io/api/games?search='dead cell'&key=${RAWG_API_KEY}`)
-            .then((res) => {
-                console.log(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+    let url = `https://api.rawg.io/api/platforms?key=${API_KEY}`
 
+    useEffect(() => {
+        useFetch(url)
     }, []);
 
     return (

@@ -1,3 +1,25 @@
-// .search-suggestion {
+@use "../../sass/index" as *;
 
-// }
+.search-suggestion {
+  display: flex;
+  gap: 0.5em;
+  padding: 0.2em 0.5em;
+  border-top: 1px solid $primary-clr-trans-2;
+  border-radius: $border-radius-1;
+  &:hover {
+    background: $primary-clr-trans-2;
+  }
+}
+
+.game-bg-img {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.game-title {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-weight: 300;
+}

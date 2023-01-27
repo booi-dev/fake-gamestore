@@ -47,11 +47,14 @@ function Search() {
                     <HiSearchCircle className='search-icon' size={24} />
                 </button>
             </div>
-            <div className='search__suggestion'>
-                {gameData.length > 0 && gameData.map((game) => <SearchSuggestion
-                    key={game.id}
-                    game={game} />)}
-            </div>
+
+            {gameData.length > 0 &&
+                <div className='search__suggestion'>
+                    {gameData.map((game) => <SearchSuggestion
+                        key={game.id}
+                        game={game} />)}
+                </div>
+            }
         </div>
     );
 }

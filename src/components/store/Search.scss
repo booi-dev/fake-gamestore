@@ -46,7 +46,8 @@
   position: absolute;
   top: 45px;
   right: -0.6em;
-  width: 150%;
-  padding: 0 0.5em;
+  width: 180%;
+  padding: 0.5em 0.25em;
+  border-radius: $border-radius-1;
   background: $primary-clr-trans;
 }

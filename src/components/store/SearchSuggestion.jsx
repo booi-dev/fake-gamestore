@@ -3,9 +3,17 @@ import './SearchSuggestion.scss';
 
 function SearchSuggestion(props) {
     const { game } = props;
-    console.log(game);
     return (
-        <div className='search-suggestion'>{game.name} ddg</div>
+        <div className='search-suggestion'>
+            <img src={game.background_image} alt=""
+                className="game-bg-img"
+            />
+            <button type="button"
+                className="game-title"
+            >
+                {game.name}
+            </button>
+        </div>
     );
 }
 

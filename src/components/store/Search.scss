@@ -42,7 +42,12 @@
   border: none;
 }
 
-.search__suggestion {
+.search__suggestion.hidden {
+  display: none;
+}
+
+.search__suggestion.show {
+  display: block;
   position: absolute;
   top: 45px;
   right: -0.6em;

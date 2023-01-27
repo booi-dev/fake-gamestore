@@ -7,6 +7,7 @@ import './Search.scss';
 function Search() {
 
     const [inputVal, setInputVal] = useState('');
+    const [suggestionClass, setSuggestionClass] = useState('');
 
     const [gameData, setGameData] = useState([]);
 
@@ -18,27 +19,30 @@ function Search() {
         const newQueryParams = `${newSearchParams}&${newPageSIzeParams}&${newGenreParams}`;
         const newUrl = createCompleteURL(newEndPoint, newQueryParams);
         const data = await fetchData(newUrl);
-        console.log("result", data);
-        console.log("data", gameData);
         setGameData(data);
     };
 
-    const handleInput = function name(e) {
+    const handleInput = function updateFieldValNfetchData(e) {
         const val = e.target.value;
         setInputVal(val);
         handleSubBtn();
-        // console.log(inputVal);
     };
 
-    // const suggestions = gameData.lenght > 0 && gameData.map((game) => <SearchSuggestion
-    //     key={game.id}
-    //     game={game} />);
+    const handleInputOnFocus = function addVisibilityOnFocus() {
+        setSuggestionClass('show');
+    };
+
+    const handleInputOnBlur = function addVisibilityOnFocus() {
+        setSuggestionClass('hidden');
+    };
 
     return (
         <div className='search'>
             <div className='search-container'>
                 <input className="search-input" value={inputVal}
                     onChange={handleInput}
+                    onFocus={handleInputOnFocus}
+                    onBlur={handleInputOnBlur}
                 />
                 <button type="button"
                     className="search__input__sub-btn"
@@ -49,7 +53,7 @@ function Search() {
             </div>
 
             {gameData.length > 0 &&
-                <div className='search__suggestion'>
+                <div className={`search__suggestion ${suggestionClass}`}>
                     {gameData.map((game) => <SearchSuggestion
                         key={game.id}
                         game={game} />)}

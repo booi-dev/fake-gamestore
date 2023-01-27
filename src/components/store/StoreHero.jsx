@@ -1,4 +1,3 @@
-// import { PropTypes } from "prop-types";
 import StoreHeader from './StoreHeader';
 import bgPictureFullHD from '../../assets/full-bg/girl-pubg1920x1080.jpg';
 import bgPictureHD from '../../assets/full-bg/girl-pubg1440x1080.jpg';

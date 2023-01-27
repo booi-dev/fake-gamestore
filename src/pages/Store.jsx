@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import fetchData, { createEndpoint, createQueryParams, createCompleteURL } from '../utils/fetch';
 import StoreHero from "../components/store/StoreHero";

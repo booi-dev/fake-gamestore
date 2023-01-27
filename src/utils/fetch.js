@@ -19,18 +19,17 @@ const createCompleteURL = function getCompleteApiURL(endpoint, queryParams) {
     return `${api.BASE_URL}${endpoint}?${queryParams}&key=${api.KEY}`;
 };
 
-function fetchData(url) {
-    console.log(url);
+async function fetchData(url) {
+    // console.log(url);
     let data;
-    axios.get(url)
+    await axios.get(url)
         .then((res) => {
-            data = res.data;
-            console.log(res.data.results);
+            data = res.data.results;
+            // console.log(res.data.results);
         })
         .catch((err) => {
             console.log(err);
         });
-
     return data;
 }
 

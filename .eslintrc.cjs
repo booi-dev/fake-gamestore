@@ -24,6 +24,7 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
         'semi': 'warn',
         'import/no-extraneous-dependencies': 'off',
+        'react-hooks/exhaustive-deps': 'off',
         'no-console': 'off'
     },
 };

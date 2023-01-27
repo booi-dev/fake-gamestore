@@ -1,33 +1,21 @@
-/* eslint-disable */
-import { useState, useEffect } from 'react';
-import { PropTypes } from "prop-types";
-import useFetch, { getEndpoint, getQueryParams, getCompleteURL } from '../utils/fetch';
+
+import { useEffect } from 'react';
+import fetchData, { createEndpoint, createQueryParams, createCompleteURL } from '../utils/fetch';
 import StoreHero from "../components/store/StoreHero";
 
 function Store() {
-
-    const endPoint = getEndpoint('games');
-
-    const [search, setSearch] = useState("dead")
-    const queryParms = getQueryParams('search', search)
-
-    const initialUrl = getCompleteURL(endPoint, queryParms);
-    const [url, setUrl] = useState(initialUrl);
+    const searchQuery = 'dead';
+    const endPoint = createEndpoint('games');
+    const queryParms = createQueryParams('search', searchQuery);
+    const initialUrl = createCompleteURL(endPoint, queryParms);
 
     useEffect(() => {
-        console.log(url)
-        useFetch(url);
-    }, [url]);
-
-    const getSearchQuery = function (query) {
-        setSearch(query)
-    }
+        fetchData(initialUrl);
+    }, []);
 
     return (
         <div className='store'>
-            <StoreHero
-                getSearchQuery={getSearchQuery}
-            />
+            <StoreHero />
             <div className='store_container'>
                 i dont care
             </div>

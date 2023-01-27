@@ -1,0 +1,40 @@
+@use "../../sass/index" as *;
+
+.search {
+  display: flex;
+  align-self: center;
+  gap: 0.2em;
+  background: $primary-clr;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: $font-clr;
+  &:hover,
+  &:focus {
+    outline: red;
+    border: 1px solid red;
+  }
+}
+
+.search-input {
+  padding-inline: 0.5em;
+  height: 27px;
+  background: transparent;
+  border: none;
+  color: $font-clr;
+  &:focus {
+    outline: none;
+  }
+}
+
+.search-icon {
+  translate: 0 2px;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.search__input__sub-btn {
+  background: none;
+  border: none;
+}

@@ -17,7 +17,7 @@ a {
   align-content: center;
   position: relative;
   max-width: $app-width;
-  padding-block: calc($header-height / 3);
+  padding-block: calc($header-height * 0.3);
   margin: auto;
 }
 
@@ -109,6 +109,10 @@ a {
 }
 
 @media (max-width: 740px) {
+  .header-container {
+    padding-block: calc($header-height * 0.25);
+  }
+
   .site-title {
     grid-column-start: 2;
     justify-self: center;
@@ -125,6 +129,7 @@ a {
 .chevron-down-btn {
   background: transparent;
   border: none;
+  color: $font-clr;
 }
 
 // .chevron-down-icon {

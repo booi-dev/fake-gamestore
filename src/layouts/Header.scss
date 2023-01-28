@@ -54,6 +54,10 @@
   top: 0.5em;
 }
 
+.user_name {
+  text-align: end;
+}
+
 .user_wallet {
   color: rgb(10, 150, 8);
 }
@@ -79,7 +83,6 @@
   align-self: center;
   width: 35px;
   height: 35px;
-  // background-color: $primary-clr;
   border-radius: $border-radius-1;
   border: 1px solid;
   transition: border 1s ease-in-out, color 1s;
@@ -105,6 +108,25 @@
     gap: 0.5em;
     inset: revert;
     right: 0;
-    text-align: end;
+  }
+}
+
+.chevron-down-btn {
+  background: transparent;
+  border: none;
+}
+
+// .chevron-down-icon {
+
+// }
+
+@media (max-width: 500px) {
+  .user__notification-icon,
+  .user_name {
+    display: none;
+  }
+
+  .user {
+    align-items: center;
   }
 }

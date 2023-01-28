@@ -1,16 +1,21 @@
-import { HiShoppingCart } from 'react-icons/hi';
+import { useState, useEffect } from 'react';
+
 import Search from './Search';
+import CartNWish from './CartNWish';
 import './StoreHeader.scss';
 
 function StoreHeader() {
+
+    const [tableSize, setTableSize] = useState(false)
+
+    useEffect(() => {
+
+
+    }, []);
+
     return (
         <div className='store-header'>
-            <span className='store-header__cart-status'>
-                <div className='store-header__cart-status__cart'>
-                    <HiShoppingCart className='cart-icon hiro-icons' />
-                </div>
-                <div className='store-header__cart-status__wishlist'>wishlist</div>
-            </span>
+            <CartNWish />
             <div className='store-header__panel'>
                 <div className='store-header__panel__tabs'>
                     <div> Your Store </div>

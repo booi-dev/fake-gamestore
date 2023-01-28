@@ -5,9 +5,10 @@
   background: $primary-clr;
   border: 1px solid transparent;
   border-radius: $border-radius-1;
+  padding-inline: 0.2em;
   color: $font-clr;
-  z-index: 1;
   width: 100%;
+  z-index: 1;
   &:hover,
   &:focus {
     outline: red;
@@ -22,10 +23,10 @@
 }
 
 .search-input {
-  padding-inline: 0.5em;
   background: transparent;
   border: none;
   color: $font-clr;
+  width: 100%;
   &:focus {
     outline: none;
   }

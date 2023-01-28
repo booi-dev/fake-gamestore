@@ -12,6 +12,11 @@ function Header() {
     return (
         <div className='header'>
             <div className='header-container'>
+                {winWidth < 740 &&
+                    <div className='menu-btn'>
+                        menu
+                    </div>
+                }
                 <div className='site-title'>
                     <img className='site-icon' src={siteIconLight} alt="" />
                     BO GAMES
@@ -30,7 +35,7 @@ function Header() {
                     <div>
                         <HiMail size={13} className='user__notification-icon' />
                     </div>
-                    <div>
+                    <div className='user_name'>
                         <div>BooiMangang</div>
                         <div>$10000</div>
                     </div>

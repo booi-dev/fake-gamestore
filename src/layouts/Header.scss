@@ -52,8 +52,10 @@
   position: absolute;
   inset: 0;
   top: 0.5em;
+}
 
-  // display: none;
+.user_name {
+  padding: 0;
 }
 
 .user__notification-icon {
@@ -61,16 +63,30 @@
 }
 
 .user__profile-pic {
-  width: 40px;
-  height: 40px;
+  margin-top: 0.7em;
+  width: 35px;
+  height: 35px;
   object-fit: cover;
   border: 1px solid;
   border-radius: $border-radius-1;
+}
+
+.menu-btn {
+  grid-column-start: 1;
+  grid-row-start: 1;
 }
 
 @media (max-width: 740px) {
   .site-title {
     grid-column-start: 2;
     justify-self: center;
+    align-self: center;
+  }
+  .user {
+    position: revert;
+    gap: 0.5em;
+    inset: revert;
+    right: 0;
+    text-align: end;
   }
 }

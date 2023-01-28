@@ -6,6 +6,8 @@
   border: 1px solid transparent;
   border-radius: $border-radius-1;
   color: $font-clr;
+  z-index: 1;
+  width: 100%;
   &:hover,
   &:focus {
     outline: red;
@@ -55,4 +57,14 @@
   padding: 0.5em 0.25em;
   border-radius: $border-radius-1;
   background: $primary-clr-trans;
+}
+
+// backdrop
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  top: -2em;
+  height: calc(75vh);
+  background: rgba(43, 41, 75, 0.479);
 }

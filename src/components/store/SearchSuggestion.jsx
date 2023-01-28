@@ -8,11 +8,9 @@ function SearchSuggestion(props) {
             <img src={game.background_image} alt=""
                 className="game-bg-img"
             />
-            <button type="button"
-                className="game-title"
-            >
+            <h1 className="game-title">
                 {game.name}
-            </button>
+            </h1>
         </div>
     );
 }

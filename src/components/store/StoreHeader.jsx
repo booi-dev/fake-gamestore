@@ -19,7 +19,9 @@ function StoreHeader() {
                     <div> News  </div>
                     <div> Lab</div>
                 </div>
-                <Search />
+                <div className='store-header__search'>
+                    <Search />
+                </div>
             </div>
         </div>
     );

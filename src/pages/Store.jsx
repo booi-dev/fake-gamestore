@@ -1,15 +1,13 @@
 import { useEffect } from 'react';
-import fetchData, { createEndpoint, createQueryParams, createCompleteURL } from '../utils/fetch';
+import fetchData, { createQuery } from '../utils/fetch';
 import StoreHero from "../components/store/StoreHero";
 
 function Store() {
     const searchQuery = 'dead';
-    const endPoint = createEndpoint('games');
-    const queryParms = createQueryParams('search', searchQuery);
-    const initialUrl = createCompleteURL(endPoint, queryParms);
+    const query = createQuery('search', searchQuery);
 
     useEffect(() => {
-        fetchData(initialUrl);
+        fetchData('games', query);
     }, []);
 
     return (

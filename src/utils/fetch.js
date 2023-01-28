@@ -11,24 +11,30 @@ const createEndpoint = function getUrlEndpoint(endpoint) {
     return endpoint;
 };
 
-const createQueryParams = function getQueryParams(query, value) {
+const createQuery = function createQueryParams(query, value) {
     return `${query}=${value}`;
 };
 
-const createCompleteURL = function getCompleteApiURL(endpoint, queryParams) {
+const createMultiQuery = function createOneQueryFromManyquery(arr) {
+    return arr.join("&");
+};
+
+const createCompleteURL = function createCompleteApiURL(endpoint, queryParams) {
     return `${api.BASE_URL}${endpoint}?${queryParams}&key=${api.KEY}`;
 };
 
-async function fetchData(url) {
-    // console.log(url);
+async function fetchData(endpoint, queryParams) {
+    const url = createCompleteURL(endpoint, queryParams);
+    console.log(url);
     let data;
     await axios.get(url)
         .then((res) => {
             data = res.data.results;
-            // console.log(res.data.results);
+            console.log(res.data.results);
         })
         .catch((err) => {
             console.log(err);
+            data = err.code;
         });
     return data;
 }
@@ -37,6 +43,6 @@ export default fetchData;
 
 export {
     createEndpoint,
-    createQueryParams,
-    createCompleteURL,
+    createQuery,
+    createMultiQuery,
 };

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { HiSearchCircle } from 'react-icons/hi';
-import fetchData, { createEndpoint, createQueryParams, createCompleteURL } from '../../utils/fetch';
+import fetchData, { createQuery, createMultiQuery } from '../../utils/fetch';
 import SearchSuggestion from './SearchSuggestion';
+// import Backdrop from './Backdrop';
 import './Search.scss';
 
 function Search() {
@@ -11,15 +12,17 @@ function Search() {
 
     const [gameData, setGameData] = useState([]);
 
+    const checkError = function checkIfApiCallIsError(response) {
+        return response === 'ERR_NETWORK';
+    };
+
     const handleSubBtn = async function handleSearchQueryValueOnClick() {
-        const newEndPoint = createEndpoint('games');
-        const newSearchParams = createQueryParams('search', inputVal);
-        const newPageSIzeParams = createQueryParams('page_size', 5);
-        const newGenreParams = createQueryParams('genre', 'indie');
-        const newQueryParams = `${newSearchParams}&${newPageSIzeParams}&${newGenreParams}`;
-        const newUrl = createCompleteURL(newEndPoint, newQueryParams);
-        const data = await fetchData(newUrl);
-        setGameData(data);
+        const newSearchQuery = createQuery('search', inputVal);
+        const newPageSizeQuery = createQuery('page_size', 5);
+        const newQuery = createMultiQuery([newSearchQuery, newPageSizeQuery]);
+        const data = await fetchData('games', newQuery);
+        /* eslint-disable-next-line */
+        checkError(data) || setGameData(data);
     };
 
     const handleInput = function updateFieldValNfetchData(e) {
@@ -32,7 +35,7 @@ function Search() {
         setSuggestionClass('show');
     };
 
-    const handleInputOnBlur = function addVisibilityOnFocus() {
+    const handleInputOnBlur = function removeSuggestionsVisibility() {
         setSuggestionClass('hidden');
     };
 

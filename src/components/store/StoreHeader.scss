@@ -42,3 +42,9 @@
     gap: 0.5em 1.5em;
   }
 }
+
+@media (max-width: 360px) {
+  .store-header__search {
+    width: 100%;
+  }
+}

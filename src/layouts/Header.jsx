@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { HiMail, HiMenu, HiChevronDown } from "react-icons/hi";
 import useWinSize from '../hooks/useWinSize';
 import siteIconLight from '../assets/site-icon/site-icon-light.png';
@@ -19,7 +19,7 @@ function Header() {
                 }
                 <div className='site-title'>
                     <img className='site-icon' src={siteIconLight} alt="" />
-                    BO GAMES
+                    <Link to='/'> BO GAMES</Link>
                 </div>
                 {winWidth > 740 &&
                     <nav className='navbar'>

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { HiMail } from "react-icons/hi";
+import { HiMail, HiMenu } from "react-icons/hi";
 import useWinSize from '../hooks/useWinSize';
 import siteIconLight from '../assets/site-icon/site-icon-light.png';
 
@@ -14,7 +14,7 @@ function Header() {
             <div className='header-container'>
                 {winWidth < 740 &&
                     <div className='menu-btn'>
-                        menu
+                        <HiMenu className='menu-btn-icon' />
                     </div>
                 }
                 <div className='site-title'>
@@ -37,7 +37,7 @@ function Header() {
                     </div>
                     <div className='user_name'>
                         <div>BooiMangang</div>
-                        <div>$10000</div>
+                        <div className='user_wallet'>$10000</div>
                     </div>
                     <div>
                         <img className='user__profile-pic'

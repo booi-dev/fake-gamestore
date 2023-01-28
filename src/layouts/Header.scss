@@ -54,8 +54,8 @@
   top: 0.5em;
 }
 
-.user_name {
-  padding: 0;
+.user_wallet {
+  color: rgb(10, 150, 8);
 }
 
 .user__notification-icon {
@@ -72,8 +72,26 @@
 }
 
 .menu-btn {
+  display: grid;
+  place-content: center;
   grid-column-start: 1;
   grid-row-start: 1;
+  align-self: center;
+  width: 35px;
+  height: 35px;
+  // background-color: $primary-clr;
+  border-radius: $border-radius-1;
+  border: 1px solid;
+  transition: border 1s ease-in-out, color 1s;
+  &:hover {
+    border: 1px solid $accent-clr;
+    color: $accent-clr;
+  }
+}
+
+.menu-btn-icon {
+  width: 20px;
+  height: 20px;
 }
 
 @media (max-width: 740px) {

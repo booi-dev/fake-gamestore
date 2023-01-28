@@ -11,9 +11,9 @@
 .header-container {
   display: grid;
   grid-template-columns: 0.6fr 1fr 1fr;
-  align-items: center;
+  position: relative;
+  align-content: center;
   max-width: $app-width;
-  // background-color: rgb(60, 89, 89);
 }
 
 .site-icon {
@@ -44,8 +44,25 @@
   align-items: center;
 }
 
-.profile {
-  // display: none;
+.user {
+  display: flex;
+  gap: 1em;
+  position: absolute;
+  inset: 0;
+  top: 0.5em;
   display: flex;
   justify-content: right;
+  font-size: $font-xxs;
+}
+
+.user__notification-icon {
+  translate: 0 0.25em;
+}
+
+.user__profile-pic {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 1px solid;
+  border-radius: $border-radius-1;
 }

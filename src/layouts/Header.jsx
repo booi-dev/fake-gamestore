@@ -22,15 +22,18 @@ function Header() {
                         <NavLink to='support'>SUPPORT</NavLink >
                     </ul>
                 </nav>
-                <div className='profile'>
+                <div className='user'>
                     <div>
-                        <HiMail size={25} />
+                        <HiMail size={13} className='user__notification-icon' />
                     </div>
                     <div>
                         <div>BooiMangang</div>
-                        <div>100</div>
+                        <div>$10000</div>
                     </div>
-                    <div>Image</div>
+                    <div>
+                        <img className='user__profile-pic'
+                            src='https://images.unsplash.com/photo-1634689033402-a132c62b310e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' alt='user-propic' />
+                    </div>
                 </div>
             </div>
         </div>

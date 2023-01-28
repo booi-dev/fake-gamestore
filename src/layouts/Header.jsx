@@ -6,6 +6,9 @@ import siteIconLight from '../assets/site-icon/site-icon-light.png';
 import './Header.scss';
 
 function Header() {
+
+    const winWidth = useWinSize();
+
     return (
         <div className='header'>
             <div className='header-container'>
@@ -13,7 +16,7 @@ function Header() {
                     <img className='site-icon' src={siteIconLight} alt="" />
                     BO GAMES
                 </div>
-                {useWinSize > 740 &&
+                {winWidth > 740 &&
                     <nav className='navbar'>
                         <ul className='navbar__list'>
                             <NavLink to='/'>STORE</NavLink >
@@ -23,7 +26,6 @@ function Header() {
                             <NavLink to='support'>SUPPORT</NavLink >
                         </ul>
                     </nav>}
-
                 <div className='user'>
                     <div>
                         <HiMail size={13} className='user__notification-icon' />

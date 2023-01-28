@@ -6,7 +6,6 @@ import './StoreHeader.scss';
 function StoreHeader() {
 
     const winWidth = useWinSize();
-    console.log(winWidth);
 
     return (
         <div className='store-header'>

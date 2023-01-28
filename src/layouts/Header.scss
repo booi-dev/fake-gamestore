@@ -1,19 +1,19 @@
 @use "../sass/index" as *;
 
 .header {
-  background: #171a21;
-  display: flex;
-  justify-content: center;
   padding-inline: $app-padding-xs;
-  height: $header-height;
+  // height: $header-height;
+  background: #171a21;
 }
 
 .header-container {
   display: grid;
-  grid-template-columns: 0.6fr 1fr 1fr;
-  position: relative;
+  grid-template-columns: 1fr 1fr 1fr;
   align-content: center;
+  position: relative;
   max-width: $app-width;
+  padding-block: calc($header-height / 3);
+  margin: auto;
 }
 
 .site-icon {
@@ -46,13 +46,14 @@
 
 .user {
   display: flex;
+  justify-content: right;
+  font-size: $font-xxs;
   gap: 1em;
   position: absolute;
   inset: 0;
   top: 0.5em;
-  display: flex;
-  justify-content: right;
-  font-size: $font-xxs;
+
+  // display: none;
 }
 
 .user__notification-icon {
@@ -65,4 +66,11 @@
   object-fit: cover;
   border: 1px solid;
   border-radius: $border-radius-1;
+}
+
+@media (max-width: 740px) {
+  .site-title {
+    grid-column-start: 2;
+    justify-self: center;
+  }
 }

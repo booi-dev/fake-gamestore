@@ -1,27 +1,20 @@
-import { useState, useEffect } from 'react';
-
 import Search from './Search';
 import CartNWish from './CartNWish';
+import useWinSize from '../../hooks/useWinSize';
 import './StoreHeader.scss';
 
 function StoreHeader() {
 
-    const [tableSize, setTableSize] = useState(false)
-
-    useEffect(() => {
-
-
-    }, []);
+    const winWidth = useWinSize();
+    console.log(winWidth);
 
     return (
         <div className='store-header'>
-            <CartNWish />
+            {winWidth > 740 && <CartNWish />}
             <div className='store-header__panel'>
                 <div className='store-header__panel__tabs'>
-                    <div> Your Store </div>
-                    <div> News & Noteworthy </div>
+                    <div> News </div>
                     <div> Categories </div>
-                    <div> News  </div>
                     <div> Lab</div>
                 </div>
                 <div className='store-header__search'>

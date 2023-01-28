@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { HiMail } from "react-icons/hi";
-// import siteIconDark from '../assets/site-icon/site-icon-dark.png';
+import useWinSize from '../hooks/useWinSize';
 import siteIconLight from '../assets/site-icon/site-icon-light.png';
 
 import './Header.scss';
@@ -13,15 +13,17 @@ function Header() {
                     <img className='site-icon' src={siteIconLight} alt="" />
                     BO GAMES
                 </div>
-                <nav className='navbar'>
-                    <ul className='navbar__list'>
-                        <NavLink to='/'>STORE</NavLink >
-                        <NavLink to='community'>COMMUNITY</NavLink >
-                        <NavLink to='user'>BOMA</NavLink >
-                        <NavLink to='chat'>CHAT</NavLink >
-                        <NavLink to='support'>SUPPORT</NavLink >
-                    </ul>
-                </nav>
+                {useWinSize > 740 &&
+                    <nav className='navbar'>
+                        <ul className='navbar__list'>
+                            <NavLink to='/'>STORE</NavLink >
+                            <NavLink to='community'>COMMUNITY</NavLink >
+                            <NavLink to='user'>BOMA</NavLink >
+                            <NavLink to='chat'>CHAT</NavLink >
+                            <NavLink to='support'>SUPPORT</NavLink >
+                        </ul>
+                    </nav>}
+
                 <div className='user'>
                     <div>
                         <HiMail size={13} className='user__notification-icon' />

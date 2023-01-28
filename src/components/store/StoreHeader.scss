@@ -10,6 +10,7 @@
 .store-header__panel {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.5em;
   background-color: $primary-clr-trans;
 }
@@ -32,10 +33,9 @@
   }
   .store-header__panel {
     flex-direction: column-reverse;
-    // align-items: center;
   }
   .store-header__search {
-    width: 60%;
+    width: 350px;
   }
   .store-header__panel__tabs {
     flex-wrap: wrap;

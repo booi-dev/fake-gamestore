@@ -1,8 +1,10 @@
 @use "../sass/index" as *;
 
-a {
+a,
+li {
   text-decoration: none;
   color: $font-clr;
+  list-style: none;
 }
 
 .header {

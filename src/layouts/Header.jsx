@@ -24,11 +24,11 @@ function Header() {
                 {winWidth > 740 &&
                     <nav className='navbar'>
                         <ul className='navbar__list'>
-                            <NavLink to='/'>STORE</NavLink >
-                            <NavLink to='community'>COMMUNITY</NavLink >
-                            <NavLink to='user'>BOMA</NavLink >
-                            <NavLink to='chat'>CHAT</NavLink >
-                            <NavLink to='support'>SUPPORT</NavLink >
+                            <li> <NavLink to='/'>STORE</NavLink > </li>
+                            <li><NavLink to='community'>COMMUNITY</NavLink > </li>
+                            <li> <NavLink to='user'>BOMA</NavLink ></li>
+                            <li> <NavLink to='chat'>CHAT</NavLink ></li>
+                            <li> <NavLink to='support'>SUPPORT</NavLink ></li>
                         </ul>
                     </nav>}
                 <div className='user'>

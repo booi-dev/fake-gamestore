@@ -1,9 +1,8 @@
-import React from 'react';
 
-function main() {
+function Main() {
   return (
     <div>main</div>
   );
 }
 
-export default main;
+export default Main;

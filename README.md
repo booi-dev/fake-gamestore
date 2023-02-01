@@ -5,3 +5,4 @@ Add cart and wishlist to the footer in small screen
 Log in
 Cart
 Genre / Category change
+Fix the responsiveness of suggestions

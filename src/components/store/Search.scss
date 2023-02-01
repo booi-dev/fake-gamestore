@@ -69,3 +69,10 @@
   height: calc(75vh);
   background: rgba(43, 41, 75, 0.479);
 }
+
+@media (max-width: 740px) {
+  .search__suggestion.show {
+    right: revert;
+    width: 100%;
+  }
+}

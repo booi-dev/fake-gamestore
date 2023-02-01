@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import fetchData, { createQuery } from '../utils/fetch';
 import StoreHero from "../components/store/StoreHero";
+import Recommendation from '../components/recommendation/Recommendation';
 
 function Store() {
     const searchQuery = 'dead';
@@ -13,6 +14,7 @@ function Store() {
     return (
         <div className='store'>
             <StoreHero />
+            <Recommendation />
         </div>
     );
 }

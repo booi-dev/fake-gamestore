@@ -25,6 +25,7 @@ module.exports = {
         'semi': 'warn',
         'import/no-extraneous-dependencies': 'off',
         'react-hooks/exhaustive-deps': 'off',
-        'no-console': 'off'
+        'no-console': 'off',
+        'jsx-a11y/no-noninteractive-tabindex': 'off'
     },
 };

@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { HiSearchCircle } from 'react-icons/hi';
+import { useState, useCallback } from 'react';
 import fetchData, { createQuery, createMultiQuery } from '../../utils/fetch';
+import SearchInput from './SearchInput';
 import SearchSuggestion from './SearchSuggestion';
 import './Search.scss';
 
@@ -15,51 +15,46 @@ function Search() {
         return response === 'ERR_NETWORK';
     };
 
-    const handleSubBtn = async function handleSearchQueryValueOnClick() {
+    const fetchDataOnChange = useCallback(async () => {
         const newSearchQuery = createQuery('search', inputVal);
         const newPageSizeQuery = createQuery('page_size', 5);
         const newQuery = createMultiQuery([newSearchQuery, newPageSizeQuery]);
         const data = await fetchData('games', newQuery);
         /* eslint-disable-next-line */
         checkError(data) || setGameData(data);
-    };
+    });
 
-    const handleInput = function updateFieldValNfetchData(e) {
+    // useCallback(() => {
+    //   },[],)
+
+    const handleInput = useCallback((e) => {
         const val = e.target.value;
         setInputVal(val);
-        handleSubBtn();
-    };
+        fetchDataOnChange();
+    }, []);
 
-    const handleInputOnFocus = function addVisibilityOnFocus() {
+
+    const handleInputOnFocus = useCallback(() => {
         setSuggestionClass('show');
-    };
+    });
 
-    const handleInputOnBlur = function removeSuggestionsVisibility() {
+    const handleInputOnBlur = useCallback(() => {
         setSuggestionClass('hidden');
-    };
-    /* eslint-disable*/
+    });
 
     return (
         <div className='search'>
-            <div className='search-container' tabIndex="0" role='search'>
-                <input className="search-input"
-                    type='text'
-                    placeholder='search games'
-                    value={inputVal}
-                    onChange={handleInput}
-                    onFocus={handleInputOnFocus}
-                    onBlur={handleInputOnBlur}
-                />
-                <button type="button"
-                    className="search__input__sub-btn"
-                    onClick={handleSubBtn}
-                >
-                    <HiSearchCircle className='search-icon' size={24} />
-                </button>
-            </div>
+            <SearchInput
+                value={inputVal}
+                handleInput={handleInput}
+                handleInputOnFocus={handleInputOnFocus}
+                handleInputOnBlur={handleInputOnBlur}
+                fetchDataOnChange={fetchDataOnChange}
+
+            />
 
             {gameData.length > 0 &&
-                <div className={`search__suggestion ${suggestionClass}`}>
+                <div className={`search__suggestion ${suggestionClass}`} data-testid='search-suggestion'>
                     {gameData.map((game) => <SearchSuggestion
                         key={game.id}
                         game={game} />)}

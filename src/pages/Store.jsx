@@ -4,12 +4,12 @@ import StoreHero from "../components/store/StoreHero";
 import Recommendation from '../components/recommendation/Recommendation';
 
 function Store() {
-    const searchQuery = 'dead';
-    const query = createQuery('search', searchQuery);
+    // const searchQuery = 'dead';
+    // const query = createQuery('search', searchQuery);
 
-    useEffect(() => {
-        fetchData('games', query);
-    }, []);
+    // useEffect(() => {
+    //     fetchData('games', query);
+    // }, []);
 
     return (
         <div className='store'>

@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import { HiMail, HiMenu, HiChevronDown } from "react-icons/hi";
+import { HiMail, HiMenu, HiChevronDown, HiUserCircle } from "react-icons/hi";
 import useWinSize from '../hooks/useWinSize';
 import siteIconLight from '../assets/site-icon/site-icon-light.png';
 
@@ -46,8 +46,7 @@ function Header() {
                         {winWidth < 500 && <HiChevronDown size={18} className='chevron-down-icon' />}
                     </button>
                     <div>
-                        <img className='user__profile-pic'
-                            src='https://images.unsplash.com/photo-1634689033402-a132c62b310e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' alt='user-propic' />
+                        <HiUserCircle className='user__profile-pic' />
                     </div>
                 </div>
             </div>

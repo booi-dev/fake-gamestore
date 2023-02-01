@@ -25,10 +25,11 @@ li {
 
 .site-icon {
   width: 25px;
-  translate: 0 6px;
 }
 
 .site-title {
+  display: flex;
+  gap: 0.2em;
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -37,6 +38,7 @@ li {
 }
 
 .navbar {
+  display: flex;
   font-size: 14px;
   z-index: 1;
 }

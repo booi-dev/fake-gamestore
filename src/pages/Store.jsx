@@ -13,9 +13,6 @@ function Store() {
     return (
         <div className='store'>
             <StoreHero />
-            <div className='store_container'>
-                i dont care
-            </div>
         </div>
     );
 }

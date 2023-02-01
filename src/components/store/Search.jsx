@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { HiSearchCircle } from 'react-icons/hi';
 import fetchData, { createQuery, createMultiQuery } from '../../utils/fetch';
 import SearchSuggestion from './SearchSuggestion';
-// import Backdrop from './Backdrop';
 import './Search.scss';
 
 function Search() {
@@ -38,11 +37,15 @@ function Search() {
     const handleInputOnBlur = function removeSuggestionsVisibility() {
         setSuggestionClass('hidden');
     };
+    /* eslint-disable*/
 
     return (
         <div className='search'>
-            <div className='search-container'>
-                <input className="search-input" value={inputVal}
+            <div className='search-container' tabIndex="0" role='search'>
+                <input className="search-input"
+                    type='text'
+                    placeholder='search games'
+                    value={inputVal}
                     onChange={handleInput}
                     onFocus={handleInputOnFocus}
                     onBlur={handleInputOnBlur}

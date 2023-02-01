@@ -30,7 +30,8 @@ function Header() {
                             >COMMUNITY </NavLink> </li>
                             <li> <NavLink to='user'>BOMA </NavLink></li>
                             <li> <NavLink to='chat'>CHAT </NavLink></li>
-                            <li> <NavLink to='support'>SUPPORT </NavLink></li>
+                            <li> <NavLink to='support'
+                                data-testid="header-support-menuBtn">SUPPORT </NavLink></li>
                         </ul>
                     </nav>}
                 <div className='user'>

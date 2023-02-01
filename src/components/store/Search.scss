@@ -5,7 +5,6 @@
   background: $primary-clr;
   border: 1px solid transparent;
   border-radius: $border-radius-1;
-  padding-inline: 0.2em;
   color: $font-clr;
   width: 100%;
   z-index: 1;
@@ -27,6 +26,7 @@
   border: none;
   color: $font-clr;
   width: 100%;
+  padding-inline: 0.2em;
   &:focus {
     outline: none;
   }

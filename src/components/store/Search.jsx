@@ -22,16 +22,13 @@ function Search() {
         const data = await fetchData('games', newQuery);
         /* eslint-disable-next-line */
         checkError(data) || setGameData(data);
-    });
-
-    // useCallback(() => {
-    //   },[],)
+    }, [gameData]);
 
     const handleInput = useCallback((e) => {
         const val = e.target.value;
         setInputVal(val);
         fetchDataOnChange();
-    }, []);
+    }, [gameData]);
 
 
     const handleInputOnFocus = useCallback(() => {
@@ -50,7 +47,6 @@ function Search() {
                 handleInputOnFocus={handleInputOnFocus}
                 handleInputOnBlur={handleInputOnBlur}
                 fetchDataOnChange={fetchDataOnChange}
-
             />
 
             {gameData.length > 0 &&

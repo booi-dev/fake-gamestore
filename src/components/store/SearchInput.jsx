@@ -1,4 +1,5 @@
 import { HiSearchCircle } from 'react-icons/hi';
+import { PropTypes } from "prop-types";
 
 function SearchInput(props) {
 
@@ -23,5 +24,13 @@ function SearchInput(props) {
         </div>
     );
 }
+
+SearchInput.propTypes = {
+    value: PropTypes.string.isRequired,
+    handleInput: PropTypes.func.isRequired,
+    handleInputOnFocus: PropTypes.func.isRequired,
+    handleInputOnBlur: PropTypes.func.isRequired,
+    fetchDataOnChange: PropTypes.func.isRequired,
+};
 
 export default SearchInput;

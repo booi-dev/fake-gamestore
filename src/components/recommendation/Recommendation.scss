@@ -4,6 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 40vh;
+  position: relative;
 }
 
 button {
@@ -15,6 +17,7 @@ button {
 .prev-btn {
   padding: 2em 0;
   border-radius: $border-radius-2;
+  z-index: 2;
 }
 
 .prev-btn {
@@ -56,4 +59,18 @@ button {
   padding: 0;
   width: 30px;
   scale: 1.5;
+}
+
+@media (max-width: 740px) {
+  .recommendation {
+    justify-content: space-between;
+  }
+
+  //   .next-btn {
+  //     translate: -2em 0;
+  //   }
+
+  //   .prev-btn {
+  //     translate: 2em 0;
+  //   }
 }

@@ -3,7 +3,7 @@ import { HiMail, HiMenu, HiChevronDown, HiUserCircle } from "react-icons/hi";
 import useWinSize from '../hooks/useWinSize';
 import siteIconLight from '../assets/site-icon/site-icon-light.png';
 
-import './Header.scss';
+import './Layout.scss';
 
 function Header() {
 

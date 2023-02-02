@@ -1,11 +1,22 @@
 @use "../../sass/index" as *;
 
-.recommendation {
+.recommendation-title {
+  font-size: $font-sm;
+  font-weight: 300;
+  max-width: $app-width;
+  margin: auto;
+  margin-block: 1em;
+  padding-inline: $app-padding-xs;
+}
+
+.recommendation-container {
   display: flex;
+  gap: 2px;
   align-items: center;
   justify-content: center;
   height: 40vh;
   position: relative;
+  padding-inline: $app-padding-xs;
 }
 
 button {
@@ -62,15 +73,7 @@ button {
 }
 
 @media (max-width: 740px) {
-  .recommendation {
+  .recommendation-container {
     justify-content: space-between;
   }
-
-  //   .next-btn {
-  //     translate: -2em 0;
-  //   }
-
-  //   .prev-btn {
-  //     translate: 2em 0;
-  //   }
 }

@@ -5,7 +5,10 @@ function RecommendationCard(props) {
     const { game } = props;
     return (
         <div className="recommendation-card" >
-            <h1>{game.name} </h1>
+            <img src={game.background_image} alt={`${game.name} bg img`}
+                className="recommendation-card_bg-img"
+            />
+            <h2>{game.name} </h2>
         </div>
     );
 }

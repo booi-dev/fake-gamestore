@@ -1,5 +1,7 @@
 @use "../sass/index" as *;
 
+// HEADER
+
 a,
 li {
   text-decoration: none;
@@ -136,10 +138,6 @@ li {
   color: $font-clr;
 }
 
-// .chevron-down-icon {
-
-// }
-
 @media (max-width: 500px) {
   .user__notification-icon,
   .user_name {
@@ -149,4 +147,11 @@ li {
   .user {
     align-items: center;
   }
+}
+
+// FOOTER
+
+.footer {
+  height: $footer-height;
+  background-color: $primary-clr-2;
 }

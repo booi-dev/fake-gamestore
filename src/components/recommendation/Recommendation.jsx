@@ -35,29 +35,31 @@ function Recommendation() {
     }, []);
 
     return (
-        <div className='recommendation'>
+        <>
+            <div className='recommendation-title'>
+                <h1 className="recommendation-title">FEATURED & RECOMMENDED</h1>
+            </div>
+            <div className='recommendation-container'>
+                <button type='button'
+                    className='prev-btn'
+                    onClick={prevCurrentGame}
+                >
+                    <HiOutlineChevronLeft size={50} className="prev-icon" />
+                </button>
+                {gameData && <RecommendationCard
+                    key={gameData[gameSerial].id}
+                    game={gameData[gameSerial]}
+                />
+                }
+                <button type='button'
+                    className='next-btn'
+                    onClick={nextCurrentGame}
+                >
+                    <HiOutlineChevronRight size={50} className="next-icon" />
+                </button>
+            </div>
 
-            <button type='button'
-                className='prev-btn'
-                onClick={prevCurrentGame}
-            >
-                <HiOutlineChevronLeft size={50} className="prev-icon" />
-            </button>
-
-            {gameData && <RecommendationCard
-                key={gameData[gameSerial].id}
-                game={gameData[gameSerial]}
-            />
-            }
-
-            <button type='button'
-                className='next-btn'
-                onClick={nextCurrentGame}
-            >
-                <HiOutlineChevronRight size={50} className="next-icon" />
-            </button>
-
-        </div>
+        </>
     );
 }
 

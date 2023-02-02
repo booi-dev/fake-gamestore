@@ -25,6 +25,7 @@
   display: flex;
   justify-content: space-between;
   width: 230px;
+  transition: width 1s ease;
 }
 
 @media (max-width: 740px) {
@@ -33,9 +34,10 @@
   }
   .store-header__panel {
     flex-direction: column-reverse;
+    align-items: revert;
   }
   .store-header__search {
-    width: 350px;
+    width: 70%;
   }
   .store-header__panel__tabs {
     flex-wrap: wrap;
@@ -43,7 +45,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 500px) {
   .store-header__search {
     width: 100%;
   }

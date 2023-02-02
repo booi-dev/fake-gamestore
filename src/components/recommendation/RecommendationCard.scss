@@ -2,25 +2,101 @@
 
 .recommendation-card {
   display: flex;
+  //   justify-content: space-between;
   width: 100%;
   height: 100%;
   max-width: $app-width;
-  background-color: rgba(40, 39, 56, 0.299);
+  background-color: $primary-clr-dark;
 }
 
 .recommendation-card_bg-img {
-  width: 616px;
+  width: 580px;
   object-fit: cover;
-  //   flex: 2;
+  transition: width 1s ease;
 }
 
-@media (max-width: 740px) {
+.recommendation-card_game-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 6px;
+  overflow: hidden;
+}
+
+.rg-game-title {
+  font-size: $font-xxl;
+  font-weight: 300;
+  margin-block-end: 0.8em;
+}
+
+.rg-released-date {
+  font-size: $font-xxs;
+  font-weight: 300;
+}
+
+.rg-sreenshots-container {
+  display: grid;
+  gap: 8px;
+  grid: 1fr 1fr / 1fr 1fr;
+  max-height: auto;
+  transition: opacity 1s ease-in-out;
+}
+
+.rg-screenshots {
+  width: 160px;
+  height: 68px;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.rg-genres {
+  background-color: $primary-clr;
+  margin-inline-end: 4px;
+  padding-inline: 4px;
+}
+
+@media (max-width: 950px) {
   .recommendation-card {
     position: absolute;
     inset: 0;
   }
+  .recommendation-card_bg-img {
+    width: 550px;
+    object-fit: cover;
+  }
 
+  .rg-sreenshots-container {
+    opacity: 0;
+    max-height: 0;
+    width: 0;
+  }
+
+  .rg-screenshots {
+    max-height: 0;
+    width: 0;
+  }
+}
+
+@media (max-width: 740px) {
   .recommendation-card_bg-img {
     width: 70%;
+  }
+}
+
+@media (max-width: 500px) {
+  .recommendation-card_bg-img {
+    width: 100%;
+  }
+
+  .recommendation-card_game-details {
+    position: absolute;
+    bottom: 0;
+    background-color: $primary-clr-trans;
+    border-radius: $border-radius-2;
+    padding: 0.5em 1em;
+  }
+
+  .rg-game-title {
+    margin-block-end: 0.2em;
   }
 }

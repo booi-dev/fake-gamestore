@@ -1,0 +1,9 @@
+@use "../../sass/index" as *;
+
+.recommendation-card {
+  width: 100%;
+  max-width: $app-width;
+  background-color: rgba(135, 161, 161, 0.49);
+  //   margin: auto;
+  height: 40vh;
+}

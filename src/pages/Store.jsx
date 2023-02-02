@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import fetchData, { createQuery } from '../utils/fetch';
+// import { useEffect } from 'react';
+// import fetchData, { createQuery } from '../utils/fetch';
 import StoreHero from "../components/store/StoreHero";
 import Recommendation from '../components/recommendation/Recommendation';
 

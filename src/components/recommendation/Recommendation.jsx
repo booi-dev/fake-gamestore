@@ -1,45 +1,61 @@
 import { useState, useEffect } from 'react';
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import fetchData, { createQuery } from '../../utils/fetch';
 import RecommendationCard from './RecommendationCard';
+import './Recommendation.scss';
 
 function Recommendation() {
 
-    const [recommendedGame, setRecommendedGame] = useState([3328, 5679]);
-    const [currentGame, setCurrentGame] = useState({});
+    const [gameData, setGameData] = useState();
+    const [gameSerial, setGameSerial] = useState(0);
 
-    const fetchGameData = async function dfdsf() {
+    const fetchGameData = async function fetchGameDataFromApi() {
         const newPageSizeQuery = createQuery('page_size', 10);
-        const gameData = await fetchData('games', newPageSizeQuery);
-        setRecommendedGame(gameData);
-        setCurrentGame(recommendedGame[4]);
-        console.log(currentGame);
-        console.log(" di ");
+        const data = await fetchData('games', newPageSizeQuery);
+        setGameData(data);
+        setGameSerial(Math.floor(data.length / 2));
+
+        // setCurrentGame(data[Math.floor(data.length / 2)]);
+    };
+
+    const nextCurrentGame = function nextCurrentGame() {
+        const totalGames = gameData.length;
+        if (gameSerial === totalGames - 1) setGameSerial(0);
+        else { setGameSerial(gameSerial + 1); }
+    };
+
+    const prevCurrentGame = function prevCurrentGame() {
+        if (gameSerial === 0) setGameSerial(9);
+        else { setGameSerial(gameSerial - 1); }
     };
 
     useEffect(() => {
         fetchGameData();
-        setCurrentGame(recommendedGame[4]);
-        // console.log(" i dnt care");
-        // console.log(recommendedGame[4]);
-        // console.log(currentGame);
+        console.log(gameData);
     }, []);
 
     return (
         <div className='recommendation'>
 
-            <button type='button'>Prev</button>
+            <button type='button'
+                className='prev-btn'
+                onClick={prevCurrentGame}
+            >
+                <HiOutlineChevronLeft size={50} className="prev-icon" />
+            </button>
 
-            <button type='button'>Next</button>
+            {gameData && <RecommendationCard
+                key={gameData[gameSerial].id}
+                game={gameData[gameSerial]}
+            />
+            }
 
-            {/* <RecommendationCard
-                key={currentGame.id}
-                game={currentGame}
-            /> */}
-
-            {/* {recommendedGame.map((game) => <RecommendationCard
-                key={game.id}
-                game={game}
-            />)} */}
+            <button type='button'
+                className='next-btn'
+                onClick={nextCurrentGame}
+            >
+                <HiOutlineChevronRight size={50} className="next-icon" />
+            </button>
 
         </div>
     );

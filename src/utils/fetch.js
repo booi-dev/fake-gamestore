@@ -30,7 +30,7 @@ async function fetchData(endpoint, queryParams) {
     await axios.get(url)
         .then((res) => {
             data = res.data.results;
-            console.log(res.data.results);
+            // console.log(res.data.results);
         })
         .catch((err) => {
             console.log(err);

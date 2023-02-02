@@ -1,2 +1,59 @@
+@use "../../sass/index" as *;
+
 .recommendation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+.next-btn,
+.prev-btn {
+  padding: 2em 0;
+  border-radius: $border-radius-2;
+}
+
+.prev-btn {
+  right: -2em;
+  background-image: linear-gradient(
+    to right,
+    $primary-clr-dark,
+    $primary-clr-2
+  );
+  &:hover {
+    color: $accent-clr;
+    background-image: linear-gradient(
+      to right,
+      $primary-clr-3,
+      $primary-clr-dark
+    );
+  }
+}
+
+.next-btn {
+  left: -2em;
+  background-image: linear-gradient(
+    to right,
+    $primary-clr-2,
+    $primary-clr-dark
+  );
+  &:hover {
+    color: $accent-clr;
+    background-image: linear-gradient(
+      to right,
+      $primary-clr-dark,
+      $primary-clr-3
+    );
+  }
+}
+
+.prev-icon,
+.next-icon {
+  padding: 0;
+  width: 30px;
+  scale: 1.5;
 }

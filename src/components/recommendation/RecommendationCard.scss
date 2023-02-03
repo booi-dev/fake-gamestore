@@ -2,6 +2,7 @@
 
 .recommendation-card {
   display: flex;
+  position: relative;
   width: 100%;
   height: 100%;
   max-width: $app-width;
@@ -87,15 +88,15 @@
   .recommendation-card_bg-img {
     width: 100%;
   }
-
   .recommendation-card_game-details {
     position: absolute;
-    bottom: 0;
+    bottom: 0.5em;
+    margin: revert;
+    width: 100%;
     background-color: $primary-clr-trans;
-    border-radius: $border-radius-2;
+    border-radius: $border-radius-1;
     padding: 0.5em 1em;
   }
-
   .rg-game-title {
     margin-block-end: 0.2em;
   }

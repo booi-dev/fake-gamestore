@@ -25,7 +25,7 @@
 .store-header__search {
   display: flex;
   justify-content: space-between;
-  width: 230px;
+  width: 250px;
   transition: width 1s ease;
 }
 
@@ -37,9 +37,6 @@
     flex-direction: column-reverse;
     align-items: revert;
   }
-  .store-header__search {
-    width: 70%;
-  }
   .store-header__panel__tabs {
     flex-wrap: wrap;
     gap: 0.5em 1.5em;
@@ -49,5 +46,8 @@
 @media (max-width: 500px) {
   .store-header__search {
     width: 100%;
+  }
+  .store-header__panel {
+    align-items: center;
   }
 }

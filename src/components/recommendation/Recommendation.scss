@@ -1,8 +1,6 @@
 @use "../../sass/index" as *;
 
 .recommendation_title {
-  font-size: $font-sm;
-  font-weight: 300;
   max-width: $app-width;
   margin: auto;
   margin-block: 1em;
@@ -10,6 +8,8 @@
 }
 
 .recommendation_title h1 {
+  font-size: $font-sm;
+  font-weight: 300;
   padding: 0;
 }
 
@@ -71,7 +71,9 @@ button {
 .next-icon {
   padding: 0;
   width: 30px;
+  height: 50px;
   scale: 1.5;
+  transition: width 1s ease, height 1s ease;
 }
 
 .recommendation_carousel-thumbs {
@@ -84,11 +86,21 @@ button {
   .recommendation_container {
     justify-content: space-between;
   }
-
   .next-btn,
   .prev-btn {
     background-image: revert;
-    background-color: $primary-clr-2;
-    opacity: 0.4;
+    background-color: $primary-clr-trans;
+  }
+}
+
+@media (max-width: 500px) {
+  .recommendation_title {
+    display: flex;
+    justify-content: center;
+  }
+  .prev-icon,
+  .next-icon {
+    width: 25px;
+    height: 25px;
   }
 }

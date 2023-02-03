@@ -39,15 +39,15 @@ function Recommendation() {
 
     return (
         <>
-            <div>
-                <h1 className="recommendation_title">FEATURED & RECOMMENDED</h1>
+            <div className="recommendation_title">
+                <h1>FEATURED & RECOMMENDED</h1>
             </div>
             <div className='recommendation_container'>
                 <button type='button'
                     className='prev-btn'
                     onClick={prevCurrentGame}
                 >
-                    <HiOutlineChevronLeft size={50} className="prev-icon" />
+                    <HiOutlineChevronLeft className="prev-icon" />
                 </button>
                 {gameData && <RecommendationCard
                     key={gameData[gameSerial].id}
@@ -58,7 +58,7 @@ function Recommendation() {
                     className='next-btn'
                     onClick={nextCurrentGame}
                 >
-                    <HiOutlineChevronRight size={50} className="next-icon" />
+                    <HiOutlineChevronRight className="next-icon" />
                 </button>
             </div>
             <div className='recommendation_carousel-thumbs'>

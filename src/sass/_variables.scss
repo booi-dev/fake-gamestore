@@ -5,6 +5,7 @@ $app-padding-xs: 0.5em;
 $header-height: 100px;
 $footer-height: 100px;
 $hero-height: 55vh;
+$hero-height-mobile: 40vh;
 
 $border-radius-1: 2px;
 $border-radius-2: 4px;
@@ -14,7 +15,7 @@ $border-radius-5: 10px;
 
 $primary-clr: #1b2e40;
 $primary-clr-2: #003d5c;
-$primary-clr-3: hsl(200, 81%, 45%);
+$primary-clr-3: hsla(200, 80%, 35%, 0.753);
 $primary-clr-trans: #1b2e40b7;
 $primary-clr-trans-2: #202e3cb7;
 $primary-clr-dark: hsl(200, 70%, 10%);

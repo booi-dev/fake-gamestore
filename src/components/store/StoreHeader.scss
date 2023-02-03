@@ -3,7 +3,7 @@
 .store-header {
   translate: 0 30px;
   max-width: $app-width;
-  border-radius: 2px;
+  border-radius: $border-radius-1;
   margin: auto;
 }
 
@@ -13,6 +13,7 @@
   align-items: center;
   padding: 0.5em;
   background-color: $primary-clr-trans;
+  border-radius: $border-radius-1;
 }
 
 .store-header__panel__tabs {

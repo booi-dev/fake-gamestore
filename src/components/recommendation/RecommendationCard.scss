@@ -2,16 +2,18 @@
 
 .recommendation-card {
   display: flex;
-  //   justify-content: space-between;
   width: 100%;
   height: 100%;
   max-width: $app-width;
   background-color: $primary-clr-dark;
+  border-radius: $border-radius-1;
+  box-shadow: 0 0 5px #050532;
 }
 
 .recommendation-card_bg-img {
   width: 580px;
   object-fit: cover;
+  border-radius: $border-radius-1;
   transition: width 1s ease;
 }
 
@@ -26,7 +28,7 @@
 .rg-game-title {
   font-size: $font-xxl;
   font-weight: 300;
-  margin-block-end: 0.8em;
+  margin-block-end: 0.4em;
 }
 
 .rg-released-date {
@@ -50,9 +52,7 @@
 }
 
 .rg-genres {
-  background-color: $primary-clr;
-  margin-inline-end: 4px;
-  padding-inline: 4px;
+  padding-inline-end: 4px;
 }
 
 @media (max-width: 950px) {

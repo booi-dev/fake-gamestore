@@ -14,6 +14,7 @@
   width: 100%;
   height: $hero-height;
   object-fit: cover;
+  transition: height 1s ease;
 }
 
 .store-hero__bg-img {
@@ -24,4 +25,10 @@
   object-fit: cover;
   z-index: -1;
   //   display: none;
+}
+
+@media (max-width: 500px) {
+  .store-hero__container {
+    height: $hero-height-mobile;
+  }
 }

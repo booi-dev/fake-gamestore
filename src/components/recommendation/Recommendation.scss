@@ -1,6 +1,6 @@
 @use "../../sass/index" as *;
 
-.recommendation-title {
+.recommendation_title {
   font-size: $font-sm;
   font-weight: 300;
   max-width: $app-width;
@@ -9,11 +9,11 @@
   padding-inline: $app-padding-xs;
 }
 
-.recommendation-title h1 {
+.recommendation_title h1 {
   padding: 0;
 }
 
-.recommendation-container {
+.recommendation_container {
   display: flex;
   gap: 2px;
   align-items: center;
@@ -75,7 +75,7 @@ button {
 }
 
 @media (max-width: 950px) {
-  .recommendation-container {
+  .recommendation_container {
     justify-content: space-between;
   }
 

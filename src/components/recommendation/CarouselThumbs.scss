@@ -1,0 +1,19 @@
+@use "../../sass/index" as *;
+
+.recommendation_carousel-thumbs {
+  display: flex;
+  justify-content: center;
+  margin-block: 0.5em;
+}
+
+.carousel-thumbs_thumb {
+  width: 25px;
+  height: 13px;
+  background-color: $primary-clr-3;
+  margin-inline: 2px;
+  border-radius: $border-radius-1;
+}
+
+.carousel-thumbs_thumb.active {
+  background-color: $primary-clr-light;
+}

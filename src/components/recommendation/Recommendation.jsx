@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import fetchData, { createQuery } from '../../utils/fetch';
 import RecommendationCard from './RecommendationCard';
+import CarouselThumbs from './CarouselThumbs';
 import './Recommendation.scss';
 
 function Recommendation() {
@@ -9,14 +10,12 @@ function Recommendation() {
     const [gameData, setGameData] = useState();
     const [gameSerial, setGameSerial] = useState(0);
 
-    const fetchGameData = async function fetchGameDataFromApi() {
+    const fetchGameData = useCallback(async () => {
         const newPageSizeQuery = createQuery('page_size', 10);
         const data = await fetchData('games', newPageSizeQuery);
         setGameData(data);
         setGameSerial(Math.floor(data.length / 2));
-
-        // setCurrentGame(data[Math.floor(data.length / 2)]);
-    };
+    }, []);
 
     const nextCurrentGame = function nextCurrentGame() {
         const totalGames = gameData.length;
@@ -36,10 +35,10 @@ function Recommendation() {
 
     return (
         <>
-            <div className='recommendation-title'>
-                <h1 className="recommendation-title">FEATURED & RECOMMENDED</h1>
+            <div>
+                <h1 className="recommendation_title">FEATURED & RECOMMENDED</h1>
             </div>
-            <div className='recommendation-container'>
+            <div className='recommendation_container'>
                 <button type='button'
                     className='prev-btn'
                     onClick={prevCurrentGame}
@@ -58,7 +57,14 @@ function Recommendation() {
                     <HiOutlineChevronRight size={50} className="next-icon" />
                 </button>
             </div>
-
+            <div className='recommendation_carousel-thumbs'>
+                {gameData && gameData.map((game, index) => <CarouselThumbs
+                    key={game.id}
+                    // game={game}
+                    serial={index}
+                    activeSerial={gameSerial}
+                />)}
+            </div>
         </>
     );
 }

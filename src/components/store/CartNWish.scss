@@ -35,8 +35,9 @@
 @media (max-width: 740px) {
   .cart-status {
     flex-direction: column;
-    gap: 0.2em;
+    justify-content: space-between;
+    gap: revert;
     margin-block-end: revert;
-    inset: 0;
+    width: revert;
   }
 }

@@ -38,12 +38,13 @@
   }
   .store-header__panel {
     display: flex;
-    align-items: center;
     gap: 0.5em;
   }
   .store-header__panel__tabs-container {
     flex-direction: column-reverse;
     align-items: revert;
+    // gap: 2px;
+    justify-content: space-between;
     flex: 1;
   }
 

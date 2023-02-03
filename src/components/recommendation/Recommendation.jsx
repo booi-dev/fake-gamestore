@@ -28,6 +28,10 @@ function Recommendation() {
         else { setGameSerial(gameSerial - 1); }
     };
 
+    const updateCurrentGame = useCallback((serial) => {
+        setGameSerial(serial);
+    }, []);
+
     useEffect(() => {
         fetchGameData();
         console.log(gameData);
@@ -60,9 +64,9 @@ function Recommendation() {
             <div className='recommendation_carousel-thumbs'>
                 {gameData && gameData.map((game, index) => <CarouselThumbs
                     key={game.id}
-                    // game={game}
                     serial={index}
                     activeSerial={gameSerial}
+                    updateCurrentGame={updateCurrentGame}
                 />)}
             </div>
         </>

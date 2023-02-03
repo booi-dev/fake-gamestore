@@ -74,6 +74,12 @@ button {
   scale: 1.5;
 }
 
+.recommendation_carousel-thumbs {
+  display: flex;
+  justify-content: center;
+  margin-block: 0.5em;
+}
+
 @media (max-width: 950px) {
   .recommendation_container {
     justify-content: space-between;

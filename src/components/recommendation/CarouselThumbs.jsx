@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './CarouselThumbs.scss';
 
 function CarouselThumbs(props) {
-    const { serial, activeSerial } = props;
+    const { serial, activeSerial, updateCurrentGame } = props;
     const [activeClass, setActiveClass] = useState('');
 
     useEffect(() => {
@@ -12,7 +12,11 @@ function CarouselThumbs(props) {
     }, [activeSerial]);
 
     return (
-        <span className={`carousel-thumbs_thumb ${activeClass}`} />
+        <button type='button'
+            aria-label='button'
+            className={`carousel-thumbs_thumb ${activeClass}`}
+            onClick={() => updateCurrentGame(serial)}
+        />
     );
 }
 
@@ -20,6 +24,7 @@ CarouselThumbs.propTypes = {
     // game: PropTypes.func.isRequired,
     serial: PropTypes.number.isRequired,
     activeSerial: PropTypes.number.isRequired,
+    updateCurrentGame: PropTypes.func.isRequired,
 };
 
 export default CarouselThumbs;

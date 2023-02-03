@@ -9,12 +9,16 @@ function Recommendation() {
 
     const [gameData, setGameData] = useState();
     const [gameSerial, setGameSerial] = useState(0);
+    const [gameTotal, setGameTotal] = useState(0);
 
     const fetchGameData = useCallback(async () => {
         const newPageSizeQuery = createQuery('page_size', 10);
         const data = await fetchData('games', newPageSizeQuery);
-        setGameData(data);
-        setGameSerial(Math.floor(data.length / 2));
+        if (data !== 'ERR_NETWORK') {
+            setGameData(data);
+            setGameSerial(Math.floor(data.length / 2));
+            setGameTotal(data.length);
+        }
     }, []);
 
     const nextCurrentGame = function nextCurrentGame() {
@@ -24,7 +28,8 @@ function Recommendation() {
     };
 
     const prevCurrentGame = function prevCurrentGame() {
-        if (gameSerial === 0) setGameSerial(9);
+        const totalGames = gameData.length;
+        if (gameSerial === 0) setGameSerial(totalGames - 1);
         else { setGameSerial(gameSerial - 1); }
     };
 
@@ -32,10 +37,27 @@ function Recommendation() {
         setGameSerial(serial);
     }, []);
 
+    const autoUpdateCurrentGame = function updateSelfCurrentGame() {
+        setGameSerial(serial => {
+            if (serial === gameTotal - 1) return serial - (gameTotal - 1);
+            return serial + 1;
+        });
+    };
+
     useEffect(() => {
         fetchGameData();
-        console.log(gameData);
     }, []);
+
+
+    useEffect(() => {
+        let intervalId;
+        if (gameTotal > 0) {
+            intervalId = setInterval(() => {
+                autoUpdateCurrentGame();
+            }, 8000);
+        }
+        return () => clearInterval(intervalId);
+    }, [gameTotal]);
 
     return (
         <>

@@ -6,13 +6,13 @@ function RecommendationCard(props) {
 
     return (
         <div className="recommendation-card" >
-            <img src={game?.background_image} alt={`${game.name} bg img`}
+            <img src={game?.background_image} alt={`${game?.name} bg img`}
                 className="recommendation-card_bg-img"
             />
             <div className="recommendation-card_game-details">
                 <h2 className="rg-game-title">{game?.name} </h2>
                 <div className="rg-sreenshots-container">
-                    {game?.short_screenshots.slice(0, 4).map(sss => <img src={sss.image} alt={`${game.name} screenshot`} key={sss.id} className="rg-screenshots" />)}
+                    {game?.short_screenshots.slice(0, 4).map(sss => <img src={sss.image} alt={`${game?.name} screenshot`} key={sss.id} className="rg-screenshots" />)}
                 </div>
                 <div>
                     {game?.genres.slice(0, 4).map(genre => <span key={genre.id}
@@ -27,8 +27,14 @@ function RecommendationCard(props) {
     );
 }
 
+
+
 RecommendationCard.propTypes = {
-    game: PropTypes.instanceOf(Object).isRequired,
+    game: PropTypes.instanceOf(Object),
+};
+
+RecommendationCard.defaultProps = {
+    game: {},
 };
 
 export default RecommendationCard;

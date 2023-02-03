@@ -25,7 +25,7 @@ const createCompleteURL = function createCompleteApiURL(endpoint, queryParams) {
 
 async function fetchData(endpoint, queryParams) {
     const url = createCompleteURL(endpoint, queryParams);
-    console.log(url);
+    // console.log(url);
     let data;
     await axios.get(url)
         .then((res) => {

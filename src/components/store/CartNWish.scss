@@ -1,6 +1,6 @@
 @use "../../sass/index" as *;
 
-.store-header__cart-status {
+.cart-status {
   display: flex;
   gap: 0.5em;
   width: min-content;
@@ -8,28 +8,35 @@
   margin-block-end: 0.5em;
 }
 
-.store-header__cart-status__cart {
+.cart-status__cart {
   min-width: 4em;
   text-align: center;
   background-color: $accent-clr;
+}
+
+.cart-status__wishlist {
+  min-width: 4em;
+  background-color: $primary-clr-3;
+  // color: invert($color: $font-clr);
+  padding-inline: 0.5em;
+  font-size: $font-xxs;
+  text-align: center;
+}
+
+.cart-status__cart,
+.cart-status__wishlist {
+  border-radius: $border-radius-1;
 }
 
 .cart-icon {
   translate: 0 4px;
 }
 
-.store-header__cart-status__wishlist {
-  min-width: 4em;
-  background-color: $primary-clr-light;
-  color: invert($color: $font-clr);
-  padding-inline: 0.5em;
-  font-size: $font-xs;
-}
-
 @media (max-width: 740px) {
-  .store-header__cart-status {
+  .cart-status {
     flex-direction: column;
-    // position: absolute;
+    gap: 0.2em;
+    margin-block-end: revert;
     inset: 0;
   }
 }

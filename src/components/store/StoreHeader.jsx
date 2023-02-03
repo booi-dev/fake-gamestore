@@ -11,14 +11,17 @@ function StoreHeader() {
         <div className='store-header'>
             {winWidth > 740 && <CartNWish />}
             <div className='store-header__panel'>
-                <div className='store-header__panel__tabs'>
-                    <div> News </div>
-                    <div> Categories </div>
-                    <div> Lab</div>
+                <div className='store-header__panel__tabs-container'>
+                    <div className='store-header__panel__tabs'>
+                        <div> News </div>
+                        <div> Categories </div>
+                        <div> Lab</div>
+                    </div>
+                    <div className='store-header__search'>
+                        <Search />
+                    </div>
                 </div>
-                <div className='store-header__search'>
-                    <Search />
-                </div>
+                {winWidth < 740 && <CartNWish />}
             </div>
         </div>
     );

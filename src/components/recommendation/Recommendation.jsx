@@ -48,16 +48,15 @@ function Recommendation() {
         fetchGameData();
     }, []);
 
-
-    useEffect(() => {
-        let intervalId;
-        if (gameTotal > 0) {
-            intervalId = setInterval(() => {
-                autoUpdateCurrentGame();
-            }, 8000);
-        }
-        return () => clearInterval(intervalId);
-    }, [gameTotal]);
+    // useEffect(() => {
+    //     let intervalId;
+    //     if (gameTotal > 0) {
+    //         intervalId = setInterval(() => {
+    //             autoUpdateCurrentGame();
+    //         }, 10000);
+    //     }
+    //     return () => clearInterval(intervalId);
+    // }, [gameTotal]);
 
     return (
         <>
@@ -71,11 +70,12 @@ function Recommendation() {
                 >
                     <HiOutlineChevronLeft className="prev-icon" />
                 </button>
-                {gameData && <RecommendationCard
-                    key={gameData[gameSerial].id}
-                    game={gameData[gameSerial]}
-                />
-                }
+                <div className="recommendation_card-container" >
+                    {gameData && <RecommendationCard
+                        key={gameData[gameSerial].id}
+                        game={gameData[gameSerial]}
+                    />}
+                </div>
                 <button type='button'
                     className='next-btn'
                     onClick={nextCurrentGame}

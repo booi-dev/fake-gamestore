@@ -5,7 +5,7 @@ function RecommendationCard(props) {
     const { game } = props;
 
     return (
-        <div className="recommendation-card" >
+        <>
             <img src={game?.background_image} alt={`${game?.name} bg img`}
                 className="recommendation-card_bg-img"
             />
@@ -23,7 +23,7 @@ function RecommendationCard(props) {
                 <h3 className="rg-released-date">released on: {game?.released} </h3>
             </div>
 
-        </div>
+        </>
     );
 }
 

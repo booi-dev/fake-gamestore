@@ -12,7 +12,7 @@ function Recommendation() {
     const [gameTotal, setGameTotal] = useState(0);
 
     const fetchGameData = useCallback(async () => {
-        const newPageSizeQuery = createQuery('page_size', 10);
+        const newPageSizeQuery = createQuery('page_size', 12);
         const data = await fetchData('games', newPageSizeQuery);
         if (data !== 'ERR_NETWORK') {
             setGameData(data);

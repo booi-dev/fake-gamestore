@@ -44,7 +44,6 @@
 .store-header__search {
   display: flex;
   justify-content: space-between;
-  // padding: 0.5em;
   width: 300px;
   transition: width 1s ease;
 }
@@ -55,8 +54,8 @@
   }
   .store-header__panel {
     display: flex;
-    gap: 0.5em;
-    padding: 0.5em;
+    gap: 0.25em;
+    padding: 0.25em;
   }
   .store-header__panel__tabs-container {
     flex-direction: column-reverse;

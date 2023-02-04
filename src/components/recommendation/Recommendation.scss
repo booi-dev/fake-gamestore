@@ -100,4 +100,8 @@ button {
     width: 20px;
     height: 20px;
   }
+  .prev-btn,
+  .next-btn {
+    translate: 0 -10px;
+  }
 }

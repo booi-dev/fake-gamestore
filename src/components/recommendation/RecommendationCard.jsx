@@ -19,7 +19,7 @@ function RecommendationCard(props) {
                         className="rg-genres"
                     >{genre.name}</span>)}
                 </div>
-
+                <div> $ {game?.price} </div>
                 <h3 className="rg-released-date">released on: {game?.released} </h3>
             </div>
 

@@ -18,7 +18,7 @@
   min-width: 4em;
   background-color: $primary-clr-3;
   // color: invert($color: $font-clr);
-  padding-inline: 0.5em;
+  padding-inline: 0.8em;
   font-size: $font-xxs;
   text-align: center;
 }
@@ -26,7 +26,7 @@
 .cart-status__cart,
 .cart-status__wishlist {
   border-radius: $border-radius-1;
-  padding: 0.1em 0;
+  padding-block: 0.2em;
 }
 
 .cart-icon {
@@ -40,5 +40,27 @@
     gap: revert;
     margin-block-end: revert;
     width: revert;
+  }
+
+  // .cart-status__cart {
+  //   background-color: revert;
+  //   background-image: linear-gradient(to right, $accent-clr, $transperant-clr);
+  // }
+
+  .cart-status__wishlist {
+    background-color: revert;
+    padding-block: 0.5em;
+    background-image: linear-gradient(
+      to right,
+      $primary-clr-trans,
+      $transperant-clr
+    );
+    &:hover {
+      background-image: linear-gradient(
+        to right,
+        $primary-clr-3,
+        $transperant-clr
+      );
+    }
   }
 }

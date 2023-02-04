@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import { createEndpoint, createQuery, createMultiQuery, createCompleteURL } from '../fetch';
+import { createEndpoint, createQuery, createMultiQuery } from '../fetch';
 
 describe('testing fetch utility', () => {
 
@@ -15,12 +15,6 @@ describe('testing fetch utility', () => {
         const firstQuery = createQuery('search', 'hollow knight');
         const secondQuery = createQuery('genre', 'indie');
         expect(createMultiQuery([firstQuery, secondQuery])).toBe('search=hollow knight&genre=indie');
-    });
-
-    it('should create full URL', () => {
-        const endPoint = createEndpoint("games");
-        const query = createQuery('search', 'halo');
-        expect(createCompleteURL(endPoint, query)).toBe('https://api.rawg.io/api/games?search=halo&key=ed4007e9ce974a66b5aaae4f47858eff');
     });
 
     // mock less test. not good.

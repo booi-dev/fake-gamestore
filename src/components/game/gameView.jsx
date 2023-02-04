@@ -1,13 +1,21 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-// import fetchData, { createEndpoint } from '../../utils/fetch';
+import { fetchDatum, createEndpoint } from '../../utils/fetch';
 
 function GameView() {
 
     const { gameId } = useParams();
 
-    // const newEndpoint = createEndpoint(`games${gameId}`);
-    console.log(gameId);
+    const [game, setGame] = useState({});
+
+    const fetchGameData = async function sdfhfsdk() {
+        const data = await fetchDatum(gameId);
+        setGame(data);
+    };
+
+    useEffect(() => {
+        fetchGameData();
+    }, []);
 
     return (
         <div> King {gameId}</div>

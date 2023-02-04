@@ -10,12 +10,13 @@ function RecommendationCard(props) {
             <div className='recommendation-card_bg-img'>
                 <Link to={`/game/${game?.id}`}>
                     <img src={game?.background_image} alt={`${game?.name} bg img`}
-                    // className="recommendation-card_bg-img"
                     />
                 </Link>
             </div>
             <div className="recommendation-card_game-details">
-                <h2 className="rg-game-title">{game?.name} </h2>
+                <Link to={`/game/${game?.id}`}>
+                    <h2 className="rg-game-title">{game?.name} </h2>
+                </Link>
                 <div className="rg-sreenshots-container">
                     {game?.short_screenshots.slice(0, 4).map(sss => <img src={sss.image} alt={`${game?.name} screenshot`} key={sss.id} className="rg-screenshots" />)}
                 </div>

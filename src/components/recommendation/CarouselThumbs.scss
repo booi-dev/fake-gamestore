@@ -9,6 +9,7 @@
   border-radius: $border-radius-1;
   &:hover {
     scale: 1.1;
+    background-color: darken($primary-clr-light, 10%);
   }
 }
 

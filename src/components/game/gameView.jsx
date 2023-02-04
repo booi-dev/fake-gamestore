@@ -1,9 +1,13 @@
 import React from 'react';
+import fetchData, { createEndpoint } from '../../utils/fetch';
 
-function gameView() {
+function GameView(gameId) {
+
+    const newEndpoint = createEndpoint(`games${gameId}`);
+
     return (
-        <div>gameView</div>
+        <div>{newEndpoint}</div>
     );
 }
 
-export default gameView;
+export default GameView;

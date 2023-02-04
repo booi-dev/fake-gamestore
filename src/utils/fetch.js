@@ -24,12 +24,12 @@ const createCompleteURL = function createCompleteApiURL(endpoint, queryParams) {
     return `${api.BASE_URL}${endpoint}?${queryParams}&key=${api.KEY}`;
 };
 
-// const addPrice = function addPriceToEachGame(gameArrays) {
-//     gameArrays.map(game => [{ ...game, price: setPrice(game) }]);
-// };
 
-async function fetchData(endpoint, queryParams) {
-    const url = createCompleteURL(endpoint, queryParams);
+const fetchData = async function fetchGameData(endpoint, queryParams) {
+    const url = queryParams
+        ? createCompleteURL(endpoint, queryParams)
+        : createCompleteURL(endpoint);
+    // createCompleteURL(endpoint, queryParams);
     console.log(url);
     let data;
     await axios.get(url)
@@ -43,7 +43,7 @@ async function fetchData(endpoint, queryParams) {
             data = err.code;
         });
     return data;
-}
+};
 
 export default fetchData;
 

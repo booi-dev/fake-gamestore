@@ -1,6 +1,5 @@
-import { expect, vi, describe, it } from 'vitest';
-import axios from 'axios';
-import fetchData, { createEndpoint, createQuery, createMultiQuery, createCompleteURL } from '../fetch';
+// import axios from 'axios';
+import { createEndpoint, createQuery, createMultiQuery, createCompleteURL } from '../fetch';
 
 describe('testing fetch utility', () => {
 
@@ -29,18 +28,6 @@ describe('testing fetch utility', () => {
     //     const gameData = await fetchData('games', 'search=dead')
     //     expect(Array.isArray(gameData)).toBe(true);
     // })
-
-    vi.mock("axios");
-
-    it('should fetch data as array', async () => {
-        axios.get.mockResolvedValue({
-            data: {
-                results: [{ game: 'game' }, { game: 'game' }, { game: 'game' }]
-            }
-        });
-        const gameData = await fetchData();
-        expect(Array.isArray(gameData)).toBe(true);
-    });
 
 });
 

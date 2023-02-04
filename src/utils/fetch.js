@@ -1,4 +1,5 @@
 import axios from "axios";
+import setPrice from './setPrice';
 
 // https://api.rawg.io/api/games?page_size=5&genre%20=%20action
 
@@ -23,14 +24,19 @@ const createCompleteURL = function createCompleteApiURL(endpoint, queryParams) {
     return `${api.BASE_URL}${endpoint}?${queryParams}&key=${api.KEY}`;
 };
 
+// const addPrice = function addPriceToEachGame(gameArrays) {
+//     gameArrays.map(game => [{ ...game, price: setPrice(game) }]);
+// };
+
 async function fetchData(endpoint, queryParams) {
     const url = createCompleteURL(endpoint, queryParams);
-    // console.log(url);
+    console.log(url);
     let data;
     await axios.get(url)
         .then((res) => {
-            data = res.data.results;
-            console.log(res.data.results);
+            const result = res.data.results;
+            data = result.map(game => ({ ...game, price: setPrice(game) }));
+            console.log(data);
         })
         .catch((err) => {
             console.log(err);

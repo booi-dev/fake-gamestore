@@ -1,9 +1,14 @@
 @use "../../sass/index" as *;
 
-.recommendation-card_bg-img {
-  width: 580px;
+img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: $border-radius-1;
+}
+
+.recommendation-card_bg-img {
+  width: 580px;
   transition: width 1s ease;
 }
 
@@ -46,11 +51,6 @@
 }
 
 @media (max-width: 950px) {
-  .recommendation-card_bg-img {
-    width: 550px;
-    object-fit: cover;
-  }
-
   .rg-sreenshots-container {
     opacity: 0;
     max-height: 0;
@@ -64,8 +64,8 @@
 }
 
 @media (max-width: 740px) {
-  .recommendation-card_bg-img {
-    width: 70%;
+  .recommendation-card_game-details {
+    width: 40%;
   }
 }
 

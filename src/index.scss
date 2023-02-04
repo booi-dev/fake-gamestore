@@ -6,6 +6,14 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 :root {
   /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
   font-family: "Roboto", sans-serif;

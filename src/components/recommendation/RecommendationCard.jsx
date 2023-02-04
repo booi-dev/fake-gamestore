@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { PropTypes } from "prop-types";
 import './RecommendationCard.scss';
 
@@ -6,9 +7,13 @@ function RecommendationCard(props) {
 
     return (
         <>
-            <img src={game?.background_image} alt={`${game?.name} bg img`}
-                className="recommendation-card_bg-img"
-            />
+            <div className='recommendation-card_bg-img'>
+                <Link to={`/game/${game?.id}`}>
+                    <img src={game?.background_image} alt={`${game?.name} bg img`}
+                    // className="recommendation-card_bg-img"
+                    />
+                </Link>
+            </div>
             <div className="recommendation-card_game-details">
                 <h2 className="rg-game-title">{game?.name} </h2>
                 <div className="rg-sreenshots-container">

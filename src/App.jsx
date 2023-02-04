@@ -22,7 +22,8 @@ function App() {
         <Route path='/library' element={<Library />} />
         <Route path='/community' element={<Community />} />
         <Route path='/support' element={<Support />} />
-        <Route path='/News' element={<News />} />
+        <Route path='/news' element={<News />} />
+        <Route path='/game/:gameId' element={<GameView />} />
       </Routes>
       <Footer />
     </>

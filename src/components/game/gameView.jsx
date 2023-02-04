@@ -1,12 +1,16 @@
 import React from 'react';
-import fetchData, { createEndpoint } from '../../utils/fetch';
+import { useParams } from 'react-router-dom';
+// import fetchData, { createEndpoint } from '../../utils/fetch';
 
-function GameView(gameId) {
+function GameView() {
 
-    const newEndpoint = createEndpoint(`games${gameId}`);
+    const { gameId } = useParams();
+
+    // const newEndpoint = createEndpoint(`games${gameId}`);
+    console.log(gameId);
 
     return (
-        <div>{newEndpoint}</div>
+        <div> King {gameId}</div>
     );
 }
 

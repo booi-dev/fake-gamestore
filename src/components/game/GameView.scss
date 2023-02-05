@@ -1,0 +1,64 @@
+@use "../../sass/index" as *;
+
+.game-view {
+  width: $app-width;
+  margin: auto;
+  background-image: linear-gradient(
+    to right,
+    $transperant-clr 70%,
+    $primary-clr-dark
+  );
+}
+
+.game-view__img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+.game-view__info-container {
+  display: grid;
+  grid-template-columns: 3fr 1.5fr;
+  gap: 1em;
+}
+
+.game-view__info {
+  position: relative;
+}
+
+.game-view__img-2 {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: $border-radius-1;
+}
+
+.game-view__info__short-desc,
+.game-view__info__full-desc {
+  font-size: $font-xs;
+  line-height: $font-height;
+}
+
+.game-view__info__full-desc.hidden {
+  display: none;
+}
+
+.game-view__info__full-desc.show {
+  display: block;
+  position: absolute;
+  inset: 0;
+  line-height: $font-height-3;
+  background-color: $primary-clr-4;
+  color: black;
+  overflow-y: scroll;
+  padding: 1em;
+  border-radius: $border-radius-1;
+}
+
+.game-view__info__full-desc.show::-webkit-scrollbar {
+  width: 0.2em;
+}
+
+.game-view__info__full-desc.show::-webkit-scrollbar-thumb {
+  background-color: $accent-clr;
+}

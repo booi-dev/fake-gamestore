@@ -1,14 +1,14 @@
 @use "../../sass/index" as *;
 
 .store-header {
-  translate: 0 30px;
   max-width: $app-width;
   border-radius: $border-radius-1;
   margin: auto;
+  padding: 0.5em 0;
 }
 
 .store-header__panel {
-  background-color: $primary-clr-trans;
+  background-color: $primary-clr-2;
   border-radius: $border-radius-1;
   padding: 0 0.5em;
 }
@@ -49,14 +49,12 @@
 }
 
 @media (max-width: 740px) {
-  .store-header {
-    translate: 0 20px;
-  }
   .store-header__panel {
     display: flex;
     gap: 0.25em;
     padding: 0.25em;
   }
+
   .store-header__panel__tabs-container {
     flex-direction: column-reverse;
     align-items: revert;

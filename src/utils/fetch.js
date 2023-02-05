@@ -26,8 +26,9 @@ const fetchDatum = async function fetchAGameDatum(gameId) {
     let data;
     await axios.get(url)
         .then((res) => {
-            console.log(res.data);
-            data = res.data;
+            const result = res.data;
+            data = ({ ...result, price: setPrice(result) });
+            console.log(data);
         })
         .catch((err) => {
             console.log(err);

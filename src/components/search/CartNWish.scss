@@ -27,6 +27,7 @@
 .cart-status__wishlist {
   border-radius: $border-radius-1;
   padding-block: 0.2em;
+  cursor: pointer;
 }
 
 .cart-icon {
@@ -42,25 +43,9 @@
     width: revert;
   }
 
-  // .cart-status__cart {
-  //   background-color: revert;
-  //   background-image: linear-gradient(to right, $accent-clr, $transperant-clr);
-  // }
-
   .cart-status__wishlist {
     background-color: revert;
     padding-block: 0.5em;
-    background-image: linear-gradient(
-      to right,
-      $primary-clr-trans,
-      $transperant-clr
-    );
-    &:hover {
-      background-image: linear-gradient(
-        to right,
-        $primary-clr-3,
-        $transperant-clr
-      );
-    }
+    background-color: $primary-clr-3;
   }
 }

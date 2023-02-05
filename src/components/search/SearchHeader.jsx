@@ -1,9 +1,9 @@
 import Search from './Search';
 import CartNWish from './CartNWish';
 import useWinSize from '../../hooks/useWinSize';
-import './StoreHeader.scss';
+import './SearchHeader.scss';
 
-function StoreHeader() {
+function SearchHeader() {
 
     const winWidth = useWinSize();
 
@@ -27,4 +27,4 @@ function StoreHeader() {
     );
 }
 
-export default StoreHeader;
+export default SearchHeader;

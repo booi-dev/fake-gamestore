@@ -149,6 +149,7 @@
   margin: 0 0.5em;
   border-radius: $border-radius-2;
   translate: 0 80%;
+  min-width: max-content;
   height: min-content;
 }
 
@@ -159,7 +160,18 @@
 .game-view_add-to-cart_btn {
   padding: 0.5em 0.5em;
   border-radius: $border-radius-2;
-  background-color: hsl(85, 90%, 35%);
+  background-image: linear-gradient(
+    to right,
+    hsl(85, 90%, 35%),
+    hsl(85, 88%, 24%)
+  );
+  &:hover {
+    background-image: linear-gradient(
+      to right,
+      hsl(85, 90%, 38%),
+      hsl(85, 93%, 30%)
+    );
+  }
 }
 
 @media (max-width: 740px) {
@@ -181,11 +193,14 @@
     min-height: 180px;
     padding: 0.5 0em;
   }
+  .game-view__full-img {
+    height: 350px;
+  }
 }
 
 @media (max-width: 500px) {
   .game-view__full-img {
-    height: 300px;
+    height: 250px;
   }
 
   .game-view__info {

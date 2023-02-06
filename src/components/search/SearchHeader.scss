@@ -1,32 +1,32 @@
 @use "../../sass/index" as *;
 
-.store-header {
+.search-header {
   max-width: $app-width;
   border-radius: $border-radius-1;
   margin: auto;
-  padding: 0.5em 0;
+  padding: 0.5em;
 }
 
-.store-header__panel {
+.search-header__panel {
   background-color: $primary-clr-2;
   border-radius: $border-radius-1;
   padding: 0 0.5em;
 }
 
-.store-header__panel__tabs-container {
+.search-header__panel__tabs-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.store-header__panel__tabs {
+.search-header__panel__tabs {
   font-size: $font-xs;
   display: flex;
   height: 100%;
   gap: 2em;
 }
 
-.store-header__panel__tabs div {
+.search-header__panel__tabs div {
   height: 100%;
   padding: 0.5em;
   border-radius: $border-radius-1;
@@ -41,7 +41,7 @@
   }
 }
 
-.store-header__search {
+.search-header__search {
   display: flex;
   justify-content: space-between;
   width: 300px;
@@ -49,13 +49,13 @@
 }
 
 @media (max-width: 740px) {
-  .store-header__panel {
+  .search-header__panel {
     display: flex;
     gap: 0.25em;
     padding: 0.25em;
   }
 
-  .store-header__panel__tabs-container {
+  .search-header__panel__tabs-container {
     flex-direction: column-reverse;
     align-items: revert;
     justify-content: space-between;
@@ -63,14 +63,14 @@
     flex: 1;
   }
 
-  .store-header__panel__tabs {
+  .search-header__panel__tabs {
     flex-wrap: wrap;
     gap: 0.5em 1.5em;
   }
 }
 
 @media (max-width: 500px) {
-  .store-header__search {
+  .search-header__search {
     width: 100%;
   }
 }

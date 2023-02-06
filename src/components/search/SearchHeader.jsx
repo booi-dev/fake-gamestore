@@ -8,16 +8,16 @@ function SearchHeader() {
     const winWidth = useWinSize();
 
     return (
-        <div className='store-header'>
+        <div className='search-header'>
             {winWidth > 740 && <CartNWish />}
-            <div className='store-header__panel'>
-                <div className='store-header__panel__tabs-container'>
-                    <div className='store-header__panel__tabs'>
+            <div className='search-header__panel'>
+                <div className='search-header__panel__tabs-container'>
+                    <div className='search-header__panel__tabs'>
                         <div> News </div>
                         <div> Categories </div>
                         <div> Lab</div>
                     </div>
-                    <div className='store-header__search'>
+                    <div className='search-header__search'>
                         <Search />
                     </div>
                 </div>

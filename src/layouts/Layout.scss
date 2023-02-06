@@ -10,7 +10,6 @@ li {
 }
 
 .header {
-  padding-inline: $app-padding-xs;
   // height: $header-height;
   background: $primary-clr-dark;
 }
@@ -21,8 +20,9 @@ li {
   align-content: center;
   position: relative;
   max-width: $app-width;
-  padding-block: calc($header-height * 0.3);
   margin: auto;
+  padding-inline: $app-padding-xs;
+  padding-block: calc($header-height * 0.3);
 }
 
 .site-icon {
@@ -67,7 +67,8 @@ li {
   gap: 1em;
   position: absolute;
   inset: 0;
-  top: 0.5em;
+  top: $app-padding-xs;
+  right: $app-padding-xs;
   z-index: 0;
 }
 

@@ -86,6 +86,18 @@ function GameView() {
                         </div>
                     </div>
                 </div>
+                <div className='game-view_add-to-cart-container'>
+                    <h1 className='game-view_add-to-cart_title'>
+                        <span className='buy'> Buy </span>
+                        {game?.name}
+                    </h1>
+                    <div className='game-view_price-add-container'>
+                        <span className='game-view_add-to-cart_price'> ${game?.price}</span>
+                        <button type='button'
+                            className='game-view_add-to-cart_btn'
+                        >Add to Cart</button>
+                    </div>
+                </div>
             </div>
         </>
     );

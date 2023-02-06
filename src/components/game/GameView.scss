@@ -125,6 +125,43 @@
   margin: 0.2em 0;
 }
 
+.game-view_add-to-cart-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: $primary-clr-2;
+  margin-block: 1em 2em;
+  padding: 0.25em;
+  border-radius: $border-radius-1;
+}
+
+.game-view_add-to-cart_title {
+  font-size: $font-lg;
+  padding: 0.5em;
+}
+
+.game-view_add-to-cart_title .buy {
+  opacity: 0.6;
+}
+
+.game-view_price-add-container {
+  background-color: $primary-clr-dark;
+  padding: 0.2em 0.5em;
+  margin: 0 0.5em;
+  border-radius: $border-radius-2;
+  translate: 0 80%;
+  height: min-content;
+}
+
+.game-view_add-to-cart_price {
+  margin-right: 0.5em;
+}
+
+.game-view_add-to-cart_btn {
+  padding: 0.5em 0.5em;
+  border-radius: $border-radius-2;
+  background-color: hsl(85, 90%, 35%);
+}
+
 @media (max-width: 740px) {
   .game-view__info-container {
     display: flex;

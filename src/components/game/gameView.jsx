@@ -43,8 +43,8 @@ function GameView() {
                                 alt='game pic' />
 
                             <div className='game-view__info__released-date'>
-                                <span className='sub-title date'>RELEASED DATE:</span>
-                                <span className='res'> {game?.released}</span>
+                                <span className='sub-title date'>RELEASED:</span>
+                                <span className='res'> {game?.formattedReleasedDate}</span>
                             </div>
                         </div>
 

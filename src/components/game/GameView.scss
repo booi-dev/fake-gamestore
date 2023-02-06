@@ -88,7 +88,7 @@
 }
 
 .game-view__info__full-desc.show::-webkit-scrollbar-thumb {
-  background-color: $accent-clr;
+  background-color: $primary-clr-3;
 }
 
 .game-view__info__read-full-btn {
@@ -147,11 +147,14 @@
 }
 
 @media (max-width: 500px) {
+  .game-view__full-img {
+    height: 300px;
+  }
+
   .game-view__info {
     order: 1;
     display: grid;
     grid-template-columns: 1fr;
-    // grid-template-rows: 1fr;
     gap: 0.5em;
   }
 }

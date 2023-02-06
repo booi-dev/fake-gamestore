@@ -1,5 +1,6 @@
 import axios from "axios";
 import setPrice from './setPrice';
+import formatDate from "./formatDate";
 
 // https://api.rawg.io/api/games?page_size=5&genre%20=%20action
 
@@ -27,7 +28,11 @@ const fetchDatum = async function fetchAGameDatum(gameId) {
     await axios.get(url)
         .then((res) => {
             const result = res.data;
-            data = ({ ...result, price: setPrice(result) });
+            data = ({
+                ...result,
+                formattedReleasedDate: formatDate(result?.released),
+                price: setPrice(result)
+            });
             console.log(data);
         })
         .catch((err) => {
@@ -44,7 +49,11 @@ const fetchData = async function fetchGameData(endpoint, queryParams) {
     await axios.get(url)
         .then((res) => {
             const result = res.data.results;
-            data = result.map(game => ({ ...game, price: setPrice(game) }));
+            data = result.map(game => ({
+                ...game,
+                formattedReleasedDate: formatDate(game?.released),
+                price: setPrice(game)
+            }));
             console.log(data);
         })
         .catch((err) => {

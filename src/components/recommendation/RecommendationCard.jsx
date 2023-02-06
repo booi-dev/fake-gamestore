@@ -26,7 +26,7 @@ function RecommendationCard(props) {
                     >{genre.name}</span>)}
                 </div>
                 <div> $ {game?.price} </div>
-                <h3 className="rg-released-date">Released: {game?.released} </h3>
+                <h3 className="rg-released-date">Released Date: {game?.formattedReleasedDate} </h3>
             </div>
 
         </>

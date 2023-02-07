@@ -36,7 +36,7 @@ function Search() {
     });
 
     const handleInputOnBlur = useCallback(() => {
-        setSuggestionClass('hidden');
+        // setSuggestionClass('hidden');
     });
 
     return (

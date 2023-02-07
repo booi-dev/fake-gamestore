@@ -27,7 +27,7 @@ function GameView() {
 
     useEffect(() => {
         fetchGameData();
-    }, []);
+    }, [gameId]);
 
     const headerRef = useRef();
 
@@ -54,7 +54,6 @@ function GameView() {
         if (isAdded === 'added') handleRemoveFromCart();
         else handleAddToCart();
     };
-
 
     return (
         <>

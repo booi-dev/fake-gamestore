@@ -8,7 +8,7 @@ import './GameView.scss';
 function GameView() {
 
     // const { addToCart } = useCart();
-    const addToCart = useAddToCart();
+    const { addToCart, removeFromCart } = useAddToCart();
     // console.log(addToCart, cartContext);
 
     const { gameId } = useParams();
@@ -40,8 +40,8 @@ function GameView() {
         setIsAdded('added');
     };
 
-
     const handleRemoveFromCart = function handleRempveFromCart() {
+        removeFromCart(game?.id);
         setIsAdded('');
     };
 
@@ -49,8 +49,6 @@ function GameView() {
         if (isAdded === 'added') handleRemoveFromCart();
         else handleAddToCart();
     };
-
-
 
     return (
         <>

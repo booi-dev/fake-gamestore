@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, useCallback } from "react";
+import { useState, createContext, useContext, useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
 
 const CartContext = createContext();
@@ -11,19 +11,19 @@ export const useAddToCart = () => useContext(AddToCartContext);
 export function CartProvider({ children }) {
     const [inCart, setInCart] = useState([]);
 
-    const addToCart = useCallback((newGame) => {
-        setInCart((prevCart) => [...prevCart, newGame]);
-        console.log(newGame);
+    const addToCart = useCallback((gameToAdd) => {
+        setInCart((prevCart) => [...prevCart, gameToAdd]);
     }, [setInCart]);
 
-    // const removeFromCart = useCallback((newGame) => {
-    //     setInCart((prevCart) => [...prevCart, newGame]);
-    //     console.log(newGame);
-    // }, [setInCart]);
+    const removeFromCart = useCallback((gameToRemoveId) => {
+        setInCart((prevCart) => prevCart.filter(game => game.id !== gameToRemoveId));
+    }, [setInCart]);
+
+    const memoFuncs = useMemo(() => ({ addToCart, removeFromCart }), [addToCart, removeFromCart]);
 
     return (
         <CartContext.Provider value={inCart}>
-            <AddToCartContext.Provider value={addToCart}>
+            <AddToCartContext.Provider value={memoFuncs}>
                 {children}
             </AddToCartContext.Provider>
         </CartContext.Provider>

@@ -17,9 +17,13 @@
   padding: 0.5em 0;
 }
 
+.game-view__imgs {
+  height: 380px;
+}
+
 .game-view__full-img {
   width: 100%;
-  height: 380px;
+  height: 100%;
   object-fit: cover;
   border-radius: $border-radius-1;
 }
@@ -27,7 +31,7 @@
 .game-view__info-container {
   display: grid;
   grid-template-columns: 3fr 1.5fr;
-  gap: 1em;
+  gap: 0.5em;
 }
 
 .game-view__info {
@@ -127,6 +131,20 @@
   margin: 0.2em 0;
 }
 
+.game-view_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em;
+}
+
+.game-view_tags span {
+  font-size: $font-xs;
+  background-color: $primary-clr-3;
+  color: #e0e0e0;
+  border-radius: $border-radius-1;
+}
+
+// ADD TO CART
 .game-view_add-to-cart-container {
   display: flex;
   justify-content: space-between;
@@ -225,6 +243,10 @@
     gap: 0.5em;
   }
   .game-view__imgs {
+    order: 3;
+    height: 350px;
+  }
+  .game-view_tags {
     order: 2;
   }
   .game-view__info {
@@ -237,9 +259,6 @@
     height: 180px;
     padding: 0.5 0em;
   }
-  .game-view__full-img {
-    height: 350px;
-  }
 }
 
 @media (max-width: 500px) {
@@ -247,7 +266,7 @@
     background-image: linear-gradient($transperant-clr 70%, $primary-clr-dark);
   }
 
-  .game-view__full-img {
+  .game-view__imgs {
     height: 250px;
   }
 

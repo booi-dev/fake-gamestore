@@ -15,6 +15,8 @@ function GameView() {
     const [showFullDesc, setShowFullDesc] = useState('hidden');
     const [isAdded, setIsAdded] = useState('');
 
+    console.log(game);
+
     function cutWordCount(words, wordCount) {
         const newWords = words.slice(0, wordCount);
         return newWords;
@@ -108,10 +110,15 @@ function GameView() {
                             </div>
                         </div>
                     </div>
+                    <div className='game-view_tags'>
+                        {game?.tags.map((tag) => <span key={tag.id}>{tag.name}</span>)}
+                    </div>
                 </div>
                 <div className='game-view_add-to-cart-container'>
                     <h1 className='game-view_add-to-cart_title'>
-                        <span className='buy'> Buy </span>
+                        <span className='buy'>
+                            {Object.keys(game).length !== 0 && 'Buy '}
+                        </span>
                         {game?.name}
                     </h1>
 

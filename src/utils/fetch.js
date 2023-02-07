@@ -23,7 +23,7 @@ const createMultiQuery = function createOneQueryFromManyquery(arr) {
 
 const fetchDatum = async function fetchAGameDatum(gameId) {
     const url = `${api.BASE_URL}games/${gameId}?key=${api.KEY}`;
-    console.log(url);
+    // console.log(url);
     let data;
     await axios.get(url)
         .then((res) => {
@@ -33,7 +33,7 @@ const fetchDatum = async function fetchAGameDatum(gameId) {
                 formattedReleasedDate: formatDate(result?.released),
                 price: setPrice(result)
             });
-            console.log(data);
+            // console.log(data);
         })
         .catch((err) => {
             console.log(err);

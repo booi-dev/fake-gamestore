@@ -5,10 +5,11 @@
   margin: auto;
   background-image: linear-gradient(
     to right,
-    $transperant-clr 70%,
+    lighten($color: $primary-clr-dark, $amount: 4),
     $primary-clr-dark
   );
-  padding-inline: $app-padding-xs;
+
+  padding: $app-padding-xs;
 }
 
 .game-view_title {
@@ -44,7 +45,7 @@
 
 .game-view__poster {
   width: 100%;
-  min-height: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: $border-radius-1;
 }
@@ -129,7 +130,7 @@
   display: flex;
   justify-content: space-between;
   background-color: $primary-clr-2;
-  margin-block: 1em 2em;
+  margin-block: 0.5em 1em;
   padding: 0.25em;
   border-radius: $border-radius-1;
 }
@@ -190,7 +191,7 @@
     gap: 0.5em;
   }
   .game-view__poster {
-    min-height: 180px;
+    height: 180px;
     padding: 0.5 0em;
   }
   .game-view__full-img {
@@ -199,6 +200,10 @@
 }
 
 @media (max-width: 500px) {
+  .game-view {
+    background-image: linear-gradient($transperant-clr 70%, $primary-clr-dark);
+  }
+
   .game-view__full-img {
     height: 250px;
   }

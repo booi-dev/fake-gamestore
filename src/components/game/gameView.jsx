@@ -2,9 +2,14 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDatum } from '../../utils/fetch';
 import SearchHeader from '../search/SearchHeader';
+import { useAddToCart } from '../../context/useCart';
 import './GameView.scss';
 
 function GameView() {
+
+    // const { addToCart } = useCart();
+    const addToCart = useAddToCart();
+    // console.log(addToCart, cartContext);
 
     const { gameId } = useParams();
 
@@ -24,6 +29,14 @@ function GameView() {
     useEffect(() => {
         fetchGameData();
     }, []);
+
+    const handleAddToCart = function handleAddToCart() {
+        addToCart({
+            id: game?.id,
+            game: game?.name,
+            price: game?.price,
+        });
+    };
 
     return (
         <>
@@ -95,6 +108,7 @@ function GameView() {
                         <span className='game-view_add-to-cart_price'> ${game?.price}</span>
                         <button type='button'
                             className='game-view_add-to-cart_btn'
+                            onClick={handleAddToCart}
                         >Add to Cart</button>
                     </div>
                 </div>

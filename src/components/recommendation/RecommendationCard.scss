@@ -76,6 +76,11 @@
     max-height: 0;
     width: 0;
   }
+
+  .rg-store-page-link-btn {
+    inset: revert;
+    bottom: 0.25em;
+  }
 }
 
 @media (max-width: 740px) {
@@ -99,5 +104,10 @@
   }
   .rg-game-title {
     margin-block-end: 0.2em;
+  }
+  .rg-store-page-link-btn {
+    inset: revert;
+    right: 0.25em;
+    bottom: 0.25em;
   }
 }

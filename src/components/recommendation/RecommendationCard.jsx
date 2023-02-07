@@ -27,12 +27,18 @@ function RecommendationCard(props) {
                 </div>
                 <div> $ {game?.price} </div>
                 <h3 className="rg-released-date">Released Date: {game?.formattedReleasedDate} </h3>
+
+                <Link to={`/game/${game?.id}`}>
+                    <button type='button'
+                        className='rg-store-page-link-btn'
+                    >Go to store page</button>
+                </Link>
+
             </div>
 
         </>
     );
 }
-
 
 
 RecommendationCard.propTypes = {

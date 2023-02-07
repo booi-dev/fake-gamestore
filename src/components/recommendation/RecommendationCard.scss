@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
   margin: 6px;
   overflow: hidden;
 }
@@ -48,6 +49,20 @@
 
 .rg-genres {
   padding-inline-end: 4px;
+}
+
+.rg-store-page-link-btn {
+  position: absolute;
+  bottom: 0.25em;
+  right: 0.25em;
+  color: inherit;
+  background-color: $primary-clr-2;
+  padding: 0.125em 0.25em;
+  border-radius: $border-radius-1;
+  transition: color 1s ease;
+  &:hover {
+    color: $accent-clr;
+  }
 }
 
 @media (max-width: 950px) {

@@ -7,9 +7,7 @@ import './GameView.scss';
 
 function GameView() {
 
-    // const { addToCart } = useCart();
     const { addToCart, removeFromCart } = useAddToCart();
-    // console.log(addToCart, cartContext);
 
     const { gameId } = useParams();
 
@@ -116,15 +114,19 @@ function GameView() {
                         <span className='buy'> Buy </span>
                         {game?.name}
                     </h1>
-                    <div className='game-view_price-add-container'>
-                        <span className='game-view_add-to-cart_price'> ${game?.price}</span>
-                        <button type='button'
-                            className={`game-view_add-to-cart_btn ${isAdded}`}
-                            onClick={handleAddCartBtn}
-                        >
-                            {isAdded === "added" ? "Remove from Cart" : "Add to Cart"}
-                        </button>
-                    </div>
+
+                    {Object.keys(game).length !== 0 &&
+                        <div className='game-view_price-add-container'>
+                            <span className='game-view_add-to-cart_price'> ${game?.price}</span>
+                            <button type='button'
+                                className={`game-view_add-to-cart_btn ${isAdded}`}
+                                onClick={handleAddCartBtn}
+                            >
+                                {isAdded === "added" ? "Remove from Cart" : "Add to Cart"}
+                            </button>
+                        </div>
+                    }
+
                 </div>
             </div>
         </>

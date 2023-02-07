@@ -160,18 +160,49 @@
 
 .game-view_add-to-cart_btn {
   padding: 0.5em 0.5em;
-  border-radius: $border-radius-2;
-  background-image: linear-gradient(
-    to right,
-    hsl(85, 90%, 35%),
-    hsl(85, 88%, 24%)
-  );
-  &:hover {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: $border-radius-2;
     background-image: linear-gradient(
       to right,
-      hsl(85, 90%, 38%),
-      hsl(85, 93%, 30%)
+      hsl(85, 90%, 35%),
+      hsl(85, 88%, 24%)
     );
+    z-index: -2;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: $border-radius-2;
+    background-image: linear-gradient(to right, #4f8208, #4f8208);
+    transition: all 1s;
+    z-index: -1;
+  }
+
+  &:hover {
+    border: 1px solid $accent-clr;
+    border-radius: $border-radius-2;
+  }
+}
+
+.game-view_add-to-cart_btn.added {
+  color: #1d1d1d;
+  &:before {
+    width: 100%;
   }
 }
 

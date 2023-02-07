@@ -9,17 +9,17 @@ export const useAddToCart = () => useContext(AddToCartContext);
 
 
 export function CartProvider({ children }) {
-    const [inCart, setInCart] = useState([{
-        game: "game?.name",
-        price: "game?.price",
-    }]);
-
-    console.log(inCart);
+    const [inCart, setInCart] = useState([]);
 
     const addToCart = useCallback((newGame) => {
         setInCart((prevCart) => [...prevCart, newGame]);
         console.log(newGame);
     }, [setInCart]);
+
+    // const removeFromCart = useCallback((newGame) => {
+    //     setInCart((prevCart) => [...prevCart, newGame]);
+    //     console.log(newGame);
+    // }, [setInCart]);
 
     return (
         <CartContext.Provider value={inCart}>

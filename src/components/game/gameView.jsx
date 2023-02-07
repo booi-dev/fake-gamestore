@@ -15,6 +15,7 @@ function GameView() {
 
     const [game, setGame] = useState({});
     const [showFullDesc, setShowFullDesc] = useState('hidden');
+    const [isAdded, setIsAdded] = useState('');
 
     function cutWordCount(words, wordCount) {
         const newWords = words.slice(0, wordCount);
@@ -36,7 +37,20 @@ function GameView() {
             game: game?.name,
             price: game?.price,
         });
+        setIsAdded('added');
     };
+
+
+    const handleRemoveFromCart = function handleRempveFromCart() {
+        setIsAdded('');
+    };
+
+    const handleAddCartBtn = function handleAddCartBtn() {
+        if (isAdded === 'added') handleRemoveFromCart();
+        else handleAddToCart();
+    };
+
+
 
     return (
         <>
@@ -107,9 +121,11 @@ function GameView() {
                     <div className='game-view_price-add-container'>
                         <span className='game-view_add-to-cart_price'> ${game?.price}</span>
                         <button type='button'
-                            className='game-view_add-to-cart_btn'
-                            onClick={handleAddToCart}
-                        >Add to Cart</button>
+                            className={`game-view_add-to-cart_btn ${isAdded}`}
+                            onClick={handleAddCartBtn}
+                        >
+                            {isAdded === "added" ? "Remove from Cart" : "Add to Cart"}
+                        </button>
                     </div>
                 </div>
             </div>

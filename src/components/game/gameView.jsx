@@ -15,8 +15,6 @@ function GameView() {
     const [showFullDesc, setShowFullDesc] = useState('hidden');
     const [isAdded, setIsAdded] = useState('');
 
-    console.log(game);
-
     function cutWordCount(words, wordCount) {
         const newWords = words.slice(0, wordCount);
         return newWords;
@@ -105,13 +103,13 @@ function GameView() {
                                     {game?.publishers?.map(pub => <h2 className='res' key={pub?.id}> {pub?.name}</h2>)}
                                 </div>
                                 <div className='game-view__info__subtitles genres'>
-                                    {game?.genres?.slice(0, 3).map(genre => <h2 className='res genre' key={genre?.id}> {genre?.name}</h2>)}
+                                    {game?.genres?.slice(0, 3)?.map(genre => <h2 className='res genre' key={genre?.id}> {genre?.name}</h2>)}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className='game-view_tags'>
-                        {game?.tags.map((tag) => <span key={tag.id}>{tag.name}</span>)}
+                        {game?.tags?.map((tag) => <span key={tag.id}>{tag.name}</span>)}
                     </div>
                 </div>
                 <div className='game-view_add-to-cart-container'>

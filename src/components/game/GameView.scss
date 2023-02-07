@@ -46,11 +46,12 @@
 
 .game-view__poster-container {
   position: relative;
+  height: 150px;
 }
 
 .game-view__poster {
   width: 100%;
-  height: 150px;
+  height: 100%;
   object-fit: cover;
   border-radius: $border-radius-1;
 }
@@ -135,12 +136,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.2em;
+  grid-area: 2 / 1 / 3 / 3;
 }
 
 .game-view_tags span {
   font-size: $font-xs;
-  background-color: $primary-clr-3;
-  color: #e0e0e0;
+  padding-inline: 0.25em;
+  background-color: $primary-clr-2;
+  color: #e0e0e0a4;
   border-radius: $border-radius-1;
 }
 
@@ -255,9 +258,8 @@
     grid-template-columns: 1.2fr 1fr;
     gap: 0.5em;
   }
-  .game-view__poster {
+  .game-view__poster-container {
     height: 180px;
-    padding: 0.5 0em;
   }
 }
 

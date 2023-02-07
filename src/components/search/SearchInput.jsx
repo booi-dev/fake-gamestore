@@ -3,7 +3,7 @@ import { PropTypes } from "prop-types";
 
 function SearchInput(props) {
 
-    const { value, handleInput, handleInputOnFocus, handleInputOnBlur, fetchDataOnChange } = props;
+    const { value, handleInput, handleInputOnFocus, fetchDataOnChange } = props;
 
     return (
         <div className='search-container' tabIndex='0' role='search'>
@@ -13,7 +13,6 @@ function SearchInput(props) {
                 value={value}
                 onChange={handleInput}
                 onFocus={handleInputOnFocus}
-                onBlur={handleInputOnBlur}
             />
             <button type="button"
                 className="search__input__sub-btn"
@@ -29,7 +28,6 @@ SearchInput.propTypes = {
     value: PropTypes.string.isRequired,
     handleInput: PropTypes.func.isRequired,
     handleInputOnFocus: PropTypes.func.isRequired,
-    handleInputOnBlur: PropTypes.func.isRequired,
     fetchDataOnChange: PropTypes.func.isRequired,
 };
 

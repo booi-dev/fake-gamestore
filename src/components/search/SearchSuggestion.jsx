@@ -5,23 +5,27 @@ import './SearchSuggestion.scss';
 
 function SearchSuggestion(props) {
 
-    const { game } = props;
+    const { game, closeSuggestions } = props;
     return (
         <Link to={`/game/${game?.id}`}>
-            <div className='search-suggestion'>
+            <button type="button"
+                className='search-suggestion'
+                onClick={closeSuggestions}
+            >
                 <img src={game.background_image} alt=""
                     className="game-bg-img"
                 />
                 <h1 className="game-title">
                     {game.name}
                 </h1>
-            </div>
+            </button>
         </Link>
     );
 }
 
 SearchSuggestion.propTypes = {
     game: PropTypes.instanceOf(Object).isRequired,
+    closeSuggestions: PropTypes.func.isRequired,
 };
 
 export default SearchSuggestion;

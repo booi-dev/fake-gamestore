@@ -59,9 +59,27 @@
   top: 45px;
   right: -0.6em;
   width: 180%;
-  padding: 0.5em 0.25em;
+  // padding: 0.5em 0.25em;
   border-radius: $border-radius-1;
   background: $primary-clr-trans;
+}
+
+.search-suggestion__close-btn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  background-color: $primary-clr-2;
+  font-size: $font-xs;
+  padding: 0.25em 0.5em;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  transition: color 1s ease;
+
+  &:hover {
+    color: $accent-clr;
+  }
 }
 
 // backdrop
@@ -77,6 +95,13 @@
 @media (max-width: 740px) {
   .search__suggestion.show {
     right: revert;
-    width: 100%;
+    width: 130%;
+  }
+}
+
+@media (max-width: 500px) {
+  .search__suggestion.show {
+    // right: -5em;
+    width: 115%;
   }
 }

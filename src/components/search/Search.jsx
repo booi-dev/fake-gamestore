@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { HiChevronDown } from 'react-icons/hi';
 import fetchData, { createQuery, createMultiQuery } from '../../utils/fetch';
 import SearchInput from './SearchInput';
 import SearchSuggestion from './SearchSuggestion';
@@ -35,8 +36,8 @@ function Search() {
         setSuggestionClass('show');
     });
 
-    const handleInputOnBlur = useCallback(() => {
-        // setSuggestionClass('hidden');
+    const closeSuggestions = useCallback(() => {
+        setSuggestionClass('hidden');
     });
 
     return (
@@ -45,7 +46,6 @@ function Search() {
                 value={inputVal}
                 handleInput={handleInput}
                 handleInputOnFocus={handleInputOnFocus}
-                handleInputOnBlur={handleInputOnBlur}
                 fetchDataOnChange={fetchDataOnChange}
             />
 
@@ -53,7 +53,13 @@ function Search() {
                 <div className={`search__suggestion ${suggestionClass}`} data-testid='search-suggestion'>
                     {gameData.map((game) => <SearchSuggestion
                         key={game.id}
-                        game={game} />)}
+                        game={game}
+                        closeSuggestions={closeSuggestions} />)}
+                    <button type='button'
+                        className='search-suggestion__close-btn'
+                        onClick={closeSuggestions}
+                    >close <HiChevronDown className='dropdown-icon' />
+                    </button>
                 </div>
             }
         </div>

@@ -56,7 +56,7 @@ function Recommendation() {
             }, 10000);
         }
         return () => clearInterval(intervalId);
-    }, [gameTotal]);
+    }, [gameTotal, gameSerial]);
 
     return (
         <>

@@ -10,6 +10,17 @@
 .recommendation-card_bg-img {
   width: 580px;
   transition: width 1s ease;
+  &:hover {
+    filter: brightness(0.6);
+    &::after {
+      content: "Go to store page";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      z-index: 2;
+    }
+  }
 }
 
 .recommendation-card_game-details {
@@ -25,6 +36,10 @@
   font-size: $font-xxl;
   font-weight: 300;
   margin-block-end: 0.4em;
+  transition: color 1s ease;
+  &:hover {
+    color: $accent-clr;
+  }
 }
 
 .rg-released-date {

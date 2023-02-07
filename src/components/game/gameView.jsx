@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDatum } from '../../utils/fetch';
 import SearchHeader from '../search/SearchHeader';
@@ -29,6 +29,12 @@ function GameView() {
         fetchGameData();
     }, []);
 
+    const headerRef = useRef();
+
+    const scrollToHeader = function scrollToHeader() {
+        headerRef.current.scrollIntoView({ behavior: 'smooth' });
+    };
+
     const handleAddToCart = function handleAddToCart() {
         addToCart({
             id: game?.id,
@@ -36,6 +42,7 @@ function GameView() {
             price: game?.price,
         });
         setIsAdded('added');
+        scrollToHeader();
     };
 
     const handleRemoveFromCart = function handleRempveFromCart() {
@@ -48,9 +55,12 @@ function GameView() {
         else handleAddToCart();
     };
 
+
     return (
         <>
-            <SearchHeader />
+            <div ref={headerRef}>
+                <SearchHeader />
+            </div>
             <div className='game-view'>
                 <h1 className='game-view_title'>{game?.name}</h1>
                 <div className='game-view__info-container'>
@@ -131,7 +141,6 @@ function GameView() {
                             </button>
                         </div>
                     }
-
                 </div>
             </div>
         </>

@@ -58,7 +58,7 @@
 
 .game-view__info__released-date {
   position: absolute;
-  bottom: 10px;
+  bottom: 5px;
   right: 5px;
   padding: 0 0.5em;
   font-size: $font-xxxs;
@@ -140,7 +140,7 @@
 }
 
 .game-view_tags span {
-  font-size: $font-xs;
+  font-size: $font-xxxs;
   padding-inline: 0.25em;
   background-color: $primary-clr-2;
   color: #e0e0e0a4;

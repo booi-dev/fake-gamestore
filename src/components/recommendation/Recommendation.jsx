@@ -48,15 +48,15 @@ function Recommendation() {
         fetchGameData();
     }, []);
 
-    // useEffect(() => {
-    //     let intervalId;
-    //     if (gameTotal > 0) {
-    //         intervalId = setInterval(() => {
-    //             autoUpdateCurrentGame();
-    //         }, 10000);
-    //     }
-    //     return () => clearInterval(intervalId);
-    // }, [gameTotal]);
+    useEffect(() => {
+        let intervalId;
+        if (gameTotal > 0) {
+            intervalId = setInterval(() => {
+                autoUpdateCurrentGame();
+            }, 10000);
+        }
+        return () => clearInterval(intervalId);
+    }, [gameTotal]);
 
     return (
         <>

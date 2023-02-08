@@ -3,11 +3,14 @@ import { PropTypes } from "prop-types";
 import './RecommendationCard.scss';
 
 function RecommendationCard(props) {
-    const { game } = props;
+    const { game, startTimer, stopTimer } = props;
 
     return (
         <>
-            <div className='recommendation-card_bg-img'>
+            <div className='recommendation-card_bg-img'
+                onMouseEnter={() => stopTimer()}
+                onMouseLeave={() => startTimer()}
+            >
                 <Link to={`/game/${game?.id}`}>
                     <img src={game?.background_image} alt={`${game?.name} bg img`}
                     />
@@ -43,6 +46,8 @@ function RecommendationCard(props) {
 
 RecommendationCard.propTypes = {
     game: PropTypes.instanceOf(Object),
+    startTimer: PropTypes.func.isRequired,
+    stopTimer: PropTypes.func.isRequired,
 };
 
 RecommendationCard.defaultProps = {

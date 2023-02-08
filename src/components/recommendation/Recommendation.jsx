@@ -45,25 +45,15 @@ function Recommendation() {
         });
     };
 
+    const [startTimer, stopTimer] = timer(autoUpdateCurrentGame, 15);
+
     useEffect(() => {
         fetchGameData();
     }, []);
 
-    // useEffect(() => {
-    //     let intervalId;
-    //     if (gameTotal > 0) {
-    //         intervalId = setInterval(() => {
-    //             autoUpdateCurrentGame();
-    //         }, 10000);
-    //     }
-    //     return () => clearInterval(intervalId);
-    // }, [gameTotal, gameSerial]);
-
-    const [start, stop] = timer(autoUpdateCurrentGame, 50);
-
     useEffect(() => {
-        start();
-        return () => stop();
+        if (gameTotal > 0) startTimer();
+        return () => stopTimer();
     }, [gameTotal, gameSerial]);
 
     return (
@@ -78,10 +68,13 @@ function Recommendation() {
                 >
                     <HiOutlineChevronLeft className="prev-icon" />
                 </button>
-                <div className="recommendation_card-container" >
+                <div className="recommendation_card-container"
+                >
                     {gameData && <RecommendationCard
                         key={gameData[gameSerial].id}
                         game={gameData[gameSerial]}
+                        stopTimer={stopTimer}
+                        startTimer={startTimer}
                     />}
                 </div>
                 <button type='button'

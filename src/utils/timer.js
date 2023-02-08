@@ -9,7 +9,6 @@ function timer(func, time) {
   };
 
   const stopTimer = () => {
-    console.log("timer stops");
     clearInterval(intervalId);
   };
 

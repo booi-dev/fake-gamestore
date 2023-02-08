@@ -18,7 +18,18 @@ export function CartProvider({ children }) {
         setInCart((prevCart) => prevCart.filter(game => game.id !== gameToRemoveId));
     }, [setInCart]);
 
-    const memoFuncs = useMemo(() => ({ addToCart, removeFromCart }), [addToCart, removeFromCart]);
+    const isInCart = useCallback(() => {
+
+
+    }, []);
+
+    const memoFuncs = useMemo(() => (
+        {
+            addToCart,
+            removeFromCart,
+            isInCart
+        }
+    ), [addToCart, removeFromCart]);
 
     return (
         <CartContext.Provider value={inCart}>

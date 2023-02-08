@@ -2,13 +2,14 @@ import { useState, createContext, useContext, useCallback, useMemo } from "react
 import PropTypes from "prop-types";
 
 const CartContext = createContext();
-const AddToCartContext = createContext();
+const CartMethodsContext = createContext();
 
 export const useCart = () => useContext(CartContext);
-export const useAddToCart = () => useContext(AddToCartContext);
+export const useCartMethods = () => useContext(CartMethodsContext);
 
 export function CartProvider({ children }) {
     const [inCart, setInCart] = useState([]);
+    // console.log(inCart);
 
     const addToCart = useCallback((gameToAdd) => {
         setInCart((prevCart) => [...prevCart, gameToAdd]);
@@ -18,24 +19,18 @@ export function CartProvider({ children }) {
         setInCart((prevCart) => prevCart.filter(game => game.id !== gameToRemoveId));
     }, [setInCart]);
 
-    const isInCart = useCallback(() => {
-
-
-    }, []);
-
     const memoFuncs = useMemo(() => (
         {
             addToCart,
             removeFromCart,
-            isInCart
         }
     ), [addToCart, removeFromCart]);
 
     return (
         <CartContext.Provider value={inCart}>
-            <AddToCartContext.Provider value={memoFuncs}>
+            <CartMethodsContext.Provider value={memoFuncs}>
                 {children}
-            </AddToCartContext.Provider>
+            </CartMethodsContext.Provider>
         </CartContext.Provider>
     );
 }

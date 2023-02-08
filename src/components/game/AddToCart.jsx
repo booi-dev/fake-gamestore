@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useAddToCart } from '../../context/useCart';
+import { useCart, useCartMethods } from '../../context/useCart';
+import isInCart from '../../utils/isInCart';
 
 function AddToCart(props) {
     const { game, headerRef } = props;
-    const { addToCart, removeFromCart } = useAddToCart();
+    const { addToCart, removeFromCart } = useCartMethods();
+    const inCart = useCart();
 
-    const [isAdded, setIsAdded] = useState('');
+    const [isAdded, setIsAdded] = useState();
 
     const scrollToHeader = function scrollToHeader() {
         headerRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -26,6 +28,11 @@ function AddToCart(props) {
         removeFromCart(game?.id);
         setIsAdded('');
     };
+
+    useEffect(() => {
+        if (isInCart(game?.id, inCart)) setIsAdded("added");
+        else { setIsAdded(""); }
+    });
 
     const handleAddCartBtn = function handleAddCartBtn() {
         if (isAdded === 'added') handleRemoveFromCart();

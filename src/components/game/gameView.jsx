@@ -3,11 +3,13 @@ import { useParams } from 'react-router-dom';
 import { fetchDatum } from '../../utils/fetch';
 import SearchHeader from '../search/SearchHeader';
 import { useAddToCart } from '../../context/useCart';
+import { useAddToWishlist } from '../../context/useWishlist';
 import './GameView.scss';
 
 function GameView() {
 
     const { addToCart, removeFromCart } = useAddToCart();
+    const { addToWishlist, removeFromWishlist } = useAddToWishlist()
 
     const { gameId } = useParams();
 

@@ -7,7 +7,6 @@ const AddToCartContext = createContext();
 export const useCart = () => useContext(CartContext);
 export const useAddToCart = () => useContext(AddToCartContext);
 
-
 export function CartProvider({ children }) {
     const [inCart, setInCart] = useState([]);
 

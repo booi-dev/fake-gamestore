@@ -46,13 +46,13 @@ function AddToCart(props) {
 }
 
 AddToCart.propTypes = {
-    game: PropTypes.instanceOf(Object).isRequired,
+    game: PropTypes.instanceOf(Object),
     headerRef: PropTypes.instanceOf(Object).isRequired,
 };
 
-// AddToCart.defaultProps = {
-//     game: {},
-// };
+AddToCart.defaultProps = {
+    game: {},
+};
 
 
 export default AddToCart;

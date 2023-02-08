@@ -147,19 +147,31 @@
   border-radius: $border-radius-1;
 }
 
+// MORE INFO
+
+.game-view__more-info {
+  background-color: $primary-clr-2;
+  margin-block: 0.5em;
+  padding: 0.5em;
+}
+
+.game-view__more-info__platforms {
+  padding: 0.5em;
+}
+
 // ADD TO CART
 .game-view_add-to-cart-container {
   display: flex;
   justify-content: space-between;
   background-color: $primary-clr-2;
   margin-block: 0.5em 1em;
-  padding: 0.25em;
+  padding: 0.5em;
   border-radius: $border-radius-1;
 }
 
 .game-view_add-to-cart_title {
   font-size: $font-lg;
-  padding: 0.5em;
+  padding-block: 0.5em;
 }
 
 .game-view_add-to-cart_title .buy {

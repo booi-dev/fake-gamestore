@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchDatum } from '../../utils/fetch';
 import SearchHeader from '../search/SearchHeader';
 // import { useAddToWishlist } from '../../context/useWishlist';
+import MoreInfo from './MoreInfo';
 import AddToCart from './AddToCart';
 import './GameView.scss';
 
@@ -14,6 +15,8 @@ function GameView() {
 
     const [game, setGame] = useState({});
     const [showFullDesc, setShowFullDesc] = useState('hidden');
+
+    // console.log(game);
 
     function cutWordCount(words, wordCount) {
         const newWords = words.slice(0, wordCount);
@@ -88,6 +91,7 @@ function GameView() {
                                     {game?.publishers?.map(pub => <h2 className='res' key={pub?.id}> {pub?.name}</h2>)}
                                 </div>
                                 <div className='game-view__info__subtitles genres'>
+                                    <h2 className='sub-title'>GENRE(S):</h2>
                                     {game?.genres?.slice(0, 3)?.map(genre => <h2 className='res genre' key={genre?.id}> {genre?.name}</h2>)}
                                 </div>
                             </div>
@@ -97,6 +101,9 @@ function GameView() {
                         {game?.tags?.map((tag) => <span key={tag.id}>{tag.name}</span>)}
                     </div>
                 </div>
+
+                <MoreInfo game={game} />
+
                 <div className='game-view_add-to-cart-container'>
                     <h1 className='game-view_add-to-cart_title'>
                         <span className='buy'>

@@ -3,6 +3,7 @@ import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import fetchData, { createQuery } from '../../utils/fetch';
 import RecommendationCard from './RecommendationCard';
 import CarouselThumbs from './CarouselThumbs';
+import timer from '../../utils/timer';
 import './Recommendation.scss';
 
 function Recommendation() {
@@ -48,14 +49,21 @@ function Recommendation() {
         fetchGameData();
     }, []);
 
+    // useEffect(() => {
+    //     let intervalId;
+    //     if (gameTotal > 0) {
+    //         intervalId = setInterval(() => {
+    //             autoUpdateCurrentGame();
+    //         }, 10000);
+    //     }
+    //     return () => clearInterval(intervalId);
+    // }, [gameTotal, gameSerial]);
+
+    const [start, stop] = timer(autoUpdateCurrentGame, 50);
+
     useEffect(() => {
-        let intervalId;
-        if (gameTotal > 0) {
-            intervalId = setInterval(() => {
-                autoUpdateCurrentGame();
-            }, 10000);
-        }
-        return () => clearInterval(intervalId);
+        start();
+        return () => stop();
     }, [gameTotal, gameSerial]);
 
     return (

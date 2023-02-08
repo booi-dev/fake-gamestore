@@ -3,4 +3,6 @@ API KEY for news api
 
 Log in
 Genre / Category change
-Set interval reset when carousel thumb is click
+cart page
+sidebar menu
+stop carousel countdown on hover

@@ -2,20 +2,18 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDatum } from '../../utils/fetch';
 import SearchHeader from '../search/SearchHeader';
-import { useAddToCart } from '../../context/useCart';
-import { useAddToWishlist } from '../../context/useWishlist';
+// import { useAddToWishlist } from '../../context/useWishlist';
+import AddToCart from './AddToCart';
 import './GameView.scss';
 
 function GameView() {
 
-    const { addToCart, removeFromCart } = useAddToCart();
-    const { addToWishlist, removeFromWishlist } = useAddToWishlist()
+    // const { addToWishlist, removeFromWishlist } = useAddToWishlist()
 
     const { gameId } = useParams();
 
     const [game, setGame] = useState({});
     const [showFullDesc, setShowFullDesc] = useState('hidden');
-    const [isAdded, setIsAdded] = useState('');
 
     function cutWordCount(words, wordCount) {
         const newWords = words.slice(0, wordCount);
@@ -32,30 +30,6 @@ function GameView() {
     }, [gameId]);
 
     const headerRef = useRef();
-
-    const scrollToHeader = function scrollToHeader() {
-        headerRef.current.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const handleAddToCart = function handleAddToCart() {
-        addToCart({
-            id: game?.id,
-            game: game?.name,
-            price: game?.price,
-        });
-        setIsAdded('added');
-        scrollToHeader();
-    };
-
-    const handleRemoveFromCart = function handleRempveFromCart() {
-        removeFromCart(game?.id);
-        setIsAdded('');
-    };
-
-    const handleAddCartBtn = function handleAddCartBtn() {
-        if (isAdded === 'added') handleRemoveFromCart();
-        else handleAddToCart();
-    };
 
     return (
         <>
@@ -132,15 +106,7 @@ function GameView() {
                     </h1>
 
                     {Object.keys(game).length !== 0 &&
-                        <div className='game-view_price-add-container'>
-                            <span className='game-view_add-to-cart_price'> ${game?.price}</span>
-                            <button type='button'
-                                className={`game-view_add-to-cart_btn ${isAdded}`}
-                                onClick={handleAddCartBtn}
-                            >
-                                {isAdded === "added" ? "Remove from Cart" : "Add to Cart"}
-                            </button>
-                        </div>
+                        <AddToCart headerRef={headerRef} />
                     }
                 </div>
             </div>

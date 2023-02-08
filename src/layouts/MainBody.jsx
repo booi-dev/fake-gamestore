@@ -5,7 +5,7 @@ import Library from '../pages/Library';
 import Community from '../pages/Community';
 import Support from '../pages/Support';
 import News from '../pages/News';
-import GameView from '../components/game/gameView';
+import GameView from '../components/game/GameView';
 
 function MainBody() {
   return (

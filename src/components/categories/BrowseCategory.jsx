@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './BrowseCategory.scss';
 
 import categoryAction from '../../assets/categories/action.png';
 import categorAnime from '../../assets/categories/anime.png';
@@ -41,7 +42,7 @@ function BrowseCategory() {
     const [carousel, setCarousel] = useState([]);
 
     const categoryCarousel = function createCategoryCarousel(page = 0) {
-        setCarousel(() => categoryPictures.slice(page, 3));
+        setCarousel(() => categoryPictures.slice(page, 4));
     };
 
     useEffect(() => {
@@ -53,9 +54,14 @@ function BrowseCategory() {
     return (
         <>
             <div className='grp_title'>BROWSE BY CATEGORY</div>
-            <div className='app-container'>
-                <img src={categoryPictures[3].pic} alt='' />
-                {carousel.map((data) => <img src={data.pic} alt='' key={data.slug} />)}
+            <div className='category-carousel app-container'>
+                {carousel.map((data) => (
+                    <div key={data.slug}
+                        className='category-carousel__item'>
+                        <img src={data.pic} alt='' className='category-carousel__item-img' />
+                        <h1>{data.slug} </h1>
+                    </div>
+                ))}
             </div>
         </>
     );

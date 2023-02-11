@@ -1,0 +1,19 @@
+.category-carousel {
+  display: flex;
+  gap: 0.5em;
+  justify-content: space-between;
+}
+
+.category-carousel__item {
+  min-width: 160px;
+}
+
+.category-carousel__item-img {
+  width: 100%;
+}
+
+@media (max-width: 500px) {
+  .category-carousel__item {
+    min-width: 160px;
+  }
+}

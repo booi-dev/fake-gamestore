@@ -3,13 +3,14 @@ import { RiPlaystationFill, RiXboxFill, RiAppleFill, RiWindowsFill, RiGlobalLine
 import { SiIos, SiLinux, SiNintendoswitch } from "react-icons/si";
 import { HiChevronDoubleRight } from 'react-icons/hi';
 import { DiAndroid } from 'react-icons/di';
-import { useWishCart } from '../../context/useWishCart';
+import { useWishCart, isInWishCart } from '../../context/useWishCart';
+// import isInCart from '../../utils/isInCart';
 
 function MoreInfo(props) {
 
-    const { scrollToHeader } = props;
+    const { game, scrollToHeader } = props;
 
-    const { dispatch } = useWishCart();
+    const { state, dispatch } = useWishCart();
 
     const addWishlist = function addToWishlistCart(toAddGame) {
         dispatch({ type: "add", payload: toAddGame });
@@ -20,7 +21,7 @@ function MoreInfo(props) {
         dispatch({ type: 'delete', payload: toDeleteGameId });
     };
 
-    const { game } = props;
+    const isGameInCart = isInWishCart(game?.id, state?.wishlist);
 
     const platformIcons = {
         playstation: <RiPlaystationFill className='icon' />,
@@ -55,7 +56,7 @@ function MoreInfo(props) {
 
             <button type='button'
                 className='add-to-wishlist-btn'
-                onClick={addWishlist}>
+                onClick={() => addWishlist(game)}>
                 add to wishlist
             </button>
         </div>

@@ -36,4 +36,6 @@ WishCartProvider.propTypes = {
     children: PropTypes.node.isRequired
 };
 
+export const isInWishCart = (toCheckGameId, cart) => !!cart.find(game => game.id === toCheckGameId);
+
 // export default WishCart;

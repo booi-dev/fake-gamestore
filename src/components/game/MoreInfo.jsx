@@ -17,12 +17,18 @@ function MoreInfo(props) {
         scrollToHeader();
     };
 
-    const deleteWishlist = function deleteFromWishlist(toDeleteGameId) {
-        dispatch({ type: 'delete', payload: toDeleteGameId });
+    const removeWishlist = function deleteFromWishlist(toRemoveGameId) {
+        dispatch({ type: 'remove', payload: toRemoveGameId });
+        scrollToHeader();
     };
 
     const isGameInCart = isInWishCart(game?.id, state?.wishlist);
 
+    const toggleWishlist = function addOrRemoveWishlist() {
+        console.log(isGameInCart, 'add or rem');
+        if (isGameInCart) removeWishlist(game?.id);
+        else { addWishlist(game); }
+    };
     const platformIcons = {
         playstation: <RiPlaystationFill className='icon' />,
         xbox: <RiXboxFill className='icon' />,
@@ -56,8 +62,9 @@ function MoreInfo(props) {
 
             <button type='button'
                 className='add-to-wishlist-btn'
-                onClick={() => addWishlist(game)}>
-                add to wishlist
+                onClick={() => toggleWishlist()}>
+                {/* add to wishlist */}
+                {isGameInCart ? 'Remove from Wishlist' : 'Add to Wishlist'}
             </button>
         </div>
     );

@@ -13,8 +13,8 @@ function reducer(state, action) {
     switch (action.type) {
         case 'add':
             return { wishlist: [...state.wishlist, action.payload] };
-        case 'delete':
-            return { wishlist: state.wishlist.filter((item) => item.id !== action.payload.toBeRemoveId) };
+        case 'remove':
+            return { wishlist: state.wishlist.filter((item) => item.id !== action.payload) };
         case 'clear':
             return { wishlist: [] };
         default: return state;

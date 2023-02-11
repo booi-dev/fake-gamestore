@@ -1,0 +1,44 @@
+@use "../../sass/index" as *;
+
+.next-btn,
+.prev-btn {
+  padding: 1.6em 0;
+  border-radius: $border-radius-1;
+  z-index: 2;
+  background-color: $primary-clr-2;
+  transition: color 1s ease;
+  border: none;
+  &:hover {
+    color: $accent-clr;
+    background-color: $primary-clr-3;
+  }
+}
+
+.prev-icon,
+.next-icon {
+  padding: 0;
+  width: 30px;
+  height: 50px;
+  scale: 1.5;
+  transition: width 1s ease, height 1s ease;
+}
+
+@media (max-width: 950px) {
+  .next-btn,
+  .prev-btn {
+    background-image: revert;
+    background-color: $primary-clr-trans;
+  }
+}
+
+@media (max-width: 500px) {
+  .prev-icon,
+  .next-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .prev-btn,
+  .next-btn {
+    translate: 0 -10px;
+  }
+}

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import fetchData, { createQuery } from '../../utils/fetch';
+import { Prev, Next } from '../ui/PrevNext';
 import RecommendationCard from './RecommendationCard';
 import CarouselThumbs from './CarouselThumbs';
 import timer from '../../utils/timer';
@@ -22,17 +22,17 @@ function Recommendation() {
         }
     }, []);
 
-    const nextCurrentGame = function nextCurrentGame() {
-        const totalGames = gameData.length;
+    const nextCurrentGame = useCallback(() => {
+        const totalGames = gameData?.length;
         if (gameSerial === totalGames - 1) setGameSerial(0);
         else { setGameSerial(gameSerial + 1); }
-    };
+    }, [gameSerial]);
 
-    const prevCurrentGame = function prevCurrentGame() {
-        const totalGames = gameData.length;
+    const prevCurrentGame = useCallback(() => {
+        const totalGames = gameData?.length;
         if (gameSerial === 0) setGameSerial(totalGames - 1);
         else { setGameSerial(gameSerial - 1); }
-    };
+    }, [gameSerial]);
 
     const updateCurrentGame = useCallback((serial) => {
         setGameSerial(serial);
@@ -62,12 +62,7 @@ function Recommendation() {
                 <h1>FEATURED & RECOMMENDED</h1>
             </div>
             <div className='recommendation_container'>
-                <button type='button'
-                    className='prev-btn'
-                    onClick={prevCurrentGame}
-                >
-                    <HiOutlineChevronLeft className="prev-icon" />
-                </button>
+                <Prev prevHandler={prevCurrentGame} />
                 <div className="recommendation_card-container"
                 >
                     {gameData && <RecommendationCard
@@ -77,12 +72,7 @@ function Recommendation() {
                         startTimer={startTimer}
                     />}
                 </div>
-                <button type='button'
-                    className='next-btn'
-                    onClick={nextCurrentGame}
-                >
-                    <HiOutlineChevronRight className="next-icon" />
-                </button>
+                <Next nextHandler={nextCurrentGame} />
             </div>
             <div className='recommendation_carousel-thumbs'>
                 {gameData && gameData.map((game, index) => <CarouselThumbs

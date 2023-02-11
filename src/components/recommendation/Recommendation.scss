@@ -10,35 +10,8 @@
   padding-inline: $app-padding-xs;
 }
 
-button {
-  background-color: transparent;
+.recommendation_container button {
   border: none;
-}
-
-.next-btn,
-.prev-btn {
-  padding: 1.6em 0;
-  border-radius: $border-radius-1;
-  z-index: 2;
-}
-
-.prev-btn,
-.next-btn {
-  background-color: $primary-clr-2;
-  transition: color 1s ease;
-  &:hover {
-    color: $accent-clr;
-    background-color: $primary-clr-3;
-  }
-}
-
-.prev-icon,
-.next-icon {
-  padding: 0;
-  width: 30px;
-  height: 50px;
-  scale: 1.5;
-  transition: width 1s ease, height 1s ease;
 }
 
 // recommendation card
@@ -67,25 +40,25 @@ button {
   .recommendation_container {
     justify-content: space-between;
   }
-  .next-btn,
-  .prev-btn {
-    background-image: revert;
-    background-color: $primary-clr-trans;
-  }
+  // .next-btn,
+  // .prev-btn {
+  //   background-image: revert;
+  //   background-color: $primary-clr-trans;
+  // }
   .recommendation_card-container {
     position: absolute;
     inset: 0;
   }
 }
 
-@media (max-width: 500px) {
-  .prev-icon,
-  .next-icon {
-    width: 20px;
-    height: 20px;
-  }
-  .prev-btn,
-  .next-btn {
-    translate: 0 -10px;
-  }
-}
+// @media (max-width: 500px) {
+//   .prev-icon,
+//   .next-icon {
+//     width: 20px;
+//     height: 20px;
+//   }
+//   .prev-btn,
+//   .next-btn {
+//     translate: 0 -10px;
+//   }
+// }

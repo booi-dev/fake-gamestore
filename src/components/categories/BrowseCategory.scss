@@ -5,11 +5,13 @@
 }
 
 .category-carousel__item {
+  display: flex;
   min-width: 160px;
 }
 
 .category-carousel__item-img {
   width: 100%;
+  filter: brightness(60%);
 }
 
 @media (max-width: 500px) {

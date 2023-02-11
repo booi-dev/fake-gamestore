@@ -4,15 +4,11 @@ import { useCart, useCartMethods } from '../../context/useCart';
 import isInCart from '../../utils/isInCart';
 
 function GameToCart(props) {
-    const { game, headerRef } = props;
+    const { game, scrollToHeader } = props;
     const { addToCart, removeFromCart } = useCartMethods();
     const inCart = useCart();
 
     const [isAdded, setIsAdded] = useState();
-
-    const scrollToHeader = function scrollToHeader() {
-        headerRef.current.scrollIntoView({ behavior: 'smooth' });
-    };
 
     const handleAddToCart = function handleAddToCart() {
         addToCart({
@@ -54,7 +50,7 @@ function GameToCart(props) {
 
 GameToCart.propTypes = {
     game: PropTypes.instanceOf(Object),
-    headerRef: PropTypes.instanceOf(Object).isRequired,
+    scrollToHeader: PropTypes.func.isRequired,
 };
 
 GameToCart.defaultProps = {

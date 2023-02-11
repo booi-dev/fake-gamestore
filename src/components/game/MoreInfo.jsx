@@ -7,10 +7,13 @@ import { useWishCart } from '../../context/useWishCart';
 
 function MoreInfo(props) {
 
+    const { scrollToHeader } = props;
+
     const { dispatch } = useWishCart();
 
     const addWishlist = function addToWishlistCart(toAddGame) {
         dispatch({ type: "add", payload: toAddGame });
+        scrollToHeader();
     };
 
     const deleteWishlist = function deleteFromWishlist(toDeleteGameId) {
@@ -60,7 +63,8 @@ function MoreInfo(props) {
 }
 
 MoreInfo.propTypes = {
-    game: PropTypes.instanceOf(Object)
+    game: PropTypes.instanceOf(Object),
+    scrollToHeader: PropTypes.func.isRequired
 };
 
 MoreInfo.defaultProps = {

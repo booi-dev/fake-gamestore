@@ -1,15 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDatum } from '../../utils/fetch';
 import SearchHeader from '../search/SearchHeader';
-// import { useAddToWishlist } from '../../context/useWishlist';
 import MoreInfo from './MoreInfo';
 import GameToCart from './GameToCart';
 import './GameView.scss';
 
 function GameView() {
-
-    // const { addToWishlist, removeFromWishlist } = useAddToWishlist()
 
     const { gameId } = useParams();
 
@@ -31,6 +28,10 @@ function GameView() {
     }, [gameId]);
 
     const headerRef = useRef();
+
+    const scrollToHeader = useCallback(() => {
+        headerRef.current.scrollIntoView({ behavior: 'smooth' });
+    }, []);
 
     return (
         <>
@@ -103,13 +104,13 @@ function GameView() {
 
                 {Object.keys(game).length !== 0 &&
                     <>
-                        <MoreInfo game={game} />
+                        <MoreInfo game={game} scrollToHeader={scrollToHeader} />
                         <div className='game-view_add-to-cart-container'>
                             <h1 className='game-view_add-to-cart_title'>
                                 <span className='buy'>  Buy  </span>
                                 {game?.name}
                             </h1>
-                            <GameToCart headerRef={headerRef} game={game} />
+                            <GameToCart game={game} scrollToHeader={scrollToHeader} />
                         </div>
                     </>
                 }

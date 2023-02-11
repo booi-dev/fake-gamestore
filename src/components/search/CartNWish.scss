@@ -14,7 +14,7 @@
   border-radius: $border-radius-1;
   padding: 0.4em;
   text-align: center;
-  min-width: 5em;
+  min-width: 7em;
   cursor: pointer;
 }
 
@@ -31,6 +31,15 @@
 
 .cart-icon {
   font-size: $font-xxs;
+}
+
+.wishlist_count {
+  border: 1px solid;
+  display: inline-block;
+  margin-left: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
 }
 
 @media (max-width: 740px) {

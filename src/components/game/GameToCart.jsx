@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useCart, useCartMethods } from '../../context/useCart';
 import isInCart from '../../utils/isInCart';
 
-function AddToCart(props) {
+function GameToCart(props) {
     const { game, headerRef } = props;
     const { addToCart, removeFromCart } = useCartMethods();
     const inCart = useCart();
@@ -52,14 +52,14 @@ function AddToCart(props) {
     );
 }
 
-AddToCart.propTypes = {
+GameToCart.propTypes = {
     game: PropTypes.instanceOf(Object),
     headerRef: PropTypes.instanceOf(Object).isRequired,
 };
 
-AddToCart.defaultProps = {
+GameToCart.defaultProps = {
     game: {},
 };
 
 
-export default AddToCart;
+export default GameToCart;

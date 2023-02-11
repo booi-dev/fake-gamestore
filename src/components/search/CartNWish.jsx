@@ -10,9 +10,12 @@ function CartNWish() {
 
     return (
         <span className='cart-status'>
-            <div className='cart-status__wishlist'>{state.wishlist.length}
-                wishlist</div>
-            {inCart.length !== 0
+            {state?.wishlist.length !== 0
+                && <div className='cart-status__wishlist'>
+                    wishlist <span className='wishlist_count'>{state.wishlist.length}</span>
+                </div>
+            }
+            {inCart?.length !== 0
                 && <div
                     className='cart-status__cart'>
                     <HiShoppingCart className='cart-icon hiro-icons' />

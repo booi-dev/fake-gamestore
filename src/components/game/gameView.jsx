@@ -4,7 +4,7 @@ import { fetchDatum } from '../../utils/fetch';
 import SearchHeader from '../search/SearchHeader';
 // import { useAddToWishlist } from '../../context/useWishlist';
 import MoreInfo from './MoreInfo';
-import AddToCart from './AddToCart';
+import GameToCart from './GameToCart';
 import './GameView.scss';
 
 function GameView() {
@@ -109,7 +109,7 @@ function GameView() {
                                 <span className='buy'>  Buy  </span>
                                 {game?.name}
                             </h1>
-                            <AddToCart headerRef={headerRef} game={game} />
+                            <GameToCart headerRef={headerRef} game={game} />
                         </div>
                     </>
                 }

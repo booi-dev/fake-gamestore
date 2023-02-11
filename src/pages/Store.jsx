@@ -3,7 +3,7 @@
 // import StoreHero from "../components/store/StoreHero";
 import SearchHeader from "../components/search/SearchHeader";
 import Recommendation from '../components/recommendation/Recommendation';
-import Categories from "../components/categories/Categories";
+import BrowseCategory from "../components/categories/BrowseCategory";
 
 function Store() {
     // const searchQuery = 'dead';
@@ -17,7 +17,7 @@ function Store() {
             {/* <StoreHero /> */}
             <SearchHeader />
             <Recommendation />
-            <Categories />
+            <BrowseCategory />
         </div>
     );
 }

@@ -45,16 +45,16 @@ function Recommendation() {
         });
     };
 
-    const [startTimer, stopTimer] = timer(autoUpdateCurrentGame, 50);
+    const [startTimer, stopTimer] = timer(autoUpdateCurrentGame, 20);
 
     useEffect(() => {
         fetchGameData();
     }, []);
 
-    // useEffect(() => {
-    //     if (gameTotal > 0) startTimer();
-    //     return () => stopTimer();
-    // }, [gameTotal, gameSerial]);
+    useEffect(() => {
+        if (gameTotal > 0) startTimer();
+        return () => stopTimer();
+    }, [gameTotal, gameSerial]);
 
     return (
         <>

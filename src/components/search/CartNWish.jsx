@@ -8,12 +8,10 @@ function CartNWish() {
 
     return (
         <span className='cart-status'>
-            {wishlist?.items.length !== 0
-                && <div className='cart-status__wishlist'>
-                    wishlist <span className='wishlist_count'>
-                        {wishlist.items.length}</span>
-                </div>
-            }
+            <div className='cart-status__wishlist'>
+                wishlist <span className='wishlist_count'>
+                    {wishlist.items.length}</span>
+            </div>
             {cart?.items.length !== 0
                 && <div
                     className='cart-status__cart'>

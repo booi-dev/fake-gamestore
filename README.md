@@ -3,6 +3,6 @@ API KEY for news api
 
 Log in
 Genre / Category change
-cart page
 sidebar menu
-stop carousel countdown on hover
+cart pages
+wishlist page

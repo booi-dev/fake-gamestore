@@ -4,13 +4,12 @@ import { SiIos, SiLinux, SiNintendoswitch } from "react-icons/si";
 import { HiChevronDoubleRight } from 'react-icons/hi';
 import { DiAndroid } from 'react-icons/di';
 import { useWishCart, isInWishCart } from '../../context/useWishCart';
-// import isInCart from '../../utils/isInCart';
 
 function MoreInfo(props) {
 
     const { game, scrollToHeader } = props;
 
-    const { state, dispatch } = useWishCart();
+    const { wishlist, dispatch } = useWishCart();
 
     const addWishlist = function addToWishlistCart(toAddGame) {
         dispatch({ type: "add", payload: toAddGame });
@@ -22,13 +21,13 @@ function MoreInfo(props) {
         scrollToHeader();
     };
 
-    const isGameInCart = isInWishCart(game?.id, state?.wishlist);
+    const isGameInCart = isInWishCart(game?.id, wishlist?.items);
 
     const toggleWishlist = function addOrRemoveWishlist() {
-        console.log(isGameInCart, 'add or rem');
         if (isGameInCart) removeWishlist(game?.id);
         else { addWishlist(game); }
     };
+
     const platformIcons = {
         playstation: <RiPlaystationFill className='icon' />,
         xbox: <RiXboxFill className='icon' />,

@@ -1,25 +1,24 @@
 import { HiShoppingCart } from 'react-icons/hi';
-import { useCart } from '../../context/useCart';
 import { useWishCart } from '../../context/useWishCart';
 import './CartNWish.scss';
 
 function CartNWish() {
 
-    const inCart = useCart();
-    const { state } = useWishCart();
+    const { wishlist, cart } = useWishCart();
 
     return (
         <span className='cart-status'>
-            {state?.wishlist.length !== 0
+            {wishlist?.items.length !== 0
                 && <div className='cart-status__wishlist'>
-                    wishlist <span className='wishlist_count'>{state.wishlist.length}</span>
+                    wishlist <span className='wishlist_count'>
+                        {wishlist.items.length}</span>
                 </div>
             }
-            {inCart?.length !== 0
+            {cart?.items.length !== 0
                 && <div
                     className='cart-status__cart'>
                     <HiShoppingCart className='cart-icon hiro-icons' />
-                    {inCart.length}
+                    {cart.items.length}
                 </div>}
         </span>
     );

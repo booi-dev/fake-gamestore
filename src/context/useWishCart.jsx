@@ -6,27 +6,30 @@ export const WishCartContext = createContext();
 export const useWishCart = () => useContext(WishCartContext);
 
 const initialState = {
-    wishlist: [],
+    items: [],
 };
 
 function reducer(state, action) {
     switch (action.type) {
         case 'add':
-            return { wishlist: [...state.wishlist, action.payload] };
+            return { items: [...state.items, action.payload] };
         case 'remove':
-            return { wishlist: state.wishlist.filter((item) => item.id !== action.payload) };
+            return { items: state.items.filter((item) => item.id !== action.payload) };
         case 'clear':
-            return { wishlist: [] };
+            return { items: [] };
         default: return state;
     }
 }
 
 export function WishCartProvider({ children }) {
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [wishlist, dispatch] = useReducer(reducer, initialState);
+    const [cart, cartDispatch] = useReducer(reducer, initialState);
 
     /*eslint-disable*/
     return (
-        <WishCartContext.Provider value={{ state, dispatch }}>
+        <WishCartContext.Provider value={
+            { wishlist, dispatch, cart, cartDispatch }
+        }>
             {children}
         </WishCartContext.Provider>
     );
@@ -36,6 +39,4 @@ WishCartProvider.propTypes = {
     children: PropTypes.node.isRequired
 };
 
-export const isInWishCart = (toCheckGameId, cart) => !!cart.find(game => game.id === toCheckGameId);
-
-// export default WishCart;
+export const isInWishCart = (toCheckGameId, wishcart) => !!wishcart.find(game => game.id === toCheckGameId);

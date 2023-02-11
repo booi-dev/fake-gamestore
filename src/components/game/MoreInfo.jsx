@@ -1,12 +1,22 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { RiPlaystationFill, RiXboxFill, RiAppleFill, RiWindowsFill, RiGlobalLine } from 'react-icons/ri';
 import { SiIos, SiLinux, SiNintendoswitch } from "react-icons/si";
 import { HiChevronDoubleRight } from 'react-icons/hi';
 import { DiAndroid } from 'react-icons/di';
-
+import { useWishCart } from '../../context/useWishCart';
 
 function MoreInfo(props) {
+
+    const { dispatch } = useWishCart();
+
+    const addWishlist = function addToWishlistCart(toAddGame) {
+        dispatch({ type: "add", payload: toAddGame });
+    };
+
+    const deleteWishlist = function deleteFromWishlist(toDeleteGameId) {
+        dispatch({ type: 'delete', payload: toDeleteGameId });
+    };
+
     const { game } = props;
 
     const platformIcons = {
@@ -41,11 +51,11 @@ function MoreInfo(props) {
             </div>
 
             <button type='button'
-                className='add-to-wishlist-btn'>
+                className='add-to-wishlist-btn'
+                onClick={addWishlist}>
                 add to wishlist
             </button>
         </div>
-
     );
 }
 

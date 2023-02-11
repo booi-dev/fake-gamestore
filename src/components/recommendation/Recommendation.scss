@@ -1,18 +1,5 @@
 @use "../../sass/index" as *;
 
-.recommendation_title {
-  max-width: $app-width;
-  margin: auto;
-  margin-block: 1em;
-  padding-inline: $app-padding-xs;
-}
-
-.recommendation_title h1 {
-  font-size: $font-sm;
-  font-weight: 300;
-  padding: 0;
-}
-
 .recommendation_container {
   display: flex;
   gap: 0.5em;

@@ -1,0 +1,22 @@
+@use "./variables" as *;
+
+@mixin app-width {
+  max-width: $app-width;
+  margin: auto;
+}
+
+.grp_title {
+  @include app-width;
+  margin-block: 1em;
+  padding-inline: $app-padding-xs;
+}
+
+.grp_title h1 {
+  font-size: $font-sm;
+  font-weight: 300;
+  padding: 0;
+}
+
+.app-container {
+  @include app-width;
+}

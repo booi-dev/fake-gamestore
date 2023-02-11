@@ -45,20 +45,20 @@ function Recommendation() {
         });
     };
 
-    const [startTimer, stopTimer] = timer(autoUpdateCurrentGame, 15);
+    const [startTimer, stopTimer] = timer(autoUpdateCurrentGame, 50);
 
     useEffect(() => {
         fetchGameData();
     }, []);
 
-    useEffect(() => {
-        if (gameTotal > 0) startTimer();
-        return () => stopTimer();
-    }, [gameTotal, gameSerial]);
+    // useEffect(() => {
+    //     if (gameTotal > 0) startTimer();
+    //     return () => stopTimer();
+    // }, [gameTotal, gameSerial]);
 
     return (
         <>
-            <div className="recommendation_title">
+            <div className="recommendation_title grp_title">
                 <h1>FEATURED & RECOMMENDED</h1>
             </div>
             <div className='recommendation_container'>

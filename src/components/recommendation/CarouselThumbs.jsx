@@ -21,7 +21,6 @@ function CarouselThumbs(props) {
 }
 
 CarouselThumbs.propTypes = {
-    // game: PropTypes.func.isRequired,
     serial: PropTypes.number.isRequired,
     activeSerial: PropTypes.number.isRequired,
     updateCurrentGame: PropTypes.func.isRequired,

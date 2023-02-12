@@ -62,8 +62,8 @@ function BrowseCategory() {
     const carousePrevItem = useCallback(() => {
         const carouselLength = categoryPictures.length;
         console.log(carouselStart, carouselLength);
-        if (carouselStart === 0) setCarouselStart(carouselLength - 4);
         if (carouselStart === 0 && winWidth < 500) setCarouselStart(carouselLength - 2);
+        else if (carouselStart === 0) setCarouselStart(carouselLength - 4);
         else { setCarouselStart(carouselStart - 1); }
     }, [carouselStart]);
 

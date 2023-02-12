@@ -1,12 +1,14 @@
-import SearchHeader from "../components/search/SearchHeader";
+import StoreHero from "../components/store/StoreHero";
+// import SearchHeader from "../components/search/SearchHeader";
 import Recommendation from '../components/recommendation/Recommendation';
 import BrowseCategory from "../components/categories/BrowseCategory";
 
 function Store() {
+
     return (
         <div className='store'>
-            {/* <StoreHero /> */}
-            <SearchHeader />
+            <StoreHero />
+            {/* <SearchHeader /> */}
             <Recommendation />
             <BrowseCategory />
         </div>

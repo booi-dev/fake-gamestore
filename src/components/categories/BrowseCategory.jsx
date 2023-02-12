@@ -18,6 +18,9 @@ import categoryStrategy from '../../assets/categories/strategy.png';
 import categoryCityBuilding from '../../assets/categories/city_building.png';
 import categorySurvival from '../../assets/categories/survival.png';
 
+import { Prev, Next } from '../ui/PrevNext';
+import useWinSize from '../../hooks/useWinSize';
+
 function BrowseCategory() {
 
     const categoryPictures = [
@@ -41,13 +44,16 @@ function BrowseCategory() {
 
     const [carousel, setCarousel] = useState([]);
 
+    const winWidth = useWinSize();
+
     const categoryCarousel = function createCategoryCarousel(page = 0) {
-        setCarousel(() => categoryPictures.slice(page, 4));
+        const carouselSize = winWidth < 500 ? 2 : 4;
+        setCarousel(() => categoryPictures.slice(page, carouselSize));
     };
 
     useEffect(() => {
         categoryCarousel();
-    }, []);
+    }, [winWidth]);
 
     // console.log(carousel());
 
@@ -55,13 +61,21 @@ function BrowseCategory() {
         <>
             <div className='grp_title'>BROWSE BY CATEGORY</div>
             <div className='category-carousel app-container'>
+                {/* <div className='category-carousel__items-container'> */}
                 {carousel.map((data) => (
                     <div key={data.slug}
                         className='category-carousel__item'>
                         <img src={data.pic} alt='' className='category-carousel__item-img' />
-                        <h1>{data.slug} </h1>
+                        <h1
+                            className='category-carousel__item-title'
+                        >{data.slug} </h1>
                     </div>
                 ))}
+                {/* </div> */}
+            </div>
+            <div className='category-carousel__prevnext app-container'>
+                <Prev />
+                <Next />
             </div>
         </>
     );

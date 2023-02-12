@@ -3,8 +3,8 @@ $app-padding: 2em;
 $app-padding-sm: 1em;
 $app-padding-xs: 0.5em;
 $header-height: 100px;
-$footer-height: 100px;
-$hero-height: 55vh;
+$footer-height: 60px;
+$hero-height: 50vh;
 $hero-height-mobile: 40vh;
 
 $border-radius-1: 2px;
@@ -22,7 +22,9 @@ $primary-clr-trans-2: #202e3cb8;
 $primary-clr-trans-3: #006699d6;
 $primary-clr-dark: hsl(200, 70%, 10%);
 $primary-clr-light: #9dadef;
-$accent-clr: #e90e0e;
+// $accent-clr: #e74338;
+$accent-clr: #67ad06;
+$accent-clr-dark: #467307;
 $transperant-clr: #202e3c00;
 
 $font-xxxs: 11px;

@@ -10,10 +10,6 @@
   padding-inline: $app-padding-xs;
 }
 
-.recommendation_container button {
-  border: none;
-}
-
 // recommendation card
 
 .recommendation_card-container {
@@ -40,25 +36,8 @@
   .recommendation_container {
     justify-content: space-between;
   }
-  // .next-btn,
-  // .prev-btn {
-  //   background-image: revert;
-  //   background-color: $primary-clr-trans;
-  // }
   .recommendation_card-container {
     position: absolute;
     inset: 0;
   }
 }
-
-// @media (max-width: 500px) {
-//   .prev-icon,
-//   .next-icon {
-//     width: 20px;
-//     height: 20px;
-//   }
-//   .prev-btn,
-//   .next-btn {
-//     translate: 0 -10px;
-//   }
-// }

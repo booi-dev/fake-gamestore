@@ -12,7 +12,7 @@
 .cart-status__wishlist {
   font-size: $font-xxxs;
   border-radius: $border-radius-1;
-  padding: 0.4em;
+  padding: 0.55em;
   text-align: center;
   min-width: 7em;
   cursor: pointer;
@@ -22,7 +22,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $accent-clr;
+  // background-color: $accent-clr;
+  background-image: linear-gradient(to right, $accent-clr, $accent-clr-dark);
 }
 
 .cart-status__wishlist {
@@ -46,7 +47,7 @@
   .cart-status {
     flex-direction: column;
     justify-content: space-between;
-    gap: revert;
+    // gap: 0.5em;
     margin-block-end: revert;
     width: revert;
   }

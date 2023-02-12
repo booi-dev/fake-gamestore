@@ -14,6 +14,7 @@ function useWinSize() {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
+
     return windowWidth;
 }
 

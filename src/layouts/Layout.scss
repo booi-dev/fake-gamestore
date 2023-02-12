@@ -17,7 +17,7 @@ li {
 .header-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  align-content: center;
+  align-items: center;
   position: relative;
   max-width: $app-width;
   margin: auto;
@@ -51,7 +51,7 @@ li {
   letter-spacing: 0.1em;
   color: $font-clr;
   &:hover {
-    color: $font-clr-accented;
+    color: $accent-clr;
   }
 }
 
@@ -64,11 +64,11 @@ li {
   display: flex;
   justify-content: right;
   font-size: $font-xxs;
-  gap: 1em;
-  position: absolute;
-  inset: 0;
-  top: $app-padding-xs;
-  right: $app-padding-xs;
+  gap: 0.5em;
+  // position: absolute;
+  // inset: 0;
+  // top: $app-padding-xs;
+  // right: $app-padding-xs;
   z-index: 0;
 }
 
@@ -77,16 +77,13 @@ li {
 }
 
 .user_wallet {
-  color: rgb(10, 150, 8);
+  color: #15ce12;
 }
 
 .user__profile-pic {
-  margin-top: 0.7em;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   object-fit: cover;
-  border: 1px solid;
-  border-radius: $border-radius-1;
 }
 
 .menu-btn {
@@ -95,10 +92,9 @@ li {
   grid-column-start: 1;
   grid-row-start: 1;
   align-self: center;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: $border-radius-1;
-  border: 1px solid;
   transition: border 1s ease-in-out, color 1s;
   &:hover {
     border: 1px solid $accent-clr;
@@ -121,15 +117,17 @@ li {
     justify-self: center;
     align-self: center;
   }
-  .user {
-    position: revert;
-    gap: 0.5em;
-    inset: revert;
-    right: 0;
-  }
+  // .user {
+  //   position: revert;
+  //   gap: 0.5em;
+  //   inset: revert;
+  //   right: 0;
+  // }
 }
 
 .chevron-down-btn {
+  display: flex;
+  align-items: center;
   background: transparent;
   border: none;
   color: $font-clr;
@@ -156,5 +154,5 @@ li {
 
 .footer {
   height: $footer-height;
-  background-color: $primary-clr-2;
+  background-color: $primary-clr;
 }

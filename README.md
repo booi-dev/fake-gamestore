@@ -6,3 +6,7 @@ Genre / Category change
 sidebar menu
 cart pages
 wishlist page
+add quantity
+checkout feature
+payment :- https://stripe.com/docs/testing / or
+razorpay

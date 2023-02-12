@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import './BrowseCategory.scss';
 
 import categoryAction from '../../assets/categories/action.png';
@@ -28,7 +28,7 @@ function BrowseCategory() {
         { pic: categorAnime, slug: 'anime' },
         { pic: categorCasual, slug: 'casual' },
         { pic: categorFighting, slug: 'fighting' },
-        { pic: categorHorror, slug: 'horro' },
+        { pic: categorHorror, slug: 'horror' },
         { pic: categorMultiplayer, slug: 'multiplayer' },
         { pic: categorPuzzle, slug: 'puzzle' },
         { pic: categorRacing, slug: 'racing' },
@@ -43,39 +43,51 @@ function BrowseCategory() {
     ];
 
     const [carousel, setCarousel] = useState([]);
+    const [carouselStart, setCarouselStart] = useState(0);
 
     const winWidth = useWinSize();
 
-    const categoryCarousel = function createCategoryCarousel(page = 0) {
-        const carouselSize = winWidth < 500 ? 2 : 4;
-        setCarousel(() => categoryPictures.slice(page, carouselSize));
+    const categoryCarousel = function createCategoryCarousel() {
+        const carouselSize = winWidth < 500 ? carouselStart + 2 : carouselStart + 4;
+        setCarousel(() => categoryPictures.slice(carouselStart, carouselSize));
     };
+
+    const carouseNextItem = useCallback(() => {
+        const carouselLength = categoryPictures.length;
+        console.log(carouselStart, carouselLength);
+        if (carouselStart === carouselLength - 4 || carouselStart === carouselLength - 2) setCarouselStart(0);
+        else { setCarouselStart(carouselStart + 1); }
+    }, [carouselStart]);
+
+    const carousePrevItem = useCallback(() => {
+        const carouselLength = categoryPictures.length;
+        console.log(carouselStart, carouselLength);
+        if (carouselStart === 0) setCarouselStart(carouselLength - 4);
+        if (carouselStart === 0 && winWidth < 500) setCarouselStart(carouselLength - 2);
+        else { setCarouselStart(carouselStart - 1); }
+    }, [carouselStart]);
 
     useEffect(() => {
         categoryCarousel();
-    }, [winWidth]);
-
-    // console.log(carousel());
+    }, [carouselStart, winWidth]);
 
     return (
         <>
             <div className='grp_title'>BROWSE BY CATEGORY</div>
             <div className='category-carousel app-container'>
-                {/* <div className='category-carousel__items-container'> */}
                 {carousel.map((data) => (
                     <div key={data.slug}
                         className='category-carousel__item'>
                         <img src={data.pic} alt='' className='category-carousel__item-img' />
                         <h1
                             className='category-carousel__item-title'
-                        >{data.slug} </h1>
+                        >{data.slug.toUpperCase()} </h1>
                     </div>
                 ))}
-                {/* </div> */}
             </div>
             <div className='category-carousel__prevnext app-container'>
-                <Prev />
-                <Next />
+                <Prev prevHandler={carousePrevItem} />
+                <Next nextHandler={carouseNextItem} />
             </div>
         </>
     );

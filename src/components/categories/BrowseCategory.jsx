@@ -48,20 +48,23 @@ function BrowseCategory() {
     const winWidth = useWinSize();
 
     const categoryCarousel = function createCategoryCarousel() {
-        const carouselSize = winWidth < 500 ? carouselStart + 2 : carouselStart + 4;
-        setCarousel(() => categoryPictures.slice(carouselStart, carouselSize));
+        const carouselEnd = winWidth < 500 ? carouselStart + 2 : carouselStart + 4;
+
+        if (winWidth > 500 && carousel.length === 2) {
+            setCarouselStart(carouselStart - 1);
+        }
+
+        setCarousel(() => categoryPictures.slice(carouselStart, carouselEnd));
     };
 
     const carouseNextItem = useCallback(() => {
         const carouselLength = categoryPictures.length;
-        console.log(carouselStart, carouselLength);
         if (carouselStart === carouselLength - 4 || carouselStart === carouselLength - 2) setCarouselStart(0);
         else { setCarouselStart(carouselStart + 1); }
     }, [carouselStart]);
 
     const carousePrevItem = useCallback(() => {
         const carouselLength = categoryPictures.length;
-        console.log(carouselStart, carouselLength);
         if (carouselStart === 0 && winWidth < 500) setCarouselStart(carouselLength - 2);
         else if (carouselStart === 0) setCarouselStart(carouselLength - 4);
         else { setCarouselStart(carouselStart - 1); }
@@ -70,6 +73,7 @@ function BrowseCategory() {
     useEffect(() => {
         categoryCarousel();
     }, [carouselStart, winWidth]);
+
 
     return (
         <>

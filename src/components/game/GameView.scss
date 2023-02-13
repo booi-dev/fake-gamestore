@@ -1,15 +1,16 @@
 @use "../../sass/index" as *;
 
 .game-view {
+  // display: none;
   max-width: $app-width;
-  margin: auto;
+  margin-inline: auto;
   background-image: linear-gradient(
     to right,
     lighten($color: $primary-clr-dark, $amount: 4),
     $primary-clr-dark
   );
-
   padding: $app-padding-xs;
+  // margin-bottom: 10em;
 }
 
 .game-view_title {
@@ -270,6 +271,19 @@
   &:before {
     width: 100%;
   }
+}
+
+.full-bg-picture {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  filter: brightness(50%);
+}
+
+.full-bg-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 740px) {

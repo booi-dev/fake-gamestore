@@ -148,11 +148,14 @@ li {
 
 .main-body {
   padding-inline: 0.5em;
+  padding-block: 10px;
+  position: relative;
 }
 
 // FOOTER
 
 .footer {
+  // margin-top: 1em;
   height: $footer-height;
-  background-color: $primary-clr;
+  background-color: $primary-clr-3;
 }

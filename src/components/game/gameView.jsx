@@ -114,7 +114,10 @@ function GameView() {
                         </div>
                     </>
                 }
-
+                <div className='full-bg-picture'>
+                    <img src={game?.background_image}
+                        alt='game pic' />
+                </div>
             </div>
         </>
     );

@@ -14,6 +14,7 @@ li {
   justify-content: center;
   height: $header-height;
   background: $primary-clr-dark;
+  padding-inline: $app-padding-xs;
 }
 
 .header-container {
@@ -24,7 +25,6 @@ li {
   position: relative;
   // max-width: $app-width;
   margin: auto;
-  padding-inline: $app-padding-xs;
 }
 
 .site-icon {

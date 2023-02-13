@@ -11,6 +11,12 @@ function MoreInfo(props) {
 
     const { wishlist, dispatch } = useWishCart();
 
+    const gameDataToAdd = {
+        id: game?.id,
+        game: game?.name,
+        price: game?.price,
+    };
+
     const addWishlist = function addToWishlistCart(toAddGame) {
         dispatch({ type: "add", payload: toAddGame });
         scrollToHeader();
@@ -25,7 +31,7 @@ function MoreInfo(props) {
 
     const toggleWishlist = function addOrRemoveWishlist() {
         if (isGameInCart) removeWishlist(game?.id);
-        else { addWishlist(game); }
+        else { addWishlist(gameDataToAdd); }
     };
 
     const platformIcons = {

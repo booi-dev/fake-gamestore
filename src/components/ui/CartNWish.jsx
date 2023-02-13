@@ -13,17 +13,18 @@ function CartNWish() {
 
     return (
         <span className='cart-status'>
-            <div className='cart-status__wishlist'>
+            <button type='button'
+                className='cart-status__wishlist'
+                onClick={navigateToCheckout}>
                 wishlist
                 {wishlist?.items.length !== 0
                     &&
                     <span className='wishlist_count'>
                         {wishlist.items.length}</span>
                 }
-            </div>
+            </button>
             {cart?.items.length !== 0
-                && <button
-                    type='button'
+                && <button type='button'
                     className='cart-status__cart'
                     onClick={navigateToCheckout}>
                     <HiShoppingCart className='cart-icon hiro-icons' />

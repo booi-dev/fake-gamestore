@@ -1,5 +1,5 @@
 import Search from './Search';
-import CartNWish from './CartNWish';
+import CartNWish from '../ui/CartNWish';
 import useWinSize from '../../hooks/useWinSize';
 import './SearchHeader.scss';
 

@@ -30,7 +30,9 @@ function GameView() {
     const headerRef = useRef();
 
     const scrollToHeader = useCallback(() => {
-        headerRef.current.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+            headerRef.current.scrollIntoView({ behavior: 'smooth' });
+        }, 1000);
     }, []);
 
     return (

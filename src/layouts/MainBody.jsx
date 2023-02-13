@@ -6,7 +6,7 @@ import Community from '../pages/Community';
 import Support from '../pages/Support';
 import News from '../pages/News';
 import GameView from '../components/game/GameView';
-import Checkout from '../pages/Checkout';
+import Checkout from '../components/checkout/Checkout';
 
 function MainBody() {
   return (

@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { HiMail, HiMenu, HiChevronDown, HiUserCircle } from "react-icons/hi";
+import { useAccount } from '../context/useAccount';
 import useWinSize from '../hooks/useWinSize';
 import siteIconLight from '../assets/site-icon/site-icon-light.png';
 
@@ -7,6 +8,7 @@ import './Layout.scss';
 
 function Header() {
 
+    const userAccount = useAccount();
     const winWidth = useWinSize();
 
     return (
@@ -40,7 +42,7 @@ function Header() {
                     </div>
                     <div className='user_name'>
                         <div>BooiMangang</div>
-                        <div className='user_wallet'>$10000</div>
+                        <div className='user_wallet'>${userAccount.account}</div>
                     </div>
                     <button type='button' className='chevron-down-btn'>
                         {winWidth < 500 && <HiChevronDown size={18} className='chevron-down-icon' />}

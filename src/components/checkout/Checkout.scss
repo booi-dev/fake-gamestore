@@ -1,0 +1,64 @@
+@use "../../sass/index" as *;
+
+.checkout h1,
+.checkout h2,
+.checkout h3 {
+  font-weight: 300;
+}
+
+.checkout__title {
+  padding-block: 0.5em;
+  font-size: clamp($font-xl, 3vw, $font-xxl);
+}
+
+.checkout__wishlist {
+  min-height: 200px;
+  font-size: $font-xxs;
+}
+
+.checkout-status {
+  padding: 0.5em;
+  width: 100%;
+  background-color: $primary-clr-3;
+}
+
+.checkout-list {
+  padding: 0.5em;
+}
+
+.checkout__cart {
+  font-size: $font-xxs;
+  bottom: 0;
+  background-color: $primary-clr-2;
+  min-height: 100px;
+  width: 100%;
+}
+
+.checkout__cart-game,
+.checkout__wishlist-game {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid $primary-clr-dark;
+}
+
+.checkout__pay {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1em;
+}
+
+.checkout__pay h1 {
+  font-size: $font-xl;
+}
+
+.checkout__section {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.checkout-btn {
+  padding: 0.5em;
+  border-radius: $border-radius-1;
+  background-image: linear-gradient(to right, $accent-clr, $accent-clr-dark);
+}

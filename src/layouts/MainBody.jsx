@@ -6,6 +6,7 @@ import Community from '../pages/Community';
 import Support from '../pages/Support';
 import News from '../pages/News';
 import GameView from '../components/game/GameView';
+import Checkout from '../pages/Checkout';
 
 function MainBody() {
   return (
@@ -18,6 +19,7 @@ function MainBody() {
         <Route path='/support' element={<Support />} />
         <Route path='/news' element={<News />} />
         <Route path='/game/:gameId' element={<GameView />} />
+        <Route path='/checkout' element={<Checkout />} />
       </Routes>
     </div>
   );

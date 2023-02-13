@@ -10,19 +10,21 @@ li {
 }
 
 .header {
-  // height: $header-height;
+  display: flex;
+  justify-content: center;
+  height: $header-height;
   background: $primary-clr-dark;
 }
 
 .header-container {
+  flex-basis: $app-width;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   position: relative;
-  max-width: $app-width;
+  // max-width: $app-width;
   margin: auto;
   padding-inline: $app-padding-xs;
-  padding-block: calc($header-height * 0.3);
 }
 
 .site-icon {
@@ -144,6 +146,8 @@ li {
   padding-inline: 0.5em;
   padding-block: 10px;
   position: relative;
+  // min-height: 100vh - calc($header-height + $footer-height);
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
 }
 
 // FOOTER

@@ -1,10 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import { HiShoppingCart } from 'react-icons/hi';
 import { useWishCart } from '../../context/useWishCart';
 import './CartNWish.scss';
 
 function CartNWish() {
-
+    const navigate = useNavigate();
     const { wishlist, cart } = useWishCart();
+
+    const navigateToCheckout = function navigateToCheckoutOnClick() {
+        navigate('/checkout');
+    };
 
     return (
         <span className='cart-status'>
@@ -17,11 +22,13 @@ function CartNWish() {
                 }
             </div>
             {cart?.items.length !== 0
-                && <div
-                    className='cart-status__cart'>
+                && <button
+                    type='button'
+                    className='cart-status__cart'
+                    onClick={navigateToCheckout}>
                     <HiShoppingCart className='cart-icon hiro-icons' />
                     {cart.items.length}
-                </div>}
+                </button>}
         </span>
     );
 }

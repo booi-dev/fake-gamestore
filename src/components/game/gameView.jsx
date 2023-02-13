@@ -8,6 +8,7 @@ import './GameView.scss';
 
 function GameView() {
 
+    const headerRef = useRef();
     const { gameId } = useParams();
 
     const [game, setGame] = useState({});
@@ -23,17 +24,15 @@ function GameView() {
         setGame({ ...data, short_description: cutWordCount(data?.description_raw, 150) });
     };
 
-    useEffect(() => {
-        fetchGameData();
-    }, [gameId]);
-
-    const headerRef = useRef();
-
     const scrollToHeader = useCallback(() => {
         setTimeout(() => {
             headerRef.current.scrollIntoView({ behavior: 'smooth' });
         }, 1000);
     }, []);
+
+    useEffect(() => {
+        fetchGameData();
+    }, [gameId]);
 
     return (
         <>

@@ -4,11 +4,7 @@
   // display: none;
   max-width: $app-width;
   margin-inline: auto;
-  background-image: linear-gradient(
-    to right,
-    lighten($color: $primary-clr-dark, $amount: 4),
-    $primary-clr-dark
-  );
+  background-image: linear-gradient(#1b2e40a8, $primary-clr-dark);
   padding: $app-padding-xs;
   // margin-bottom: 10em;
 }
@@ -311,9 +307,9 @@
 }
 
 @media (max-width: 500px) {
-  .game-view {
-    background-image: linear-gradient($transperant-clr 70%, $primary-clr-dark);
-  }
+  // .game-view {
+  //   background-image: linear-gradient(#1b2e40bc, $primary-clr-dark);
+  // }
 
   .game-view__imgs {
     height: 250px;

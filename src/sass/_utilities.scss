@@ -34,6 +34,7 @@
 // Font size
 
 $font-sizes: (
+  "ss": 10px,
   "xxxs": 11px,
   "xxs": 12px,
   "xs": 14px,
@@ -108,3 +109,7 @@ $layout-sizes: (
 }
 
 // Flex
+
+.app-flex {
+  display: flex;
+}

@@ -16,13 +16,28 @@
   font-size: $font-xxs;
 }
 
+.checkout-price {
+  min-width: 40px;
+  text-align: right;
+}
+
 .checkout-status {
   width: 100%;
   background-color: $primary-clr-3;
 }
 
+.checkout-cart-swap {
+  color: rgb(161, 161, 161);
+  background-color: $primary-clr-2;
+  border-radius: $border-radius-1;
+  padding-inline: 0.25em;
+  &:hover {
+    scale: 1.1;
+  }
+}
+
 .checkout__empty-cart-status {
-  color: rgb(162, 157, 157);
+  color: #a29d9d;
 }
 
 .checkout__cart {

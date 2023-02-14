@@ -7,7 +7,7 @@ import CheckoutConfirm from './CheckoutConfirm';
 import './Checkout.scss';
 
 function Checkout() {
-    const { wishlist, cart } = useWishCart();
+    const { wishlist, cart, cartDispatch, wishDispatch } = useWishCart();
     const { credit } = useAccount();
 
     const [gameTotal, setGameTotal] = useState(0);
@@ -25,6 +25,16 @@ function Checkout() {
         }, 1000);
     }, []);
 
+    const moveToCart = function name(game) {
+        wishDispatch({ type: 'remove', payload: game.id });
+        cartDispatch({ type: 'add', payload: game });
+    };
+
+    const moveToWish = function name(game) {
+        cartDispatch({ type: 'remove', payload: game.id });
+        wishDispatch({ type: 'add', payload: game });
+    };
+
     useEffect(() => {
         const gamePriceTotal = cart?.items?.reduce(((sum, game) => sum + game.price), 0);
         setGameTotal(gamePriceTotal);
@@ -34,26 +44,35 @@ function Checkout() {
         <div className='checkout app-container'>
             <SearchHeader />
             <div>
-                <h1 className='checkout__title'> YOUR SHOPPPING CART</h1>
+                <h1 className='checkout__title p-sm'> YOUR SHOPPPING CART</h1>
             </div>
-            <div className='checkout__wishlist '>
-                <h2 className='checkout-status'>{wishlist?.items.length} wishlisted games </h2>
+            <div className='checkout__wishlist'>
+                <h2 className='checkout-status p-sm'>{wishlist?.items.length} wishlisted games </h2>
                 {wishlist?.items.map((item) => <div key={item.id}
                     className='checkout__wishlist-game checkout-list p-sm'>
                     <h3>{item.game}</h3>
-                    <h3>$ {item.price}</h3>
+                    <div className='app-flex'>
+                        <button type='button' className='checkout-cart-swap fs-ss'
+                            onClick={() => moveToCart(item)}>
+                            move to cart</button>
+                        <h3 className='checkout-price'>$ {item.price}</h3>
+                    </div>
                 </div>)}
             </div>
             <div className='checkout__cart'>
-                <h2 className='checkout-status'>{cart?.items.length} games in cart</h2>
+                <h2 className='checkout-status p-sm'>{cart?.items.length} games in cart</h2>
                 {cart?.items.length < 1
                     && <h3 className='checkout__empty-cart-status p-sm'> Nothing in Cart! Add some games.</h3>}
                 {cart?.items.map((item) => <div key={item.id}
                     className="checkout__cart-game checkout-list p-sm">
                     <h3>{item.game}</h3>
-                    <h3>$ {item.price}</h3>
+                    <div className='app-flex'>
+                        <button type='button' className='checkout-cart-swap fs-ss'
+                            onClick={() => moveToWish(item)}>
+                            move to wishlist</button>
+                        <h3 className='checkout-price'>$ {item.price}</h3>
+                    </div>
                 </div>)}
-
             </div>
             <div className='checkout__pay'>
                 <div>

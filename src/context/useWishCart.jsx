@@ -41,13 +41,13 @@ function reducer(state, action) {
 }
 
 export function WishCartProvider({ children }) {
-    const [wishlist, dispatch] = useReducer(reducer, initialState);
+    const [wishlist, wishDispatch] = useReducer(reducer, initialState);
     const [cart, cartDispatch] = useReducer(reducer, initialState);
 
     /*eslint-disable*/
     return (
         <WishCartContext.Provider value={
-            { wishlist, dispatch, cart, cartDispatch }
+            { wishlist, wishDispatch, cart, cartDispatch }
         }>
             {children}
         </WishCartContext.Provider>

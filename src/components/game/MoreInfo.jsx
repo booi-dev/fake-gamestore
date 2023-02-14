@@ -9,7 +9,7 @@ function MoreInfo(props) {
 
     const { game, scrollToHeader } = props;
 
-    const { wishlist, dispatch } = useWishCart();
+    const { wishlist, wishDispatch } = useWishCart();
 
     const gameDataToAdd = {
         id: game?.id,
@@ -18,12 +18,12 @@ function MoreInfo(props) {
     };
 
     const addWishlist = function addToWishlistCart(toAddGame) {
-        dispatch({ type: "add", payload: toAddGame });
+        wishDispatch({ type: "add", payload: toAddGame });
         scrollToHeader();
     };
 
     const removeWishlist = function deleteFromWishlist(toRemoveGameId) {
-        dispatch({ type: 'remove', payload: toRemoveGameId });
+        wishDispatch({ type: 'remove', payload: toRemoveGameId });
         scrollToHeader();
     };
 

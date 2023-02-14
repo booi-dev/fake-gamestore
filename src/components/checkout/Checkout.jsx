@@ -8,9 +8,9 @@ import './Checkout.scss';
 
 function Checkout() {
     const { wishlist, cart } = useWishCart();
-    const userAccount = useAccount();
+    const { credit } = useAccount();
 
-    const [total, setTotal] = useState(0);
+    const [gameTotal, setGameTotal] = useState(0);
     const [showCheckoutConfirm, setShowCheckoutConfirm] = useState(false);
 
     const toggleCheckoutConfirm = useCallback(() => {
@@ -19,7 +19,7 @@ function Checkout() {
 
     useEffect(() => {
         const gamePriceTotal = cart?.items?.reduce(((sum, game) => sum + game.price), 0);
-        setTotal(gamePriceTotal);
+        setGameTotal(gamePriceTotal);
     }, [cart]);
 
     return (
@@ -48,19 +48,18 @@ function Checkout() {
             </div>
             <div className='checkout__pay'>
                 <div>
-                    <h1 className='fs-xl'> You Have $ {userAccount.account}</h1>
+                    <h1 className='fs-xl'> You Have $ {credit.myCredit}</h1>
                 </div>
                 <div className='checkout__section'>
-                    <h1 className='checkout__total fs-xl'> Total ${total}</h1>
+                    <h1 className='checkout__total fs-xl'> Total ${gameTotal}</h1>
                     <button type='button'
                         className='checkout-btn'
                         onClick={toggleCheckoutConfirm}
                     >CHECKOUT</button>
                 </div>
                 {showCheckoutConfirm && <CheckoutConfirm
-                    userAccount={userAccount}
                     toggleCheckoutConfirm={toggleCheckoutConfirm}
-                    total={total}
+                    gameTotal={gameTotal}
                 />}
             </div>
 

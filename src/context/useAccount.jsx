@@ -7,44 +7,42 @@ export const useAccount = () => useContext(AccountContext);
 
 const initialState = {
     myCredit: 100,
-    ownGames: []
+    myGames: []
 };
 
 function creditReducer(state, action) {
-    switch (action) {
+    switch (action.type) {
         case 'add':
             return {
                 ...state,
-                credit: state.credit + action.payload,
+                myCredit: state.myCredit + action.payload,
             };
         case 'remove':
             return {
                 ...state,
-                credit: state.credit - action.payload,
+                myCredit: state.myCredit - action.payload,
             };
         default: return state;
     }
 }
 
 function gamesReducer(state, action) {
-    switch (action) {
+    switch (action.type) {
         case 'add':
             return {
                 ...state,
-                games: [...state.games, action.payload]
+                myGames: [...state.myGames, ...action.payload]
             };
 
         case 'remove':
             return {
                 ...state,
-                games: state.games.filter((game) => game.id !== action.payload)
+                myGames: state.myGames.filter((game) => game.id !== action.payload)
             };
 
-        default:
-            break;
+        default: return state;
     }
 }
-
 
 export function AccountProvider({ children }) {
 

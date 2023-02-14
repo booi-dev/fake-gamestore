@@ -17,13 +17,12 @@
 }
 
 .checkout-status {
-  padding: 0.5em;
   width: 100%;
   background-color: $primary-clr-3;
 }
 
-.checkout-list {
-  padding: 0.5em;
+.checkout__empty-cart-status {
+  color: rgb(162, 157, 157);
 }
 
 .checkout__cart {

@@ -33,26 +33,27 @@ function Checkout() {
     return (
         <div className='checkout app-container'>
             <SearchHeader />
-
             <div>
                 <h1 className='checkout__title'> YOUR SHOPPPING CART</h1>
             </div>
-
             <div className='checkout__wishlist '>
-                <h2 className='checkout-status'>{wishlist?.items.length} games wishlisted</h2>
+                <h2 className='checkout-status'>{wishlist?.items.length} wishlisted games </h2>
                 {wishlist?.items.map((item) => <div key={item.id}
-                    className='checkout__wishlist-game checkout-list'>
+                    className='checkout__wishlist-game checkout-list p-sm'>
                     <h3>{item.game}</h3>
                     <h3>$ {item.price}</h3>
                 </div>)}
             </div>
             <div className='checkout__cart'>
                 <h2 className='checkout-status'>{cart?.items.length} games in cart</h2>
+                {cart?.items.length < 1
+                    && <h3 className='checkout__empty-cart-status p-sm'> Nothing in Cart! Add some games.</h3>}
                 {cart?.items.map((item) => <div key={item.id}
-                    className="checkout__cart-game checkout-list">
+                    className="checkout__cart-game checkout-list p-sm">
                     <h3>{item.game}</h3>
                     <h3>$ {item.price}</h3>
                 </div>)}
+
             </div>
             <div className='checkout__pay'>
                 <div>
@@ -60,10 +61,11 @@ function Checkout() {
                 </div>
                 <div className='checkout__section'>
                     <h1 className='checkout__total fs-xl'> Total ${gameTotal}</h1>
-                    <button type='button'
-                        className='checkout-btn'
-                        onClick={toggleCheckoutConfirm}
-                    >CHECKOUT</button>
+                    {cart?.items.length > 0
+                        && <button type='button'
+                            className='checkout-btn'
+                            onClick={toggleCheckoutConfirm}
+                        >CHECKOUT</button>}
                 </div>
                 {showCheckoutConfirm
                     && <CheckoutConfirm

@@ -1,9 +1,19 @@
 @use "./variables" as *;
 
+// mixins
+
 @mixin app-width {
   max-width: $app-width;
   margin: auto;
 }
+
+@mixin app-position-center {
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+// utils
 
 .grp_title {
   @include app-width;

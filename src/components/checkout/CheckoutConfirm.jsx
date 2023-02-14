@@ -1,27 +1,26 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useAccount } from '../../context/useAccount';
 import { useWishCart } from '../../context/useWishCart';
 import './CheckoutConfirm.scss';
 
 function CheckoutConfirm(props) {
-    const { toggleCheckoutConfirm, gameTotal } = props;
+    const { toggleCheckoutConfirm, gameTotal, setPurchaseSuccessMsg } = props;
 
     const { cart, cartDispatch } = useWishCart();
-    const { credit, creditDispatch, games, gamesDispatch } = useAccount();
+    const { credit, creditDispatch, gamesDispatch } = useAccount();
+
+    const [lowBalance, setLowBalance] = useState(false);
 
     const checkBalance = function checkBalanceGreatorThanGameTotal() {
-        console.log(credit.myCredit > gameTotal);
         return credit.myCredit > gameTotal;
     };
 
     const balanceCalculate = function name() {
-        console.log(gameTotal);
         creditDispatch({ type: 'remove', payload: gameTotal });
     };
 
     const addGamesToAccount = function name() {
-        console.log(cart?.items);
         gamesDispatch({ type: 'add', payload: cart?.items });
     };
 
@@ -34,7 +33,15 @@ function CheckoutConfirm(props) {
         addGamesToAccount();
         balanceCalculate();
         removeGames();
+
+        toggleCheckoutConfirm();
+        setPurchaseSuccessMsg();
     };
+
+    useEffect(() => {
+        if (!checkBalance()) setLowBalance(true);
+    }, []);
+
 
     return (
         <>
@@ -50,10 +57,17 @@ function CheckoutConfirm(props) {
                     <h1 className='fs-md'> Remaining Balance </h1>
                     <div>$ {credit.myCredit - gameTotal}  </div>
                 </div>
-                <button type='button'
+
+                {lowBalance && <div className='checkout-confirm__low-balance-status mt-md'> Not Enough Money</div>}
+
+                {lowBalance || <button type='button'
                     className='checkout-confirm-btn mt-md fs-xs'
                     onClick={buyGames}>
-                    CONFIRM</button>
+                    CONFIRM</button>}
+                <button type='button'
+                    className='checkout-confirm__close-btn'
+                    onClick={toggleCheckoutConfirm}>
+                    x</button>
             </div>
             <button type='button'
                 aria-label="Backdrop"
@@ -65,9 +79,9 @@ function CheckoutConfirm(props) {
 }
 
 CheckoutConfirm.propTypes = {
-    // userAccount: PropTypes.instanceOf(Object).isRequired,
     toggleCheckoutConfirm: PropTypes.func.isRequired,
-    gameTotal: PropTypes.number.isRequired
+    gameTotal: PropTypes.number.isRequired,
+    setPurchaseSuccessMsg: PropTypes.func.isRequired
 };
 
 export default CheckoutConfirm;

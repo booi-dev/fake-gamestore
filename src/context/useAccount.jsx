@@ -46,18 +46,8 @@ function gamesReducer(state, action) {
 
 export function AccountProvider({ children }) {
 
-    // const [account, setAccount] = useState(100);
-
     const [credit, creditDispatch] = useReducer(creditReducer, initialState);
     const [games, gamesDispatch] = useReducer(gamesReducer, initialState);
-
-    // const addToAccount = function addSumToAccount(sum) {
-    //     setAccount(prevAccount => prevAccount + sum);
-    // };
-
-    // const minusFromAccount = function addSumToAccount(sum) {
-    //     setAccount(prevAccount => prevAccount - sum);
-    // };
 
     /*eslint-disable*/
     return (

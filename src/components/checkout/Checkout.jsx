@@ -12,10 +12,18 @@ function Checkout() {
 
     const [gameTotal, setGameTotal] = useState(0);
     const [showCheckoutConfirm, setShowCheckoutConfirm] = useState(false);
+    const [isPurchaseSuccess, setIsPurchaseSuccess] = useState(false);
 
     const toggleCheckoutConfirm = useCallback(() => {
         setShowCheckoutConfirm(!showCheckoutConfirm);
     }, [showCheckoutConfirm]);
+
+    const setPurchaseSuccessMsg = useCallback(() => {
+        setIsPurchaseSuccess(true);
+        setTimeout(() => {
+            setIsPurchaseSuccess(false);
+        }, 1000);
+    }, []);
 
     useEffect(() => {
         const gamePriceTotal = cart?.items?.reduce(((sum, game) => sum + game.price), 0);
@@ -57,12 +65,18 @@ function Checkout() {
                         onClick={toggleCheckoutConfirm}
                     >CHECKOUT</button>
                 </div>
-                {showCheckoutConfirm && <CheckoutConfirm
-                    toggleCheckoutConfirm={toggleCheckoutConfirm}
-                    gameTotal={gameTotal}
-                />}
+                {showCheckoutConfirm
+                    && <CheckoutConfirm
+                        toggleCheckoutConfirm={toggleCheckoutConfirm}
+                        setPurchaseSuccessMsg={setPurchaseSuccessMsg}
+                        gameTotal={gameTotal}
+                    />}
+                {isPurchaseSuccess
+                    && <div type='button'
+                        className='checkout__confirm-msg'>
+                        Purchase Success
+                    </div>}
             </div>
-
         </div>
     );
 }

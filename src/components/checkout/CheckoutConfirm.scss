@@ -2,11 +2,8 @@
 
 .checkout-confirm {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
+  @include app-position-center;
   width: 500px;
-
   background-color: $primary-clr-2;
   border-radius: $border-radius-1;
   padding: 2em 3em;
@@ -42,6 +39,21 @@
   width: min-content;
   margin-right: 4px;
   margin-left: auto;
+}
+
+.checkout-confirm__low-balance-status {
+  color: #e9522d;
+}
+
+.checkout-confirm__close-btn {
+  border: 1px solid;
+  width: 15px;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  &:hover {
+    scale: 1.1;
+  }
 }
 
 @media (max-width: 740px) {

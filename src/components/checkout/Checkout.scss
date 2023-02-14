@@ -58,3 +58,13 @@
   border-radius: $border-radius-1;
   background-image: linear-gradient(to right, $accent-clr, $accent-clr-dark);
 }
+
+.checkout__confirm-msg {
+  position: absolute;
+  @include app-position-center;
+  background-color: $accent-clr;
+  font-size: $font-lg;
+  padding: 2em;
+  border-radius: $border-radius-1;
+  z-index: 3;
+}

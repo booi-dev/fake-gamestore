@@ -12,18 +12,18 @@ const initialState = {
         price: 13,
     },
     {
-        id: 23213,
-        game: "Maria Ozawa",
+        id: 2344,
+        game: "Minami Aizawa",
         price: 13,
     },
     {
-        id: 23213,
-        game: "Maria Ozawa",
+        id: 3434,
+        game: "Sasha Grey",
         price: 13,
     },
     {
-        id: 23213,
-        game: "Maria Ozawa",
+        id: 45435,
+        game: "Eillie Eilish",
         price: 13,
     }],
 };

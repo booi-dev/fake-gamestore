@@ -20,3 +20,81 @@
 .app-container {
   @include app-width;
 }
+
+// Font size
+
+$font-sizes: (
+  "xxxs": 11px,
+  "xxs": 12px,
+  "xs": 14px,
+  "sm": 16px,
+  "md": 18px,
+  "lg": 20px,
+  "xl": 24px,
+  "xxl": 26px,
+);
+
+@each $size, $value in $font-sizes {
+  .fs-#{$size} {
+    font-size: $value;
+  }
+}
+
+// Margin
+
+$layout-sizes: (
+  "none": 0,
+  "xs": 4px,
+  "sm": 8px,
+  "md": 16px,
+  "lg": 24px,
+  "xl": 32px,
+);
+
+@each $size, $value in $layout-sizes {
+  .m-#{$size} {
+    margin: $value;
+  }
+
+  .mt-#{$size} {
+    margin-top: $value;
+  }
+
+  .mr-#{$size} {
+    margin-right: $value;
+  }
+
+  .mb-#{$size} {
+    margin-bottom: $value;
+  }
+
+  .ml-#{$size} {
+    margin-left: $value;
+  }
+}
+
+// Padding
+
+@each $size, $value in $layout-sizes {
+  .p-#{$size} {
+    padding: $value;
+  }
+
+  .pt-#{$size} {
+    padding-top: $value;
+  }
+
+  .pr-#{$size} {
+    padding-right: $value;
+  }
+
+  .pb-#{$size} {
+    padding-bottom: $value;
+  }
+
+  .pl-#{$size} {
+    padding-left: $value;
+  }
+}
+
+// Flex

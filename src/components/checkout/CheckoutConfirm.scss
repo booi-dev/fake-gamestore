@@ -1,0 +1,58 @@
+@use "../../sass/index" as *;
+
+.checkout-confirm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 500px;
+
+  background-color: $primary-clr-2;
+  border-radius: $border-radius-1;
+  padding: 2em 3em;
+  margin-block-end: 1em;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-confirm__title,
+.checkout-confirm__balance {
+  border-bottom: 0.5px solid;
+}
+
+.checkout-confirm__balance,
+.checkout-confirm__difference {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+.checkout-confirm__backdrop {
+  position: absolute;
+  background-color: $primary-clr-trans;
+  inset: 0;
+  z-index: 1;
+}
+
+.checkout-confirm-btn {
+  background-image: linear-gradient(to right, $accent-clr, $accent-clr-dark);
+  padding: 0.25em 0.5em;
+  width: min-content;
+  margin-right: 4px;
+  margin-left: auto;
+}
+
+@media (max-width: 740px) {
+  .checkout-confirm {
+    width: 400px;
+  }
+}
+
+@media (max-width: 500px) {
+  .checkout-confirm {
+    width: 350px;
+    min-width: 300px;
+  }
+}

@@ -8,7 +8,7 @@ import './Layout.scss';
 
 function Header() {
 
-    const userAccount = useAccount();
+    const { credit } = useAccount();
     const winWidth = useWinSize();
 
     return (
@@ -42,7 +42,7 @@ function Header() {
                     </div>
                     <div className='user_name'>
                         <div>BooiMangang</div>
-                        <div className='user_wallet'>${userAccount.account}</div>
+                        <div className='user_wallet'>${credit.myCredit}</div>
                     </div>
                     <button type='button' className='chevron-down-btn'>
                         {winWidth < 500 && <HiChevronDown size={18} className='chevron-down-icon' />}

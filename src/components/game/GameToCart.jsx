@@ -13,6 +13,7 @@ function GameToCart(props) {
         id: game?.id,
         game: game?.name,
         price: game?.price,
+        quantity: 0
     };
 
     const addToCart = function addToWishlistCart(toAddGame) {

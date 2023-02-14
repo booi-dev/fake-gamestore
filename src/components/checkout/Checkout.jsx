@@ -50,7 +50,11 @@ function Checkout() {
                 <h2 className='checkout-status p-sm'>{wishlist?.items.length} wishlisted games </h2>
                 {wishlist?.items.map((item) => <div key={item.id}
                     className='checkout__wishlist-game checkout-list p-sm'>
-                    <h3>{item.game}</h3>
+                    <div className='app-flex'>
+                        <h3>{item?.game}</h3>
+                        {item?.quantity > 0
+                            && <h3 className='ml-sm'> x {item?.quantity}</h3>}
+                    </div>
                     <div className='app-flex'>
                         <button type='button' className='checkout-cart-swap fs-ss'
                             onClick={() => moveToCart(item)}>
@@ -65,7 +69,11 @@ function Checkout() {
                     && <h3 className='checkout__empty-cart-status p-sm'> Nothing in Cart! Add some games.</h3>}
                 {cart?.items.map((item) => <div key={item.id}
                     className="checkout__cart-game checkout-list p-sm">
-                    <h3>{item.game}</h3>
+                    <div className='app-flex'>
+                        <h3>{item?.game}</h3>
+                        {item?.quantity > 0
+                            && <h3 className='ml-sm'> x {item?.quantity}</h3>}
+                    </div>
                     <div className='app-flex'>
                         <button type='button' className='checkout-cart-swap fs-ss'
                             onClick={() => moveToWish(item)}>

@@ -14,7 +14,13 @@ function MoreInfo(props) {
     const gameDataToAdd = {
         id: game?.id,
         game: game?.name,
+        genres: game?.genres,
+        released: game?.released,
+        background_image: game?.background_image,
+        parent_platforms: game?.parent_platforms,
+        tags: game?.tags,
         price: game?.price,
+        quantity: 1
     };
 
     const addWishlist = function addToWishlistCart(toAddGame) {

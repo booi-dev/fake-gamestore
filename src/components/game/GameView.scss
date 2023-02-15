@@ -1,12 +1,10 @@
 @use "../../sass/index" as *;
 
 .game-view {
-  // display: none;
   max-width: $app-width;
   margin-inline: auto;
   background-image: linear-gradient(#1b2e40a8, $primary-clr-dark);
   padding: $app-padding-xs;
-  // margin-bottom: 10em;
 }
 
 .game-view_title {
@@ -174,7 +172,7 @@
 .add-to-wishlist-btn {
   background-color: $primary-clr-3;
   padding: 0.5em;
-  border-radius: $border-radius-2;
+  border-radius: $border-radius-1;
 }
 
 // ADD TO CART
@@ -199,7 +197,7 @@
 
 .game-view_price-add-container {
   background-color: $primary-clr;
-  border-radius: $border-radius-2;
+  border-radius: $border-radius-1;
   padding-inline-start: 0.5em;
   translate: 0 100%;
   min-width: max-content;
@@ -223,7 +221,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: $border-radius-2;
+    border-radius: $border-radius-1;
     background-image: linear-gradient(to right, #67aa09, #467307);
     z-index: -2;
   }
@@ -235,7 +233,7 @@
     left: 0;
     width: 0%;
     height: 100%;
-    border-radius: $border-radius-2;
+    border-radius: $border-radius-1;
     background-image: linear-gradient(
       to right,
       $primary-clr-4,
@@ -307,10 +305,6 @@
 }
 
 @media (max-width: 500px) {
-  // .game-view {
-  //   background-image: linear-gradient(#1b2e40bc, $primary-clr-dark);
-  // }
-
   .game-view__imgs {
     height: 250px;
   }

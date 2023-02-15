@@ -6,31 +6,7 @@ export const WishCartContext = createContext();
 export const useWishCart = () => useContext(WishCartContext);
 
 const initialState = {
-    items: [{
-        id: 23213,
-        game: "Maria Ozawa",
-        price: 13,
-        quantity: 1
-    },
-    {
-        id: 2344,
-        game: "Minami Aizawa",
-        price: 13,
-        quantity: 1
-    },
-    {
-        id: 34321234,
-        game: "Sasha Grey",
-        price: 13,
-        quantity: 2
-    },
-
-    {
-        id: 43545,
-        game: "Sasha Grey and mother",
-        price: 13,
-        quantity: 3
-    }],
+    items: []
 };
 
 function reducer(state, action) {

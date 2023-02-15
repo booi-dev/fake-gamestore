@@ -12,7 +12,6 @@ function QuantitySelector(props) {
         const newQuantity = event.target.value;
         setSelectedOption(newQuantity);
         const updatedGame = { ...game, quantity: newQuantity };
-        console.log(updatedGame);
         updater(updatedGame);
     };
 

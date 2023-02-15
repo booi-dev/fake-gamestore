@@ -62,7 +62,7 @@ function Checkout() {
 
             <div className='checkout__wishlist'>
 
-                <h2 className='checkout-status p-sm'>{wishlist?.items.length} wishlisted games </h2>
+                <h2 className='checkout-status p-sm'>{wishlist?.items.length} Wishlist </h2>
 
                 {wishlist?.items.map((item) => <div key={item.id}
                     className='checkout__wishlist-game checkout-list p-sm'>
@@ -86,7 +86,7 @@ function Checkout() {
             </div>
             <div className='checkout__cart'>
 
-                <h2 className='checkout-status p-sm'>{cart?.items.length} games in cart</h2>
+                <h2 className='checkout-status p-sm'>{cart?.items.length} Games in Cart</h2>
 
                 {cart?.items.length < 1
                     && <h3 className='checkout__empty-cart-status p-sm'> Nothing in Cart! Add some games.</h3>}
@@ -112,18 +112,16 @@ function Checkout() {
                 </div>)}
             </div>
             <div className='checkout__pay'>
-
-                <div>
-                    <h1 className='fs-xl'> You Have $ {credit.myCredit}</h1>
-                </div>
-
                 <div className='checkout__section'>
-                    <h1 className='checkout__total fs-xl'> Total ${gameTotal}</h1>
                     {cart?.items.length > 0
-                        && <button type='button'
-                            className='checkout-btn mt-sm'
-                            onClick={toggleCheckoutConfirm}
-                        >CHECKOUT</button>}
+                        && (<>
+                            <h1 className='checkout__total fs-xl'> Total ${gameTotal}</h1>
+                            <button type='button'
+                                className='checkout-btn mt-sm'
+                                onClick={toggleCheckoutConfirm}
+                            >CHECKOUT</button>
+                        </>)
+                    }
                 </div>
 
                 {showCheckoutConfirm

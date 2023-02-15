@@ -1,0 +1,48 @@
+@use "../sass/index" as *;
+
+// .my-games {
+
+// }
+
+.my-games img {
+  width: 100%;
+}
+
+.my-games__container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+// .my-games__gamelist {
+
+// }
+
+// .my-games__gamelist-items {
+//   display: flex;
+//   align-items: center;
+//   padding-block: 0.5em;
+// }
+
+.my-games__gamelist-item {
+  display: flex;
+  gap: 0.5em;
+  padding-inline-start: 0.5em;
+  margin-block: 0.5em;
+  width: 100%;
+  padding-block: 0.5em;
+}
+
+.my-games__gamelist-item.active {
+  background-color: $primary-clr-3;
+}
+
+.my-games__current-img {
+  height: 350px;
+  object-fit: cover;
+  border-left: 5px solid $primary-clr-3;
+  border-radius: $border-radius-1;
+}
+
+// .my-games__gamelist-title.not-active {
+
+// }

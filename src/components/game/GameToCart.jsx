@@ -4,7 +4,6 @@ import { useWishCart, isInWishCart } from '../../context/useWishCart';
 
 function GameToCart(props) {
     const { game, scrollToHeader } = props;
-
     const { cart, cartDispatch } = useWishCart();
 
     const [isAdded, setIsAdded] = useState();
@@ -12,8 +11,13 @@ function GameToCart(props) {
     const gameDataToAdd = {
         id: game?.id,
         game: game?.name,
+        genres: game?.genres,
+        released: game?.released,
+        background_image: game?.background_image,
+        parent_platforms: game?.parent_platforms,
+        tags: game?.tags,
         price: game?.price,
-        quantity: 0
+        quantity: 1
     };
 
     const addToCart = function addToWishlistCart(toAddGame) {

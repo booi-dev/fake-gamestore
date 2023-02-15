@@ -26,6 +26,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'react-hooks/exhaustive-deps': 'off',
         'no-console': 'off',
-        'jsx-a11y/no-noninteractive-tabindex': 'off'
+        'jsx-a11y/no-noninteractive-tabindex': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off'
     },
 };

@@ -26,80 +26,98 @@ function Checkout() {
     }, []);
 
     const moveToCart = function name(game) {
-        wishDispatch({ type: 'remove', payload: game.id });
+        wishDispatch({ type: 'remove', payload: game });
         cartDispatch({ type: 'add', payload: game });
     };
 
     const moveToWish = function name(game) {
-        cartDispatch({ type: 'remove', payload: game.id });
+        cartDispatch({ type: 'remove', payload: game });
         wishDispatch({ type: 'add', payload: game });
     };
 
     useEffect(() => {
-        const gamePriceTotal = cart?.items?.reduce(((sum, game) => sum + game.price), 0);
+        const gamePriceTotal = cart?.items?.reduce(((sum, game) => sum + (game.price * game.quantity)), 0);
         setGameTotal(gamePriceTotal);
     }, [cart]);
 
     return (
         <div className='checkout app-container'>
             <SearchHeader />
-            <div>
+
+            <div className='app-flex-space-between'>
                 <h1 className='checkout__title p-sm'> YOUR SHOPPPING CART</h1>
+                <h1 className='checkout__balance p-sm app-theme-bg br-2'> YOU HAVE ${credit.myCredit}</h1>
             </div>
+
             <div className='checkout__wishlist'>
+
                 <h2 className='checkout-status p-sm'>{wishlist?.items.length} wishlisted games </h2>
+
                 {wishlist?.items.map((item) => <div key={item.id}
                     className='checkout__wishlist-game checkout-list p-sm'>
+
                     <div className='app-flex'>
                         <h3>{item?.game}</h3>
-                        {item?.quantity > 0
+                        {item?.quantity > 1
                             && <h3 className='ml-sm'> x {item?.quantity}</h3>}
                     </div>
+
                     <div className='app-flex'>
-                        <button type='button' className='checkout-cart-swap fs-ss'
+                        <button type='button' className='checkout-cart-swap fs-ss mr-sm'
                             onClick={() => moveToCart(item)}>
                             move to cart</button>
-                        <h3 className='checkout-price'>$ {item.price}</h3>
+                        <h3 className='checkout-price'>{`($${item.price} x ${item.quantity})  $ ${item.price * item.quantity}`}</h3>
                     </div>
+
                 </div>)}
             </div>
             <div className='checkout__cart'>
+
                 <h2 className='checkout-status p-sm'>{cart?.items.length} games in cart</h2>
+
                 {cart?.items.length < 1
                     && <h3 className='checkout__empty-cart-status p-sm'> Nothing in Cart! Add some games.</h3>}
+
                 {cart?.items.map((item) => <div key={item.id}
                     className="checkout__cart-game checkout-list p-sm">
+
                     <div className='app-flex'>
                         <h3>{item?.game}</h3>
                         {item?.quantity > 0
                             && <h3 className='ml-sm'> x {item?.quantity}</h3>}
                     </div>
+
                     <div className='app-flex'>
-                        <button type='button' className='checkout-cart-swap fs-ss'
+                        <button type='button' className='checkout-cart-swap fs-ss mr-sm'
                             onClick={() => moveToWish(item)}>
                             move to wishlist</button>
-                        <h3 className='checkout-price'>$ {item.price}</h3>
+                        <h3 className='checkout-price'> {`($${item.price} x ${item.quantity})  $ ${item.price * item.quantity}`} </h3>
                     </div>
+
                 </div>)}
             </div>
             <div className='checkout__pay'>
+
                 <div>
                     <h1 className='fs-xl'> You Have $ {credit.myCredit}</h1>
                 </div>
+
                 <div className='checkout__section'>
                     <h1 className='checkout__total fs-xl'> Total ${gameTotal}</h1>
                     {cart?.items.length > 0
                         && <button type='button'
-                            className='checkout-btn'
+                            className='checkout-btn mt-sm'
                             onClick={toggleCheckoutConfirm}
                         >CHECKOUT</button>}
                 </div>
+
                 {showCheckoutConfirm
                     && <CheckoutConfirm
                         toggleCheckoutConfirm={toggleCheckoutConfirm}
                         setPurchaseSuccessMsg={setPurchaseSuccessMsg}
                         gameTotal={gameTotal}
                     />}
+
                 {isPurchaseSuccess
                     && <div type='button'
                         className='checkout__confirm-msg'>

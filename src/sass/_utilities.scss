@@ -108,8 +108,34 @@ $layout-sizes: (
   }
 }
 
+// border
+
+$layout-border-radius: (
+  "2": 2px,
+  "4": 4px,
+  "6": 6px,
+  "8": 8px,
+  "10": 10px,
+);
+
+@each $border, $value in $layout-border-radius {
+  .br-#{$border} {
+    border-radius: $value;
+  }
+}
+
 // Flex
 
 .app-flex {
   display: flex;
+}
+
+.app-flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-theme-bg {
+  background-image: linear-gradient(to right, $accent-clr, $accent-clr-dark);
 }

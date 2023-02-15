@@ -11,6 +11,10 @@
   font-size: clamp($font-xl, 3vw, $font-xxl);
 }
 
+.checkout__balance {
+  font-size: clamp($font-md, 2vw, $font-lg);
+}
+
 .checkout__wishlist {
   min-height: 200px;
   font-size: $font-xxs;

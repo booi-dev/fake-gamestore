@@ -21,15 +21,15 @@ function GameToCart(props) {
         scrollToHeader();
     };
 
-    const removeFromCart = function deleteFromWishlist(toRemoveGameId) {
-        cartDispatch({ type: 'remove', payload: toRemoveGameId });
+    const removeFromCart = function deleteFromWishlist(toRemoveGame) {
+        cartDispatch({ type: 'remove', payload: toRemoveGame });
         scrollToHeader();
     };
 
     const isGameInCart = isInWishCart(game?.id, cart?.items);
 
     const toggleWishlist = function addOrRemoveWishlist() {
-        if (isGameInCart) removeFromCart(game?.id);
+        if (isGameInCart) removeFromCart(game);
         else { addToCart(gameDataToAdd); }
     };
 

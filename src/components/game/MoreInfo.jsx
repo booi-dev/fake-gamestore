@@ -22,15 +22,15 @@ function MoreInfo(props) {
         scrollToHeader();
     };
 
-    const removeWishlist = function deleteFromWishlist(toRemoveGameId) {
-        wishDispatch({ type: 'remove', payload: toRemoveGameId });
+    const removeWishlist = function deleteFromWishlist(toRemoveGame) {
+        wishDispatch({ type: 'remove', payload: toRemoveGame });
         scrollToHeader();
     };
 
     const isGameInCart = isInWishCart(game?.id, wishlist?.items);
 
     const toggleWishlist = function addOrRemoveWishlist() {
-        if (isGameInCart) removeWishlist(game?.id);
+        if (isGameInCart) removeWishlist(game);
         else { addWishlist(gameDataToAdd); }
     };
 

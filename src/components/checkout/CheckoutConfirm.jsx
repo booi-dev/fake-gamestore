@@ -53,10 +53,13 @@ function CheckoutConfirm(props) {
                     <h1 className='fs-md'>Games Total </h1>
                     <div>$ {gameTotal}  </div>
                 </div>
-                <div className='checkout-confirm__difference pt-sm'>
-                    <h1 className='fs-md'> Remaining Balance </h1>
-                    <div>$ {credit.myCredit - gameTotal}  </div>
-                </div>
+
+                {!lowBalance
+                    && <div className='checkout-confirm__difference pt-sm'>
+                        <h1 className='fs-md'> Remaining Balance</h1>
+                        <div>$ {credit.myCredit - gameTotal}  </div>
+                    </div>
+                }
 
                 {lowBalance && <div className='checkout-confirm__low-balance-status mt-md'> Not Enough Money</div>}
 

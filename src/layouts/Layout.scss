@@ -48,8 +48,9 @@ li {
 }
 
 .navbar a {
-  text-decoration: none;
   margin: 0.5em;
+  min-width: max-content;
+  display: block;
   letter-spacing: 0.1em;
   color: $font-clr;
   &:hover {

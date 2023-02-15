@@ -8,7 +8,7 @@ import './Layout.scss';
 
 function Header() {
 
-    const { credit } = useAccount();
+    const { games, credit } = useAccount();
     const winWidth = useWinSize();
 
     return (
@@ -26,14 +26,11 @@ function Header() {
                 {winWidth > 740 &&
                     <nav className='navbar'>
                         <ul className='navbar__list'>
-                            <li > <NavLink to='/'>STORE </NavLink> </li>
-                            <li><NavLink to='community'
-                                data-testid="header-community-menuBtn"
-                            >COMMUNITY </NavLink> </li>
+                            <li> <NavLink to='/'>STORE </NavLink> </li>
+                            <li><NavLink to='mygames'>MY GAMES ({games.myGames.length})</NavLink> </li>
                             <li> <NavLink to='user'>BOMA </NavLink></li>
                             <li> <NavLink to='chat'>CHAT </NavLink></li>
-                            <li> <NavLink to='support'
-                                data-testid="header-support-menuBtn">SUPPORT </NavLink></li>
+                            <li> <NavLink to='support'>SUPPORT </NavLink></li>
                         </ul>
                     </nav>}
                 <div className='user'>

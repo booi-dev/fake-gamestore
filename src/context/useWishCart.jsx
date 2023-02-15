@@ -42,6 +42,7 @@ function reducer(state, action) {
                     if (item.id === action.payload.id) {
                         return { ...item, quantity: item.quantity + 1 };
                     }
+
                     return item;
                 });
                 return { items: updatedItems };
@@ -51,11 +52,15 @@ function reducer(state, action) {
         case 'remove':
             return { items: state.items.filter((item) => item.id !== action.payload.id) };
 
-        case 'remove conditionally': {
-            console.log(action.paylod);
-
-
-            return { items: state.items.filter((item) => item.id !== action.payload) };
+        case 'update': {
+            console.log(action.payload);
+            const updatedItems = state.items.map(item => {
+                if (item.id === action.payload.id) {
+                    return action.payload;
+                }
+                return item;
+            });
+            return { items: updatedItems };
         }
 
         case 'clear':

@@ -26,15 +26,25 @@ function Checkout() {
         }, 1000);
     }, []);
 
-    const moveToCart = function name(game) {
+    const moveToCart = function moveWishToCart(game) {
         wishDispatch({ type: 'remove', payload: game });
         cartDispatch({ type: 'add', payload: game });
     };
 
-    const moveToWish = function name(game) {
+    const moveToWish = function moveCartToWish(game) {
         cartDispatch({ type: 'remove', payload: game });
         wishDispatch({ type: 'add', payload: game });
     };
+
+    const updateWishlist = useCallback((game) => {
+        console.log(game);
+        wishDispatch({ type: 'update', payload: game });
+    }, [wishlist]);
+
+    const updateCart = useCallback((game) => {
+        console.log(game);
+        cartDispatch({ type: 'update', payload: game });
+    }, [cart]);
 
     useEffect(() => {
         const gamePriceTotal = cart?.items?.reduce(((sum, game) => sum + (game.price * game.quantity)), 0);
@@ -67,7 +77,7 @@ function Checkout() {
                             move to cart</button>
                         <div className='app-flex-center'>
                             <h3 className='fs-xxs mr-sm'>Quantity</h3>
-                            <QuantitySelector quantity={item.quantity} />
+                            <QuantitySelector game={item} updater={updateWishlist} />
                         </div>
                         <h3 className='checkout-price'>{`$ ${item.price * item.quantity}`}</h3>
                     </div>
@@ -94,7 +104,7 @@ function Checkout() {
                             move to wishlist</button>
                         <div className='app-flex-center'>
                             <h3 className='fs-xxs mr-sm'>Quantity</h3>
-                            <QuantitySelector quantity={item.quantity} />
+                            <QuantitySelector game={item} updater={updateCart} />
                         </div>
                         <h3 className='checkout-price'> {`$ ${item.price * item.quantity}`} </h3>
                     </div>

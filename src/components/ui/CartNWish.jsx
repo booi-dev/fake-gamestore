@@ -16,12 +16,11 @@ function CartNWish() {
             <button type='button'
                 className='cart-status__wishlist'
                 onClick={navigateToCheckout}>
-                wishlist
                 {wishlist?.items.length !== 0
                     &&
                     <span className='wishlist_count'>
                         {wishlist.items.length}</span>
-                }
+                } wishlist
             </button>
             {cart?.items.length !== 0
                 && <button type='button'

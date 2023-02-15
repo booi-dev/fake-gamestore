@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import SearchHeader from '../search/SearchHeader';
 import { useAccount } from '../../context/useAccount';
 import { useWishCart } from '../../context/useWishCart';
+import QuantitySelector from './QuantitySelector';
 import CheckoutConfirm from './CheckoutConfirm';
 
 import './Checkout.scss';
@@ -58,15 +59,17 @@ function Checkout() {
 
                     <div className='app-flex'>
                         <h3>{item?.game}</h3>
-                        {item?.quantity > 1
-                            && <h3 className='ml-sm'> x {item?.quantity}</h3>}
                     </div>
 
                     <div className='app-flex'>
                         <button type='button' className='checkout-cart-swap fs-ss mr-sm'
                             onClick={() => moveToCart(item)}>
                             move to cart</button>
-                        <h3 className='checkout-price'>{`($${item.price} x ${item.quantity})  $ ${item.price * item.quantity}`}</h3>
+                        <div className='app-flex-center'>
+                            <h3 className='fs-xxs mr-sm'>Quantity</h3>
+                            <QuantitySelector quantity={item.quantity} />
+                        </div>
+                        <h3 className='checkout-price'>{`$ ${item.price * item.quantity}`}</h3>
                     </div>
 
                 </div>)}
@@ -83,15 +86,17 @@ function Checkout() {
 
                     <div className='app-flex'>
                         <h3>{item?.game}</h3>
-                        {item?.quantity > 0
-                            && <h3 className='ml-sm'> x {item?.quantity}</h3>}
                     </div>
 
-                    <div className='app-flex'>
+                    <div className='app-flex-space-between'>
                         <button type='button' className='checkout-cart-swap fs-ss mr-sm'
                             onClick={() => moveToWish(item)}>
                             move to wishlist</button>
-                        <h3 className='checkout-price'> {`($${item.price} x ${item.quantity})  $ ${item.price * item.quantity}`} </h3>
+                        <div className='app-flex-center'>
+                            <h3 className='fs-xxs mr-sm'>Quantity</h3>
+                            <QuantitySelector quantity={item.quantity} />
+                        </div>
+                        <h3 className='checkout-price'> {`$ ${item.price * item.quantity}`} </h3>
                     </div>
 
                 </div>)}

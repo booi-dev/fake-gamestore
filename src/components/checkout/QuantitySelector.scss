@@ -1,0 +1,9 @@
+@use "../../sass/index" as *;
+
+.quantity-selector {
+  text-align: center;
+  background-color: $primary-clr-4;
+  padding-inline-start: 0.25em;
+  color: #282828;
+  border: 1px solid;
+}

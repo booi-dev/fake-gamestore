@@ -31,10 +31,10 @@
 }
 
 .checkout-cart-swap {
-  color: rgb(161, 161, 161);
-  background-color: $primary-clr-2;
+  color: rgb(206, 206, 206);
+  background-color: $primary-clr-3;
   border-radius: $border-radius-1;
-  padding-inline: 0.25em;
+  padding: 0.25em;
   &:hover {
     scale: 1.1;
   }
@@ -47,7 +47,6 @@
 .checkout__cart {
   font-size: $font-xxs;
   bottom: 0;
-  background-color: $primary-clr-2;
   min-height: 100px;
   width: 100%;
 }
@@ -57,6 +56,11 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 0.5px solid $primary-clr-dark;
+}
+
+.checkout__cart-game {
+  background-color: $primary-clr-4;
+  color: rgb(29, 29, 29);
 }
 
 .checkout__pay {

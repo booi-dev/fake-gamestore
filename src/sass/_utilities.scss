@@ -136,6 +136,12 @@ $layout-border-radius: (
   align-items: center;
 }
 
+.app-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .app-theme-bg {
   background-image: linear-gradient(to right, $accent-clr, $accent-clr-dark);
 }

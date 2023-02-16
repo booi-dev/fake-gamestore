@@ -57,86 +57,90 @@ function Checkout() {
 
             <div className='app-flex-space-between'>
                 <h1 className='checkout__title p-sm'> YOUR SHOPPPING CART</h1>
-                <h1 className='checkout__balance p-sm app-theme-bg br-2'> YOU HAVE ${credit.myCredit}</h1>
+                {/* <h1 className='checkout__balance p-sm app-theme-bg br-2'> YOU HAVE ${credit.myCredit}</h1> */}
             </div>
 
             <div className='checkout__wishlist'>
 
-                <h2 className='checkout-status p-sm'>{wishlist?.items.length} Wishlist </h2>
+                <h2 className='checkout-status wishlist p-sm'>{wishlist?.items.length} Wishlist </h2>
 
                 {wishlist?.items.map((item) => <div key={item.id}
-                    className='checkout__wishlist-game checkout-list p-sm'>
-
+                    className='checkout__wishlist-game p-sm'>
                     <div className='app-flex'>
-                        <h3>{item?.name}</h3>
+                        <h3 >{item?.name}</h3>
                     </div>
 
-                    <div className='app-flex'>
-                        <button type='button' className='checkout-cart-swap fs-ss mr-sm'
+                    <div className='app-flex-space-between'>
+                        <button type='button' className='checkout-swap wishlist fs-ss mr-sm'
                             onClick={() => moveToCart(item)}>
                             move to cart</button>
                         <div className='app-flex-center'>
-                            <h3 className='fs-xxs mr-sm'>Quantity</h3>
+                            <h3 className='fs-xxs mr-sm quantity-label'>Quantity</h3>
                             <QuantitySelector game={item} updater={updateWishlist} />
                         </div>
                         <h3 className='checkout-price'>{`$ ${item.price * item.quantity}`}</h3>
                     </div>
-
                 </div>)}
+
             </div>
             <div className='checkout__cart'>
 
-                <h2 className='checkout-status p-sm'>{cart?.items.length} Games in Cart</h2>
+                <h2 className='checkout-status cart p-sm'>{cart?.items.length} Games in Cart</h2>
 
                 {cart?.items.length < 1
                     && <h3 className='checkout__empty-cart-status p-sm'> Nothing in Cart! Add some games.</h3>}
 
                 {cart?.items.map((item) => <div key={item.id}
-                    className="checkout__cart-game checkout-list p-sm">
+                    className="checkout__cart-game p-sm">
 
                     <div className='app-flex'>
                         <h3>{item?.name}</h3>
                     </div>
 
                     <div className='app-flex-space-between'>
-                        <button type='button' className='checkout-cart-swap fs-ss mr-sm'
+                        <button type='button' className='checkout-swap cart fs-ss mr-sm'
                             onClick={() => moveToWish(item)}>
                             move to wishlist</button>
                         <div className='app-flex-center'>
-                            <h3 className='fs-xxs mr-sm'>Quantity</h3>
+                            <h3 className='fs-xxs mr-sm quantity-label'>Quantity</h3>
                             <QuantitySelector game={item} updater={updateCart} />
                         </div>
                         <h3 className='checkout-price'> {`$ ${item.price * item.quantity}`} </h3>
                     </div>
-
                 </div>)}
+
             </div>
             <div className='checkout__pay'>
-                <div className='checkout__section'>
-                    {cart?.items.length > 0
-                        && (<>
-                            <h1 className='checkout__total fs-xl'> Total ${gameTotal}</h1>
-                            <button type='button'
-                                className='checkout-btn mt-sm'
-                                onClick={toggleCheckoutConfirm}
-                            >CHECKOUT</button>
-                        </>)
-                    }
-                </div>
-
-                {showCheckoutConfirm
-                    && <CheckoutConfirm
-                        toggleCheckoutConfirm={toggleCheckoutConfirm}
-                        setPurchaseSuccessMsg={setPurchaseSuccessMsg}
-                        gameTotal={gameTotal}
-                    />}
-
-                {isPurchaseSuccess
-                    && <div type='button'
-                        className='checkout__confirm-msg'>
-                        Purchase Success
-                    </div>}
+                <h1 className='checkout__balance'> YOU HAVE ${credit.myCredit}</h1>
+                <h1 className='checkout__total '> TOTAL ${gameTotal}</h1>
             </div>
+
+            <div className='checkout__section'>
+
+                {cart?.items.length > 0
+                    && (<div>
+
+                        <button type='button'
+                            className='checkout-btn mt-sm'
+                            onClick={toggleCheckoutConfirm}
+                        >CHECKOUT</button>
+                    </div>)
+                }
+            </div>
+
+            {showCheckoutConfirm
+                && <CheckoutConfirm
+                    toggleCheckoutConfirm={toggleCheckoutConfirm}
+                    setPurchaseSuccessMsg={setPurchaseSuccessMsg}
+                    gameTotal={gameTotal}
+                />}
+
+            {isPurchaseSuccess
+                && <div type='button'
+                    className='checkout__confirm-msg'>
+                    Purchase Success
+                </div>}
+
         </div>
     );
 }

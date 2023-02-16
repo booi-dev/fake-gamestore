@@ -18,8 +18,8 @@ function GameList() {
 
     return (
         <div className="gamelist app-container">
-            <div className='gamelist__list'>
-                <div>
+            <div className='gamelist__container'>
+                <div className='gamelist__list'>
                     <h1 className='gamelist__title'>MY GAMES</h1>
                     {gamesInAccount?.map((item, index) =>
                         <GameTitle key={item.id}
@@ -37,9 +37,8 @@ function GameList() {
                             src={item?.background_image} alt="" />
 
                         <div className='gamelist__active-game__more-info'>
-
                             <div className='gamelist__active-game__copyown'>
-                                <div className='app-letter-spacing-2'>copy own</div>
+                                <div className='app-letter-spacing-2'>copy owned</div>
                                 <div className='copy-number'>{item?.quantity}</div>
                             </div>
                             <div>

@@ -13,15 +13,16 @@ function SearchHeader() {
             <div className='search-header__panel'>
                 <div className='search-header__panel__tabs-container'>
                     <div className='search-header__panel__tabs'>
-                        <div> News </div>
-                        <div> Categories </div>
-                        <div> Lab</div>
+                        <div className='tab'> News </div>
+                        <div className='tab'> Categories </div>
+                        <div className='tab'> Lab</div>
+                        {winWidth < 500 && <CartNWish />}
                     </div>
                     <div className='search-header__search'>
                         <Search />
                     </div>
                 </div>
-                {winWidth < 740 && <CartNWish />}
+                {(winWidth < 740 && winWidth > 500) && <CartNWish />}
             </div>
         </div>
     );

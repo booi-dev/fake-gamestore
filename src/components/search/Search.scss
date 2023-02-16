@@ -7,7 +7,6 @@
   border-radius: $border-radius-1;
   color: $font-clr;
   width: 100%;
-  z-index: 1;
   &:hover,
   &:focus {
     outline: red;
@@ -28,7 +27,7 @@
   border: none;
   color: $font-clr-dark;
   width: 100%;
-  padding: 0.5em;
+  padding: 0.7em;
   padding-inline: 0.2em;
   &:focus {
     outline: none;
@@ -60,9 +59,9 @@
   top: 45px;
   right: -0.6em;
   width: 180%;
-  // padding: 0.5em 0.25em;
   border-radius: $border-radius-1;
   background: $primary-clr-trans;
+  z-index: 3;
 }
 
 .search-suggestion__close-btn {
@@ -102,7 +101,6 @@
 
 @media (max-width: 500px) {
   .search__suggestion.show {
-    // right: -5em;
-    width: 115%;
+    width: 100%;
   }
 }

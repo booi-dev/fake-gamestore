@@ -36,5 +36,6 @@
     background-color: darken($color: $primary-clr-trans-3, $amount: 15);
     margin-inline-start: 0.5em;
     padding-inline: 0.5em;
+    border-radius: 0 0 $border-radius-1;
   }
 }

@@ -12,9 +12,10 @@
 .cart-status__wishlist {
   font-size: $font-xxxs;
   border-radius: $border-radius-1;
-  padding: 0.55em;
+  padding: 0.5em;
   text-align: center;
   min-width: 7em;
+  color: $font-clr;
   cursor: pointer;
 }
 
@@ -42,13 +43,28 @@
   .cart-status {
     flex-direction: column;
     justify-content: space-between;
-    // gap: 0.5em;
     margin-block-end: revert;
     width: revert;
   }
 
   .cart-status__cart,
   .cart-status__wishlist {
-    padding-block: 0.85em;
+    padding-block: 1em;
+  }
+}
+
+@media (max-width: 500px) {
+  .cart-status {
+    flex-direction: row;
+  }
+  .cart-status__cart,
+  .cart-status__wishlist {
+    padding-block: 0.5em;
+  }
+}
+
+@media (max-width: 400px) {
+  .cart-status {
+    flex-direction: column;
   }
 }

@@ -6,7 +6,7 @@
   margin-inline: 0.5em;
 }
 
-.gamelist__list {
+.gamelist__container {
   display: grid;
   grid-template-columns: 1fr 3fr;
 }
@@ -34,12 +34,13 @@
   position: absolute;
   bottom: 0;
   right: 0;
+  left: 0;
   padding-inline: 0.5em;
-  // translate: 0 -3em;
 }
 
 .gamelist__active-game__copyown {
   @include flex-center;
+  flex-wrap: wrap;
   gap: 0.5em;
   font-size: $font-xxxs;
   text-align: center;
@@ -51,7 +52,7 @@
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  letter-spacing: 2px;
+  margin-block-end: 0.5em;
 }
 
 .gamelist__active-game__genres {
@@ -71,23 +72,30 @@
   .gamelist__title {
     padding: 0.5em;
     margin-inline: 8px;
-    background-color: $accent-clr;
+    margin-block-start: 8px;
+    background-color: $primary-clr-4;
     color: $font-clr-dark;
     width: 100%;
+    border-radius: 0 0 $border-radius-1;
   }
-  .gamelist__list {
+  .gamelist__container {
     grid-template-columns: 1.3fr 1fr;
     position: relative;
-    z-index: 1;
     height: 65vh;
+  }
+  .gamelist__list {
+    z-index: 1;
   }
   .gamelist__active-game-container {
     position: absolute;
     height: 100%;
-    z-index: -1;
   }
   .gamelist__active-game__img,
   .gamelist__active-game {
     height: 100%;
+  }
+  .gamelist__active-game__genres {
+    display: flex;
+    justify-content: end;
   }
 }

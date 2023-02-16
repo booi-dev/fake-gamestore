@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAccount } from '../../context/useAccount';
 import GameTitle from './GameTitle';
 import './GameList.scss';
 
 function GameList() {
+
+    // const navigate = Navigate();
+
     const { games } = useAccount();
     const latestGameIndex = games.myGames.length - 1;
     const [gamesInAccount] = useState(games.myGames);
@@ -35,9 +39,13 @@ function GameList() {
                             <div>
                                 {item?.genres.map((genre) => <span key={genre.id} className='ml-sm'>{genre.name}</span>
                                 )}
-
+                                {/* {`/game/${game?.id}`} */}
                             </div>
-                            <button type='button' className='gamelist__active-game__store-page'>go to store page</button>
+
+                            <Link to={`/game/${item?.id}`}>
+                                <button type='button' className='gamelist__active-game__store-page'
+                                >go to store page</button>
+                            </Link>
                         </div>
                         <div className='gamelist__active-game__copyown'
                         >

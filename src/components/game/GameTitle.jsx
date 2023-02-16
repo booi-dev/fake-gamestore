@@ -6,17 +6,14 @@ function GameTitle(props) {
 
     const { game, isActive, setActive } = props;
 
-    const selectGameToView = () => {
-        setActive();
-    };
-
     return (
-        <div className={`gametitle__list ${isActive ? 'active' : ''}`} >
+        <div className={`gametitle__list ${isActive ? 'active' : ''}`}
+            role='button'
+            tabIndex={0}
+            onClick={() => setActive()}
+        >
             <BsController className='game-controller-icon' size={25} />
-            <div onClick={selectGameToView}
-                role='button'
-                tabIndex={0}>
-                {game.name}</div>
+            <div> {game.name} </div>
         </div>
     );
 }

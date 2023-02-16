@@ -37,7 +37,7 @@ function Header() {
                         <HiMail size={13} className='user__notification-icon' />
                     </div>
                     <div className='user_name'>
-                        <div>BooiMangang</div>
+                        <div>bo_ma</div>
                         <div className='user_wallet'>${credit.myCredit}</div>
                     </div>
                     <button type='button' className='chevron-down-btn'>

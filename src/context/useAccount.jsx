@@ -6,6 +6,8 @@ export const AccountContext = createContext();
 export const useAccount = () => useContext(AccountContext);
 
 
+export const isGameOwn = (toCheckGame, myGames) => !!myGames.find(game => game.id === toCheckGame.id);
+
 const tempGames = [
     {
         id: 28,
@@ -55,16 +57,18 @@ function creditReducer(state, action) {
 
 function gamesReducer(state, action) {
     switch (action.type) {
-        case 'add':
+        case 'add': {
             return {
                 ...state,
                 myGames: [...state.myGames, action.payload]
             };
+        }
         case 'update': {
             console.log(action.payload);
             const updatedGames = state.myGames.map(item => {
                 if (item.id === action.payload.id) {
-                    return action.payload;
+                    const update = { ...item, quantity: item.quantity + action.payload.quantity };
+                    return update;
                 }
                 return item;
             });
@@ -102,6 +106,3 @@ export function AccountProvider({ children }) {
 AccountProvider.propTypes = {
     children: PropTypes.node.isRequired
 };
-
-
-export const isGameOwn = (toCheckGame, myGames) => !!myGames.find(game => game.id === toCheckGame.id);

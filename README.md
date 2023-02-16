@@ -4,6 +4,7 @@ API KEY for news api
 Log in
 Genre / Category change - page
 sidebar menu
+you own this game
 
 lazy loadiing /
 bugs: category carousel

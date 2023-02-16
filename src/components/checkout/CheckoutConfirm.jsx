@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { useAccount, isGameOwn } from '../../context/useAccount';
 import { useWishCart } from '../../context/useWishCart';
 import './CheckoutConfirm.scss';
 
 function CheckoutConfirm(props) {
+
+    const navigate = useNavigate();
+
     const { toggleCheckoutConfirm, gameTotal, setPurchaseSuccessMsg } = props;
 
     const { cart, cartDispatch } = useWishCart();
@@ -27,12 +31,9 @@ function CheckoutConfirm(props) {
             } else {
                 gamesDispatch({ type: 'add', payload: game });
             }
+            navigate('/mygames');
             return null;
         });
-
-
-        // gamesDispatch({ type: 'add', payload: cart?.items });
-
 
     };
 

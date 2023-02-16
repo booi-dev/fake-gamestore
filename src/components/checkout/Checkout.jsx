@@ -37,12 +37,12 @@ function Checkout() {
     };
 
     const updateWishlist = useCallback((game) => {
-        console.log(game);
+        // console.log(game);
         wishDispatch({ type: 'update', payload: game });
     }, [wishlist]);
 
     const updateCart = useCallback((game) => {
-        console.log(game);
+        // console.log(game);
         cartDispatch({ type: 'update', payload: game });
     }, [cart]);
 

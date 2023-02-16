@@ -5,11 +5,11 @@ import './GameList.scss';
 
 function GameList() {
     const { games } = useAccount();
+    const latestGameIndex = games.myGames.length - 1;
     const [gamesInAccount] = useState(games.myGames);
-    // const [isActive] = useState(false);
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(latestGameIndex);
 
-    console.log(gamesInAccount);
+    // console.log(gamesInAccount);
 
     return (
         <div className="gamelist app-container">
@@ -24,10 +24,21 @@ function GameList() {
                         />
                     )}
                 </div>
-                <div className='gamelist__active-img-container'>
-                    {gamesInAccount?.map((item, index) => <img key={item.id}
-                        className={`gamelist__active-img ${activeIndex === index ? 'active' : ''}`}
-                        src={item?.background_image} alt="" />)}
+                <div className='gamelist__active-game-container'>
+                    {gamesInAccount?.map((item, index) => <div key={item.id}
+                        className={`gamelist__active-game ${activeIndex === index ? 'active' : ''}`}>
+                        <img
+                            className='gamelist__active-game__img'
+                            src={item?.background_image} alt="" />
+                        <div className='gamelist__active-game__more-info'>
+                            <div>
+                                {item?.genres.map((genre) => <span key={genre.id} className='ml-sm'>{genre.name}</span>
+                                )}
+                            </div>
+                            <div>Copy Own: {item?.quantity}</div>
+                        </div>
+                    </div>
+                    )}
                 </div>
             </div>
         </div>

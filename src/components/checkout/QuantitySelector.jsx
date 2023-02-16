@@ -9,7 +9,9 @@ function QuantitySelector(props) {
     const [selectedOption, setSelectedOption] = useState(game?.quantity);
 
     const handleOptionChange = (event) => {
-        const newQuantity = event.target.value;
+        // convert string value type into number type
+        const newQuantity = +(event.target.value);
+        console.log(newQuantity);
         setSelectedOption(newQuantity);
         const updatedGame = { ...game, quantity: newQuantity };
         updater(updatedGame);

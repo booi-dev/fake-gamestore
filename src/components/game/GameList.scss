@@ -5,20 +5,25 @@
   grid-template-columns: 1fr 3fr;
 }
 
-.gamelist img {
-  width: 100%;
+.gamelist__active-game {
+  display: none;
 }
 
-.gamelist__active-img {
+.gamelist__active-game.active {
+  display: block;
+}
+
+.gamelist__active-game__img {
   height: 350px;
+  width: 100%;
   object-fit: cover;
   border-left: 8px solid $primary-clr-3;
-  display: none;
   transition: height 1s ease;
 }
 
-.gamelist__active-img.active {
-  display: block;
+.gamelist__active-game__more-info {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (max-width: 500px) {
@@ -28,12 +33,13 @@
     z-index: 1;
     height: 60vh;
   }
-  .gamelist__active-img-container {
+  .gamelist__active-game-container {
     position: absolute;
     height: 100%;
     z-index: -1;
   }
-  .gamelist__active-img {
+  .gamelist__active-game__img,
+  .gamelist__active-game {
     height: 100%;
   }
 }

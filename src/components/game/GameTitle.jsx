@@ -11,18 +11,12 @@ function GameTitle(props) {
     };
 
     return (
-        <div className='gametitle__container'>
-            <div className={`gametitle__list ${isActive ? 'active' : ''}`} >
-                <BsController className='game-controller-icon' size={25} />
-                <div onClick={selectGameToView}
-                    role='button'
-                    tabIndex={0}>
-                    {game.name}</div>
-            </div>
-            {/* <div className='gametitle__active-img-container'>
-                <img className={`gametitle__active-img ${isActive ? 'active' : ''}`}
-                    src={game?.background_image} alt="" />
-            </div> */}
+        <div className={`gametitle__list ${isActive ? 'active' : ''}`} >
+            <BsController className='game-controller-icon' size={25} />
+            <div onClick={selectGameToView}
+                role='button'
+                tabIndex={0}>
+                {game.name}</div>
         </div>
     );
 }

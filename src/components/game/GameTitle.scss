@@ -5,13 +5,15 @@
   grid-template-columns: 1fr 5fr;
   align-items: center;
   padding-inline-start: 0.5em;
-  margin-block: 0.5em;
   width: 100%;
+  margin-block: 0.5em;
   padding-block: 0.5em;
+  border-radius: $border-radius-1;
+  z-index: 2;
   cursor: pointer;
   transition: scale 0.5s ease;
   &:hover {
-    background-color: darken($primary-clr-3, 10%);
+    background-color: $primary-clr-trans-3;
   }
 }
 
@@ -24,7 +26,15 @@
 }
 
 @media (max-width: 740px) {
-  .gametitle__list-item {
+  .gametitle__list {
     gap: 0.5em;
+  }
+}
+
+@media (max-width: 500px) {
+  .gametitle__list {
+    background-color: darken($color: $primary-clr-trans-3, $amount: 15);
+    margin-inline-start: 0.5em;
+    padding-inline: 0.5em;
   }
 }

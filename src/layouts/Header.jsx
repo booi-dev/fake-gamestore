@@ -28,8 +28,7 @@ function Header() {
                         <ul className='navbar__list'>
                             <li> <NavLink to='/'>STORE </NavLink> </li>
                             <li><NavLink to='mygames'>MY GAMES ({games.myGames.length})</NavLink> </li>
-                            <li> <NavLink to='user'>BOMA </NavLink></li>
-                            <li> <NavLink to='chat'>CHAT </NavLink></li>
+                            <li> <NavLink to='account'> ACCOUNT </NavLink></li>
                             <li> <NavLink to='support'>SUPPORT </NavLink></li>
                         </ul>
                     </nav>}

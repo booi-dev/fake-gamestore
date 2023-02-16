@@ -28,9 +28,6 @@ function GameList() {
                     {gamesInAccount?.map((item, index) => <img key={item.id}
                         className={`gamelist__active-img ${activeIndex === index ? 'active' : ''}`}
                         src={item?.background_image} alt="" />)}
-
-
-
                 </div>
             </div>
         </div>

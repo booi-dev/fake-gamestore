@@ -3,6 +3,7 @@
 .gamelist__list {
   display: grid;
   grid-template-columns: 1fr 3fr;
+  position: relative;
 }
 
 .gamelist img {
@@ -18,4 +19,15 @@
 
 .gamelist__active-img.active {
   display: block;
+}
+
+@media (max-width: 500px) {
+  .gamelist__list {
+    grid-template-columns: 1fr 1fr;
+    z-index: 2;
+  }
+  .gamelist__active-img-container {
+    position: absolute;
+    z-index: -1;
+  }
 }

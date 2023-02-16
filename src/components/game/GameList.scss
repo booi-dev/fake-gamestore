@@ -11,7 +11,12 @@
 
 .gamelist__active-game.active {
   display: block;
+  position: relative;
 }
+
+// .gamelist__active-game-container {
+//   position: relative;
+// }
 
 .gamelist__active-game__img {
   height: 350px;
@@ -24,6 +29,34 @@
 .gamelist__active-game__more-info {
   display: flex;
   justify-content: space-between;
+  padding-inline: 0.5em;
+  translate: 0 -2em;
+}
+
+.gamelist__active-game__store-page {
+  background-color: $primary-clr-4;
+  padding-inline: 0.5em;
+  font-size: $font-xxxs;
+  color: $font-clr-dark;
+  border-radius: $border-radius-1;
+}
+
+.gamelist__active-game__copyown {
+  position: absolute;
+  top: 0;
+  right: 1em;
+  @include flex-center;
+  gap: 0.5em;
+  font-size: $font-xxxs;
+  text-align: center;
+}
+
+.copy-number {
+  @include flex-center;
+  border: 1px solid;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
 }
 
 @media (max-width: 500px) {
@@ -31,7 +64,7 @@
     grid-template-columns: 1.3fr 1fr;
     position: relative;
     z-index: 1;
-    height: 60vh;
+    height: 65vh;
   }
   .gamelist__active-game-container {
     position: absolute;

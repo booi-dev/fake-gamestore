@@ -30,12 +30,19 @@ function GameList() {
                         <img
                             className='gamelist__active-game__img'
                             src={item?.background_image} alt="" />
+
                         <div className='gamelist__active-game__more-info'>
                             <div>
                                 {item?.genres.map((genre) => <span key={genre.id} className='ml-sm'>{genre.name}</span>
                                 )}
+
                             </div>
-                            <div>Copy Own: {item?.quantity}</div>
+                            <button type='button' className='gamelist__active-game__store-page'>go to store page</button>
+                        </div>
+                        <div className='gamelist__active-game__copyown'
+                        >
+                            <div>copy own</div>
+                            <div className='copy-number'>{item?.quantity}</div>
                         </div>
                     </div>
                     )}

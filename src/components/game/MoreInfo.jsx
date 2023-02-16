@@ -74,7 +74,6 @@ function MoreInfo(props) {
             <button type='button'
                 className='add-to-wishlist-btn'
                 onClick={() => toggleWishlist()}>
-                {/* add to wishlist */}
                 {isGameInCart ? 'Remove from Wishlist' : 'Add to Wishlist'}
             </button>
         </div>

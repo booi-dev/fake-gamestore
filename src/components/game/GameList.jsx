@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { HiChevronDoubleRight } from 'react-icons/hi';
 import { useAccount } from '../../context/useAccount';
 import GameTitle from './GameTitle';
 import './GameList.scss';
@@ -17,9 +18,9 @@ function GameList() {
 
     return (
         <div className="gamelist app-container">
-            <h1 className='app-title fs-xl mb-sm'>MY GAMES</h1>
             <div className='gamelist__list'>
                 <div>
+                    <h1 className='gamelist__title'>MY GAMES</h1>
                     {gamesInAccount?.map((item, index) =>
                         <GameTitle key={item.id}
                             game={item}
@@ -36,21 +37,20 @@ function GameList() {
                             src={item?.background_image} alt="" />
 
                         <div className='gamelist__active-game__more-info'>
-                            <div>
-                                {item?.genres.map((genre) => <span key={genre.id} className='ml-sm'>{genre.name}</span>
-                                )}
-                                {/* {`/game/${game?.id}`} */}
-                            </div>
 
-                            <Link to={`/game/${item?.id}`}>
+                            <div className='gamelist__active-game__copyown'>
+                                <div className='app-letter-spacing-2'>copy own</div>
+                                <div className='copy-number'>{item?.quantity}</div>
+                            </div>
+                            <div>
+                                {item?.genres.map((genre) => <span key={genre.id} className='gamelist__active-game__genres app-letter-spacing-4'>{genre.name}</span>
+                                )}
+                            </div>
+                            <Link to={`/game/${item?.id}`} className="app-flex-center">
                                 <button type='button' className='gamelist__active-game__store-page'
                                 >go to store page</button>
+                                <HiChevronDoubleRight size={12} className='app-clr-4' />
                             </Link>
-                        </div>
-                        <div className='gamelist__active-game__copyown'
-                        >
-                            <div>copy own</div>
-                            <div className='copy-number'>{item?.quantity}</div>
                         </div>
                     </div>
                     )}

@@ -68,6 +68,11 @@
     flex-wrap: wrap;
     gap: 0.5em 1.5em;
   }
+
+  .search-header__panel__tabs div {
+    padding: 0.8em 0;
+    letter-spacing: 1px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -75,6 +80,6 @@
     width: 100%;
   }
   .search-header__panel__tabs {
-    gap: 0.5em;
+    gap: 1em;
   }
 }

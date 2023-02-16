@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useAccount } from '../../context/useAccount';
+import { useAccount, isGameOwn } from '../../context/useAccount';
 import { useWishCart } from '../../context/useWishCart';
 import './CheckoutConfirm.scss';
 
@@ -8,7 +8,7 @@ function CheckoutConfirm(props) {
     const { toggleCheckoutConfirm, gameTotal, setPurchaseSuccessMsg } = props;
 
     const { cart, cartDispatch } = useWishCart();
-    const { credit, creditDispatch, gamesDispatch } = useAccount();
+    const { credit, creditDispatch, games, gamesDispatch } = useAccount();
 
     const [lowBalance, setLowBalance] = useState(false);
 
@@ -21,7 +21,19 @@ function CheckoutConfirm(props) {
     };
 
     const addGamesToAccount = function name() {
-        gamesDispatch({ type: 'add', payload: cart?.items });
+        cart?.items.map((game) => {
+            if (isGameOwn(game, games.myGames)) {
+                gamesDispatch({ type: 'update', payload: game });
+            } else {
+                gamesDispatch({ type: 'add', payload: game });
+            }
+            return null;
+        });
+
+
+        // gamesDispatch({ type: 'add', payload: cart?.items });
+
+
     };
 
     const removeGames = function removeGamesFromCart() {

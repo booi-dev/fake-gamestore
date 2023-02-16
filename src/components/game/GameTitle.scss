@@ -1,0 +1,30 @@
+@use "../../sass/index" as *;
+
+.gametitle__list {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-items: center;
+  padding-inline-start: 0.5em;
+  margin-block: 0.5em;
+  width: 100%;
+  padding-block: 0.5em;
+  cursor: pointer;
+  transition: scale 0.5s ease;
+  &:hover {
+    background-color: darken($primary-clr-3, 10%);
+  }
+}
+
+.gametitle__list.active {
+  background-color: $primary-clr-3;
+}
+
+.game-controller-icon {
+  width: 25px;
+}
+
+@media (max-width: 740px) {
+  .gametitle__list-item {
+    gap: 0.5em;
+  }
+}

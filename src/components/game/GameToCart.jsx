@@ -10,7 +10,7 @@ function GameToCart(props) {
 
     const gameDataToAdd = {
         id: game?.id,
-        game: game?.name,
+        name: game?.name,
         genres: game?.genres,
         released: game?.released,
         background_image: game?.background_image,

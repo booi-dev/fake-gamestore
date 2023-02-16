@@ -12,8 +12,8 @@ const initialState = {
 function reducer(state, action) {
     switch (action.type) {
         case 'add': {
-            const isGameAlreadyInCart = !!state.items.find(game => game.id === action.payload.id);
-            if (isGameAlreadyInCart) {
+            const isGameInCart = !!state.items.find(game => game.id === action.payload.id);
+            if (isGameInCart) {
                 const updatedItems = state.items.map(item => {
                     if (item.id === action.payload.id) {
                         return { ...item, quantity: item.quantity + 1 };

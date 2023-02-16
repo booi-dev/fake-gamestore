@@ -1,0 +1,22 @@
+@use "../../sass/index" as *;
+
+.gamelist__list {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.gamelist img {
+  width: 100%;
+}
+
+.gamelist__active-img {
+  height: 350px;
+  object-fit: cover;
+  border-left: 5px solid $primary-clr-3;
+  border-radius: $border-radius-1;
+  display: none;
+}
+
+.gamelist__active-img.active {
+  display: block;
+}

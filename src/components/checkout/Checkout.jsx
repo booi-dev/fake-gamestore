@@ -68,7 +68,7 @@ function Checkout() {
                     className='checkout__wishlist-game checkout-list p-sm'>
 
                     <div className='app-flex'>
-                        <h3>{item?.game}</h3>
+                        <h3>{item?.name}</h3>
                     </div>
 
                     <div className='app-flex'>
@@ -95,7 +95,7 @@ function Checkout() {
                     className="checkout__cart-game checkout-list p-sm">
 
                     <div className='app-flex'>
-                        <h3>{item?.game}</h3>
+                        <h3>{item?.name}</h3>
                     </div>
 
                     <div className='app-flex-space-between'>

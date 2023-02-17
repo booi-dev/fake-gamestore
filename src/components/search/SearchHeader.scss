@@ -4,7 +4,7 @@
   max-width: $app-width;
   border-radius: $border-radius-1;
   margin: auto;
-  padding-block-end: 0.5em;
+  padding-block: 0.5em;
 }
 
 .search-header__panel {
@@ -16,7 +16,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // padding: 10px;
 }
 
 .search-header__panel__tabs {
@@ -27,7 +26,8 @@
 .search-header__panel__tabs .tab {
   width: max-content;
   padding-block: 0.8em;
-  padding-inline: 0.8em;
+  padding-inline-start: 0.5em;
+  padding-inline-end: 1em;
   transition: background-image 1s ease;
   &:hover {
     color: $font-clr-dark;
@@ -43,11 +43,17 @@
 .search-header__search {
   display: flex;
   justify-content: space-between;
+  align-items: stretch;
+  gap: 0.5em;
   width: 300px;
   transition: width 1s ease;
 }
 
 @media (max-width: 740px) {
+  .search-header__search {
+    width: 100%;
+  }
+
   .search-header__panel {
     display: flex;
     gap: 0.25em;
@@ -67,8 +73,9 @@
   }
 
   .search-header__panel__tabs .tab {
-    padding: 0.2em 0.8em;
     padding-left: 0;
+    padding-block: 0.2em;
+    padding-inline-end: 1.5em;
     letter-spacing: 1px;
   }
 }
@@ -76,5 +83,8 @@
 @media (max-width: 500px) {
   .search-header__search {
     width: 100%;
+  }
+  .search-header__panel__tabs .tab {
+    padding-inline-end: 1em;
   }
 }

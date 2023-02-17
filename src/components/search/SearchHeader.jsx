@@ -10,22 +10,22 @@ function SearchHeader() {
 
     return (
         <div className='search-header'>
-            {winWidth > 740 && <CartNWish />}
             <div className='search-header__panel'>
                 <div className='search-header__panel__tabs-container'>
                     <div className='search-header__panel__tabs'>
-                        <div className='tab'> News </div>
+                        <div className='tab'> news </div>
                         <Link to='./browse'>
-                            <div className='tab'> Browse Games </div>
+                            <div className='tab'> browse Games </div>
                         </Link>
-                        <div className='tab'> Lab</div>
+                        <div className='tab'> experiments</div>
                         {winWidth < 500 && <CartNWish />}
+
                     </div>
                     <div className='search-header__search'>
                         <Search />
+                        {(winWidth > 500) && <CartNWish />}
                     </div>
                 </div>
-                {(winWidth < 740 && winWidth > 500) && <CartNWish />}
             </div>
         </div>
     );

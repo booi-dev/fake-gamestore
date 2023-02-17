@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { BsBookmarkStar } from 'react-icons/bs';
 import { HiShoppingCart } from 'react-icons/hi';
 import { useWishCart } from '../../context/useWishCart';
 import './CartNWish.scss';
@@ -16,17 +17,18 @@ function CartNWish() {
             <button type='button'
                 className='cart-status__wishlist'
                 onClick={navigateToCheckout}>
+                <BsBookmarkStar className='cart-icon' />
                 {wishlist?.items.length !== 0
                     &&
                     <span className='wishlist_count'>
                         {wishlist.items.length}</span>
-                } wishlist
+                }
             </button>
             {cart?.items.length !== 0
                 && <button type='button'
                     className='cart-status__cart'
                     onClick={navigateToCheckout}>
-                    <HiShoppingCart className='cart-icon hiro-icons' />
+                    <HiShoppingCart className='cart-icon' />
                     {cart.items.length}
                 </button>}
         </span>

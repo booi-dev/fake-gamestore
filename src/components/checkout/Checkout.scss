@@ -32,7 +32,10 @@
 }
 
 .checkout-status {
-  font-size: $font-sm;
+  display: flex;
+  align-items: center;
+  font-size: $font-xxs;
+  gap: 0.5em;
   width: 100%;
   background-color: $primary-clr-2;
 }

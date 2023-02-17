@@ -1,7 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
+import { BsBookmarkStar } from 'react-icons/bs';
+import { HiShoppingCart } from 'react-icons/hi';
 import SearchHeader from '../search/SearchHeader';
 import { useAccount } from '../../context/useAccount';
 import { useWishCart } from '../../context/useWishCart';
+
 import QuantitySelector from './QuantitySelector';
 import CheckoutConfirm from './CheckoutConfirm';
 
@@ -62,7 +65,10 @@ function Checkout() {
 
             <div className='checkout__wishlist'>
 
-                <h2 className='checkout-status wishlist p-sm'>{wishlist?.items.length} Wishlist </h2>
+                <div className='checkout-status wishlist p-sm'>
+                    <BsBookmarkStar size={18} />
+                    <h2> {wishlist?.items.length} wishlist </h2>
+                </div>
 
                 {wishlist?.items.map((item) => <div key={item.id}
                     className='checkout__wishlist-game p-sm'>
@@ -85,7 +91,10 @@ function Checkout() {
             </div>
             <div className='checkout__cart'>
 
-                <h2 className='checkout-status cart p-sm'>{cart?.items.length} Games in Cart</h2>
+                <div className='checkout-status cart p-sm' >
+                    <HiShoppingCart size={18} />
+                    <h2 >{cart?.items.length} games in cart</h2>
+                </div>
 
                 {cart?.items.length < 1
                     && <h3 className='checkout__empty-cart-status p-sm'> Nothing in Cart! Add some games.</h3>}

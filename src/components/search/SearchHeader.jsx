@@ -13,11 +13,11 @@ function SearchHeader() {
             <div className='search-header__panel'>
                 <div className='search-header__panel__tabs-container'>
                     <div className='search-header__panel__tabs'>
-                        <div className='tab'> news </div>
                         <Link to='./browse'>
-                            <div className='tab'> browse Games </div>
+                            <div className='tab'> browse </div>
                         </Link>
-                        <div className='tab'> experiments</div>
+                        <div className='tab'> news </div>
+                        <div className='tab'> labs</div>
                         {winWidth < 500 && <CartNWish />}
 
                     </div>

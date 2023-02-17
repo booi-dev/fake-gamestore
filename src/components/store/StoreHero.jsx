@@ -1,10 +1,8 @@
 import SearchHeader from '../search/SearchHeader';
-// import bgPictureFullHD from '../../assets/full-bg/girl-pubg1920x1080.jpg';
-// import bgPictureHD from '../../assets/full-bg/girl-pubg1440x1080.jpg';
-// import bgPictureMobile from '../../assets/full-bg/girl-pubg768x1152.jpg';
-import bgPictureFull from '../../assets/store-hero-bg/tifa_full.jpg';
-import bgPictureStandard from '../../assets/store-hero-bg/tifa_standard.jpg';
-import bgPictureMobile from '../../assets/store-hero-bg/tifa_mobile.jpg';
+
+import bgPictureFull from '../../assets/store-hero-bg/geralt_full.jpg';
+import bgPictureStandard from '../../assets/store-hero-bg/geralt_standard.jpg';
+import bgPictureMobile from '../../assets/store-hero-bg/geralt_mobile.jpg';
 import './StoreHero.scss';
 
 function StoreHero() {

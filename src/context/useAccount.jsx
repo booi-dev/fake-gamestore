@@ -5,7 +5,6 @@ export const AccountContext = createContext();
 
 export const useAccount = () => useContext(AccountContext);
 
-
 export const isGameOwn = (toCheckGame, myGames) => !!myGames.find(game => game.id === toCheckGame.id);
 
 const tempGames = [

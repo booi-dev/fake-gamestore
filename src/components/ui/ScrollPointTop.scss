@@ -1,0 +1,8 @@
+.ScrollPointTop {
+  height: 10px;
+  background-color: red;
+  position: absolute;
+  inset: 0;
+  translate: 0 -50px;
+  z-index: 3;
+}

@@ -12,7 +12,7 @@ function Header() {
     const winWidth = useWinSize();
 
     return (
-        <div className='header'>
+        <div className='header' id='header-top'>
             <div className='header-container'>
                 {winWidth < 740 &&
                     <div className='menu-btn'>
@@ -49,7 +49,6 @@ function Header() {
                 </div>
             </div>
         </div>
-
     );
 }
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDatum } from '../../utils/fetch';
 import SearchHeader from '../search/SearchHeader';
@@ -8,7 +8,6 @@ import './GameView.scss';
 
 function GameView() {
 
-    const headerRef = useRef();
     const { gameId } = useParams();
 
     const [game, setGame] = useState({});
@@ -24,11 +23,11 @@ function GameView() {
         setGame({ ...data, short_description: cutWordCount(data?.description_raw, 150) });
     };
 
-    const scrollToHeader = useCallback(() => {
-        setTimeout(() => {
-            headerRef.current.scrollIntoView({ behavior: 'smooth' });
-        }, 1000);
-    }, []);
+    // const scrollToHeader = useCallback(() => {
+    //     setTimeout(() => {
+    //         headerRef.current.scrollIntoView({ behavior: 'smooth' });
+    //     }, 1000);
+    // }, []);
 
     useEffect(() => {
         fetchGameData();
@@ -36,9 +35,7 @@ function GameView() {
 
     return (
         <>
-            <div ref={headerRef}>
-                <SearchHeader />
-            </div>
+            <SearchHeader />
             <div className='game-view'>
                 <h1 className='game-view_title'>{game?.name}</h1>
                 <div className='game-view__info-container'>
@@ -105,13 +102,13 @@ function GameView() {
 
                 {Object.keys(game).length !== 0 &&
                     <>
-                        <MoreInfo game={game} scrollToHeader={scrollToHeader} />
+                        <MoreInfo game={game} />
                         <div className='game-view_add-to-cart-container'>
                             <h1 className='game-view_add-to-cart_title'>
                                 <span className='buy'>  Buy  </span>
                                 {game?.name}
                             </h1>
-                            <GameToCart game={game} scrollToHeader={scrollToHeader} />
+                            <GameToCart game={game} />
                         </div>
                     </>
                 }

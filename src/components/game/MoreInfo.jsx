@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link as Scroll } from 'react-scroll';
 import { RiPlaystationFill, RiXboxFill, RiAppleFill, RiWindowsFill, RiGlobalLine } from 'react-icons/ri';
 import { SiIos, SiLinux, SiNintendoswitch } from "react-icons/si";
 import { HiChevronDoubleRight } from 'react-icons/hi';
@@ -7,7 +8,7 @@ import { useWishCart, isInWishCart } from '../../context/useWishCart';
 
 function MoreInfo(props) {
 
-    const { game, scrollToHeader } = props;
+    const { game } = props;
 
     const { wishlist, wishDispatch } = useWishCart();
 
@@ -25,12 +26,10 @@ function MoreInfo(props) {
 
     const addWishlist = function addToWishlistCart(toAddGame) {
         wishDispatch({ type: "add", payload: toAddGame });
-        scrollToHeader();
     };
 
     const removeWishlist = function deleteFromWishlist(toRemoveGame) {
         wishDispatch({ type: 'remove', payload: toRemoveGame });
-        scrollToHeader();
     };
 
     const isGameInCart = isInWishCart(game?.id, wishlist?.items);
@@ -52,6 +51,7 @@ function MoreInfo(props) {
         ios: <SiIos className='icon' />,
     };
 
+    /* eslint-disable */
     return (
         <div className='game-view__more-info'>
             <div className='flex-center'>
@@ -61,28 +61,28 @@ function MoreInfo(props) {
                     >
                         {platformIcons[pf?.platform?.slug]}
                     </span>)}
-
                 <button type='button'
                     className='website-link'>
-                    <a href={game?.website}>
+                    <a href={game?.website} target="_blank" rel="noopener noreferrer">
                         official site
                         <HiChevronDoubleRight className='icon' />
                     </a>
                 </button>
             </div>
+            <Scroll to='header-top' spy={true} smooth={true} duration={1000}  >
+                <button type='button'
+                    className='add-to-wishlist-btn'
+                    onClick={() => toggleWishlist()}>
+                    {isGameInCart ? 'Remove from Wishlist' : 'Add to Wishlist'}
+                </button>
+            </Scroll>
 
-            <button type='button'
-                className='add-to-wishlist-btn'
-                onClick={() => toggleWishlist()}>
-                {isGameInCart ? 'Remove from Wishlist' : 'Add to Wishlist'}
-            </button>
         </div>
     );
 }
 
 MoreInfo.propTypes = {
     game: PropTypes.instanceOf(Object),
-    scrollToHeader: PropTypes.func.isRequired
 };
 
 MoreInfo.defaultProps = {

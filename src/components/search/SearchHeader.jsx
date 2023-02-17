@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Search from './Search';
 import CartNWish from '../ui/CartNWish';
 import useWinSize from '../../hooks/useWinSize';
@@ -14,7 +15,9 @@ function SearchHeader() {
                 <div className='search-header__panel__tabs-container'>
                     <div className='search-header__panel__tabs'>
                         <div className='tab'> News </div>
-                        <div className='tab'> Categories </div>
+                        <Link to='./browse'>
+                            <div className='tab'> Browse Games </div>
+                        </Link>
                         <div className='tab'> Lab</div>
                         {winWidth < 500 && <CartNWish />}
                     </div>

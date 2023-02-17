@@ -6,6 +6,10 @@
   font-weight: 300;
 }
 
+.checkout {
+  padding-block: 0.5em;
+}
+
 .checkout__title {
   padding-block: 0.5em;
   font-size: clamp($font-md, 3vw, $font-xxl);
@@ -89,6 +93,7 @@
 
 .checkout-btn {
   padding: 0.5em;
+  margin-inline: 0.5em;
   border-radius: $border-radius-1;
   background-image: linear-gradient(to right, $accent-clr, $accent-clr-dark);
   color: $font-clr;

@@ -15,6 +15,7 @@ li {
   height: $header-height;
   background: $primary-clr-dark;
   padding-inline: $app-padding-xs;
+  // color: $font-clr-dark;
 }
 
 .header-container {
@@ -139,17 +140,16 @@ li {
 // MAIN BODY
 
 .main-body {
-  padding-inline: 0.5em;
-  padding-block: 10px;
+  // padding: 0.5em;
+  // padding-block: 10px;
   position: relative;
-  // min-height: 100vh - calc($header-height + $footer-height);
   min-height: calc(100vh - #{$header-height} - #{$footer-height});
 }
 
 // FOOTER
 
 .footer {
-  // margin-top: 1em;
+  margin-top: 0.5em;
   height: $footer-height;
-  background-color: $primary-clr;
+  background: $primary-clr-dark;
 }

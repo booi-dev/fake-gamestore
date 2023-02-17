@@ -24,6 +24,12 @@ function CheckoutConfirm(props) {
         creditDispatch({ type: 'remove', payload: gameTotal });
     };
 
+    const navigateAway = () => {
+        setTimeout(() => {
+            navigate('/mygames');
+        }, 1000);
+    };
+
     const addGamesToAccount = function name() {
         cart?.items.map((game) => {
             if (isGameOwn(game, games.myGames)) {
@@ -31,7 +37,7 @@ function CheckoutConfirm(props) {
             } else {
                 gamesDispatch({ type: 'add', payload: game });
             }
-            navigate('/mygames');
+            navigateAway();
             return null;
         });
 

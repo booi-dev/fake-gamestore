@@ -10,8 +10,8 @@
   width: 100%;
   &:hover,
   &:focus {
-    outline: red;
-    border: 1px solid red;
+    outline: $accent-clr;
+    border: 1px solid $accent-clr;
   }
 }
 

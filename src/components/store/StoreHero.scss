@@ -38,11 +38,41 @@
   transition: top 1s ease;
 }
 
+.store-hero__scroll-down-btn {
+  position: absolute;
+  top: 5em;
+  right: 5em;
+  transition: all 1s ease;
+  &:hover::after {
+    content: "click to scroll down";
+    color: rgba(0, 0, 0, 0.358);
+    display: block;
+    width: max-content;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    translate: -50% -50%;
+  }
+}
+
+.scroll-down-icon {
+  color: rgba(0, 0, 0, 0.358);
+  transition: scale 1s ease;
+
+  &:hover {
+    scale: 1.2;
+  }
+}
+
 @media (max-width: 500px) {
   .store-hero__container {
     height: $hero-height-mobile;
   }
   .store-hero__search {
     top: 30px;
+  }
+  .store-hero__scroll-down-btn {
+    top: 8em;
+    right: 4em;
   }
 }

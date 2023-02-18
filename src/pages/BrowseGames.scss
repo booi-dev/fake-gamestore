@@ -1,0 +1,10 @@
+@use "../sass/index" as *;
+.browse-games {
+  display: flex;
+  justify-content: space-around;
+  gap: 0.5em;
+}
+
+.browse-games__column {
+  flex: 1;
+}

@@ -27,6 +27,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'off',
         'no-console': 'off',
         'jsx-a11y/no-noninteractive-tabindex': 'off',
-        'jsx-a11y/click-events-have-key-events': 'off'
+        'jsx-a11y/click-events-have-key-events': 'off',
+        'react/no-array-index-key': 'off'
     },
 };

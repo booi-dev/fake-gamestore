@@ -63,7 +63,6 @@ function gamesReducer(state, action) {
             };
         }
         case 'update': {
-            console.log(action.payload);
             const updatedGames = state.myGames.map(item => {
                 if (item.id === action.payload.id) {
                     const update = { ...item, quantity: item.quantity + action.payload.quantity };

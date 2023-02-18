@@ -13,7 +13,7 @@ function SearchHeader() {
             <div className='search-header__panel'>
                 <div className='search-header__panel__tabs-container'>
                     <div className='search-header__panel__tabs'>
-                        <Link to='./browse'>
+                        <Link to='/browse'>
                             <div className='tab'> browse </div>
                         </Link>
                         <div className='tab'> news </div>

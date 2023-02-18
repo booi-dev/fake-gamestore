@@ -4,7 +4,7 @@
   max-width: $app-width;
   border-radius: $border-radius-1;
   margin: auto;
-  padding-block: 0.5em;
+  padding-block-end: 0.5em;
 }
 
 .search-header__panel {
@@ -30,11 +30,9 @@
   padding-inline-end: 1em;
   transition: background-image 1s ease;
   &:hover {
-    color: $font-clr-dark;
-    font-weight: 500;
     background-image: linear-gradient(
       to right,
-      $primary-clr-4,
+      $primary-clr-3,
       $transperant-clr
     );
   }

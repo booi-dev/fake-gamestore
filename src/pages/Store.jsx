@@ -9,6 +9,9 @@ function Store() {
     return (
         <div className='store'>
             <StoreHero />
+            <div className="app-flex-center" id="browse-games-title">
+                <h1 className="app-group-title fs-xl"> BROWSE LATEST GAMES</h1>
+            </div>
             <GameBrowse />
             <BrowseCategory />
             {/* <Recommendation /> */}

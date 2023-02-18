@@ -3,8 +3,9 @@
 
 .store-hero {
   position: relative;
-  padding-block: 0.5em;
+  padding-block: 8px;
   padding-inline: $app-padding-xs;
+  margin-block-end: 40px;
 }
 
 .store-hero__hero {
@@ -29,8 +30,19 @@
   //   display: none;
 }
 
+.store-hero__search {
+  position: relative;
+  top: 250px;
+  max-width: 350px;
+  margin: auto;
+  transition: top 1s ease;
+}
+
 @media (max-width: 500px) {
   .store-hero__container {
     height: $hero-height-mobile;
+  }
+  .store-hero__search {
+    top: 30px;
   }
 }

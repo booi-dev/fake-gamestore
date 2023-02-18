@@ -57,13 +57,12 @@ function Recommendation() {
     }, [gameTotal, gameSerial]);
 
     return (
-        <>
-            <div className="recommendation_title grp_title">
-                <h1>FEATURED & RECOMMENDED</h1>
-            </div>
-            <div className='recommendation_container'>
-                <Prev prevHandler={prevCurrentGame} />
-                <div className="recommendation_card-container"
+        <div>
+
+            <div className='recommendation' id='recommendation'>
+                {/* <h1 className='App-group-title'>
+                    FEATURED & RECOMMENDED</h1> */}
+                <div className="recommendation__card-container"
                 >
                     {gameData && <RecommendationCard
                         key={gameData[gameSerial].id}
@@ -72,17 +71,20 @@ function Recommendation() {
                         startTimer={startTimer}
                     />}
                 </div>
+                <Prev prevHandler={prevCurrentGame} />
+
                 <Next nextHandler={nextCurrentGame} />
+
+                <div className='recommendation__carousel-thumbs'>
+                    {gameData && gameData.map((game, index) => <CarouselThumbs
+                        key={game.id}
+                        serial={index}
+                        activeSerial={gameSerial}
+                        updateCurrentGame={updateCurrentGame}
+                    />)}
+                </div>
             </div>
-            <div className='recommendation_carousel-thumbs'>
-                {gameData && gameData.map((game, index) => <CarouselThumbs
-                    key={game.id}
-                    serial={index}
-                    activeSerial={gameSerial}
-                    updateCurrentGame={updateCurrentGame}
-                />)}
-            </div>
-        </>
+        </div>
     );
 }
 

@@ -2,7 +2,8 @@
 
 .search {
   position: relative;
-  background: $primary-clr;
+  // background: $primary-clr;
+  background: transparent;
   border: 1px solid transparent;
   border-radius: $border-radius-1;
   color: $font-clr;
@@ -17,7 +18,8 @@
 .search-container {
   display: flex;
   align-self: center;
-  background: $primary-clr-4;
+  background: #ffffff31;
+  border: 1px solid $primary-clr;
   border-radius: $border-radius-1;
   gap: 0.2em;
 }

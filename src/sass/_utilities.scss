@@ -132,8 +132,10 @@ $layout-border-radius: (
 
 // Flex
 
-.app-title {
+.App-group-title {
   font-weight: 300;
+  font-size: $font-md;
+  padding-block: 1em;
 }
 
 .app-flex {
@@ -150,6 +152,19 @@ $layout-border-radius: (
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.app-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gap-4 {
+  gap: 4px;
+}
+
+.gap-8 {
+  gap: 8px;
 }
 
 .app-theme-bg {

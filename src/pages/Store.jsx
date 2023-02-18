@@ -1,14 +1,17 @@
 import StoreHero from "../components/store/StoreHero";
-import Recommendation from '../components/recommendation/Recommendation';
+// import Recommendation from '../components/recommendation/Recommendation';
 import BrowseCategory from "../components/categories/BrowseCategory";
+import GameBrowse from "../components/game/GameBrowse";
+
 
 function Store() {
 
     return (
         <div className='store'>
             <StoreHero />
-            <Recommendation />
+            <GameBrowse />
             <BrowseCategory />
+            {/* <Recommendation /> */}
         </div>
     );
 }

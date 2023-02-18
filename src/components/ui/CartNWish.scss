@@ -2,7 +2,7 @@
 
 .cart-status {
   display: flex;
-  gap: 0.5em;
+  // gap: 2px;
   width: min-content;
   margin-left: auto;
   // margin-block-end: 0.5em;
@@ -26,9 +26,9 @@
   background-image: linear-gradient(to right, $accent-clr, $accent-clr-dark);
 }
 
-.cart-status__wishlist {
-  background-color: $primary-clr-3;
-}
+// .cart-status__wishlist {
+//   background-color: $primary-clr-3;
+// }
 
 .cart-icon {
   font-size: $font-xxs;

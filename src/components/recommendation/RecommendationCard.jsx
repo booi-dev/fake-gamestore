@@ -6,40 +6,38 @@ function RecommendationCard(props) {
     const { game, startTimer, stopTimer } = props;
 
     return (
-        <>
-            <div className='recommendation-card_bg-img'
+        <div className='recommendation-card'>
+            <div className='recommendation-card__bg-img'
                 onMouseEnter={() => stopTimer()}
                 onMouseLeave={() => startTimer()}
             >
-                <Link to={`/game/${game?.id}`}>
-                    <img src={game?.background_image} alt={`${game?.name} bg img`}
-                    />
-                </Link>
+                {/* <Link to={`/game/${game?.id}`}> */}
+                <img src={game?.background_image} alt={`${game?.name} bg img`}
+                />
+                {/* </Link> */}
             </div>
-            <div className="recommendation-card_game-details">
+            <div className="recommendation-card__game-details">
                 <Link to={`/game/${game?.id}`}>
-                    <h2 className="rg-game-title">{game?.name} </h2>
+                    <h2 className="rg__game-title">{game?.name} </h2>
                 </Link>
-                <div className="rg-sreenshots-container">
-                    {game?.short_screenshots.slice(0, 4).map(sss => <img src={sss.image} alt={`${game?.name} screenshot`} key={sss.id} className="rg-screenshots" />)}
+                <div className="rg__sreenshots-container">
+                    {game?.short_screenshots.slice(0, 4).map(sss => <img src={sss.image} alt={`${game?.name} screenshot`} key={sss.id} className="rg__screenshots" />)}
                 </div>
                 <div>
                     {game?.genres.slice(0, 4).map(genre => <span key={genre.id}
-                        className="rg-genres"
+                        className="rg__genres"
                     >{genre.name}</span>)}
                 </div>
                 <div> $ {game?.price} </div>
-                <h3 className="rg-released-date">Released Date: {game?.formattedReleasedDate} </h3>
+                <h3 className="rg__released-date">Released Date: {game?.formattedReleasedDate} </h3>
 
                 <Link to={`/game/${game?.id}`}>
                     <button type='button'
-                        className='rg-store-page-link-btn'
+                        className='rg__store-page-link-btn'
                     >Go to store page</button>
                 </Link>
-
             </div>
-
-        </>
+        </div>
     );
 }
 

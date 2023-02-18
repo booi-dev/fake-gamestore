@@ -17,7 +17,7 @@ function GameList() {
     // console.log(gamesInAccount);
 
     return (
-        <div className="gamelist app-container">
+        <div className="gamelist">
             <div className='gamelist__container'>
                 <div className='gamelist__list'>
                     <h1 className='gamelist__title'>MY GAMES</h1>

@@ -27,7 +27,6 @@ export function Next(props) {
     );
 }
 
-
 Prev.propTypes = {
     prevHandler: PropTypes.func.isRequired,
 };

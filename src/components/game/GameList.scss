@@ -4,11 +4,12 @@
   font-size: $font-lg;
   font-weight: 300;
   margin-inline: 0.5em;
+  padding-block: 0.5em;
 }
 
 .gamelist__container {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 5fr;
 }
 
 .gamelist__active-game {
@@ -20,8 +21,13 @@
   position: relative;
 }
 
+.gamelist__active-game-container {
+  padding-block: 0.5em;
+  padding-inline-end: 0.5em;
+}
+
 .gamelist__active-game__img {
-  height: 350px;
+  height: calc(100vh - 176px);
   width: 100%;
   object-fit: cover;
   border-left: 0.5em solid $primary-clr-3;
@@ -83,13 +89,16 @@
   .gamelist__container {
     grid-template-columns: 1.3fr 1fr;
     position: relative;
-    height: 65vh;
+    height: calc(100vh - 160px);
+    width: 100%;
   }
   .gamelist__list {
     z-index: 1;
   }
   .gamelist__active-game-container {
     position: absolute;
+    padding-block: revert;
+    padding-inline-end: revert;
     height: 100%;
   }
   .gamelist__active-game__img,

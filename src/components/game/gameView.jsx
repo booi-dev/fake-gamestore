@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDatum } from '../../utils/fetch';
-import SearchHeader from '../search/SearchHeader';
 import MoreInfo from './MoreInfo';
 import GameToCart from './GameToCart';
 import './GameView.scss';
@@ -23,19 +22,12 @@ function GameView() {
         setGame({ ...data, short_description: cutWordCount(data?.description_raw, 150) });
     };
 
-    // const scrollToHeader = useCallback(() => {
-    //     setTimeout(() => {
-    //         headerRef.current.scrollIntoView({ behavior: 'smooth' });
-    //     }, 1000);
-    // }, []);
-
     useEffect(() => {
         fetchGameData();
     }, [gameId]);
 
     return (
-        <>
-            <SearchHeader />
+        <div>
             <div className='game-view'>
                 <h1 className='game-view_title'>{game?.name}</h1>
                 <div className='game-view__info-container'>
@@ -117,7 +109,7 @@ function GameView() {
                         alt='game pic' />
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 

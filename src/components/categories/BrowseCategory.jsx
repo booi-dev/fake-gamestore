@@ -29,16 +29,16 @@ function BrowseCategory() {
         { pic: categorCasual, slug: 'casual' },
         { pic: categorFighting, slug: 'fighting' },
         { pic: categorHorror, slug: 'horror' },
-        { pic: categorMultiplayer, slug: 'multiplayer' },
+        { pic: categorMultiplayer, slug: 'multi' },
         { pic: categorPuzzle, slug: 'puzzle' },
         { pic: categorRacing, slug: 'racing' },
-        { pic: categoryRogueLike, slug: 'rogue_like' },
+        { pic: categoryRogueLike, slug: 'rogue-like' },
         { pic: categoryRpg, slug: 'rpg' },
-        { pic: categorySciFi, slug: 'sci_fi' },
+        { pic: categorySciFi, slug: 'sci-fi' },
         { pic: categorySports, slug: 'sports' },
-        { pic: categoryStoryRich, slug: 'story_rich' },
+        { pic: categoryStoryRich, slug: 'story' },
         { pic: categoryStrategy, slug: 'strategy' },
-        { pic: categoryCityBuilding, slug: 'city-building' },
+        { pic: categoryCityBuilding, slug: 'building' },
         { pic: categorySurvival, slug: 'survival' },
     ];
 
@@ -48,12 +48,10 @@ function BrowseCategory() {
     const winWidth = useWinSize();
 
     const categoryCarousel = function createCategoryCarousel() {
-        const carouselEnd = winWidth < 500 ? carouselStart + 2 : carouselStart + 4;
-
-        if (winWidth > 500 && carousel.length === 2) {
-            setCarouselStart(carouselStart - 1);
-        }
-
+        const carouselEnd = winWidth < 500
+            ? carouselStart + 2
+            : carouselStart + 4;
+        // console.log(carouselStart, carouselEnd);
         setCarousel(() => categoryPictures.slice(carouselStart, carouselEnd));
     };
 
@@ -77,8 +75,7 @@ function BrowseCategory() {
 
     return (
         <>
-            <div className='grp_title'>BROWSE BY CATEGORY</div>
-            <div className='category-carousel app-container'>
+            <div className='category-carousel'>
                 {carousel.map((data) => (
                     <div key={data.slug}
                         className='category-carousel__item'>

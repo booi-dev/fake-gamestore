@@ -4,9 +4,9 @@ import { HiShoppingCart } from 'react-icons/hi';
 import { useWishCart } from '../../context/useWishCart';
 import './CartNWish.scss';
 
-function CartNWish() {
+export default function WishCart() {
     const navigate = useNavigate();
-    const { wishlist, cart } = useWishCart();
+    const { cart, wishlist } = useWishCart();
 
     const navigateToCheckout = function navigateToCheckoutOnClick() {
         navigate('/checkout');
@@ -24,15 +24,12 @@ function CartNWish() {
                         {wishlist.items.length}</span>
                 }
             </button>
-            {cart?.items.length !== 0
-                && <button type='button'
-                    className='cart-status__cart'
-                    onClick={navigateToCheckout}>
-                    <HiShoppingCart className='cart-icon' />
-                    {cart.items.length}
-                </button>}
+            <button type='button'
+                className='cart-status__cart'
+                onClick={navigateToCheckout}>
+                <HiShoppingCart className='cart-icon' />
+                {cart.items.length > 0 && cart.items.length}
+            </button>
         </span>
     );
 }
-
-export default CartNWish;

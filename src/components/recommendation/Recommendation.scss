@@ -1,24 +1,19 @@
 @use "../../sass/index" as *;
 
-.recommendation_container {
+.recommendation {
   display: flex;
-  gap: 0.5em;
-  align-items: center;
   justify-content: center;
-  height: 45vh;
+  flex-direction: column;
+  // height: 80vh;
+  padding-block: 8px;
   position: relative;
   padding-inline: $app-padding-xs;
 }
 
 // recommendation card
 
-.recommendation_card-container {
-  display: flex;
-  position: relative;
-  justify-content: space-between;
+.recommendation__card-container {
   width: 100%;
-  height: 100%;
-  max-width: $app-width;
   background-color: $primary-clr-dark;
   border-radius: $border-radius-1;
   box-shadow: 0 0 5px #050532;
@@ -26,18 +21,26 @@
 
 // carousel thumbs
 
-.recommendation_carousel-thumbs {
+.recommendation__carousel-thumbs {
   display: flex;
   justify-content: center;
   margin-block: 0.5em;
 }
 
-@media (max-width: 950px) {
-  .recommendation_container {
-    justify-content: space-between;
-  }
-  .recommendation_card-container {
-    position: absolute;
-    inset: 0;
+.recommendation .prev-btn {
+  position: absolute;
+  left: 16px;
+}
+
+.recommendation .next-btn {
+  position: absolute;
+  right: 16px;
+}
+
+.recommendation .prev-btn,
+.recommendation .next-btn {
+  transition: scale 1s ease;
+  &:hover {
+    scale: 1.1;
   }
 }

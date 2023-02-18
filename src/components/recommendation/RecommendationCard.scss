@@ -1,42 +1,49 @@
 @use "../../sass/index" as *;
 
-.recommendation-card_bg-img img {
+.recommendation-card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  height: 450px;
+}
+
+.recommendation-card__bg-img {
+  height: 450px;
+  transition: width 1s ease;
+  grid-row-start: span 3;
+}
+
+.recommendation-card__bg-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: $border-radius-1;
 }
 
-.recommendation-card_bg-img {
-  width: 980px;
-  transition: width 1s ease;
-}
-
-.recommendation-card_game-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.recommendation-card__game-details {
   position: relative;
-  margin: 6px;
-  overflow: hidden;
+  width: 100%;
+  justify-self: center;
+  grid-row: span 3;
 }
 
-.rg-game-title {
-  font-size: $font-xxl;
+.rg__game-title {
   font-weight: 300;
   margin-block-end: 0.4em;
   transition: color 1s ease;
   &:hover {
-    color: $accent-clr;
+    color: $primary-clr-4;
   }
 }
 
-.rg-released-date {
+.rg__released-date {
   font-size: $font-xxs;
   font-weight: 300;
 }
 
-.rg-sreenshots-container {
+.rg__sreenshots-container {
   display: grid;
   gap: 8px;
   grid: 1fr 1fr / 1fr 1fr;
@@ -44,18 +51,18 @@
   transition: opacity 1s ease-in-out;
 }
 
-.rg-screenshots {
-  width: 160px;
-  height: 68px;
+.rg__screenshots {
+  width: 100%;
+  height: 100px;
   object-fit: cover;
   filter: brightness(0.7);
 }
 
-.rg-genres {
+.rg__genres {
   padding-inline-end: 4px;
 }
 
-.rg-store-page-link-btn {
+.rg__store-page-link-btn {
   position: absolute;
   bottom: 0.25em;
   right: 0.25em;
@@ -70,34 +77,37 @@
 }
 
 @media (max-width: 950px) {
-  .rg-sreenshots-container {
+  .rg__sreenshots-container {
     opacity: 0;
     max-height: 0;
     width: 0;
   }
 
-  .rg-screenshots {
+  .rg__screenshots {
     max-height: 0;
     width: 0;
   }
 
-  .rg-store-page-link-btn {
+  .rg__store-page-link-btn {
     inset: revert;
     bottom: 0.25em;
   }
 }
 
-@media (max-width: 740px) {
-  .recommendation-card_game-details {
-    width: 400px;
-  }
-}
+// @media (max-width: 740px) {
+//   .recommendation-card__game-details {
+//     width: 400px;
+//   }
+// }
 
 @media (max-width: 500px) {
-  .recommendation-card_bg-img {
-    width: 100%;
+  .recommendation-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
   }
-  .recommendation-card_game-details {
+
+  .recommendation-card__game-details {
     position: absolute;
     bottom: 0.5em;
     margin: revert;
@@ -106,10 +116,10 @@
     border-radius: $border-radius-1;
     padding: 0.5em 1em;
   }
-  .rg-game-title {
+  .rg__game-title {
     margin-block-end: 0.2em;
   }
-  .rg-store-page-link-btn {
+  .rg__store-page-link-btn {
     inset: revert;
     right: 0.25em;
     bottom: 0.25em;

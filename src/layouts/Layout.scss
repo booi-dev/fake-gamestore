@@ -63,28 +63,6 @@ li {
   align-items: center;
 }
 
-.user {
-  display: flex;
-  justify-content: right;
-  font-size: $font-xxs;
-  gap: 0.5em;
-  z-index: 0;
-}
-
-.user_name {
-  text-align: end;
-}
-
-.user_wallet {
-  color: #15ce12;
-}
-
-.user__profile-pic {
-  width: 30px;
-  height: 30px;
-  object-fit: cover;
-}
-
 .menu-btn {
   display: grid;
   place-content: center;
@@ -140,8 +118,6 @@ li {
 // MAIN BODY
 
 .main-body {
-  // padding: 0.5em;
-  // padding-block: 10px;
   position: relative;
   min-height: calc(100vh - #{$header-height} - #{$footer-height});
 }
@@ -149,7 +125,6 @@ li {
 // FOOTER
 
 .footer {
-  margin-top: 0.5em;
   height: $footer-height;
   background: $primary-clr-dark;
 }

@@ -1,16 +1,18 @@
 import { Link, NavLink } from 'react-router-dom';
-import { HiMail, HiMenu, HiChevronDown, HiUserCircle } from "react-icons/hi";
+// import { Link as Scroll } from 'react-scroll';
+import { HiMenu } from "react-icons/hi";
+import siteIconLight from '../assets/site-icon/site-icon-light.png';
 import { useAccount } from '../context/useAccount';
 import useWinSize from '../hooks/useWinSize';
-import siteIconLight from '../assets/site-icon/site-icon-light.png';
+import WishCart from '../components/ui/CartNWish';
 
 import './Layout.scss';
 
 function Header() {
 
-    const { games, credit } = useAccount();
+    const { games } = useAccount();
     const winWidth = useWinSize();
-
+    /*eslint-disable */
     return (
         <div className='header' id='header-top'>
             <div className='header-container'>
@@ -28,24 +30,13 @@ function Header() {
                         <ul className='navbar__list'>
                             <li> <NavLink to='/'>STORE </NavLink> </li>
                             <li><NavLink to='mygames'>MY GAMES ({games.myGames.length})</NavLink> </li>
-                            <li> <NavLink to='account'> ACCOUNT </NavLink></li>
-                            <li> <NavLink to='support'>SUPPORT </NavLink></li>
+                            <li> <NavLink to='browse'>BROWSE </NavLink> </li>
+                            <li> <NavLink to='feature'>FEATURES </NavLink> </li>
                         </ul>
                     </nav>}
-                <div className='user'>
-                    <div>
-                        <HiMail size={13} className='user__notification-icon' />
-                    </div>
-                    <div className='user_name'>
-                        <div>bo_ma</div>
-                        <div className='user_wallet'>${credit.myCredit}</div>
-                    </div>
-                    <button type='button' className='chevron-down-btn'>
-                        {winWidth < 500 && <HiChevronDown size={18} className='chevron-down-icon' />}
-                    </button>
-                    <div>
-                        <HiUserCircle className='user__profile-pic' />
-                    </div>
+
+                <div>
+                    <WishCart />
                 </div>
             </div>
         </div>

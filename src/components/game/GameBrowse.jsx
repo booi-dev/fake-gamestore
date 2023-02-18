@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import useWinSize from '../hooks/useWinSize';
-import fetchData, { createQuery, createMultiQuery } from '../utils/fetch';
-import SearchHeader from '../components/search/SearchHeader';
-import GameCard from '../components/game/GameCard';
-import './BrowseGames.scss';
+import useWinSize from '../../hooks/useWinSize';
+import fetchData, { createQuery, createMultiQuery } from '../../utils/fetch';
+import GameCard from './GameCard';
+import './GameBrowse.scss';
 
-function BrowseGames() {
+function GameBrowse() {
 
     const winWidth = useWinSize();
 
@@ -35,7 +34,7 @@ function BrowseGames() {
     const fetchGameData = async function fetchGameData() {
         const newDatesQuery = createQuery('dates', '2022-01-01,2023-02-16');
         const newOrderingQuery = createQuery('orderng', 'released');
-        const newPageSizeQuery = createQuery('page_size', 10);
+        const newPageSizeQuery = createQuery('page_size', 24);
 
         const query = createMultiQuery([newDatesQuery, newOrderingQuery, newPageSizeQuery]);
 
@@ -45,21 +44,24 @@ function BrowseGames() {
         }
     };
 
+    const getDynamicColumns = function getColumnsAccordingToWidth() {
+        let columns;
+        if (gameData) {
+            if (winWidth > 1020) columns = splitDataArray(gameData, 4);
+            else if (winWidth > 740) columns = splitDataArray(gameData, 3);
+            else if (winWidth > 500) columns = splitDataArray(gameData.slice(0, 8), 2);
+            else if (winWidth < 500) columns = splitDataArray(gameData.slice(0, 4), 1);
+        }
+        setGameColumns(columns);
+        // console.log(gameColumns);
+    };
+
     useEffect(() => {
         fetchGameData();
     }, []);
 
     useEffect(() => {
-        let columns;
-        // console.log(gameData);
-        if (gameData) {
-            if (winWidth > 1020) columns = splitDataArray(gameData, 4);
-            else if (winWidth > 740) columns = splitDataArray(gameData, 3);
-            else if (winWidth > 500) columns = splitDataArray(gameData, 2);
-            else if (winWidth < 500) columns = splitDataArray(gameData, 1);
-        }
-        setGameColumns(columns);
-
+        getDynamicColumns();
     }, [gameData, winWidth]);
 
     // console.log(gameColumns);
@@ -73,9 +75,9 @@ function BrowseGames() {
         );
 
     return (
-        <div className='p-sm'>
-            <SearchHeader />
-            <div className='browse-games'>
+        <div className='browse-games' id='browse-game'>
+            {/* <h1 className='browse-games__title App-group-title'>BROWSE LATEST GAMES</h1> */}
+            <div className='browse-games__columns-container'>
                 {ColumnsComponent}
             </div>
 
@@ -83,4 +85,4 @@ function BrowseGames() {
     );
 }
 
-export default BrowseGames;
+export default GameBrowse;

@@ -1,5 +1,5 @@
-import SearchHeader from '../search/SearchHeader';
-
+// import SearchHeader from '../search/SearchHeader';
+import Search from '../search/Search';
 import bgPictureFull from '../../assets/store-hero-bg/geralt_full.jpg';
 import bgPictureStandard from '../../assets/store-hero-bg/geralt_standard.jpg';
 import bgPictureMobile from '../../assets/store-hero-bg/geralt_mobile.jpg';
@@ -9,7 +9,10 @@ function StoreHero() {
 
     return (
         <div className='store-hero'>
-            <SearchHeader />
+            <div className='store-hero__search'>
+                {/* <SearchHeader /> */}
+                <Search />
+            </div>
             <div className='store-hero__container'>
                 <picture>
                     <source
@@ -25,7 +28,6 @@ function StoreHero() {
                         srcSet={bgPictureMobile} />
 
                     <img className='store-hero__bg-img' src={bgPictureFull} alt='full background' />
-
                 </picture>
             </div>
         </div>

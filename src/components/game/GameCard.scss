@@ -84,6 +84,9 @@
   text-shadow: 1px 1px 3px black;
   gap: 0.25em;
   margin-block: 0.5em;
+  &:hover {
+    background-color: $primary-clr-trans-3;
+  }
 }
 
 .game-card__price {

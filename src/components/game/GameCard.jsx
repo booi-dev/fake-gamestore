@@ -12,13 +12,21 @@ function GameCard({ game }) {
     const { cart, cartDispatch, wishlist, wishDispatch } = useWishCart();
 
     const isGameInCart = isInWishCart(game?.id, cart?.items);
-    const isGameInWishlist = isInWishCart(game?.id, cart?.items);
+    const isGameInWishlist = isInWishCart(game?.id, wishlist?.items);
 
     const [isHoverAddBtn, setIsHoverAddBtn] = useState(false);
     const [isHoverGameCard, setIsHoverGameCard] = useState(false);
 
     const onClickAddBtn = () => {
         setIsHoverAddBtn(!isHoverAddBtn);
+    };
+
+    const addToCart = function addToWishlistCart() {
+        cartDispatch({ type: "add", payload: game });
+    };
+
+    const addToWishlist = function addToWishlistCart() {
+        wishDispatch({ type: "add", payload: game });
     };
 
     return (
@@ -38,7 +46,7 @@ function GameCard({ game }) {
                 </div>
             </div>
             {
-                isHoverGameCard && !isGameInWishlist && !isGameInCart &&
+                isHoverGameCard && (!isGameInWishlist || !isGameInCart) &&
                 <>
                     <button type='button'
                         onClick={onClickAddBtn}
@@ -48,11 +56,15 @@ function GameCard({ game }) {
                     <div className={`game-card__add-options ${isHoverAddBtn && 'show'}`}>
 
                         {
-                            !isGameInWishlist && <button type='button'> + wishlist <BsBookmarkPlus /></button>
+                            !isGameInWishlist && <button type='button'
+                                onClick={addToWishlist}
+                            > + wishlist <BsBookmarkPlus /></button>
                         }
 
                         {
-                            !isGameInCart && <button type='button'> + cart <BsCartPlus /></button>
+                            !isGameInCart && <button type='button'
+                                onClick={addToCart}
+                            > + cart <BsCartPlus /></button>
                         }
 
                     </div>

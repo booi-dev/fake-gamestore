@@ -26,20 +26,28 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  //   display: none;
+}
+
+.store-hero__bg-img.focus {
+  filter: brightness(60%);
 }
 
 .store-hero__search {
   position: relative;
   top: 250px;
+  // top: 50%;
   max-width: 350px;
   margin: auto;
   transition: top 1s ease;
 }
 
+.store-hero__search.focus {
+  top: 30px;
+}
+
 .store-hero__scroll-down-btn {
   position: absolute;
-  top: 5em;
+  top: 50%;
   right: 5em;
   transition: all 1s ease;
   &:hover::after {

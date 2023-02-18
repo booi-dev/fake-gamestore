@@ -1,7 +1,7 @@
 @use "../../sass/index" as *;
 
 .search {
-  position: relative;
+  // position: relative;
   // background: $primary-clr;
   background: transparent;
   border: 1px solid transparent;
@@ -57,9 +57,9 @@
 .search__suggestion.show {
   display: block;
   position: absolute;
+  inset: 0;
   top: 45px;
-  right: -0.6em;
-  width: 180%;
+  right: 0;
   border-radius: $border-radius-1;
   background: $primary-clr-trans;
   z-index: 3;
@@ -96,7 +96,7 @@
 @media (max-width: 740px) {
   .search__suggestion.show {
     right: revert;
-    width: 130%;
+    width: 100%;
   }
 }
 

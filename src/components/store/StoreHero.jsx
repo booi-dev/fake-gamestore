@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BsArrowDownCircle } from 'react-icons/bs';
 import { Link as Scroll } from 'react-scroll';
 import Search from '../search/Search';
@@ -9,9 +10,14 @@ import './StoreHero.scss';
 
 function StoreHero() {
 
+    const [isSearchFocus, setIsSearchFocus] = useState(false);
+
     return (
         <div className='store-hero'>
-            <div className='store-hero__search'>
+            <div className={`store-hero__search ${isSearchFocus && 'focus'}`}
+                onFocus={() => setIsSearchFocus(true)}
+                onBlur={() => setIsSearchFocus(false)}
+            >
                 <Search />
             </div>
             <div className='store-hero__container'>
@@ -28,7 +34,7 @@ function StoreHero() {
                         media='(min-width: 450px)'
                         srcSet={bgPictureMobile} />
 
-                    <img className='store-hero__bg-img' src={bgPictureFull} alt='full background' />
+                    <img className={`store-hero__bg-img ${isSearchFocus && 'focus'}`} src={bgPictureFull} alt='full background' />
                 </picture>
             </div>
             <Scroll to='browse-games-title' spy={true} smooth={true} duration={1000}  >

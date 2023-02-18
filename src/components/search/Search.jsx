@@ -8,7 +8,7 @@ import './Search.scss';
 function Search() {
 
     const [inputVal, setInputVal] = useState('');
-    const [suggestionClass, setSuggestionClass] = useState('');
+    const [isSuggestions, setIsSuggestions] = useState(false);
 
     const [gameData, setGameData] = useState([]);
 
@@ -31,38 +31,49 @@ function Search() {
         fetchDataOnChange();
     }, [gameData]);
 
-
-    const handleInputOnFocus = useCallback(() => {
-        setSuggestionClass('show');
+    const handleInputOnFocus = useCallback((state) => {
+        // setSuggestionClass('show');
+        if (state === 'focus') setIsSuggestions(true);
+        else if (state === 'blur') setIsSuggestions(false);
+        console.log(isSuggestions, gameData);
     });
 
     const closeSuggestions = useCallback(() => {
-        setSuggestionClass('hidden');
+        setIsSuggestions(false);
     });
 
     return (
-        <div className='search'>
-            <SearchInput
-                value={inputVal}
-                handleInput={handleInput}
-                handleInputOnFocus={handleInputOnFocus}
-                fetchDataOnChange={fetchDataOnChange}
-            />
+        <>
+            <div className={`search ${isSuggestions && 'darkened'}`}>
+                <SearchInput
+                    value={inputVal}
+                    handleInput={handleInput}
+                    handleInputOnFocus={handleInputOnFocus}
+                    fetchDataOnChange={fetchDataOnChange}
+                />
 
-            {gameData.length > 0 &&
-                <div className={`search__suggestion ${suggestionClass}`} data-testid='search-suggestion'>
-                    {gameData.map((game) => <SearchSuggestion
-                        key={game.id}
-                        game={game}
-                        closeSuggestions={closeSuggestions} />)}
-                    <button type='button'
-                        className='search-suggestion__close-btn'
-                        onClick={closeSuggestions}
-                    >close <HiChevronDown className='dropdown-icon' />
-                    </button>
-                </div>
-            }
-        </div>
+                {(gameData.length > 0 && isSuggestions) &&
+                    <div className='search__suggestion'>
+                        {gameData.map((game) => <SearchSuggestion
+                            key={game.id}
+                            game={game}
+                            closeSuggestions={closeSuggestions} />)}
+                        <button type='button'
+                            className='search-suggestion__close-btn'
+                            onClick={closeSuggestions}
+                        >close <HiChevronDown className='dropdown-icon' />
+                        </button>
+                    </div>
+                }
+
+            </div>
+            {
+                /* eslint-disable */
+                isSuggestions && <div className='search__backdrop'
+                    aria-label='backdrop'
+                    onClick={() => setIsSuggestions(false)}
+                />}
+        </>
     );
 }
 

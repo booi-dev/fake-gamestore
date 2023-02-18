@@ -11,12 +11,23 @@ import './StoreHero.scss';
 function StoreHero() {
 
     const [isSearchFocus, setIsSearchFocus] = useState(false);
+    /* eslint-disable */
+
+    const onFocusSearch = (state) => {
+        if (state === 'focus') setIsSearchFocus(true)
+        else if (state === 'blur') setIsSearchFocus(false)
+    }
+
+    console.log(isSearchFocus);
 
     return (
-        <div className='store-hero'>
+        <div className='store-hero'
+            role='button'
+            tabIndex='0'
+        >
             <div className={`store-hero__search ${isSearchFocus && 'focus'}`}
-                onFocus={() => setIsSearchFocus(true)}
-                onBlur={() => setIsSearchFocus(false)}
+                onFocus={() => onFocusSearch('focus')}
+                onBlur={() => onFocusSearch('blur')}
             >
                 <Search />
             </div>

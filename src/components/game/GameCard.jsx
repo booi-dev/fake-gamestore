@@ -2,11 +2,17 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { HiPlus, HiChevronDown } from "react-icons/hi2";
-import { BsBookmarkStar } from 'react-icons/bs';
-import { HiShoppingCart } from 'react-icons/hi';
+import { BsCartPlus, BsBookmarkPlus, BsCartCheck, BsBookmarkCheck } from 'react-icons/bs';
+import { useWishCart, isInWishCart } from '../../context/useWishCart';
+
 import './GameCard.scss';
 
 function GameCard({ game }) {
+
+    const { cart, cartDispatch, wishlist, wishDispatch } = useWishCart();
+
+    const isGameInCart = isInWishCart(game?.id, cart?.items);
+    const isGameInWishlist = isInWishCart(game?.id, cart?.items);
 
     const [isHoverAddBtn, setIsHoverAddBtn] = useState(false);
     const [isHoverGameCard, setIsHoverGameCard] = useState(false);
@@ -15,7 +21,6 @@ function GameCard({ game }) {
         setIsHoverAddBtn(!isHoverAddBtn);
     };
 
-    // console.log(game);
     return (
         <div className='game-card'
             onMouseEnter={() => setIsHoverGameCard(true)}
@@ -33,15 +38,23 @@ function GameCard({ game }) {
                 </div>
             </div>
             {
-                isHoverGameCard && <>
+                isHoverGameCard && !isGameInWishlist && !isGameInCart &&
+                <>
                     <button type='button'
                         onClick={onClickAddBtn}
                         className='game-card__add'>
                         {isHoverAddBtn ? <HiChevronDown size={10} /> : <HiPlus size={10} />}
                     </button>
                     <div className={`game-card__add-options ${isHoverAddBtn && 'show'}`}>
-                        <button type='button'> + cart <HiShoppingCart /></button>
-                        <button type='button'> + wishlist <BsBookmarkStar /></button>
+
+                        {
+                            !isGameInWishlist && <button type='button'> + wishlist <BsBookmarkPlus /></button>
+                        }
+
+                        {
+                            !isGameInCart && <button type='button'> + cart <BsCartPlus /></button>
+                        }
+
                     </div>
                 </>
             }
@@ -54,6 +67,13 @@ function GameCard({ game }) {
                     >game store page</button>
                 </Link>
             }
+
+
+            <div className='game-card__is-in-cart'>
+                {isGameInWishlist && <BsBookmarkCheck />}
+                {isGameInCart && <BsCartCheck />}
+            </div>
+
 
         </div>
     );

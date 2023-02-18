@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { BsBookmarkStar } from 'react-icons/bs';
 import { HiShoppingCart } from 'react-icons/hi';
-import SearchHeader from '../search/SearchHeader';
 import { useAccount } from '../../context/useAccount';
 import { useWishCart } from '../../context/useWishCart';
 
@@ -56,7 +55,6 @@ function Checkout() {
 
     return (
         <div className='checkout app-container'>
-            <SearchHeader />
 
             <div className='app-flex-space-between'>
                 <h1 className='checkout__title p-sm'> YOUR SHOPPPING CART</h1>

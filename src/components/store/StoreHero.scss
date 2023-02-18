@@ -29,7 +29,7 @@
 }
 
 .store-hero__bg-img.focus {
-  filter: brightness(60%);
+  filter: brightness(55%);
 }
 
 .store-hero__search {
@@ -47,7 +47,7 @@
 
 .store-hero__scroll-down-btn {
   position: absolute;
-  top: 50%;
+  top: 265px;
   right: 5em;
   transition: all 1s ease;
   &:hover::after {
@@ -71,15 +71,18 @@
   }
 }
 
+@media (max-width: 740px) {
+  .store-hero__scroll-down-btn {
+    top: 8em;
+    right: 4em;
+  }
+}
+
 @media (max-width: 500px) {
   .store-hero__container {
     height: $hero-height-mobile;
   }
   .store-hero__search {
     top: 30px;
-  }
-  .store-hero__scroll-down-btn {
-    top: 8em;
-    right: 4em;
   }
 }

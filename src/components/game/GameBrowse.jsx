@@ -34,7 +34,7 @@ function GameBrowse() {
     const fetchGameData = async function fetchGameData() {
         const newDatesQuery = createQuery('dates', '2022-01-01,2023-02-16');
         const newOrderingQuery = createQuery('orderng', 'released');
-        const newPageSizeQuery = createQuery('page_size', 24);
+        const newPageSizeQuery = createQuery('page_size', 12);
 
         const query = createMultiQuery([newDatesQuery, newOrderingQuery, newPageSizeQuery]);
 

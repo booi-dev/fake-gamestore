@@ -1,18 +1,22 @@
 @use "../../sass/index" as *;
 
 .search {
-  // position: relative;
-  // background: $primary-clr;
+  position: relative;
   background: transparent;
   border: 1px solid transparent;
   border-radius: $border-radius-1;
   color: $font-clr;
   width: 100%;
+  z-index: 1;
   &:hover,
   &:focus {
     outline: $accent-clr;
     border: 1px solid $accent-clr;
   }
+}
+
+.search.darkened {
+  background-color: #ffffff9d;
 }
 
 .search-container {
@@ -28,6 +32,9 @@
   background: transparent;
   border: none;
   color: $font-clr-dark;
+  font-size: $font-sm;
+  font-weight: bold;
+  letter-spacing: 2px;
   width: 100%;
   padding: 0.5em;
   &:focus {
@@ -50,16 +57,12 @@
   border: none;
 }
 
-.search__suggestion.hidden {
-  display: none;
-}
-
-.search__suggestion.show {
+.search__suggestion {
   display: block;
   position: absolute;
   inset: 0;
   top: 45px;
-  right: 0;
+  color: $font-clr;
   border-radius: $border-radius-1;
   background: $primary-clr-trans;
   z-index: 3;
@@ -85,12 +88,11 @@
 
 // backdrop
 
-.backdrop {
+.search__backdrop {
   position: fixed;
   inset: 0;
-  top: -2em;
-  height: calc(75vh);
-  background: rgba(43, 41, 75, 0.479);
+  width: 1005;
+  background: #00000000;
 }
 
 @media (max-width: 740px) {

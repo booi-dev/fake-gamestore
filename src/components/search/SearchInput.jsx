@@ -12,7 +12,8 @@ function SearchInput(props) {
                 placeholder='search games'
                 value={value}
                 onChange={handleInput}
-                onFocus={handleInputOnFocus}
+                onFocus={() => handleInputOnFocus('focus')}
+            // onBlur={() => handleInputOnFocus('blur')}
             />
             <button type="button"
                 className="search__input__sub-btn"

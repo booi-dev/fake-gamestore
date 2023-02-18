@@ -29,11 +29,26 @@ const fetchDatum = async function fetchAGameDatum(gameId) {
         .then((res) => {
             const result = res.data;
             data = ({
-                ...result,
+                // ...result,
+
+                id: result.id,
+                name: result.name,
+                genres: result.genres,
+                released: result.released,
+                background_image: result.background_image,
+                parent_platforms: result.parent_platforms,
+                tags: result.tags,
+                description_raw: result.description_raw,
+                background_image_additional: result.background_image_additional,
+                esrb_rating: result.esrb_rating,
+                metacritic: result.metacritic,
+                developers: result.developers,
+                publishers: result.publishers,
+
                 formattedReleasedDate: formatDate(result?.released),
                 price: setPrice(result)
             });
-            // console.log(data);
+            console.log(data);
         })
         .catch((err) => {
             console.log(err);
@@ -50,7 +65,15 @@ const fetchData = async function fetchGameData(endpoint, queryParams) {
         .then((res) => {
             const result = res.data.results;
             data = result.map(game => ({
-                ...game,
+                // ...game,
+                id: game.id,
+                name: game.name,
+                genres: game.genres,
+                released: game.released,
+                background_image: game.background_image,
+                parent_platforms: game.parent_platforms,
+                tags: game.tags,
+
                 formattedReleasedDate: formatDate(game?.released),
                 price: setPrice(game)
             }));

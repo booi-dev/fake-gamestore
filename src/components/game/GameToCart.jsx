@@ -10,14 +10,7 @@ function GameToCart(props) {
     const [isAdded, setIsAdded] = useState();
 
     const gameDataToAdd = {
-        id: game?.id,
-        name: game?.name,
-        genres: game?.genres,
-        released: game?.released,
-        background_image: game?.background_image,
-        parent_platforms: game?.parent_platforms,
-        tags: game?.tags,
-        price: game?.price,
+        ...game,
         quantity: 1
     };
 

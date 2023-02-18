@@ -21,12 +21,17 @@ function GameCard({ game }) {
         setIsHoverAddBtn(!isHoverAddBtn);
     };
 
+    const gameDataToAdd = {
+        ...game,
+        quantity: 1
+    };
+
     const addToCart = function addToWishlistCart() {
-        cartDispatch({ type: "add", payload: game });
+        cartDispatch({ type: "add", payload: gameDataToAdd });
     };
 
     const addToWishlist = function addToWishlistCart() {
-        wishDispatch({ type: "add", payload: game });
+        wishDispatch({ type: "add", payload: gameDataToAdd });
     };
 
     return (

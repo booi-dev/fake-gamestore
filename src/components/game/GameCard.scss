@@ -16,7 +16,7 @@
   object-fit: cover;
   border-radius: $border-radius-2;
   &:hover {
-    filter: brightness(60%);
+    filter: brightness(50%);
   }
 }
 
@@ -84,8 +84,10 @@
   text-shadow: 1px 1px 3px black;
   gap: 0.25em;
   margin-block: 0.5em;
+  transition: scale 1s ease;
   &:hover {
     background-color: $primary-clr-trans-3;
+    scale: 1.1;
   }
 }
 

@@ -1,6 +1,6 @@
 import Header from './layouts/Header';
 import MainBody from './layouts/MainBody';
-import Footer from './layouts/Footer';
+// import Footer from './layouts/Footer';
 
 import './App.scss';
 
@@ -10,7 +10,7 @@ function App() {
     <>
       <Header />
       <MainBody />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -2,12 +2,13 @@
 
 .gametitle__list {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 8fr;
   align-items: center;
-  padding-inline-start: 0.5em;
-  width: 100%;
+  background-color: $primary-clr-trans-2;
   margin-block: 0.5em;
   padding-block: 0.5em;
+  padding-inline: 0.5em;
+  border-left: 0.5em solid $primary-clr-3;
   border-radius: $border-radius-1;
   z-index: 2;
   cursor: pointer;

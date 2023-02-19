@@ -30,6 +30,11 @@ function StoreHero() {
                 onBlur={() => onFocusSearch('blur')}
             >
                 <Search />
+                <Scroll to='browse-games-title' spy={true} smooth={true} duration={1000}  >
+                    <button type='button' className='store-hero__scroll-down-btn'>
+                        <BsArrowDownCircle size={25} className='scroll-down-icon' />
+                    </button>
+                </Scroll>
             </div>
             <div className='store-hero__container'>
                 <picture>
@@ -48,11 +53,6 @@ function StoreHero() {
                     <img className={`store-hero__bg-img ${isSearchFocus && 'focus'}`} src={bgPictureFull} alt='full background' />
                 </picture>
             </div>
-            <Scroll to='browse-games-title' spy={true} smooth={true} duration={1000}  >
-                <button type='button' className='store-hero__scroll-down-btn'>
-                    <BsArrowDownCircle size={25} className='scroll-down-icon' />
-                </button>
-            </Scroll>
         </div>
     );
 }

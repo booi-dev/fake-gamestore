@@ -73,6 +73,7 @@ const fetchData = async function fetchGameData(endpoint, queryParams) {
                 background_image: game.background_image,
                 parent_platforms: game.parent_platforms,
                 tags: game.tags,
+                short_screenshots: game.short_screenshots,
 
                 formattedReleasedDate: formatDate(game?.released),
                 price: setPrice(game)

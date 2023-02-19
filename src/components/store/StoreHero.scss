@@ -47,8 +47,8 @@
 
 .store-hero__scroll-down-btn {
   position: absolute;
-  top: 265px;
-  right: 5em;
+  top: 0.6em;
+  right: -3em;
   transition: all 1s ease;
   &:hover::after {
     content: "click to scroll down";
@@ -65,16 +65,8 @@
 .scroll-down-icon {
   color: rgba(0, 0, 0, 0.358);
   transition: scale 1s ease;
-
   &:hover {
     scale: 1.2;
-  }
-}
-
-@media (max-width: 740px) {
-  .store-hero__scroll-down-btn {
-    top: 8em;
-    right: 4em;
   }
 }
 
@@ -84,5 +76,16 @@
   }
   .store-hero__search {
     top: 30px;
+  }
+  .store-hero__scroll-down-btn {
+    top: 4em;
+    right: 0;
+    left: 0;
+    &:hover::after {
+      color: $font-clr;
+    }
+  }
+  .scroll-down-icon {
+    color: $font-clr;
   }
 }

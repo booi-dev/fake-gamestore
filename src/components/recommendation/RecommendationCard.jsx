@@ -21,7 +21,7 @@ function RecommendationCard(props) {
                     <h2 className="rg__game-title">{game?.name} </h2>
                 </Link>
                 <div className="rg__sreenshots-container">
-                    {game?.short_screenshots.slice(0, 4).map(sss => <img src={sss.image} alt={`${game?.name} screenshot`} key={sss.id} className="rg__screenshots" />)}
+                    {game?.short_screenshots?.slice(0, 4).map(sss => <img src={sss.image} alt={`${game?.name} screenshot`} key={sss.id} className="rg__screenshots" />)}
                 </div>
                 <div>
                     {game?.genres.slice(0, 4).map(genre => <span key={genre.id}

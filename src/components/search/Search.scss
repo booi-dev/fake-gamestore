@@ -4,7 +4,7 @@
   position: relative;
   background: transparent;
   border: 1px solid transparent;
-  border-radius: $border-radius-1;
+  border-radius: 23px;
   color: $font-clr;
   width: 100%;
   z-index: 1;
@@ -24,7 +24,7 @@
   align-self: center;
   background: #ffffff31;
   border: 1px solid $primary-clr;
-  border-radius: $border-radius-1;
+  border-radius: 23px;
   gap: 0.2em;
 }
 
@@ -37,6 +37,7 @@
   letter-spacing: 2px;
   width: 100%;
   padding: 0.5em;
+  border-radius: 23px;
   &:focus {
     outline: none;
   }
@@ -45,6 +46,7 @@
 .search-icon {
   color: $primary-clr-2;
   translate: 0 2px;
+  padding-inline-end: 2px;
   opacity: 0.5;
   transition: opacity 1s ease;
   &:hover {

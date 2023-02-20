@@ -42,7 +42,7 @@ function GameList() {
                                 <div className='copy-number'>{item?.quantity}</div>
                             </div>
                             <div>
-                                {item?.genres.map((genre) => <span key={genre.id} className='gamelist__active-game__genres app-letter-spacing-4'>{genre.name}</span>
+                                {item?.genres.map((genre) => <span key={genre.id} className='gamelist__active-game__genres'>{genre.name}</span>
                                 )}
                             </div>
                             <Link to={`/game/${item?.id}`} className="app-flex-center">

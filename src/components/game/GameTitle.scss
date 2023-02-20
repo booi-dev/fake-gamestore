@@ -3,6 +3,7 @@
 .gametitle__list {
   display: grid;
   grid-template-columns: 1fr 8fr;
+  // justify-content: center;
   align-items: center;
   background-color: $primary-clr-trans-2;
   margin-block: 0.5em;
@@ -23,6 +24,8 @@
 }
 
 .game-controller-icon {
+  justify-self: end;
+  margin-inline-end: 0.5em;
   width: 20px;
 }
 
@@ -35,7 +38,6 @@
 @media (max-width: 500px) {
   .gametitle__list {
     background-color: darken($color: $primary-clr-trans-3, $amount: 15);
-    margin-inline-start: 0.5em;
     padding-inline: 0.5em;
     border-radius: 0 0 $border-radius-1;
   }

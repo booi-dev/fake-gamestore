@@ -2,22 +2,21 @@
 
 .gamelist__container {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2fr;
   position: relative;
   height: calc(100vh - 104px);
-  // height: 100%;
   width: 100%;
 }
 
 .gamelist__title {
-  font-size: $font-lg;
+  font-size: $font-md;
+  color: $font-clr;
   font-weight: 300;
-  background: linear-gradient(to bottom, #ffffff7d 50%, #b7d9eab5 50%);
+  background-color: #ffffff48;
   width: max-content;
   padding: 0.5em;
   margin-inline: 8px;
   margin-block-start: 8px;
-  color: $font-clr-dark;
 }
 
 .gamelist__list {
@@ -63,7 +62,7 @@
   @include flex-center;
   flex-wrap: wrap;
   gap: 0.5em;
-  font-size: $font-xxxs;
+  font-size: $font-sm;
   text-align: center;
   margin-block-end: 0.5em;
 }
@@ -77,18 +76,34 @@
 }
 
 .gamelist__active-game__genres {
+  letter-spacing: 4px;
+  font-size: $font-xl;
   margin-left: 0.5em;
   text-transform: uppercase;
-
-  display: flex;
-  justify-content: end;
 }
 
 .gamelist__active-game__store-page {
   padding-block: 0.5em;
-  font-size: $font-xxxs;
+  font-size: $font-xs;
   border-radius: $border-radius-1;
   transition: scale 0.5s ease;
   color: $primary-clr-4;
   text-shadow: 1px 1px 3px black;
+}
+
+@media (max-width: 760px) {
+  .gamelist__container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .gamelist__container {
+    grid-template-columns: 1.5fr 1fr;
+  }
+  .gamelist__active-game__genres {
+    display: flex;
+    justify-content: end;
+    font-size: $font-lg;
+  }
 }

@@ -1,7 +1,7 @@
 import StoreHero from "../components/store/StoreHero";
-// import Recommendation from '../components/recommendation/Recommendation';
 import BrowseCategory from "../components/categories/BrowseCategory";
-import GameBrowse from "../components/game/GameBrowse";
+import GameLatest from "../components/game/GameLatest";
+import Footer from '../layouts/Footer';
 
 
 function Store() {
@@ -12,9 +12,9 @@ function Store() {
             <div className="app-flex-center" id="browse-games-title">
                 <h1 className="app-group-title fs-xl"> BROWSE LATEST GAMES</h1>
             </div>
-            <GameBrowse />
+            <GameLatest />
             <BrowseCategory />
-            {/* <Recommendation /> */}
+            <Footer />
         </div>
     );
 }

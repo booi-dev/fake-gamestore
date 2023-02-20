@@ -85,7 +85,6 @@ function GameCard({ game }) {
                 </Link>
             }
 
-
             <div className='game-card__is-in-cart'>
                 {isGameInWishlist && <BsBookmarkCheck />}
                 {isGameInCart && <BsCartCheck />}

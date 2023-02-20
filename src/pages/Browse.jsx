@@ -1,13 +1,10 @@
-import BrowseCategory from "../components/categories/BrowseCategory";
 import GameBrowse from "../components/game/GameBrowse";
-
 
 function Browse() {
     return (
-        <>
+        <div>
             <GameBrowse />
-            <BrowseCategory />
-        </>
+        </div>
     );
 }
 

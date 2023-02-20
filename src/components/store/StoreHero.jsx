@@ -18,7 +18,7 @@ function StoreHero() {
         else if (state === 'blur') setIsSearchFocus(false)
     }
 
-    console.log(isSearchFocus);
+    // console.log(isSearchFocus);
 
     return (
         <div className='store-hero'
@@ -30,12 +30,13 @@ function StoreHero() {
                 onBlur={() => onFocusSearch('blur')}
             >
                 <Search />
-                <Scroll to='browse-games-title' spy={true} smooth={true} duration={1000}  >
-                    <button type='button' className='store-hero__scroll-down-btn'>
-                        <BsArrowDownCircle size={25} className='scroll-down-icon' />
-                    </button>
-                </Scroll>
             </div>
+
+            <Scroll to='browse-games-title' spy={true} smooth={true} duration={1000}  >
+                <button type='button' className='store-hero__scroll-down-btn'>
+                    <BsArrowDownCircle size={25} className='scroll-down-icon' />
+                </button>
+            </Scroll>
             <div className='store-hero__container'>
                 <picture>
                     <source

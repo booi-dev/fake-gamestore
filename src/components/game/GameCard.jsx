@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { HiPlus, HiChevronDown } from "react-icons/hi2";
@@ -14,25 +14,32 @@ function GameCard({ game }) {
     const isGameInCart = isInWishCart(game?.id, cart?.items);
     const isGameInWishlist = isInWishCart(game?.id, wishlist?.items);
 
-    const [isHoverAddBtn, setIsHoverAddBtn] = useState(false);
     const [isHoverGameCard, setIsHoverGameCard] = useState(false);
-
-    const onClickAddBtn = () => {
-        setIsHoverAddBtn(!isHoverAddBtn);
-    };
+    const [isHoverAddBtn, setIsHoverAddBtn] = useState(true);
 
     const gameDataToAdd = {
         ...game,
         quantity: 1
     };
 
-    const addToCart = function addToWishlistCart() {
+    const addToCart = function addToCart() {
+        console.log("cart");
         cartDispatch({ type: "add", payload: gameDataToAdd });
     };
 
-    const addToWishlist = function addToWishlistCart() {
+    const addToWishlist = function addToWishlist() {
+        console.log("wish");
         wishDispatch({ type: "add", payload: gameDataToAdd });
     };
+
+    useEffect(() => {
+        // Update the state of isHoverAddBtn after isGameInWishlist and isGameInCart change
+        if (!isGameInWishlist || !isGameInCart) {
+            setIsHoverAddBtn(true);
+        } else {
+            setIsHoverAddBtn(false);
+        }
+    }, [isGameInWishlist, isGameInCart]);
 
     return (
         <div className='game-card'
@@ -45,22 +52,25 @@ function GameCard({ game }) {
             <img className={`game-card__pic ${isHoverGameCard && 'card-hover'}`}
                 src={game.background_image
                 } alt={`${game.name} pic`} />
+
             <div className='game-card__info'>
                 <h1 className={`game-card__title ${isHoverGameCard && 'card-hover'}`}> {game.name} </h1>
                 <div className='app-flex-wrap gap-4'>
                     {game?.genres.map((genre) => <h2 key={genre.id}
                         className='game-card__genres'>
-                        {genre.name} </h2>)}
+                        {genre.name} </h2>)
+                    }
                 </div>
             </div>
             {
                 isHoverGameCard && (!isGameInWishlist || !isGameInCart) &&
                 <>
                     <button type='button'
-                        onClick={onClickAddBtn}
+                        onClick={() => setIsHoverAddBtn(!isHoverAddBtn)}
                         className='game-card__add'>
                         {isHoverAddBtn ? <HiChevronDown size={10} /> : <HiPlus size={10} />}
                     </button>
+
                     <div className={`game-card__add-options ${isHoverAddBtn && 'show'}`}>
 
                         {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BsArrowDownCircle } from 'react-icons/bs';
-import { Link as Scroll } from 'react-scroll';
+import { Link as Scroll, scroller } from 'react-scroll';
 import Search from '../search/Search';
 import bgPictureFull from '../../assets/store-hero-bg/geralt_full.jpg';
 import bgPictureStandard from '../../assets/store-hero-bg/geralt_standard.jpg';
@@ -20,10 +20,11 @@ function StoreHero() {
 
 
     function scrollToElement(id) {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
+        scroller.scrollTo("browse-games-title", {
+            duration: 1000,
+            delay: 0,
+            smooth: "easeInOutQuart",
+        });
     }
 
     const handleDoubleClick = () => {

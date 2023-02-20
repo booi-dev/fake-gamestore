@@ -12,10 +12,6 @@ function Header() {
     const [isSidebarVisible, setIsSidebarVisible] = useState(false);
     const [isCloseBtnHover, setIsCloseBtnHover] = useState(false);
 
-    // const displaySideBar = function displaySidebarOnClick(params) {
-
-    // }
-
     const hideSideBar = function hideSidebarOnClick() {
         setIsSidebarVisible(false);
     };

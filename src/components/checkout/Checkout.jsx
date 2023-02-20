@@ -2,14 +2,16 @@ import { useState, useEffect, useCallback } from 'react';
 import { BsFillBookmarkStarFill, BsCartFill } from 'react-icons/bs';
 import { useAccount } from '../../context/useAccount';
 import { useWishCart } from '../../context/useWishCart';
-
-import QuantitySelector from './QuantitySelector';
+import CheckoutOptions from './CheckoutOptions';
 import CheckoutConfirm from './CheckoutConfirm';
 
 import './Checkout.scss';
 
 function Checkout() {
-    const { wishlist, cart, cartDispatch, wishDispatch } = useWishCart();
+
+    const { wishlist, cart } = useWishCart();
+    console.log(wishlist, cart);
+
     const { credit } = useAccount();
 
     const [gameTotal, setGameTotal] = useState(0);
@@ -26,26 +28,6 @@ function Checkout() {
             setIsPurchaseSuccess(false);
         }, 1000);
     }, []);
-
-    const moveToCart = function moveWishToCart(game) {
-        wishDispatch({ type: 'remove', payload: game });
-        cartDispatch({ type: 'add', payload: game });
-    };
-
-    const moveToWish = function moveCartToWish(game) {
-        cartDispatch({ type: 'remove', payload: game });
-        wishDispatch({ type: 'add', payload: game });
-    };
-
-    const updateWishlist = useCallback((game) => {
-        // console.log(game);
-        wishDispatch({ type: 'update', payload: game });
-    }, [wishlist]);
-
-    const updateCart = useCallback((game) => {
-        // console.log(game);
-        cartDispatch({ type: 'update', payload: game });
-    }, [cart]);
 
     useEffect(() => {
         const gamePriceTotal = cart?.items?.reduce(((sum, game) => sum + (game.price * game.quantity)), 0);
@@ -67,22 +49,31 @@ function Checkout() {
                     <h2> {wishlist?.items.length} wishlist </h2>
                 </div>
 
-                {wishlist?.items.map((item) => <div key={item.id}
+                {wishlist?.items.map((game) => <div key={game.id}
                     className='checkout__wishlist-game p-sm'>
                     <div className='app-flex'>
-                        <h3 >{item?.name}</h3>
+                        <h3 >{game?.name}</h3>
                     </div>
 
-                    <div className='app-flex-space-between'>
-                        <button type='button' className='checkout-swap wishlist fs-ss mr-sm'
+                    <CheckoutOptions isWishlist game={game} />
+
+                    {/* <div className='checkout__options'>
+                        <button type='button' className='checkout-swap wishlist'
                             onClick={() => moveToCart(item)}>
-                            move to cart</button>
+                            <HiArrowSmDown size={16} className='arrow-icons' />
+                        </button>
+
+                        <button type='button' className='checkout__delete wishlist'>
+                            <IoIosRemoveCircle size={20} />
+                        </button>
+
                         <div className='app-flex-center'>
                             <h3 className='fs-xxs mr-sm quantity-label'>Quantity</h3>
                             <QuantitySelector game={item} updater={updateWishlist} />
                         </div>
                         <h3 className='checkout-price'>{`$ ${item.price * item.quantity}`}</h3>
-                    </div>
+                    </div> */}
+
                 </div>)}
 
             </div>
@@ -96,23 +87,32 @@ function Checkout() {
                 {cart?.items.length < 1
                     && <h3 className='checkout__empty-cart-status p-sm'> Nothing in Cart! Add some games.</h3>}
 
-                {cart?.items.map((item) => <div key={item.id}
+                {cart?.items.map((game) => <div key={game.id}
                     className="checkout__cart-game p-sm">
 
                     <div className='app-flex'>
-                        <h3>{item?.name}</h3>
+                        <h3>{game?.name}</h3>
                     </div>
 
-                    <div className='app-flex-space-between'>
-                        <button type='button' className='checkout-swap cart fs-ss mr-sm'
+                    <CheckoutOptions isCart game={game} />
+
+                    {/* <div className='checkout__options'>
+                        <button type='button' className='checkout-swap cart'
                             onClick={() => moveToWish(item)}>
-                            move to wishlist</button>
+                            <HiArrowSmUp size={15} className='arrow-icons' />
+                        </button>
+
+                        <button type='button' className='checkout__delete cart'>
+                            <IoIosRemoveCircle size={20} />
+                        </button>
+
                         <div className='app-flex-center'>
                             <h3 className='fs-xxs mr-sm quantity-label'>Quantity</h3>
                             <QuantitySelector game={item} updater={updateCart} />
                         </div>
                         <h3 className='checkout-price'> {`$ ${item.price * item.quantity}`} </h3>
-                    </div>
+                    </div> */}
+
                 </div>)}
 
             </div>

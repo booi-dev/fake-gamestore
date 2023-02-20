@@ -29,7 +29,7 @@ function GameView() {
     return (
         <div>
             <div className='game-view'>
-                <h1 className='game-view_title'>{game?.name}</h1>
+                <h1 className='game-view_title app-group-title '>{game?.name}</h1>
                 <div className='game-view__info-container'>
                     <div className='game-view__imgs'>
                         <img src={game?.background_image_additional}

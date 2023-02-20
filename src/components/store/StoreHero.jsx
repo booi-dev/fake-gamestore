@@ -6,6 +6,7 @@ import bgPictureFull from '../../assets/store-hero-bg/geralt_full.jpg';
 import bgPictureStandard from '../../assets/store-hero-bg/geralt_standard.jpg';
 import bgPictureMobile from '../../assets/store-hero-bg/geralt_mobile.jpg';
 
+
 import './StoreHero.scss';
 
 function StoreHero() {

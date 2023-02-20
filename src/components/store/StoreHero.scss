@@ -47,8 +47,9 @@
 
 .store-hero__scroll-down-btn {
   position: absolute;
-  top: 0.5em;
-  right: 0.5em;
+  bottom: 1em;
+  left: 50%;
+  translate: -50% 0;
   transition: all 1s ease;
 }
 
@@ -76,15 +77,4 @@
   .store-hero__search {
     top: 30px;
   }
-  .store-hero__scroll-down-btn {
-    top: 8em;
-    right: 0;
-    left: 0;
-    &:hover::after {
-      color: $font-clr;
-    }
-  }
-  // .scroll-down-icon {
-  //   color: $font-clr;
-  // }
 }

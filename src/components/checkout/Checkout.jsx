@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { BsBookmarkStar } from 'react-icons/bs';
-import { HiShoppingCart } from 'react-icons/hi';
+import { BsFillBookmarkStarFill, BsCartFill } from 'react-icons/bs';
 import { useAccount } from '../../context/useAccount';
 import { useWishCart } from '../../context/useWishCart';
 
@@ -66,7 +65,7 @@ function Checkout() {
             <div className='checkout__wishlist'>
 
                 <div className='checkout-status wishlist p-sm'>
-                    <BsBookmarkStar size={18} />
+                    <BsFillBookmarkStarFill size={18} />
                     <h2> {wishlist?.items.length} wishlist </h2>
                 </div>
 
@@ -92,7 +91,7 @@ function Checkout() {
             <div className='checkout__cart'>
 
                 <div className='checkout-status cart p-sm' >
-                    <HiShoppingCart size={18} />
+                    <BsCartFill size={18} />
                     <h2 >{cart?.items.length} games in cart</h2>
                 </div>
 

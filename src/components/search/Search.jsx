@@ -35,7 +35,6 @@ function Search() {
         // setSuggestionClass('show');
         if (state === 'focus') setIsSuggestions(true);
         else if (state === 'blur') setIsSuggestions(false);
-        console.log(isSuggestions, gameData);
     });
 
     const closeSuggestions = useCallback(() => {

@@ -6,7 +6,7 @@ import './GameGallery.scss';
 function GameGallery({ gameColumns }) {
 
     const ColumnsComponent = gameColumns
-        ?.map((columnOfGames, index) => <div key={index} className='browse-games__column'>
+        ?.map((columnOfGames, index) => <div key={index} className='gallery__column'>
             {columnOfGames.map((game) => <div key={game.id}>
                 <GameCard game={game} />
             </div>)}
@@ -14,8 +14,8 @@ function GameGallery({ gameColumns }) {
         );
 
     return (
-        <div className='browse-games' id='browse-game'>
-            <div className='browse-games__columns-container'>
+        <div className='gallery' id='browse-game'>
+            <div className='gallery__columns-container'>
                 {ColumnsComponent}
             </div>
 

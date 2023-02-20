@@ -111,6 +111,7 @@
   opacity: 0.5;
   transition: scale 1s ease;
   &:hover {
+    opacity: 0.8;
     scale: 1.1;
     text-shadow: 1px 2px 4px black;
   }

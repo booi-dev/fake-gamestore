@@ -52,8 +52,6 @@ function Checkout() {
         setGameTotal(gamePriceTotal);
     }, [cart]);
 
-    console.log(wishlist);
-
     return (
         <div className='checkout app-container'>
 

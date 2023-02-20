@@ -2,7 +2,10 @@ import Recommendation from '../components/recommendation/Recommendation';
 
 function Feature() {
     return (
-        <Recommendation />
+        <>
+            <h1 className='app-group-title pl-sm'> Recommendation & Feature Games</h1>
+            <Recommendation />
+        </>
     );
 }
 

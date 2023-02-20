@@ -18,12 +18,21 @@ function StoreHero() {
         else if (state === 'blur') setIsSearchFocus(false)
     }
 
-    // console.log(isSearchFocus);
+
+    function scrollToElement(id) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+
+    const handleDoubleClick = () => {
+        scrollToElement('browse-games-title')
+    };
 
     return (
         <div className='store-hero'
             role='button'
-            tabIndex='0'
         >
             <div className={`store-hero__search ${isSearchFocus && 'focus'}`}
                 onFocus={() => onFocusSearch('focus')}
@@ -32,12 +41,16 @@ function StoreHero() {
                 <Search />
             </div>
 
+            <h2 className='double-click-msg'> double click to scroll down</h2>
+
             <Scroll to='browse-games-title' spy={true} smooth={true} duration={1000}  >
                 <button type='button' className='store-hero__scroll-down-btn'>
                     <BsArrowDownCircle size={25} className='scroll-down-icon' />
                 </button>
             </Scroll>
-            <div className='store-hero__container'>
+            <div className='store-hero__container'
+                onDoubleClick={handleDoubleClick}
+            >
                 <picture>
                     <source
                         media='(min-width: 1080px)'

@@ -6,7 +6,7 @@ import { HiChevronDoubleRight } from 'react-icons/hi';
 import { DiAndroid } from 'react-icons/di';
 import { useWishCart, isInWishCart } from '../../context/useWishCart';
 
-function MoreInfo(props) {
+function GameMoreInfo(props) {
 
     const { game } = props;
 
@@ -74,14 +74,12 @@ function MoreInfo(props) {
     );
 }
 
-MoreInfo.propTypes = {
+GameMoreInfo.propTypes = {
     game: PropTypes.instanceOf(Object),
 };
 
-MoreInfo.defaultProps = {
+GameMoreInfo.defaultProps = {
     game: {},
 };
 
-
-
-export default MoreInfo;
+export default GameMoreInfo;

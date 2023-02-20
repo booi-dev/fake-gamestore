@@ -36,14 +36,17 @@ function GameCard({ game }) {
 
     return (
         <div className='game-card'
-            onMouseEnter={() => setIsHoverGameCard(true)}
-            onMouseLeave={() => setIsHoverGameCard(false)}
+            onMouseOver={() => setIsHoverGameCard(true)}
+            onMouseOut={() => setIsHoverGameCard(false)}
+            onFocus={() => setIsHoverGameCard(true)}
+            onBlur={() => setIsHoverGameCard(false)}
+            tabIndex='0'
         >
-            <img className='game-card__pic'
+            <img className={`game-card__pic ${isHoverGameCard && 'card-hover'}`}
                 src={game.background_image
                 } alt={`${game.name} pic`} />
             <div className='game-card__info'>
-                <h1 className='game-card__title'> {game.name} </h1>
+                <h1 className={`game-card__title ${isHoverGameCard && 'card-hover'}`}> {game.name} </h1>
                 <div className='app-flex-wrap gap-4'>
                     {game?.genres.map((genre) => <h2 key={genre.id}
                         className='game-card__genres'>
@@ -89,7 +92,6 @@ function GameCard({ game }) {
                 {isGameInWishlist && <BsBookmarkCheck />}
                 {isGameInCart && <BsCartCheck />}
             </div>
-
 
         </div>
     );

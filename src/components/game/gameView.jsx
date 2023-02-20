@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchDatum } from '../../utils/fetch';
-import MoreInfo from './MoreInfo';
+import GameMoreInfo from './GameMoreInfo';
 import GameToCart from './GameToCart';
 import './GameView.scss';
 
@@ -94,7 +94,7 @@ function GameView() {
 
                 {Object.keys(game).length !== 0 &&
                     <>
-                        <MoreInfo game={game} />
+                        <GameMoreInfo game={game} />
                         <div className='game-view_add-to-cart-container'>
                             <h1 className='game-view_add-to-cart_title'>
                                 <span className='buy'>  Buy  </span>

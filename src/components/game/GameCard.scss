@@ -15,9 +15,10 @@
   height: 100%;
   object-fit: cover;
   border-radius: $border-radius-2;
-  &:hover {
-    filter: brightness(50%);
-  }
+}
+
+.game-card__pic.card-hover {
+  filter: brightness(50%);
 }
 
 .game-card__info {
@@ -32,7 +33,10 @@
   font-size: $font-sm;
   text-shadow: 1px 1px 3px black;
   max-width: max-content;
-  //   background-color: aqua;
+}
+
+.game-card__title.card-hover {
+  background-color: $bg-clr-black-trans;
 }
 
 .game-card__title,
@@ -61,7 +65,7 @@
   transition: scale 1s ease;
   &:hover {
     scale: 1.2;
-    background-color: #00000030;
+    background-color: $bg-clr-black-trans;
   }
 }
 
@@ -86,7 +90,8 @@
   margin-block: 0.5em;
   transition: scale 1s ease;
   &:hover {
-    background-color: $primary-clr-trans-3;
+    background-color: $bg-clr-black-trans;
+    text-shadow: 1px 2px 5px black;
     scale: 1.1;
   }
 }
@@ -103,6 +108,7 @@
   top: 50%;
   left: 50%;
   translate: -50% -50%;
+  opacity: 0.5;
   transition: scale 1s ease;
   &:hover {
     scale: 1.1;

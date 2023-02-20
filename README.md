@@ -5,4 +5,5 @@ Genre / Category change - page
 sidebar menu
 you own this game
 
-bugs: category carousel
+remove game from cart btn
+custom date, to find out latest

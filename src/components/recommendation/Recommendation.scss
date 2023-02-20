@@ -4,7 +4,8 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 65vh;
+  height: 70vh;
+  background-color: $primary-clr-3;
   padding-block: 8px;
   position: relative;
   padding-inline: $app-padding-xs;
@@ -24,7 +25,7 @@
 .recommendation__carousel-thumbs {
   display: flex;
   justify-content: center;
-  margin-block: 0.5em;
+  margin-block: 1em;
 }
 
 .recommendation .prev-btn {

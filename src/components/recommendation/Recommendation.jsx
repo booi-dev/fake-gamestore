@@ -75,14 +75,14 @@ function Recommendation() {
 
                 <Next nextHandler={nextCurrentGame} />
 
-                <div className='recommendation__carousel-thumbs'>
-                    {gameData && gameData.map((game, index) => <CarouselThumbs
-                        key={game.id}
-                        serial={index}
-                        activeSerial={gameSerial}
-                        updateCurrentGame={updateCurrentGame}
-                    />)}
-                </div>
+            </div>
+            <div className='recommendation__carousel-thumbs'>
+                {gameData && gameData.map((game, index) => <CarouselThumbs
+                    key={game.id}
+                    serial={index}
+                    activeSerial={gameSerial}
+                    updateCurrentGame={updateCurrentGame}
+                />)}
             </div>
         </div>
     );

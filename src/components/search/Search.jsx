@@ -3,6 +3,7 @@ import { HiChevronDown } from 'react-icons/hi';
 import fetchData, { createQuery, createMultiQuery } from '../../utils/fetch';
 import SearchInput from './SearchInput';
 import SearchSuggestion from './SearchSuggestion';
+import BackDrop from '../ui/BackDrop';
 import './Search.scss';
 
 function Search() {
@@ -51,7 +52,8 @@ function Search() {
                     fetchDataOnChange={fetchDataOnChange}
                 />
 
-                {(gameData.length > 0 && isSuggestions) &&
+                {
+                    (gameData.length > 0 && isSuggestions) &&
                     <div className='search__suggestion'>
                         {gameData.map((game) => <SearchSuggestion
                             key={game.id}
@@ -66,12 +68,10 @@ function Search() {
                 }
 
             </div>
+
             {
-                /* eslint-disable */
-                isSuggestions && <div className='search__backdrop'
-                    aria-label='backdrop'
-                    onClick={() => setIsSuggestions(false)}
-                />}
+                isSuggestions && <BackDrop handler={setIsSuggestions} />
+            }
         </>
     );
 }

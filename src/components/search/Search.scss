@@ -10,8 +10,8 @@
   z-index: 1;
   &:hover,
   &:focus {
-    outline: $accent-clr;
-    border: 1px solid $accent-clr;
+    outline: $font-clr;
+    border: 1px solid $font-clr;
   }
 }
 
@@ -97,8 +97,7 @@
 .search__backdrop {
   position: fixed;
   inset: 0;
-  width: 1005;
-  background: #00000000;
+  background: #e05151c9;
 }
 
 @media (max-width: 740px) {

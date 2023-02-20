@@ -186,3 +186,9 @@ $layout-border-radius: (
 .app-letter-spacing-4 {
   letter-spacing: 4px;
 }
+
+.app-back-drop {
+  position: fixed;
+  inset: 0;
+  background: $bg-clr-black-puretrans;
+}

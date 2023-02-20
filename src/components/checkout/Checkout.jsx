@@ -10,8 +10,6 @@ import './Checkout.scss';
 function Checkout() {
 
     const { wishlist, cart } = useWishCart();
-    console.log(wishlist, cart);
-
     const { credit } = useAccount();
 
     const [gameTotal, setGameTotal] = useState(0);
@@ -39,7 +37,6 @@ function Checkout() {
 
             <div className='app-flex-space-between'>
                 <h1 className='checkout__title p-sm'> YOUR SHOPPPING CART</h1>
-                {/* <h1 className='checkout__balance p-sm app-theme-bg br-2'> YOU HAVE ${credit.myCredit}</h1> */}
             </div>
 
             <div className='checkout__wishlist'>
@@ -56,23 +53,6 @@ function Checkout() {
                     </div>
 
                     <CheckoutOptions isWishlist game={game} />
-
-                    {/* <div className='checkout__options'>
-                        <button type='button' className='checkout-swap wishlist'
-                            onClick={() => moveToCart(item)}>
-                            <HiArrowSmDown size={16} className='arrow-icons' />
-                        </button>
-
-                        <button type='button' className='checkout__delete wishlist'>
-                            <IoIosRemoveCircle size={20} />
-                        </button>
-
-                        <div className='app-flex-center'>
-                            <h3 className='fs-xxs mr-sm quantity-label'>Quantity</h3>
-                            <QuantitySelector game={item} updater={updateWishlist} />
-                        </div>
-                        <h3 className='checkout-price'>{`$ ${item.price * item.quantity}`}</h3>
-                    </div> */}
 
                 </div>)}
 
@@ -95,23 +75,6 @@ function Checkout() {
                     </div>
 
                     <CheckoutOptions isCart game={game} />
-
-                    {/* <div className='checkout__options'>
-                        <button type='button' className='checkout-swap cart'
-                            onClick={() => moveToWish(item)}>
-                            <HiArrowSmUp size={15} className='arrow-icons' />
-                        </button>
-
-                        <button type='button' className='checkout__delete cart'>
-                            <IoIosRemoveCircle size={20} />
-                        </button>
-
-                        <div className='app-flex-center'>
-                            <h3 className='fs-xxs mr-sm quantity-label'>Quantity</h3>
-                            <QuantitySelector game={item} updater={updateCart} />
-                        </div>
-                        <h3 className='checkout-price'> {`$ ${item.price * item.quantity}`} </h3>
-                    </div> */}
 
                 </div>)}
 

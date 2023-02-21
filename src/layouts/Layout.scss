@@ -15,7 +15,6 @@ li {
   height: $header-height;
   background: $primary-clr-dark;
   padding-inline: $app-padding-xs;
-  // color: $font-clr-dark;
 }
 
 .header__container {
@@ -23,7 +22,6 @@ li {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  // position: relative;
   margin: auto;
 }
 
@@ -38,7 +36,6 @@ li {
   font-weight: 500;
   letter-spacing: 0.1em;
   width: max-content;
-  z-index: 1;
 }
 
 .header__menu-btn {
@@ -67,17 +64,25 @@ li {
 .header__navbar__list {
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 0.8em;
 }
 
-.header__navbar__list li {
-  min-width: max-content;
-  letter-spacing: 0.1em;
+.header__close-btn {
+  display: flex;
+  padding: 2px;
   color: $font-clr;
-  transition: background-color 1s ease;
+  margin-left: auto;
+  margin-inline-end: 0.5em;
+  border: 1px solid;
+  border-radius: 50%;
+  transition: scale 1s ease;
   &:hover {
-    color: $primary-clr-4;
+    scale: 1.1;
   }
+}
+
+.header .app-back-drop {
+  z-index: 2;
 }
 
 @media (max-width: 740px) {
@@ -124,28 +129,45 @@ li {
     padding-inline: 0.5em;
     width: 100%;
     &:hover {
-      background-color: $primary-clr-4;
-      color: $font-clr-dark;
+      background-color: $primary-clr-3;
     }
   }
-}
 
-.header__close-btn {
-  display: flex;
-  padding: 2px;
-  color: $font-clr;
-  margin-left: auto;
-  margin-inline-end: 0.5em;
-  border: 1px solid;
-  border-radius: 50%;
-  transition: scale 1s ease;
-  &:hover {
-    scale: 1.1;
+  .header__navbar__list li:has(.active) {
+    background-color: $primary-clr-3;
   }
 }
 
-.header .app-back-drop {
-  z-index: 2;
+@media (min-width: 740px) {
+  .header__navbar__list li,
+  .header__navbar__list .active {
+    position: relative;
+    min-width: max-content;
+    letter-spacing: 0.1em;
+    color: $font-clr;
+    &:hover {
+      color: $primary-clr-4;
+    }
+    &::after {
+      content: " ";
+      position: absolute;
+      inset: 0;
+      top: 20px;
+      width: 0%;
+      height: 3px;
+      background-color: $primary-clr-4;
+      transition: width 1s ease;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  .header__navbar__list .active {
+    &::after {
+      width: 100%;
+    }
+  }
 }
 
 // MAIN BODY

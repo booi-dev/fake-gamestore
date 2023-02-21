@@ -15,11 +15,19 @@
   gap: 0.5em;
 }
 
-.scrollerY__option.active {
-  &::before {
+.scrollerY__option {
+  &::after {
     content: "";
-    background-color: aqua;
+    display: block;
+    background-color: $primary-clr-4;
     height: 4px;
+    width: 0%;
+    transition: width 1s ease;
+  }
+}
+
+.scrollerY__option.active {
+  &::after {
     width: 100%;
   }
 }

@@ -1,21 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { HiPlus, HiChevronDown } from "react-icons/hi2";
-import { BsCartPlus, BsBookmarkPlus, BsCartCheck, BsBookmarkCheck } from 'react-icons/bs';
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import { BsCartPlus, BsCartCheck } from 'react-icons/bs';
 import { useWishCart, isInWishCart } from '../../context/useWishCart';
+import { useAccount, isGameOwn } from '../../context/useAccount';
 
 import './GameCard.scss';
 
 function GameCard({ game }) {
 
-    const { cart, cartDispatch, wishlist, wishDispatch } = useWishCart();
+    const { cart, cartDispatch } = useWishCart();
+    const { games } = useAccount();
 
     const isGameInCart = isInWishCart(game?.id, cart?.items);
-    const isGameInWishlist = isInWishCart(game?.id, wishlist?.items);
+    const isGameInMyAccount = isGameOwn(game, games.myGames);
 
     const [isHoverGameCard, setIsHoverGameCard] = useState(false);
-    const [isHoverAddBtn, setIsHoverAddBtn] = useState(true);
+
+    // console.log(isGameInMyAccount);
 
     const gameDataToAdd = {
         ...game,
@@ -26,20 +29,6 @@ function GameCard({ game }) {
         console.log("cart");
         cartDispatch({ type: "add", payload: gameDataToAdd });
     };
-
-    const addToWishlist = function addToWishlist() {
-        console.log("wish");
-        wishDispatch({ type: "add", payload: gameDataToAdd });
-    };
-
-    useEffect(() => {
-        // Update the state of isHoverAddBtn after isGameInWishlist and isGameInCart change
-        if (!isGameInWishlist || !isGameInCart) {
-            setIsHoverAddBtn(true);
-        } else {
-            setIsHoverAddBtn(false);
-        }
-    }, [isGameInWishlist, isGameInCart]);
 
     return (
         <div className='game-card'
@@ -62,34 +51,29 @@ function GameCard({ game }) {
                     }
                 </div>
             </div>
-            {
-                isHoverGameCard && (!isGameInWishlist || !isGameInCart) &&
-                <>
-                    <button type='button'
-                        onClick={() => setIsHoverAddBtn(!isHoverAddBtn)}
-                        className='game-card__add'>
-                        {isHoverAddBtn ? <HiChevronDown size={10} /> : <HiPlus size={10} />}
-                    </button>
 
-                    <div className={`game-card__add-options ${isHoverAddBtn && 'show'}`}>
-
-                        {
-                            !isGameInWishlist && <button type='button'
-                                onClick={addToWishlist}
-                            > + wishlist <BsBookmarkPlus /></button>
-                        }
-
-                        {
-                            !isGameInCart && <button type='button'
-                                onClick={addToCart}
-                            > + cart <BsCartPlus /></button>
-                        }
-
-                    </div>
-                </>
+            {isHoverGameCard
+                && !isGameInCart
+                && !isGameInMyAccount &&
+                <button type='button'
+                    className='game-card__add-cart'
+                    onClick={addToCart}
+                > + cart <BsCartPlus size={16} /></button>
             }
 
-            <h3 className='game-card__price'>$ {game?.price}</h3>
+            <Link to='./checkout'>
+                <div className='game-card__is-in-cart'>
+                    {isGameInCart && <BsCartCheck size={16} />}
+                </div>
+            </Link>
+
+
+            {
+                isGameInMyAccount
+                    ? <IoMdCheckmarkCircleOutline size={18} className='game-card__own-icon' />
+                    : <h3 className='game-card__price'>$ {game?.price}</h3>
+            }
+
             {
                 isHoverGameCard && <Link to={`/game/${game?.id}`} >
                     <button type='button'
@@ -97,15 +81,6 @@ function GameCard({ game }) {
                     >game store page</button>
                 </Link>
             }
-
-            <Link to='./checkout'>
-
-                <div className='game-card__is-in-cart'>
-                    {isGameInWishlist && <BsBookmarkCheck />}
-                    {isGameInCart && <BsCartCheck />}
-                </div>
-            </Link>
-
 
         </div>
     );

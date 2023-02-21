@@ -26,7 +26,7 @@
   border: 1px solid $primary-clr;
   border-radius: 23px;
   gap: 0.2em;
-  padding-inline-end: 0.5em;
+  padding-inline-end: 4px;
 }
 
 .search-input {
@@ -49,7 +49,6 @@
 .search-icon {
   color: $primary-clr-2;
   translate: 0 2px;
-  padding-inline-end: 2px;
   opacity: 0.5;
   transition: opacity 1s ease, scale 1s ease;
   &:hover {

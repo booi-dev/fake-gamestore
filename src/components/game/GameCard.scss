@@ -25,7 +25,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 0.5em;
+  left: 0.25em;
   bottom: 0.5em;
 }
 
@@ -35,15 +35,12 @@
   max-width: max-content;
 }
 
-.game-card__title.card-hover {
-  background-color: $bg-clr-black-trans;
-}
-
 .game-card__title,
 .game-card__genres {
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 3px;
+  line-height: 16px;
 }
 
 .game-card__genres {
@@ -51,33 +48,18 @@
   display: inline;
 }
 
-.game-card__add {
+.game-card__add-cart,
+.game-card__is-in-cart {
   position: absolute;
-  top: 8px;
+  top: 0.5em;
   left: 8px;
+}
+
+.game-card__add-cart {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
-  border: 1px solid;
-  border-radius: 50%;
-  transition: scale 1s ease;
-  &:hover {
-    scale: 1.2;
-    background-color: $bg-clr-black-trans;
-  }
-}
-
-.game-card__add-options {
-  position: absolute;
-  top: calc(8px * 4);
-  left: 8px;
-  display: none;
-}
-
-.game-card__add-options.show {
-  display: block;
+  gap: 0.25em;
+  color: $font-clr;
 }
 
 .game-card__add-options button {
@@ -96,11 +78,13 @@
   }
 }
 
-.game-card__price {
+.game-card__price,
+.game-card__own-icon {
   position: absolute;
   top: 0.5em;
   right: 0.5em;
   font-size: $font-xs;
+  color: $font-clr;
 }
 
 .game-card__game-store-link {
@@ -115,10 +99,4 @@
     scale: 1.1;
     text-shadow: 1px 2px 4px black;
   }
-}
-
-.game-card__is-in-cart {
-  position: absolute;
-  right: 0.5em;
-  bottom: 0.5em;
 }

@@ -14,6 +14,7 @@ function Header() {
 
     const hideSideBar = function hideSidebarOnClick() {
         setIsSidebarVisible(false);
+        setIsCloseBtnHover(false);
     };
 
     const { games } = useAccount();

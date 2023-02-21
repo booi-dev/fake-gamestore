@@ -61,15 +61,6 @@
   }
 }
 
-.double-click-msg {
-  position: absolute;
-  left: 0.5em;
-  top: 0.5em;
-  font-size: $font-xxs;
-  font-weight: 300;
-  // color: $font-clr;
-}
-
 @media (max-width: 500px) {
   .store-hero__container {
     height: $hero-height-mobile;

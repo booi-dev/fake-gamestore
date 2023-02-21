@@ -43,8 +43,6 @@ function StoreHero() {
                 <Search />
             </div>
 
-            <h2 className='double-click-msg'> double click to scroll down</h2>
-
             <Scroll to='browse-games-title' spy={true} smooth={true} duration={1000}  >
                 <button type='button' className='store-hero__scroll-down-btn'>
                     <BsArrowDownCircle size={25} className='scroll-down-icon' />

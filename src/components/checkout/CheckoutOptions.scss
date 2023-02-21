@@ -35,17 +35,18 @@
     scale: 1.1;
   }
   &:hover::before {
-    // content: "move to cart";
-    color: $font-clr;
+    color: black;
     position: absolute;
     min-width: max-content;
-    top: -2em;
+    top: -1em;
+    // left: -200%;
   }
 }
 
 .checkout-swap.wishlist {
   &:hover::before {
     content: "move to cart";
+    color: $font-clr;
   }
 }
 
@@ -53,6 +54,7 @@
   color: $primary-clr;
   &:hover::before {
     content: "move to wishlist";
+    color: $font-clr-dark;
   }
 }
 

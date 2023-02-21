@@ -3,12 +3,10 @@
 .gametitle__list {
   display: grid;
   grid-template-columns: 1fr 8fr;
-  // justify-content: center;
   align-items: center;
   background-color: $primary-clr-trans-2;
   margin-block: 0.5em;
-  padding-block: 0.5em;
-  padding-inline: 0.5em;
+  padding: 0.5em;
   border-left: 0.5em solid $primary-clr-3;
   border-radius: $border-radius-1;
   z-index: 2;
@@ -37,8 +35,9 @@
 
 @media (max-width: 500px) {
   .gametitle__list {
+    grid-template-columns: 1fr 5fr;
     background-color: darken($color: $primary-clr-trans-3, $amount: 15);
-    padding-inline: 0.5em;
+    padding: 0.25em;
     border-radius: 0 0 $border-radius-1;
   }
 }

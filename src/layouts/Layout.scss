@@ -59,11 +59,6 @@ li {
   display: none;
 }
 
-// .menu-btn-icon {
-//   width: 20px;
-//   height: 20px;
-// }
-
 .header__navbar {
   display: flex;
   font-size: 14px;
@@ -109,9 +104,10 @@ li {
     left: 0;
     bottom: 0;
     z-index: 3;
-    transition: translate 1s ease;
+    transition: translate 0.5s ease;
     translate: -100% 0;
   }
+
   .header__navbar.sidebar {
     translate: revert;
   }

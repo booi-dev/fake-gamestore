@@ -16,6 +16,7 @@
 }
 
 .scrollerY__option {
+  transition: color 1s ease;
   &::after {
     content: "";
     display: block;
@@ -27,6 +28,7 @@
 }
 
 .scrollerY__option.active {
+  color: $primary-clr-4;
   &::after {
     width: 100%;
   }

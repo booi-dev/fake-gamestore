@@ -1,12 +1,15 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import fetchData, { createQuery, createMultiQuery } from '../../utils/fetch';
 import GameGallery from './GameGallery';
+import ScrollerY from '../ui/ScrollerY';
+import './GameBrowse.scss';
 
 function GameBrowse() {
 
     const [gameData, setGameData] = useState([]);
+    const [currentGenre, setcurrentGenre] = useState('action');
 
-    const randomGenre = ['action', 'adventure', 'indie', 'platformer', 'casual', 'fighting', 'arcade', 'strategy', 'shooter', 'simulation', 'sports', 'puzzle'];
+    const genres = ['action', 'adventure', 'indie', 'platformer', 'casual', 'fighting', 'arcade', 'strategy', 'shooter', 'simulation', 'sports', 'puzzle'];
 
     const fetchGameData = async function fetchGameDataFromServer(genre) {
 
@@ -22,19 +25,26 @@ function GameBrowse() {
         }
     };
 
-    const randomNumber = useMemo(() => Math.floor(Math.random() * 12) + 1);
+    // const randomNumber = useMemo(() => Math.floor(Math.random() * 12) + 1);
 
-    useEffect(() => {
-        const genre = (randomGenre[randomNumber]);
-        console.log(genre);
-        fetchGameData('action');
+    const selectGenre = useCallback((genre) => {
+        setcurrentGenre(genre);
     }, []);
 
+    useEffect(() => {
+        // const genre = (genres[randomNumber]);
+        // console.log(genre);
+        fetchGameData(currentGenre);
+    }, [currentGenre]);
+
     return (
-        <>
-            <h1 className='app-group-title fs-lg ml-sm mt-sm'> BROWSE GAMES</h1>
+        <div className='game-browse'>
+            <div className='game-browse__header'>
+                <h1 className='game-browse__title'> BROWSE GAMES</h1>
+                <ScrollerY handler={selectGenre} genres={genres} />
+            </div>
             <GameGallery games={gameData} />
-        </>
+        </div>
     );
 }
 

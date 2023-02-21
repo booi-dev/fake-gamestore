@@ -1,0 +1,37 @@
+@use "../../sass/index" as *;
+
+.scrollerY__options-container {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-block-end: 0.5em;
+}
+
+.scrollerY__options > button {
+  display: inline-block;
+  padding-inline: 0.5em;
+  font-size: $font-xs;
+  text-transform: uppercase;
+  gap: 0.5em;
+}
+
+.scrollerY__option.active {
+  &::before {
+    content: "";
+    background-color: aqua;
+    height: 4px;
+    width: 100%;
+  }
+}
+
+.scrollerY__options-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollerY__options-container::-webkit-scrollbar-track {
+  margin: 0.5em;
+}
+
+.scrollerY__options-container::-webkit-scrollbar-thumb {
+  background-color: $primary-clr-3;
+}

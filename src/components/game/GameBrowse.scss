@@ -1,0 +1,9 @@
+@use "../../sass/index" as *;
+
+.game-browse__title {
+  font-size: $font-lg;
+  font-weight: 300;
+  padding-inline: 0.5em;
+  margin-block: 1em;
+  margin-block-start: 1.5em;
+}

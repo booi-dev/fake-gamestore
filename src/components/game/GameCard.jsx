@@ -39,8 +39,9 @@ function GameCard({ game }) {
             tabIndex='0'
         >
             <img className={`game-card__pic ${isHoverGameCard && 'card-hover'}`}
-                src={game.background_image
-                } alt={`${game.name} pic`} />
+                src={game.background_image}
+                alt={`${game.name} pic`}
+            />
 
             <div className='game-card__info'>
                 <h1 className={`game-card__title ${isHoverGameCard && 'card-hover'}`}> {game.name} </h1>
@@ -61,7 +62,7 @@ function GameCard({ game }) {
                 > + cart <BsCartPlus size={16} /></button>
             }
 
-            <Link to='./checkout'>
+            <Link to='/checkout'>
                 <div className='game-card__is-in-cart'>
                     {isGameInCart && <BsCartCheck size={16} />}
                 </div>

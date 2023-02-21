@@ -9,17 +9,6 @@ export const isGameOwn = (toCheckGame, myGames) => !!myGames.find(game => game.i
 
 const tempGames = [
     {
-        id: 28,
-        name: "Red Dead Redemption 2",
-        genres: [{ id: 4, name: 'Action' }, { id: 3, name: 'Adventure' }],
-        released: '2018-10-26',
-        background_image: 'https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg',
-        parent_platforms: [{ id: 1, name: 'PC', slug: 'pc' }, { id: 2, name: 'PlayStation', slug: 'playstation' }, { id: 3, name: 'Xbox', slug: 'xbox' }],
-        tags: [{ id: 31, name: 'SinglePlayer', slug: 'singleplayer' }],
-        price: 12,
-        quantity: 1
-    },
-    {
         id: 4286,
         name: "BioShock",
         genres: [{ id: 4, name: 'Action' }, { id: 3, name: 'Shooter' }],
@@ -28,6 +17,17 @@ const tempGames = [
         parent_platforms: [{ id: 1, name: 'PC', slug: 'pc' }, { id: 2, name: 'PlayStation', slug: 'playstation' }, { id: 3, name: 'Xbox', slug: 'xbox' }, { id: 5, name: 'Apple Macintosh', slug: 'mac' }],
         tags: [{ id: 31, name: 'SinglePlayer', slug: 'singleplayer' }, { id: 24, name: 'RPG', slug: 'rpg' }],
         price: 9,
+        quantity: 1
+    },
+    {
+        id: 28,
+        name: "Red Dead Redemption 2",
+        genres: [{ id: 4, name: 'Action' }, { id: 3, name: 'Adventure' }],
+        released: '2018-10-26',
+        background_image: 'https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg',
+        parent_platforms: [{ id: 1, name: 'PC', slug: 'pc' }, { id: 2, name: 'PlayStation', slug: 'playstation' }, { id: 3, name: 'Xbox', slug: 'xbox' }],
+        tags: [{ id: 31, name: 'SinglePlayer', slug: 'singleplayer' }],
+        price: 12,
         quantity: 1
     }
 ];

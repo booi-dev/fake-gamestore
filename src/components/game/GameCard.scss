@@ -2,6 +2,7 @@
 
 .game-card {
   position: relative;
+  border: 1px solid $primary-clr-2;
   border-radius: $border-radius-2;
   height: 200px;
   transition: height 0.5s ease;

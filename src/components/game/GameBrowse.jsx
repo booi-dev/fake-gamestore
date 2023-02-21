@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import fetchData, { createQuery, createMultiQuery } from '../../utils/fetch';
+import GameGallery from './GameGallery';
 
 function GameBrowse() {
 
@@ -11,7 +12,7 @@ function GameBrowse() {
 
         const newGenresQuery = createQuery('genres', genre);
         const newOrderingQuery = createQuery('ordering', '-rating, -released');
-        const newPageSizeQuery = createQuery('page_size', 20);
+        const newPageSizeQuery = createQuery('page_size', 12);
 
         const query = createMultiQuery([newGenresQuery, newOrderingQuery, newPageSizeQuery]);
 
@@ -21,19 +22,19 @@ function GameBrowse() {
         }
     };
 
-    useEffect(() => {
+    const randomNumber = useMemo(() => Math.floor(Math.random() * 12) + 1);
 
-        const randomNum = Math.floor(Math.random() * 12) + 1;
-        fetchGameData(randomGenre[randomNum]);
+    useEffect(() => {
+        const genre = (randomGenre[randomNumber]);
+        console.log(genre);
+        fetchGameData('action');
     }, []);
 
     return (
-        <div>
-            {gameData.map((game) => <div key={game.key}>
-                <h1> {game.name}</h1>
-                <img src={game.background_image} alt="" style={{ width: '300px' }} />
-            </div>)}
-        </div>
+        <>
+            <h1 className='app-group-title fs-lg ml-sm mt-sm'> BROWSE GAMES</h1>
+            <GameGallery games={gameData} />
+        </>
     );
 }
 

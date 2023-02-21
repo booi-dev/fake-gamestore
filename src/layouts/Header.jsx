@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { HiMenu, HiX, HiArrowSmLeft, HiArrowSmRight } from "react-icons/hi";
 import siteIconLight from '../assets/site-icon/site-icon-light.png';
-import { useAccount } from '../context/useAccount';
 import BackDrop from '../components/ui/BackDrop';
 import WishCart from '../components/ui/CartNWish';
 
@@ -17,7 +16,6 @@ function Header() {
         setIsCloseBtnHover(false);
     };
 
-    const { games } = useAccount();
     /*eslint-disable */
     return (
         <div className='header' id='header-top'>
@@ -54,7 +52,7 @@ function Header() {
                         }
 
                         <li> <NavLink to='/'>STORE </NavLink> </li>
-                        <li><NavLink to='mygames'>MY GAMES ({games.myGames.length})</NavLink> </li>
+                        <li><NavLink to='mygames'>MY GAMES</NavLink> </li>
                         <li> <NavLink to='browse'>BROWSE </NavLink> </li>
                         <li> <NavLink to='feature'>FEATURES </NavLink> </li>
                     </ul>

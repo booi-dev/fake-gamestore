@@ -1,25 +1,14 @@
 import { useState, useEffect } from 'react';
-import useWinSize from '../../hooks/useWinSize';
 import fetchData, { createQuery, createMultiQuery } from '../../utils/fetch';
-// import splitDataArray from '../../utils/splitDataArray';
-// import withDynamicColumns from '../../hoc/withDynamicColumns';
-import useDynamicColumns from '../../hooks/useDynamicColumns';
-
 import GameGallery from './GameGallery';
 
 function GameBrowse() {
 
-    const winWidth = useWinSize();
-    const getDynamicColumns = useDynamicColumns();
-
     const [gameData, setGameData] = useState();
-    const [gameColumns, setGameColumns] = useState();
-
-    // /*eslint-disable */
 
     const fetchGameData = async function fetchGameData() {
         const newDatesQuery = createQuery('dates', '2022-01-01,2023-02-16');
-        const newOrderingQuery = createQuery('orderng', 'released');
+        const newOrderingQuery = createQuery('ordring', '-released');
         const newPageSizeQuery = createQuery('page_size', 12);
 
         const query = createMultiQuery([newDatesQuery, newOrderingQuery, newPageSizeQuery]);
@@ -34,12 +23,8 @@ function GameBrowse() {
         fetchGameData();
     }, []);
 
-    useEffect(() => {
-        if (gameData) setGameColumns(getDynamicColumns(gameData));
-    }, [gameData, winWidth]);
-
     return (
-        <GameGallery gameColumns={gameColumns} />
+        <GameGallery games={gameData} />
     );
 }
 

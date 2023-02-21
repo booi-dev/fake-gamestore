@@ -48,7 +48,7 @@ const fetchDatum = async function fetchAGameDatum(gameId) {
                 formattedReleasedDate: formatDate(result?.released),
                 price: setPrice(result)
             });
-            console.log(data);
+            // console.log(data);
         })
         .catch((err) => {
             console.log(err);

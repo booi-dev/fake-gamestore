@@ -1,9 +1,22 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import GameCard from './GameCard';
+import useWinSize from '../../hooks/useWinSize';
+import useDynamicColumns from '../../hooks/useDynamicColumns';
+
 import './GameGallery.scss';
 
-function GameGallery({ gameColumns }) {
+function GameGallery({ games }) {
+
+    const winWidth = useWinSize();
+    const getDynamicColumns = useDynamicColumns();
+
+    const [gameColumns, setGameColumns] = useState();
+
+    useEffect(() => {
+        setGameColumns(getDynamicColumns(games));
+    }, [winWidth]);
+
 
     const ColumnsComponent = gameColumns
         ?.map((columnOfGames, index) => <div key={index} className='gallery__column'>
@@ -24,11 +37,11 @@ function GameGallery({ gameColumns }) {
 }
 
 GameGallery.propTypes = {
-    gameColumns: PropTypes.instanceOf(Array)
+    games: PropTypes.instanceOf(Array)
 };
 
 GameGallery.defaultProps = {
-    gameColumns: []
+    games: []
 };
 
 export default GameGallery;

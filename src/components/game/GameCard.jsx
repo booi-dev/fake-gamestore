@@ -45,12 +45,12 @@ function GameCard({ game }) {
 
             <div className='game-card__info'>
                 <h1 className={`game-card__title ${isHoverGameCard && 'card-hover'}`}> {game.name} </h1>
-                <div className='app-flex-wrap gap-4'>
+                {/* <div className='app-flex-wrap gap-4'>
                     {game?.genres.map((genre) => <h2 key={genre.id}
                         className='game-card__genres'>
                         {genre.name} </h2>)
                     }
-                </div>
+                </div> */}
             </div>
 
             {isHoverGameCard
@@ -79,7 +79,7 @@ function GameCard({ game }) {
                 isHoverGameCard && <Link to={`/game/${game?.id}`} >
                     <button type='button'
                         className='game-card__game-store-link'
-                    >game store page</button>
+                    > store page</button>
                 </Link>
             }
 

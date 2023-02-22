@@ -25,8 +25,8 @@ function useDynamicColumns() {
 
     const getDynamicColumns = function getColumnsAccordingToWidth(gameDataArray) {
         let columns;
-        if (winWidth > 1020) columns = splitDataArray(gameDataArray, 4);
-        else if (winWidth > 740) columns = splitDataArray(gameDataArray, 3);
+        if (winWidth > 1020) columns = splitDataArray(gameDataArray, 3);
+        else if (winWidth > 740) columns = splitDataArray(gameDataArray, 2);
         else if (winWidth > 500) columns = splitDataArray(gameDataArray.slice(0, 12), 2);
         else if (winWidth < 500) columns = splitDataArray(gameDataArray.slice(0, 8), 1);
 

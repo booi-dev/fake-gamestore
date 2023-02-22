@@ -4,7 +4,7 @@
   position: relative;
   border: 1px solid $primary-clr-2;
   border-radius: $border-radius-2;
-  height: 200px;
+  height: 250px;
   transition: height 0.5s ease;
   &:hover {
     height: 250px;
@@ -16,6 +16,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: $border-radius-2;
+  filter: brightness(90%);
 }
 
 .game-card__pic.card-hover {
@@ -27,13 +28,14 @@
   flex-direction: column;
   position: absolute;
   left: 0.25em;
-  bottom: 0.5em;
+  bottom: 0.25em;
+  right: 0;
 }
 
 .game-card__title {
   font-size: $font-sm;
-  text-shadow: 1px 1px 3px black;
-  max-width: max-content;
+  text-shadow: 2px 2px 4px black;
+  width: 100%;
 }
 
 .game-card__title,
@@ -94,8 +96,12 @@
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  opacity: 0.5;
+  opacity: 0.6;
   font-size: $font-sm;
+  font-family: inherit;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  color: $font-clr;
   transition: scale 1s ease;
   &:hover {
     opacity: 0.8;

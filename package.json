@@ -1,7 +1,7 @@
 {
   "name": "fake-gamestore",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.1.0",
   "homepage": "https://booi-dev.github.io/fake-gamestore/",
   "type": "module",
   "scripts": {

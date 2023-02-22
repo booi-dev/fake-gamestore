@@ -65,6 +65,7 @@ li {
   display: flex;
   align-items: center;
   gap: 0.8em;
+  user-select: none;
 }
 
 .header__close-btn {
@@ -136,7 +137,6 @@ li {
   .header__navbar__list li a {
     display: inline-block;
     width: 100%;
-    user-select: none;
   }
 
   .header__navbar__list li:has(.active) {

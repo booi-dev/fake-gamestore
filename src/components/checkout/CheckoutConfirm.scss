@@ -35,9 +35,10 @@
 
 .checkout-confirm-btn {
   background-image: linear-gradient(to right, $accent-clr, $accent-clr-dark);
-  padding: 0.25em 0.5em;
+  padding: 0.5em 0.5em;
   margin-top: 1em;
   color: $font-clr;
+  font-size: $font-sm;
   border-radius: $border-radius-1;
 }
 

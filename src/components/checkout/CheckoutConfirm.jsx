@@ -90,7 +90,7 @@ function CheckoutConfirm(props) {
                 <button type='button'
                     className='checkout-confirm__close-btn'
                     onClick={toggleCheckoutConfirm}>
-                    <MdCancelPresentation size={20} />
+                    <MdCancelPresentation size={25} />
                 </button>
             </div>
             <button type='button'

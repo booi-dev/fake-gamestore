@@ -26,9 +26,9 @@ function CheckoutConfirm(props) {
     };
 
     const navigateAway = () => {
-        // setTimeout(() => {
-        //     navigate('/mygames');
-        // }, 1000);
+        setTimeout(() => {
+            navigate('/mygames');
+        }, 1000);
     };
 
     const addGamesToAccount = function name() {

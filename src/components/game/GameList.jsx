@@ -41,7 +41,7 @@ function GameList() {
                                 <div className='app-letter-spacing-2'>copy owned</div>
                                 <div className='copy-number'>{item?.quantity}</div>
                             </div>
-                            <div>
+                            <div className='gamelist__active-game__genres-container'>
                                 {item?.genres.map((genre) => <span key={genre.id} className='gamelist__active-game__genres'>{genre.name}</span>
                                 )}
                             </div>

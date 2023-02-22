@@ -47,15 +47,16 @@
 }
 
 .gamelist__active-game__more-info {
+  background-color: $primary-clr-trans-2;
   display: flex;
   flex-direction: column;
   align-items: end;
 
   position: absolute;
   bottom: 0;
-  right: 0;
-  left: 0;
-  padding-inline: 0.5em;
+  right: 0em;
+  left: 0.5em;
+  padding: 0.5em;
   text-shadow: 1px 1px 3px black;
 }
 
@@ -76,10 +77,14 @@
   height: 20px;
 }
 
+.gamelist__active-game__genres-container {
+  display: flex;
+  gap: 0.5em;
+}
+
 .gamelist__active-game__genres {
   letter-spacing: 4px;
-  font-size: $font-xl;
-  margin-left: 0.5em;
+  font-size: $font-lg;
   text-transform: uppercase;
 }
 
@@ -88,7 +93,7 @@
   font-size: $font-xs;
   border-radius: $border-radius-1;
   transition: scale 0.5s ease;
-  color: $primary-clr-4;
+  color: $font-clr;
   text-shadow: 1px 1px 3px black;
 }
 
@@ -102,9 +107,10 @@
   .gamelist__container {
     grid-template-columns: 1.5fr 1fr;
   }
-  .gamelist__active-game__genres {
-    display: flex;
-    justify-content: end;
-    font-size: $font-lg;
+
+  .gamelist__active-game__genres-container {
+    flex-direction: column;
+    align-items: end;
+    gap: 0.5em;
   }
 }

@@ -22,9 +22,9 @@ function Checkout() {
 
     const setPurchaseSuccessMsg = useCallback(() => {
         setIsPurchaseSuccess(true);
-        // setTimeout(() => {
-        //     setIsPurchaseSuccess(false);
-        // }, 1000);
+        setTimeout(() => {
+            setIsPurchaseSuccess(false);
+        }, 1000);
     }, []);
 
     useEffect(() => {

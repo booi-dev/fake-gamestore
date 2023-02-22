@@ -12,5 +12,6 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: "@testing-library/jest-dom",
     css: true,
-  }
+  },
+  base: '/fake-gamestore/'
 });

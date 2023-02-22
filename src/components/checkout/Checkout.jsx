@@ -22,9 +22,9 @@ function Checkout() {
 
     const setPurchaseSuccessMsg = useCallback(() => {
         setIsPurchaseSuccess(true);
-        setTimeout(() => {
-            setIsPurchaseSuccess(false);
-        }, 1000);
+        // setTimeout(() => {
+        //     setIsPurchaseSuccess(false);
+        // }, 1000);
     }, []);
 
     useEffect(() => {
@@ -107,7 +107,8 @@ function Checkout() {
             {isPurchaseSuccess
                 && <div type='button'
                     className='checkout__confirm-msg'>
-                    Purchase Success
+                    <h1 className='fs-xl'>Purchase Success</h1>
+                    <h2 className='fs-md'>redirecting...</h2>
                 </div>}
 
         </div>

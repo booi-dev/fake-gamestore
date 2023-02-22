@@ -59,7 +59,7 @@ function GameCard({ game }) {
                 <button type='button'
                     className='game-card__add-cart'
                     onClick={addToCart}
-                > + cart <BsCartPlus size={16} /></button>
+                > add to cart <BsCartPlus size={16} /></button>
             }
 
             <Link to='/checkout'>

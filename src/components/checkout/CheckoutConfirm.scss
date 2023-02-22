@@ -36,9 +36,9 @@
 .checkout-confirm-btn {
   background-image: linear-gradient(to right, $accent-clr, $accent-clr-dark);
   padding: 0.25em 0.5em;
-  width: min-content;
-  margin-right: 4px;
-  margin-left: auto;
+  margin-top: 1em;
+  color: $font-clr;
+  border-radius: $border-radius-1;
 }
 
 .checkout-confirm__low-balance-status {
@@ -46,11 +46,10 @@
 }
 
 .checkout-confirm__close-btn {
-  border: 1px solid;
-  width: 15px;
   position: absolute;
   top: 1em;
   right: 1em;
+  color: $font-clr;
   &:hover {
     scale: 1.1;
   }

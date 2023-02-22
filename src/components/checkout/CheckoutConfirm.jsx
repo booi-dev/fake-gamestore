@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { MdCancelPresentation } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { useAccount, isGameOwn } from '../../context/useAccount';
 import { useWishCart } from '../../context/useWishCart';
@@ -25,9 +26,9 @@ function CheckoutConfirm(props) {
     };
 
     const navigateAway = () => {
-        setTimeout(() => {
-            navigate('/mygames');
-        }, 1000);
+        // setTimeout(() => {
+        //     navigate('/mygames');
+        // }, 1000);
     };
 
     const addGamesToAccount = function name() {
@@ -83,13 +84,14 @@ function CheckoutConfirm(props) {
                 {lowBalance && <div className='checkout-confirm__low-balance-status mt-md'> Not Enough Money</div>}
 
                 {lowBalance || <button type='button'
-                    className='checkout-confirm-btn mt-md fs-xs'
+                    className='checkout-confirm-btn'
                     onClick={buyGames}>
                     CONFIRM</button>}
                 <button type='button'
                     className='checkout-confirm__close-btn'
                     onClick={toggleCheckoutConfirm}>
-                    x</button>
+                    <MdCancelPresentation size={20} />
+                </button>
             </div>
             <button type='button'
                 aria-label="Backdrop"

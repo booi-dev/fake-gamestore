@@ -20,7 +20,18 @@
 }
 
 .gamelist__list {
+  background-color: $bg-clr-black-trans;
+  height: 85vh;
+  overflow-y: scroll;
   z-index: 1;
+}
+
+.gamelist__list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.gamelist__list::-webkit-scrollbar-thumb {
+  background-color: $primary-clr-2;
 }
 
 .gamelist__active-game {
@@ -105,7 +116,7 @@
 
 @media (max-width: 500px) {
   .gamelist__container {
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .gamelist__active-game__genres-container {

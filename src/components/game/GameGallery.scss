@@ -11,12 +11,12 @@
 .gallery__columns-container {
   display: flex;
   justify-content: space-around;
-  gap: 2em;
+  gap: 2.5em;
 }
 
 .gallery__column {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 2.5em;
 }

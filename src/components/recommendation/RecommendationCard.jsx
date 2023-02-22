@@ -11,10 +11,8 @@ function RecommendationCard(props) {
                 onMouseEnter={() => stopTimer()}
                 onMouseLeave={() => startTimer()}
             >
-                {/* <Link to={`/game/${game?.id}`}> */}
                 <img src={game?.background_image} alt={`${game?.name} bg img`}
                 />
-                {/* </Link> */}
             </div>
             <div className="recommendation-card__game-details">
                 <Link to={`/game/${game?.id}`}>

@@ -58,10 +58,7 @@ function Recommendation() {
 
     return (
         <div>
-
             <div className='recommendation' id='recommendation'>
-                {/* <h1 className='App-group-title'>
-                    FEATURED & RECOMMENDED</h1> */}
                 <div className="recommendation__card-container"
                 >
                     {gameData && <RecommendationCard

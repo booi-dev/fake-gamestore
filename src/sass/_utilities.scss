@@ -135,7 +135,8 @@ $layout-border-radius: (
 .app-group-title {
   font-weight: 300;
   font-size: $font-lg;
-  padding-block: 1em;
+  padding-block-start: 1em;
+  padding-block-end: 0.5em;
 }
 
 .app-flex {

@@ -169,6 +169,7 @@
   }
 }
 
+// ADD TO CART
 .add-to-wishlist-btn {
   background-color: $primary-clr-3;
   padding: 0.5em;
@@ -212,6 +213,7 @@
   padding: 0.5em 0.5em;
   position: relative;
   z-index: 1;
+  color: $font-clr;
   cursor: pointer;
 
   &:after {

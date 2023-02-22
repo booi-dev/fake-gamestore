@@ -1,7 +1,5 @@
-Genre / Category change - page
-
 custom date, to find out latest
 
-set active menu btn
+fix feature component / recommendation
 
-game card loading animation
+and not align properly

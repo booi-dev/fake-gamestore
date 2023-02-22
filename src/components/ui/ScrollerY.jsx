@@ -21,7 +21,6 @@ function ScrolerY({ handler, genres }) {
                         className={`scrollerY__option ${activeIndex === index ? 'active' : ''}`}
                         onClick={() => handleOnClick(genre, index)}> {genre} </button>)
                 }
-
             </div>
         </div>
     );

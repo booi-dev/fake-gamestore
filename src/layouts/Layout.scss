@@ -133,6 +133,12 @@ li {
     }
   }
 
+  .header__navbar__list li a {
+    display: inline-block;
+    width: 100%;
+    user-select: none;
+  }
+
   .header__navbar__list li:has(.active) {
     background-color: $primary-clr-3;
   }

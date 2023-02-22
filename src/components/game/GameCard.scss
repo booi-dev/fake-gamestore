@@ -41,16 +41,17 @@
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 3px;
-  line-height: 16px;
 }
 
 .game-card__genres {
   font-size: $font-xxxs;
   display: inline;
+  line-height: 13px;
 }
 
 .game-card__add-cart,
 .game-card__is-in-cart {
+  font-size: $font-sm;
   position: absolute;
   top: 0.5em;
   left: 8px;
@@ -84,7 +85,7 @@
   position: absolute;
   top: 0.5em;
   right: 0.5em;
-  font-size: $font-xs;
+  font-size: $font-sm;
   color: $font-clr;
 }
 
@@ -94,6 +95,7 @@
   left: 50%;
   translate: -50% -50%;
   opacity: 0.5;
+  font-size: $font-sm;
   transition: scale 1s ease;
   &:hover {
     opacity: 0.8;

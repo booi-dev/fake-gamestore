@@ -54,9 +54,11 @@
 .game-card__add-cart,
 .game-card__is-in-cart {
   font-size: $font-sm;
+  font-weight: 300;
   position: absolute;
   top: 0.5em;
   left: 8px;
+  @include scale-on-hover;
 }
 
 .game-card__add-cart {
@@ -74,11 +76,10 @@
   text-shadow: 1px 1px 3px black;
   gap: 0.25em;
   margin-block: 0.5em;
-  transition: scale 1s ease;
+  @include scale-on-hover;
   &:hover {
     background-color: $bg-clr-black-trans;
     text-shadow: 1px 2px 5px black;
-    scale: 1.1;
   }
 }
 
@@ -102,10 +103,9 @@
   font-weight: lighter;
   letter-spacing: 2px;
   color: $font-clr;
-  transition: scale 1s ease;
+  @include scale-on-hover;
   &:hover {
     opacity: 0.8;
-    scale: 1.1;
     text-shadow: 1px 2px 4px black;
   }
 }

@@ -55,16 +55,22 @@ function GameCard({ game }) {
 
             {isHoverGameCard
                 && !isGameInCart
-                && !isGameInMyAccount &&
-                <button type='button'
+                && !isGameInMyAccount
+                && <button type='button'
                     className='game-card__add-cart'
                     onClick={addToCart}
-                > add to cart <BsCartPlus size={16} /></button>
+                > ADD TO CART <BsCartPlus size={16} />
+                </button>
             }
 
             <Link to='/checkout'>
                 <div className='game-card__is-in-cart'>
-                    {isGameInCart && <BsCartCheck size={16} />}
+                    {isGameInCart
+                        && <div className='app-flex-center gap-4'>
+                            GAME IN CART
+                            <BsCartCheck size={16} />
+                        </div>
+                    }
                 </div>
             </Link>
 

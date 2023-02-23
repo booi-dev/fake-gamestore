@@ -6,6 +6,8 @@ function GameTitle(props) {
 
     const { game, isActive, setActive } = props;
 
+    console.log(game);
+
     return (
         <div className={`gametitle__list ${isActive ? 'active' : ''}`}
             role='button'

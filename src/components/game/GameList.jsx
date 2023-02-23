@@ -7,14 +7,10 @@ import './GameList.scss';
 
 function GameList() {
 
-    // const navigate = Navigate();
-
     const { games } = useAccount();
     const latestGameIndex = games.myGames.length - 1;
     const [gamesInAccount] = useState(games.myGames);
     const [activeIndex, setActiveIndex] = useState(latestGameIndex);
-
-    // console.log(gamesInAccount);
 
     return (
         <div className="gamelist">

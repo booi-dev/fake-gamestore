@@ -25,15 +25,11 @@ function GameBrowse() {
         }
     };
 
-    // const randomNumber = useMemo(() => Math.floor(Math.random() * 12) + 1);
-
     const selectGenre = useCallback((genre) => {
         setcurrentGenre(genre);
     }, []);
 
     useEffect(() => {
-        // const genre = (genres[randomNumber]);
-        // console.log(genre);
         fetchGameData(currentGenre);
     }, [currentGenre]);
 

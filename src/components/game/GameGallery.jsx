@@ -9,8 +9,6 @@ import './GameGallery.scss';
 
 function GameGallery({ games }) {
 
-    // console.log("gallery", games);
-
     const winWidth = useWinSize();
     const getDynamicColumns = useDynamicColumns();
 

@@ -18,8 +18,6 @@ function GameCard({ game }) {
 
     const [isHoverGameCard, setIsHoverGameCard] = useState(false);
 
-    // console.log(isGameInMyAccount);
-
     const gameDataToAdd = {
         ...game,
         quantity: 1

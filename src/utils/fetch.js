@@ -23,7 +23,6 @@ const createMultiQuery = function createOneQueryFromManyquery(arr) {
 
 const fetchDatum = async function fetchAGameDatum(gameId) {
     const url = `${api.BASE_URL}games/${gameId}?key=${api.KEY}`;
-    // console.log(url);
     let data;
     await axios.get(url)
         .then((res) => {
@@ -48,7 +47,6 @@ const fetchDatum = async function fetchAGameDatum(gameId) {
                 formattedReleasedDate: formatDate(result?.released),
                 price: setPrice(result)
             });
-            // console.log(data);
         })
         .catch((err) => {
             console.log(err);
@@ -59,7 +57,6 @@ const fetchDatum = async function fetchAGameDatum(gameId) {
 
 const fetchData = async function fetchGameData(endpoint, queryParams) {
     const url = `${api.BASE_URL}${endpoint}?${queryParams}&key=${api.KEY}`;
-    // console.log(url);
     let data;
     await axios.get(url)
         .then((res) => {
@@ -78,7 +75,6 @@ const fetchData = async function fetchGameData(endpoint, queryParams) {
                 formattedReleasedDate: formatDate(game?.released),
                 price: setPrice(game)
             }));
-            // console.log(data);
         })
         .catch((err) => {
             console.log(err);

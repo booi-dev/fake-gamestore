@@ -24,7 +24,6 @@ function GameCard({ game }) {
     };
 
     const addToCart = function addToCart() {
-        console.log("cart");
         cartDispatch({ type: "add", payload: gameDataToAdd });
     };
 
@@ -71,7 +70,6 @@ function GameCard({ game }) {
                     }
                 </div>
             </Link>
-
 
             {
                 isGameInMyAccount

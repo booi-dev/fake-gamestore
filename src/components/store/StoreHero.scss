@@ -5,6 +5,7 @@
   position: relative;
   padding-block: 8px;
   padding-inline: $app-padding-xs;
+  min-height: $hero-height;
   user-select: none;
 }
 
@@ -13,8 +14,8 @@
 }
 
 .store-hero__container {
-  // width: 100%;
-  height: $hero-height;
+  width: 100%;
+  // min-height: $hero-height;
   object-fit: cover;
   transition: height 1s ease;
 }

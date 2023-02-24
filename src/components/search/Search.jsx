@@ -17,8 +17,8 @@ function Search() {
         return response === 'ERR_NETWORK';
     };
 
-    const fetchDataOnChange = useCallback(async () => {
-        const newSearchQuery = createQuery('search', inputVal);
+    const fetchDataOnChange = useCallback(async (val) => {
+        const newSearchQuery = createQuery('search', val);
         const newPageSizeQuery = createQuery('page_size', 5);
         const newQuery = createMultiQuery([newSearchQuery, newPageSizeQuery]);
         const data = await fetchData('games', newQuery);
@@ -29,11 +29,10 @@ function Search() {
     const handleInput = useCallback((e) => {
         const val = e.target.value;
         setInputVal(val);
-        fetchDataOnChange();
+        fetchDataOnChange(val);
     }, [gameData]);
 
     const handleInputOnFocus = useCallback((state) => {
-        // setSuggestionClass('show');
         if (state === 'focus') setIsSuggestions(true);
         else if (state === 'blur') setIsSuggestions(false);
     });
@@ -54,7 +53,8 @@ function Search() {
 
                 {
                     (gameData.length > 0 && isSuggestions) &&
-                    <div className='search__suggestion'>
+                    <div className='search__suggestion'
+                        data-testid='search-suggestion'>
                         {gameData.map((game) => <SearchSuggestion
                             key={game.id}
                             game={game}
@@ -66,7 +66,6 @@ function Search() {
                         </button>
                     </div>
                 }
-
             </div>
 
             {

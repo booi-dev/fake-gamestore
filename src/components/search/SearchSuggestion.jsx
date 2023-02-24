@@ -2,7 +2,6 @@ import { PropTypes } from "prop-types";
 import { Link } from 'react-router-dom';
 import './SearchSuggestion.scss';
 
-
 function SearchSuggestion(props) {
 
     const { game, closeSuggestions } = props;
@@ -12,7 +11,7 @@ function SearchSuggestion(props) {
                 className='search-suggestion'
                 onClick={closeSuggestions}
             >
-                <img src={game.background_image} alt=""
+                <img src={game.background_image} alt={`${game.name}-game-pic`}
                     className="game-bg-img"
                 />
                 <h1 className="game-title">

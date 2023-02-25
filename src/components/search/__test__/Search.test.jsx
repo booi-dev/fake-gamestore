@@ -45,12 +45,10 @@ describe('testing search component', () => {
 
         render(<MemoryRouter><Search /></MemoryRouter>);
 
-        const input = screen.getByRole('textbox');
-        await userEvent.type(input, 'Anything');
+        const inputField = screen.getByRole('textbox');
+        await userEvent.type(inputField, 'Anything');
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        const suggestions = screen.getByTestId('search-suggestion')
+        const suggestions = await screen.findByTestId('search-suggestion')
         expect(suggestions).toBeInTheDocument();
     })
 

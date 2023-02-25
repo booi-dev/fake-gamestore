@@ -28,9 +28,10 @@ function Search() {
 
     const handleInput = useCallback((e) => {
         const val = e.target.value;
+        console.log('input', val);
         setInputVal(val);
         fetchDataOnChange(val);
-    }, [gameData]);
+    }, [fetchDataOnChange]);
 
     const handleInputOnFocus = useCallback((state) => {
         if (state === 'focus') setIsSuggestions(true);

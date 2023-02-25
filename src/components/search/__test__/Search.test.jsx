@@ -66,7 +66,6 @@ describe('testing search component', () => {
         expect(handleInputOnFocus).toHaveBeenCalled()
     })
 
-    // mocking
     test('renders the game title', () => {
         const game = {
             id: 1,
@@ -80,35 +79,4 @@ describe('testing search component', () => {
         expect(gameTitle).toHaveTextContent("Game Name");
     });
 
-
-    test.only('should display the game title', async () => {
-        const game = {
-            id: 1,
-            name: 'Super Mario Bros.',
-            background_image: 'https://example.com/super-mario-bros.jpg',
-        };
-        render(<MemoryRouter><Search /></MemoryRouter>);
-
-        const inputField = screen.getByRole('textbox');
-        await userEvent.type(inputField, 'mario');
-
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        const gameTitle = screen.getByRole('heading')
-        expect(gameTitle).toHaveTextContent("mario");
-
-        // const title = screen.getByText('mario');
-        // expect(title).toBeInTheDocument();
-    })
-
-
-
-
-    // test('input tag should not have focus', () => {
-    //     render(<Search />);
-    //     const searchElement = screen.getByRole('search')
-    //     const user = userEvent.setup()
-    //     user.tab()
-    //     expect(searchElement).toHaveFocus()
-    // })
 })

@@ -52,6 +52,7 @@ const fetchDatum = async function fetchAGameDatum(gameId) {
             console.log(err);
             data = err.code;
         });
+    console.log(data);
     return data;
 };
 
@@ -87,6 +88,7 @@ export default fetchData;
 
 export {
     fetchDatum,
+    fetchData,
     createEndpoint,
     createQuery,
     createMultiQuery,

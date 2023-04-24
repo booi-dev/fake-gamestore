@@ -2,7 +2,7 @@ import setPrice from '../setPrice';
 
 
 describe('testing setPrice', () => {
-    it('return correct price for indie games', () => {
+    test('return correct price for indie games', () => {
         const gameData = {
             genres: [{ name: 'Indie' }],
             released: '2010-01-01'
@@ -14,7 +14,7 @@ describe('testing setPrice', () => {
         expect(result).toBe(expectedPrice);
     });
 
-    it('return correct price for non-indie games', () => {
+    test('return correct price for non-indie games', () => {
 
         const gameData = {
             genres: [{ name: 'Action' }],

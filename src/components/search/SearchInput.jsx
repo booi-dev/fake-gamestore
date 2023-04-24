@@ -2,7 +2,6 @@ import { HiSearchCircle } from 'react-icons/hi';
 import { PropTypes } from "prop-types";
 
 function SearchInput(props) {
-
     const { value, handleInput, handleInputOnFocus, fetchDataOnChange } = props;
 
     return (

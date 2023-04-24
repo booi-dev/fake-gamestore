@@ -1,4 +1,7 @@
 import axios from "axios";
+import debounce from 'debounce-promise';
+
+// import debounce from "./debounce";
 import setPrice from './setPrice';
 import formatDate from "./formatDate";
 
@@ -21,28 +24,15 @@ const createMultiQuery = function createOneQueryFromManyquery(arr) {
     return arr.join("&");
 };
 
-const fetchDatum = async function fetchAGameDatum(gameId) {
+const fetchDatum = async (gameId) => {
     const url = `${api.BASE_URL}games/${gameId}?key=${api.KEY}`;
     let data;
     await axios.get(url)
         .then((res) => {
+            console.log('fetch datum');
             const result = res.data;
             data = ({
-                // ...result,
-
-                id: result.id,
-                name: result.name,
-                genres: result.genres,
-                released: result.released,
-                background_image: result.background_image,
-                parent_platforms: result.parent_platforms,
-                tags: result.tags,
-                description_raw: result.description_raw,
-                background_image_additional: result.background_image_additional,
-                esrb_rating: result.esrb_rating,
-                metacritic: result.metacritic,
-                developers: result.developers,
-                publishers: result.publishers,
+                ...result,
 
                 formattedReleasedDate: formatDate(result?.released),
                 price: setPrice(result)
@@ -56,23 +46,16 @@ const fetchDatum = async function fetchAGameDatum(gameId) {
     return data;
 };
 
-const fetchData = async function fetchGameData(endpoint, queryParams) {
+const fetchData = async (endpoint, queryParams) => {
+    console.log('fetch data');
+
     const url = `${api.BASE_URL}${endpoint}?${queryParams}&key=${api.KEY}`;
     let data;
     await axios.get(url)
         .then((res) => {
             const result = res.data.results;
             data = result.map(game => ({
-                // ...game,
-                id: game.id,
-                name: game.name,
-                genres: game.genres,
-                released: game.released,
-                background_image: game.background_image,
-                parent_platforms: game.parent_platforms,
-                tags: game.tags,
-                short_screenshots: game.short_screenshots,
-
+                ...game,
                 formattedReleasedDate: formatDate(game?.released),
                 price: setPrice(game)
             }));
@@ -84,12 +67,14 @@ const fetchData = async function fetchGameData(endpoint, queryParams) {
     return data;
 };
 
+const debouncedFetchData = debounce(fetchData, 500);
+
 export default fetchData;
 
 export {
     fetchDatum,
-    fetchData,
     createEndpoint,
     createQuery,
     createMultiQuery,
+    debouncedFetchData
 };

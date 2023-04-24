@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { HiChevronDown } from 'react-icons/hi';
-import fetchData, { createQuery, createMultiQuery } from '../../utils/fetch';
+
+import { createQuery, createMultiQuery, debouncedFetchData } from '../../utils/fetch';
 import SearchInput from './SearchInput';
 import SearchSuggestion from './SearchSuggestion';
 import BackDrop from '../ui/BackDrop';
@@ -21,14 +22,13 @@ function Search() {
         const newSearchQuery = createQuery('search', val);
         const newPageSizeQuery = createQuery('page_size', 5);
         const newQuery = createMultiQuery([newSearchQuery, newPageSizeQuery]);
-        const data = await fetchData('games', newQuery);
+        const data = await debouncedFetchData('games', newQuery);
         /* eslint-disable-next-line */
         checkError(data) || setGameData(data);
     }, [gameData]);
 
     const handleInput = useCallback((e) => {
         const val = e.target.value;
-        console.log('input', val);
         setInputVal(val);
         fetchDataOnChange(val);
     }, [fetchDataOnChange]);
